@@ -1,0 +1,16 @@
+#This is aereadmefile for the Morse_code_emitter programme
+#The programme accept input and output LED blinks through Raspberry Pi 4's GPIO pin 17. The LED blinks are correspond to Morse code.
+#Video: https://youtu.be/tKNwtsOHZy4
+
+#Dependencies:
+    #python2.7
+    #gpiozero   (standard python library for pi4 gpio controlling) 
+    #string
+    #time
+
+    #the programme is ran through a pipenv that contains the gpiozero package.
+
+#Run:
+    #Run the main MorseEmitter.py
+    #Input a string
+    #the pi will output the correspondent signal through GPIO pin 17

@@ -1,0 +1,28 @@
+## JAVA & SpringMVC & SQL & html & JavaScript & JSP
+
+Thinking in Java (4th ed) by Bruce Eckel
+
+### [JAVA 基本](https://github.com/DuGuQiuBai/Java.git)
+
+> https://github.com/DuGuQiuBai/Java.git
+
+### [SpringMVC + MyBatis](https://github.com/lenve/JavaEETest)
+
+> https://github.com/lenve/JavaEETest
+
+### [SQL](https://www.runoob.com/sql/sql-tutorial.html)
+
+> https://www.runoob.com/sql/sql-tutorial.html
+
+### [HTML](https://www.runoob.com/html/html-tutorial.html)
+
+> https://www.runoob.com/html/html-tutorial.html
+
+### [JavaScript](https://www.runoob.com/js/js-tutorial.html)
+
+> https://www.runoob.com/js/js-tutorial.html
+
+### [JSP](https://www.runoob.com/jsp/jsp-tutorial.html)
+
+> https://www.runoob.com/jsp/jsp-tutorial.html  
+> https://github.com/mariuszs/spring-boot-web-jsp-example.git

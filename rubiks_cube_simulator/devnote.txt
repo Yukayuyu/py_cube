@@ -1,0 +1,131 @@
+Object: a rubik cube simulator & solver.
+    Sub-Obj01: simulater itself.
+
+Sub-Project: 3D rotation simulator:{
+    To represent the Rotation of a cubie:{
+        1.Rotation Matrix 
+            problem: Gimbal lock
+        2.Euler Rotation theorem -> Quaternion -> Hamilton product
+    Hence use the Quaternion.
+    }
+    Quaternion 2D case:{
+        Vector 4+2i rotate counterclockwise 90 degree gives Vector (4+2i)*i = -2+4i
+    }
+    3D case:{
+        cubie UFR, R 90 degree clockwise
+        
+        1. Assign the central point of each cubie a  (ai, bj, ck) coordinate "p" relative to the center of the Rubik's cube.
+        2. the result, f(ai,bj,ck), can be calculated. using f(p)=qpq^-1, where q=cos(RotationAngleCounterclockwise/2)+sin(RotationAngleCounterclockwise/2)*(axis's unit quaternion)
+        where the axis's unit quaternion= axis's (aai,abj,ack) coordinate/sqrt(aa^2+ab^2+ac^2)  
+    }
+}
+
+Quaternion, Rotation Calculator:{
+    Set Coordinate Origin, the center piece. Set Axis x i(Center to Right) , y j(Center to Back), z k(Center to Up)
+    Let the Edge Length of each cubie be 1. -> the whole cube is 3x3x3 
+    Center (0,0,0) 
+    Center of the cubie UFR (1, -1, 1)
+    Center of the UBR (1, 1, 1)
+    
+    Use R to rotate UFR to UBR.
+    Let f(p)=qpq^-1, Hence Let F_R=q, where theta=45 degree, which is pi/4 since the python&c calculation use radians
+    pi=math.pi
+    cos=math.cos()
+    sin=math.sin()
+    
+    The Rotation function f(degree_of_rotation_in_radians, ){
+    #Clockwise is Negative
+    theta=degree_of_rotation_in_radians/2
+
+    #Working on Rotation Matrix
+    #the Matrix{
+    #    2D: (x, yi) rotate t degree to -> (X, Yi)
+    #        let v = [x]
+    #                [y]
+    #        Matrix M x v = [X]
+    #                       [Y]
+    #    3D: p_new= M x p_old 
+    #}
+    
+    #p_new=q*p_old*q^-1 where q= q_r + q_i i + q_j j + q_k k and q_r = cos(theta), 
+    #q_i, q_j, q_k 
+    given an rotation axis vector RA(ra_i, ra_j, ra_k)
+    #As the (ra_i, ra_j, ra_k) represent a normalized rotation axis with a length of 1 (on a sphere), hence sum(ra_(i,j,k) ^2) = 1 
+    q_r=cos(theta)
+    q_i=sin(theta)*ra_i
+    q_j=sin(theta)*ra_j
+    q_k=sin(theta)*ra_k
+
+    Then define a "complex.__multiply__" method. which process q1 x q2, return a 4 dimentional vector, following rule that i^2=j^2=k^2=ijk=-1, where ijk is non-commuting, which means to process (ij)k=k*k=-1, ij=k, jk=i, ki=j. Where i x j means rotate j by i. Hence a point (0, 1, 0) after rotate 90 degree around axis i, ends up at (0, 0, 1), in the case of a 4D hypersphere. Hence j x i is rotate i by j. where in the 4D case, i ended up at -k. Hence ji=-k. Same as kj=-i, ik=-j. As long as the sign is normalized. And what i^2=-1 means the projection of the "1" point from the 4D space to our 3D axis, is always our (0,0,0) point (Consider the 2D circle going through (1,0) (0,i) (-1,0) (0,-i) project to a 1D line, i^2=-1 defines a counterclockwise movement in 2D, or a group in 1D [1(the 0),i,infinity,-i] 
+
+}
+
+
+
+
+
+#the cubies
+    cubies could be constructed using corner pieces. UFR has 7 and UF has 6, while the middle cubie in the F has 4 and center has 0.
+    or could be constructed giving it's center coordinate. then constructed using 6 faces around it. U D F B R L.
+
+    Anyway cubies will be in 1 class.
+
+    A 3x3 cube has 7 corner cubies, 12 edge cubies, and 6 center cubies. and 1 hidden middle core. 
+    these are cube's concern.
+
+    the none hexahedron cube shall be out of our concern here.
+    now I just want to expend this simulator to any hexahedron ones. i.e., 3x3x4, 3x3x6, 6x6x6 .etc, but each face shall be a square!
+
+    in order to render the cubies, an API or lib would be handy or write on our own is also an option.
+    bpy in blender. 
+    or OpenGL?!
+        pygame
+        OpenGL.GL
+
+    cubies shall have attributes as follows:
+        1. cubies.center    center coordinate relative to the very center of the cube 0,0,0.
+        2. cubies.{U,D,F,B,L,R}        
+	3. 8 vertices
+	4. 12 edges & 6 faces defined using vertices
+
+--------------------
+    Other options:
+    GNUplot
+    VPython
+
+    Tkinter
+
+    But maybe just OpenGL. 
+
+    GLUT
+
+    1. Read the article
+    2. Use the function to define the center coordination. 
+        glTranslated (the center coordinate) -> cuber location 
+        glRotate -> rotate once -> save the result for next rotate (check implementation)
+        #calculate the (curve) of A Rotate. computer the  curve in case "frenquent update"
+
+--------------------
+    Feb 9th, how to order/render the multiple cubies efficiently.
+    List the attributes of the cubies:
+        1. vertices absolute coordinates are shifted by a integer value.
+        2. surface color are fixed. 
+        3. the most simple way shall be making a class of cubies.
+            so that each face in each cubies may have an UDFBLRI(inside) attribute that can later be used to mark the color.
+                1. use python to generate the dataset, corespond to the nxn rubik's cube. 
+                2. cube data include the verticies, edge and faces, where edge data is the same.
+                3. initial verticies = original matrix plus or minus a constant.
+                4. note that qt and OpenGL cooridnate axises are different. OpenGL z points towards the camera.or in other words, the qt's ijk axis rotate cc 90 around the i axis.
+    
+-----------------------
+    Feb 16th. cubie frame is complete.
+    How to implement the Rotation in OpenGL
+        1. a simple way is to update the cubies26_dict. 
+            e.g. for rotation 'R', Select from cubies26_dict where key include R, apply transform on its verticies_coordinateslist_tuple, then render again
+        2. a more smoother way is to (use a qt transform matrix?), degree from 1 to 90. plot 90 times.?
+         
+
+-------------------------
+Feb 18th night
+All problem has been sort out.
+Shall see the project complete tomorrow.

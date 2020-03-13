@@ -1,0 +1,10 @@
+//Visualisation of basic algorithm, Java project. 3 parts included.
+//Sorting
+//Data Structure & Searching: LinkLists, Stacks & Queues, HashTables, Trees, Heaps, Graphs
+//Path finding: Djkstra, A*, etc. 
+------------------------------------
+I realize that maybe Java is not that great in stand-alone visulisation. 
+Majority of that part could be handled with js. .etc.
+
+D3.js
+Highcharts 

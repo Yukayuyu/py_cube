@@ -1,0 +1,356 @@
+//Thinking in Java, by Bruce Eckel, 1033 pages
+
+//Mar 3, p0 ~ p33
+* Chapter 2. Introduction to Objects.
+Java 1. > C++ when objects are more "dynamic". e.g. handling data that with an always changing size. Reasons: variables declaration conventions (effect how to compile). (cpp automatic/scoped variables or static in size) vs (Java's convention, the dynamic approach, e.g. the heap).
+  However the dynamic method requires more headers, hence slower.
+  Cpp can use heap too. However needs manual order, to destory. While Java uses the GBC.
+
+2. Exception cannot be ignored. Thus more robust in general
+
+3. When dealing with concurrency, Language level, enables it to cross-platforming(or not because it's JVM lol) i.e. multi-threading. 
+  Shared resources access: Lock->use->Released loop. SE5~ with lib support. (diff. with Golong)
+
+//Mar 4th, ~p44
+4. In Web senario. middleware a. processes client data, b. increases respond speed, c. more maintainable than changing client.
+  To further reduce latency, use client-side programming. i.e. Common Gateway Interface (CGI)
+
+  4.1 Most of the simple client-side programming could be implemented using plug-ins & scripting language. (e.g. js) However complex scripts might be messy since it is hard to catch error or debug.
+  4.2 For more complicate usage (e.g. concurrency, database access, network programming, distributed computing), Java/.Net steps in via *applet* & *Java Web Start* :
+    The applet might be considered as a specified tiny program(e.g. capture mouse click), which is pushed from server to client when necessary. However, since it depends on JRE(+-10MB), which needs to be manually downloaded, and was not included by default in the IE(MS counter part shall be .Net/C#). The usage was limited in Internet.
+    In enterprise however, since client machine are configurable by system manager, the applet&JavaWebStart might be more cost-efficient, since it eliminate the needs to manually update client softwares(each push of the applet is the newest).
+    In cross-platform cases, Java applet/JWS > .Net, for obvious reason. Though in enterprise all-clients-Windows case exists.
+    In real world, cases depends on the Legacy code, and the cost of each solution.
+    Server-side-programming, including text processing & database r/w, are traditionally implemented using Perl, Python, C++ ,.etc to create CGI programs. For complicated usage(supposely dynamic large data?), servlets/JSPs kicks in. In this scenario, Java wins by cross-platforming. (there're more)
+
+* Chapter 3. Everything is an Object
+To manipulate objects, C/C++ use &* pointers, which is treated as special objects that each refer to a position in the memory. As for Java, the process is automated, and Class.Obj refers to the object in the memory.
+  String s;    create the pointer.
+  new ...;  create a new object.
+  //Hence, String s = "ab"; is the illegal cases in C/C++
+  String s = new String("asdf"); create a new obj -> link it to a pointer.
+
+** Storage Lives in:
+  a. The registers.
+  b. The stack.
+    In RAM, but directly supported by the processor, via its stack pointer. The stack pointer moves down for new memory, moves up to release the memory. 2nd fastest(supposely because of the fixed pointer)
+    Objs in the stack must be specified explicitly on its exact lifetime(and size?) when compiling, thus reduce its flexibility.
+    Java can also create new obj in the stack, i.e. *Primitive Types*:
+      Heap is inefficient for small variables.
+      generate new variables and store it directly in the stack.
+      *keywords: boolean, char(16 bits), byte(8bits), short(16bits), int(32bits), long(64bits), float(32bits), double(64bits), void*
+      *wrappers: Boolean, Characer, Byte, Short, Integer, Long, Float, Double, Void*
+      Autoboxing, Wrapper and Primitive Types:
+        char c = 'x';    //Primitive Types c in stack
+        Character ch = c;
+        char d = ch;
+  c. The heap.
+    In RAM. Most Java objs lives in the heap. Does not require to specify the lifetime on compilation. Calling the "new" function on runtime allocates new heap for the new obj. And needs cleanup (GBC), hence slower.
+  d. Constant storage.
+    Constant values are hard coded since it never changes. Somecases in Read-Only-Memory(ROM). e.g. string pool.
+  e. Non-RAM storage. 
+    Data lives outside a program. e.g. Streamed objects & Persistent objects. (e.g. used in JDBC/Hibernation)
+
+** Other datatypes: 
+  High-precision numbers(Check later).
+    BigInterger
+    BigDecimal
+  Arrays.
+    > C++ in the sense that, 1. a Java array is guaranteed to be initilaized; 2. Java array has memory overhead & verify index on runtime, thus eliminated the risk of illegal r/w on memory outside of the array range. 
+
+//Mar 5th, ~p51 
+** Null pointer:
+  //int[] anArray = {1, 2,..., 5};
+  int[] nullArray;
+  When pointer is declared without a referencing object, JAVA auto refer it to keyward *null*. When *null* is called, compilier throws an error.
+
+** Obj lifespawn & GBC:
+  *scope*
+    {...{...}...}
+    {int x=12;
+      {int x=13; //Illegal in JAVA, though legal in C/C++
+       String s = new String("13");
+      }
+    } 
+   Java's *GBC* (on runtime) search in all obj created by *new*. Auto destory when out of the scope (cannot be referenced anymore).  
+   While C++ GBC is hard coded.
+ 
+** /Naming Conventions/
+  https://en.wikipedia.org/wiki/Naming_convention_%28programming%29#Java
+  | Class     | *UpperCamelCase*      |                                                                                                                              |
+  | Methods   | *lowerCamelCase*      |                                                                                                                              |
+  | Variables | *lowerCamelCase*      | should not start with '_' or '$'(instance variables). For temporary varialbes, (i j k) for integers, (c d e) for characters. |
+  | Constants | *UPPERCASECHARACTERS* | should not start with digit                                                                                                  |
+
+** class:
+*** Default initial values for primitive types, *as members of a class*.
+    | boolean | false    |                       |
+    | char    | 'u\0000' | 16 bits = 2^16 = 16^4 |
+    | byte    | (byte)0  | 8 bits = 1 byte       |
+    | short   | (short)0 | 16 bits               |
+    | int     | 0        | 32 bits               |
+    | long    | 0L       | 64 bits               |
+    | float   | 0.0f     | 32 bits               |
+    | double  | 0.0d     | 64 bits               |
+
+***  *importing packages/classes*
+     import java.util.ArrayList; //java.util is a package
+     import java.util.*; 
+  
+***  *static*
+      1. for CONSTANTs, that one single instance used universally.
+      2. for methods which are independent, to any other object instances of that class.
+ //Mar 6th, ~p55 
+*** *static* method create a fix entry point. Can be called withouout creating an object. 
+    [[file:Cp3_Class.java::17][Cp3ClassStaticTest]]
+    And for this reason (fixed entry point), the main{} has to be static.
+
+//Mar 7th, ~p62 
+** Javadoc (in case need more styles, use "doclets")
+   *{>javadoc -d ./destination file}*
+   [[./Cp3_Javadoc.java::3][Cp3_Javadoc]]
+   1. Before the class/method
+   2. more about @tags in *annotation*.
+   3. some tags: @author, @version, @param, @return, @throws(check later), @deprecated  
+      
+      
+//Mar 8th, ~p68 
+* Chapter 4. Operators  
+** *import static*
+   [[file:Cp4_Operators.java][Cp4_Operators_import_statiic]]
+   
+** Something more about the *private, public, static* scopes.
+   1. The meaning of private / public field shall be clear. 
+    public class Person {
+      public String name;
+      private String count;
+      modifier returnType nameOfMethod (Param List){
+      //method body (could be used to modify the private variables)
+      }
+    }
+   //in this case, use Person.method to interact with tthe private String.
+   2. *static final* as const
+
+//Mar 9, ~p79
+** The *private class* / *inner class*
+   Non-static variable cannot be referenced from a static context
+   For detail see:
+   [[https://docs.oracle.com/javase/tutorial/java/javaOO/innerclasses.html][docs.oracle.come/innerclasses]] 
+   Private inner class -> referenced as *new* instance in a *public method* of the class-> main{call class constructor -> call the method};
+   
+** comparison
+   *equals()* (class java.lang.Object) 
+   *x.equals(y)* returns true if and noly if x & y points to the same object.
+   while as in String class, there's another equals() that compares string content if match.
+
+** && || !
+
+** Literals
+   [[./Cp4_Literals.java][Cp4_Literals.java]]
+   (byte) (short) / L / D / f
+   0b / number / 0x / 0 
+   Expoents: 1e-2d == 0.01; 1e1d == 10; 
+
+** Bitwise Operators
+   | AND | &           |
+   | OR  | verticalBar |
+   | XOR | ^           |
+   | NOT | ~           |
+   &=, |=, ^= are legitimate.
+   Bitwise-NOT is illegit on *booleans*
+   
+** How to print the type of an primitive
+   *Use autoboxing*
+   Object o = x + c;
+   System.out.println(o.getClass());
+*** Note that (byte +,-,*,/,&,| byte) -> int
+    [[./Cp4_Bitwise.java::10][Cp4_Bitwise]]
+    To prevent register leak/overflow, and presumably increase effiency.
+    Due to the definition of the operator, which for C# is defined in (ECMA-334). 
+    
+** Shift operators
+   | signed extension   | >>, << |
+   | Unsigned extension | >>>    |
+   Note that since << cause overflow directly, <<< does not exist.
+   char, byte, short auto promote to int. (to prevent "bits leak" in the x64 register)
+   [[./Cp4_Bitwise.java::19][Cp4_Bitwise]] 
+  
+** Print Binary Strings
+   Integer.toBinaryString();
+   Long.toBinaryString();
+   
+//Mar 10, ~p100
+** Ternary if-else operator
+   boolean-exp ? ifTrueEvalFunction0 : ifFalseEvalFunction1; 
+   static int ternary (int i){
+     return i < 10 ? i * 100 : i * 10;
+   }
+** Casting operator
+   [[./Cp4_Casting.java][Cp4_Casting.java]]
+   double j = 1;
+   int i = (int) j;
+   (float format? IEEE 754, check later)
+   Noted that the casting is not the same in C++;
+
+** round() and int()
+   java.lang.Math.round()
+
+** no *sizeof()*
+   size is hard coded into the compiler.
+   
+** *no warning on overflow*.
+   int k = 2147483647;
+   k * 4 == -4;
+
+* Chapter 5, Controlling Execution
+** if(boolean-statement)
+     else if()
+     else
+
+** while(boolean-expression)
+     statement
+
+** do-while
+   do
+   while(boolean-expression);
+
+** for(initialization; boolean-expression; step)
+   | for (char i=0; i<10; i++) |
+   | for (char c : Iterable)   |
+   [[./Cp5_ControlFlow.java][Cp5_ControlFlow.java]]
+** while(true) equals to for(;;) or for(;true;) 
+** generate a list, (1, 10): //Java 8   
+   [[./Cp5_ControlFlow.java::25][Cp5_ControlFlow.java]]
+   import static java.util.stream.*;
+   List<Integer> range = IntStream.rangeClosed(start, end)
+    .boxed().collect(Collectors.toList());
+     System.out.print(c + "");
+   //In this case java seems quite tedious handling math.
+   
+** unconditional branching. return, break, continue
+   *return*
+   quit the current method.
+   *break*
+   break the for/while loop
+   *continue*
+   next loop
+   
+//Mar 11, ~p117
+** "goto" - "label"
+   the label better to be exactly before a control flow. 
+   label1:
+   outer-iter{
+     lol:
+     inner-iter{
+       continue lol;
+       continue label1;
+       //...
+       break label1;
+     }
+   }
+   
+** switch
+   switch(integral-selector){
+     case int-value1 : 
+     case int-value2 : statement; //case 1 and 2 share an output.
+                       break;
+     case int-value3 : statement; 
+                       break;
+     //...
+     default: statement; //execute default if no match.
+   }
+     
+* Chapter 6, Initialization & Cleanup
+** Constructor 
+   Same name as the class
+** Method overloading
+   [[./Cp5_Overloading.java][Cp5_Overloading.java]]
+
+** this
+   this refers back to object.
+   [[./Cp5_This.java::3][Cp5_This.java]] 
+   *used often in a returns clause.* 
+   *to pass objects around(separate implementation with object, i.e. to call methods in other classes)*
+   C increment(){ //C is the class. since "return this" returns an obj.
+     i++; return this;
+   }
+   
+//Mar 12th, ~p135
+   Also can call constructors from constructors. Once. Or use this.s = value; to modify class variable.
+
+** Cannot call non-static methods from inside static methods. 
+
+** Garbage Collection & Finalization 
+   finalize(); //is just a mark, mark object for next garbage collection. Different with the /Distructor/ from C++
+   Need to free() if used malloc() native function.
+   Not reliable.
+   
+  *Avoid Finalizers* check out <Effective Java> later.
+  try{//methods}
+  finally{super.finalize()}
+  
+  *used to catch error e.g. obj not complete processed be thrown to gbc*
+  protected void finalize(){
+    if(flag)
+      System.out.println("error msg.");
+    super.finalize() //Call the base class finalizer
+  }
+*** GBC implementation
+    1. reference-counting (simple, slow, inefficient)(when reference count==0 or null(out of scope), GBC. In circularly referencing cases, trash can have count greater than 0)
+    2. Trace from static objects on the stack / in the static storage. 
+       a. Hence, GBC might /stop-and-copy/, cp all live objects and pack them to new heap, thus free the desolated ones.
+          it also create a map of new pointers and the old. correct when during the walk.
+       b. when progn becomes stable, GBC uses /mark-and-sweep/, (slow but efficient in little to no garbage scenario. Prevent moving memory around.
+    3. for big trunks / small temporary objects, use the *reference-counting* (generation-count), as well as *stop-and-copy*. 
+       if all objects become long-lived, GBC proceed to *mark-and-sweep*.
+       if fragments becomes an issue, GBC proceed to *stop-and-copy* again.
+       
+** the JIT implementation
+    a JIT compiler partially or fully interpreted a code to native machine code so what does not rely on JVM interpretation.
+    However, take compile time, and memory for the extra machine code, which decrease speed if cause paging.
+    Or alternativly, /lazy evaluation/, JIT compile only when necessary.
+
+** Member Initialization
+   [[./Cp5_Initialize.java][Cp5_Initialize.java]]
+   Every primitive field in a *Class* is automatically initiated. 
+   
+   Ways to specify initialize value, include the followings, Different from C++
+   *specify when initialize*
+   public class C{
+     int i = 10;
+     char c = 'c';
+   }
+   //Trivia in forward referencing
+   public class MethodInit2
+     //! int j = g(i); //illegal
+     int i = f(); //legal
+     int f() {return 10;}
+     int g(int n) {return n;}
+   }
+   
+   *objects within a class might get initialized multiple times, to guarantee proper initialization*
+   e.g. If, in an overload method, an object is not initialized.
+   
+   *static* cannot be used on local variables, only applies to fields.
+   The static object is initialized only once, when the obj is first called.
+   public class C{
+     static int i;
+     static {
+       i = 47;
+     }
+   }
+
+** Array initialization   
+   indexing operator [];
+   int[] a1;
+   int a1[]; //C++ style
+   int[] a1 = {1, 2, 3, 4, 5};
+   int[] a2;
+   a2 = a1; //Only changes the pointer. 
+   //So a2 change affects a1...
+   [[./Cp5_Array.java][Cp5_Array.java]]
+   
+   when size unknown, use the *new* keyword:
+   int[] a;
+   a = new int[the_Length]
+
