@@ -352,5 +352,29 @@ To manipulate objects, C/C++ use &* pointers, which is treated as special object
    
    when size unknown, use the *new* keyword:
    int[] a;
-   a = new int[the_Length]
+   a = new int[the_Length];
+   //or
+   int[] a = new int[the_Length];
+`
+//Mar 15, ~p137
+*** Array grammar meaning  
+    | int[] a1              | allocate enough memory for the *pointer*, to a primitive array       |
+    | int[] ai = new ...    | primitive array, value initialized to default values. i.e. 0         |
+    | //                    |                                                                      |
+    | Integer[] a = new ... | non-primitive array, create a *list of pointers* with no real values |
+    [[./Cp5_ArrayLoop.java][Cp5_ArrayLoop.java]]
+//Mar 16.
+//Mar 17, ~p
+*** Variable argument lists, multiple args processing
+    [[./Cp5_VarArgs.java][Cp5_VarArgs.java]]
+    //0 or more parameters, "..."
+    //[[https://docs.oracle.com/javase/tutorial/java/javaOO/arguments.html#varargs][docs.oracle.com: Arbitrary Numbers of Arguments]]
+    [[./Cp5_VarArgs2.java][Cp5_VarArgs2.java]]
+    //Better to use only 1 Varargs List when overloading.
+    [[./Cp5_VarArgsOverloading.java][Cp5_VarArgsOverloading.java]]
+    and when an constructor is used, the default constructor is nullified. So be aware of the f() situation
+//Mar 17, ~p140
+** Enumerated types
 
+
+    
