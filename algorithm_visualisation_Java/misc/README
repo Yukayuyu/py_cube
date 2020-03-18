@@ -261,6 +261,7 @@ To manipulate objects, C/C++ use &* pointers, which is treated as special object
    }
      
 * Chapter 6, Initialization & Cleanup
+  //The Cp5_ is a joke. or a simple mistake.
 ** Constructor 
    Same name as the class
 ** Method overloading
@@ -387,12 +388,39 @@ To manipulate objects, C/C++ use &* pointers, which is treated as special object
          method mypgn = new method();
 	 mypgn.start();
        }
-       void start{}{}
+       void start(){}
      }
-   //Literally, call *new* only on the main class.
-   //And use only the methods of the main class.
+   //Literally, call *new* only on the main class.?
+   //And use only the methods of the main classs.?
+   //in Cp7_PackageRun.java, we can see a resolve, by simply create a new instance of the non-static class.
+   //then call the method of the instance.
+   [[./Cp7_PackageRun.java::6][PackageRun.java]]
    [[./Cp5_Burrito.java][Cp5_Burrito.java]]
 
 * Chapter 7, Access Control
   *Public, protected, package access, private*
+** package: the library unit
+   package access.mypackage;
+   import access.mypackage;
+   [[./Cp7_Package.java][Package.java]]
+   [[./Cp7_PackageRun.java::6][PackageRun.java]]
+   //Note the path. and java's CLASSPATH env variable. echo $CLASSPATH, which is normally the current folder.
+
+*** Collisions
+    the Collisions happens when trying to *new* a classname which is collided.
+    Could be avoided by stating the full path, say java.util.Vector v, instead of Vector v.
+*** Custom tool library
+    //However in order to use that, the main package structure shall remain unchanged.
+    //Which require some work.
+    //However, this should be considered a way to write all data structures, sorting, etc.
+
+*** Use imports to change behavior.
+    *alike C's conditional compilation*
+    can be used in such as debugging code.
+    Two packages, *debug* and *debugoff*
+    
+//Mar 18, ~p152
+** Java Access specifiers
+*** Package access
+
 
