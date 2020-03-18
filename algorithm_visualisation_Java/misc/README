@@ -375,6 +375,24 @@ To manipulate objects, C/C++ use &* pointers, which is treated as special object
     and when an constructor is used, the default constructor is nullified. So be aware of the f() situation
 //Mar 17, ~p140
 ** Enumerated types
+   the *enum* keyword.
+   [[./Cp5_Enum.java][Cp5_Enum.java]]
+   //the keyword seems to create some default methods.
+   //which include toString(), ordinal()
 
+** Non-static variable cannot be referenced from a static context   
+   *The Solution*:
+     class method{
+       public static void main(String[] args){
+         method mypgn = new method();
+	 mypgn.start();
+       }
+       void start{}{}
+     }
+   //Literally, call *new* only on the main class.
+   //And use only the methods of the main class.
+   [[./Cp5_Burrito.java][Cp5_Burrito.java]]
 
-    
+* Chapter 7, Access Control
+  *Public, protected, package access, private*
+
