@@ -381,7 +381,7 @@ To manipulate objects, C/C++ use &* pointers, which is treated as special object
    //the keyword seems to create some default methods.
    //which include toString(), ordinal()
 
-** Non-static variable cannot be referenced from a static context   
+* Non-static variable cannot be referenced from a static context   
    *The Solution*:
      class method{
        public static void main(String[] args){
@@ -396,6 +396,7 @@ To manipulate objects, C/C++ use &* pointers, which is treated as special object
    //then call the method of the instance.
    [[./Cp7_PackageRun.java::6][PackageRun.java]]
    [[./Cp5_Burrito.java][Cp5_Burrito.java]]
+   [[./Cp7_Private.java][Cp7_Private.java]]
 
 * Chapter 7, Access Control
   *Public, protected, package access, private*
@@ -422,5 +423,59 @@ To manipulate objects, C/C++ use &* pointers, which is treated as special object
 //Mar 18, ~p152
 ** Java Access specifiers
 *** Package access
+   |                | Class | Package | Subclass(same pkg) | Subclass(diff pkg) | World |
+   | Public         | +     | +       | +                  | +                  | +     |
+   | protected      | +     | +       | +                  | +                  |       |
+   | package access | +     | +       | +                  |                    |       |
+   | private        | +     |         |                    |                    |       |
+  
+  *private*
+  //private is import especially when multithreading.
+  [[./Cp7_Private.java][Cp7_Private.java]]
+  //getter/setter
+  private String Xxx
+  public String getXxx(){
+    return XXX;
+  }
+  public String setXxx(String name){
+    this.XXX = name;
+  }
 
+  *protected*
+  //protected is to deal with inheritance.
+
+  *default*
+  //default package. i.e. classes in the same directory.
+
+*** Interface and implementation
+    *encapsulation*
+    //convention: public at top.
+
+    *Class level control*
+    //Since a class cannot be private or protected, in case that want to limit class access,
+    //use a private constructor. and a static method to call it.
+    *method1* //useful if extra process needed, when creating an instance. Say a count.
+    class Soup1 {
+      private Soup1(){}
+      public static Soup1 makeSoup(){
+        return new Soup1();
+      }
+    }
+    *method2* //a *design pattern*, <<Thinking in Patterns>>. It only allows one single object to be created.
+    class Soup2 {
+      private Soup2(){}
+      //the "Singleton" pattern
+      private static Soup2 ps1 = new Soup2(); 
+      public static Soup2 access(){
+        return ps1;
+      }
+      public void f(){}
+    }
+
+* Chapter 8, Reusing Classes
+** Composition syntax
+   in the book section, the code overwrited non-primitive object's *toString()* method.
+   [[./Cp8_ToString.java][Cp8_ToString.java]]
+   
+** Inheritance syntax
 
