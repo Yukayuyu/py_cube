@@ -477,5 +477,6 @@ To manipulate objects, C/C++ use &* pointers, which is treated as special object
    in the book section, the code overwrited non-primitive object's *toString()* method.
    [[./Cp8_ToString.java][Cp8_ToString.java]]
    
+//Mar 19, ~p168
 ** Inheritance syntax
 
