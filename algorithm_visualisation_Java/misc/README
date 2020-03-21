@@ -479,4 +479,39 @@ To manipulate objects, C/C++ use &* pointers, which is treated as special object
    
 //Mar 19, ~p168
 ** Inheritance syntax
+   class sub-class extends super-class{}
+   //if constructor *without* arguments.
+   //the constructor will be called outward.
 
+** Constructors with argument
+   *super*
+   [[./Cp8_Super.java::20][Cp8_Super.java,L20]]
+   //The *super* is just like *this*
+   //super.methodA(); to call methodA() in super.
+   
+** Delegation
+   public class SpaceShipControls{
+     void up(int v){}
+   }
+   //delegation
+   public class SpaceShip extends SpaceShipControls
+     {public void up (int v){controls.up(v)}
+   }
+
+** Guaranteeing proper cleanup
+   //If cleanup is necessary,
+   //use 
+   try{
+     //...
+   } finally {
+     x.disposeFunction();//...
+   }
+
+** Name hiding @Override
+   //To prevent unintentionally overloading in sub-classes.
+   //Use the annotation. after Java SE5
+   [[./Cp8_Override.java][Cp8_Override.java]]
+   
+//Mar 21, ~179
+** protected
+   
