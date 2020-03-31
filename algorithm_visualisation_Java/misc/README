@@ -593,4 +593,41 @@ To manipulate objects, C/C++ use &* pointers, which is treated as special object
 //Mar 27, ~p189
 ** Initialization with inheritance
    [[./Cp8_ConstructorsWithoutArgument.java::5][Cp8_ConstructorsWithoutArguent::5]]
+   //Mind the Order. 
+   [[./Cp8_CompileOrder.java][Cp8_CompileOrder.java]]
    
+   1. The main function first
+   2. The constructor, parents first
+   3. other fields are load on call.
+   //The behavoir varies, depends on compiler versions.
+   
+* Polymorphism
+  *decoupling different types*
+  This is also called *dynamic binding, or late binding, or run-time binding*
+  
+** Upcasting
+   [[./Cp9_PolyUpcasting.java][Cp9_PolyUpcasting.java]]
+   *Once override, the Super method cannot be called. Any call would redirect to the method in the sub-class.*
+   
+** Binding
+   [[./Cp9_PolyUpcasting.java::21][Cp9_PolyUpcasting.java::21]]
+   //tune(Instrument i); How compiler knows the right class to point to?
+*** Binding
+    *dynamic binding, or late binding, or run-time binding*
+    //in contract, C only have early binding
+    All methods in JAVA are latebinding.
+    Except static, final(or private which is implicitly final)
+    
+    So the *final* call turn off dynamic binding, thus prevent method being overridden.
+    
+*** Producing the right behavior
+    //Shape-Circle situation
+    *Shape s = new Circle();* 
+    s.draw(); //Circle.draw() will be called.
+    //And s.getClass() returns "Circle"
+    [[./Cp9_Shape.java][Cp9_Shape.java]]
+    //However, if a new method is decleared in sub-class, it may not behave as expected.
+    //The base class must have all methods/interfaces
+
+*** Pitfall: fields and static method
+    [[./Cp9_PolyPitfall.java][Cp9_PolyPitfall.java]]
