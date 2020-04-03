@@ -631,3 +631,18 @@ To manipulate objects, C/C++ use &* pointers, which is treated as special object
 
 *** Pitfall: fields and static method
     [[./Cp9_PolyPitfall.java][Cp9_PolyPitfall.java]]
+    //Avoid this.
+    //Super sup = new Sub();
+    //sup.function();
+    //When function is called:
+    //1. check if the f() is overrided. Execute the overrided version.
+    //2. The function is hard-coded in the Sub .class file. Hence it uses that namespace. 
+    //3. While the static field, doesn't change. So sup.i returns base While the static field, doesn't change. So sup.i returns base static vWhile the static field, doesn't change. So sup.j returns base static value.lue.
+    
+*** Inheritance and cleanup
+    //Inheritance. Just like the *constructors*. 
+    //If not default(gbc), remember the *base-class* version. i.e. the *super* version 
+    //Othewise the super part could not be properly set-up/clean-up.
+    //practically used in *shared objects*
+    [[./Cp9_Operators2.java][Cp9_Operators2]]
+***  
