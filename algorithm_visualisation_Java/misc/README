@@ -403,17 +403,17 @@ To manipulate objects, C/C++ use &* pointers, which is treated as special object
    //And use only the methods of the main classs.?
    //in Cp7_PackageRun.java, we can see a resolve, by simply create a new instance of the non-static class.
    //then call the method of the instance.
-   [[./Cp7_PackageRun.java::6][PackageRun.java]]
+   [[./Cp7_PackageRun.java::6][Cp7_PackageRun.java::6]]
    [[./Cp5_Burrito.java][Cp5_Burrito.java]]
    [[./Cp7_Private.java][Cp7_Private.java]]
 
 * Chapter 7, Access Control
   *Public, protected, package access, private*
 ** package: the library unit
-   package access.mypackage;
+   package access.mypackage; //Should be in .../access/mypackage/ClassName.java
    import access.mypackage;
-   [[./Cp7_Package.java][Package.java]]
-   [[./Cp7_PackageRun.java::6][PackageRun.java]]
+   [[./Cp7_Package_Class.java][Cp7_Package_Class.java]] //The package java file is supposed to be in the destination folder.
+   [[./Cp7_PackageRun.java::6][Cp7_PackageRun.java::6]]
    //Note the path. and java's CLASSPATH env variable. echo $CLASSPATH, which is normally the current folder.
 
 *** Collisions
@@ -601,7 +601,7 @@ To manipulate objects, C/C++ use &* pointers, which is treated as special object
    3. other fields are load on call.
    //The behavoir varies, depends on compiler versions.
    
-* Polymorphism
+* Chapter 9, Polymorphism
   *decoupling different types*
   This is also called *dynamic binding, or late binding, or run-time binding*
   
@@ -631,7 +631,8 @@ To manipulate objects, C/C++ use &* pointers, which is treated as special object
 
 *** Pitfall: fields and static method
     [[./Cp9_PolyPitfall.java][Cp9_PolyPitfall.java]]
-    //Avoid this.
+    *static field should be accessed in a static way*
+    //Avoid this:
     //Super sup = new Sub();
     //sup.function();
     //When function is called:
@@ -639,10 +640,47 @@ To manipulate objects, C/C++ use &* pointers, which is treated as special object
     //2. The function is hard-coded in the Sub .class file. Hence it uses that namespace. 
     //3. While the static field, doesn't change. So sup.i returns base While the static field, doesn't change. So sup.i returns base static vWhile the static field, doesn't change. So sup.j returns base static value.lue.
     
-*** Inheritance and cleanup
+*** Behavior of polymorphic methods inside constructor
     //Inheritance. Just like the *constructors*. 
-    //If not default(gbc), remember the *base-class* version. i.e. the *super* version 
+    //If not default(gbc), remember the *base-class* version. i.e. the *super* version.
     //Othewise the super part could not be properly set-up/clean-up.
     //practically used in *shared objects*
     [[./Cp9_Operators2.java][Cp9_Operators2]]
-***  
+//Apr 4, p211
+
+*** Covariant return types
+    //Should be samed as the section above. sup sub01 behavior different before Java SE5.
+
+** Designing with inheritance
+   //When to avoid using polymorphism.
+   //Better to *use composition first* since it is more flexible.
+   //the *"State"* design pattern.
+   [[./Cp9_State.java][Cp9_State.java]]
+   
+   
+*** Substitution vs Extension
+    //A clear way to use inheritance(or *polymorphism*), is when "pure" inheritance happens.
+    //That is, only methods already decleared are overridden, no more new methods are included.
+    //Extends is useful, but in the following case the poly cannot access new methods in child.
+    [[./Cp9_Extends.java::17][Cp9_Extends.java::17]]
+
+** *ClassCastException*, when error in downcasting.
+   // *runtime type identification(RTTI)*
+   [[./Cp9_RTTI.java::29][Cp9_RTTI.java::29]]
+   //baseClass x = new baseClass();
+   //In this case x cannot be downcast
+
+* Chapter 10, Interfaces
+** Abstract classes and methods
+   [[./Cp9_PolyUpcasting.java][Cp9_PolyUpcasting.java]]
+   //The methods within the Instrument class is always dummy;
+   //So the code can be wrote that, when those methods are called, generate errors;
+   //But that requires run-time debugging.
+   //In order to detect those error in compile time, use *abstract* keyword.
+   *abstract void f();*
+   1. abstract methods must be within abstract classes.
+   2. abstract classes *could* contain non-abstract methods.
+   //the keyword prevent user from creating *new* object of that class directly.
+   rewind: Cp7 Access Control:
+   package com.package; //should be in .../com/package/ClassName.java
+//Apr 6th, ~p220

@@ -18,6 +18,7 @@ public class Cp9_PolyPitfall{
 	Sub sub01 = new Sub();
 	System.out.println("sup.i " + sup.i + " sup.getI()" + sup.getI()); //0 1
 	System.out.println("sup.j " + sup.j + " sup.getJ()" + sup.getJ()); //0 1
+	System.out.printf("sub01.i=%d, j=%2d %n", sub01.i, Sub.j);
 	System.out.println("sub01.getSuperI()" + sub01.getSuperI()); //0
 	System.out.println("sub01.getSuperJ()" + sub01.getSuperJ()); //0
     }
