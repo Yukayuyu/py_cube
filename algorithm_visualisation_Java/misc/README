@@ -684,3 +684,17 @@ To manipulate objects, C/C++ use &* pointers, which is treated as special object
    rewind: Cp7 Access Control:
    package com.package; //should be in .../com/package/ClassName.java
 //Apr 6th, ~p220
+
+** Interface
+   //The *interface* keyword defines a completely abstract class.
+   //In some other languages, this is called a "protocol"
+   //Fields in an interface are implicitly *static* and *final*.
+   [[./Cp10_Interface.java][Cp10_Interface.java]]
+   
+   1. All methods in an Interface are implicitly *public* only.
+      + void toString();
+   2. The fields in an Interface is not implemented.
+//Apr 9th, ~p225   
+
+** Complete decoupling
+   //
