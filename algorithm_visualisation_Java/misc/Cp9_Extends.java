@@ -1,13 +1,19 @@
 class Base02 {
-    void baseMethod() {
-    }
+    void baseMethod() {}
 }
+
 
 class Ext01 extends Base02 {
     void extMethod() {
         System.out.println("extMethod");
     }
+    // Does not override because not the same method.
+    // @Override
+    //    void baseMethod(int i) {
+    //        return i;
+    //    }
 }
+
 
 public class Cp9_Extends {
     public static void main(String[] args) {

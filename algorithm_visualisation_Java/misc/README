@@ -678,8 +678,8 @@ To manipulate objects, C/C++ use &* pointers, which is treated as special object
    //But that requires run-time debugging.
    //In order to detect those error in compile time, use *abstract* keyword.
    *abstract void f();*
-   1. abstract methods must be within abstract classes.
-   2. abstract classes *could* contain non-abstract methods.
+   | 1. abstract methods must be within abstract classes.      |
+   | 2. abstract classes *could* contain non-abstract methods. |
    //the keyword prevent user from creating *new* object of that class directly.
    rewind: Cp7 Access Control:
    package com.package; //should be in .../com/package/ClassName.java
@@ -691,10 +691,53 @@ To manipulate objects, C/C++ use &* pointers, which is treated as special object
    //Fields in an interface are implicitly *static* and *final*.
    [[./Cp10_Interface.java][Cp10_Interface.java]]
    
-   1. All methods in an Interface are implicitly *public* only.
-      + void toString();
-   2. The fields in an Interface is not implemented.
+   | 1. All methods in an Interface are implicitly *public* only. | //void toString(); 
+   | 2. The fields in an Interface is not implemented.            |
 //Apr 9th, ~p225   
 
-** Complete decoupling
+** *Complete decoupling*
+   //When sub-function take different type of input, it does not Override super.
+   [[./Cp9_Extends.java][Cp9_Extends.java]]
+   class Processor {
+     public String name(){ return getName(); }
+     Object process(Object input) { return input; }
+   }
+
+   class Upcase() extends Processor { //body }
+
+   public class Apply{
+     public static void process(Processor p, Object s){ //p must be in a sub-class of class Processor.
+       System.out.println(p.process(s));
+     }
+     public static void main(String[] args){
+     process(new Upcase(), s);
+     }
+   }
+   //When a Waveform which is a new package comes in, it cannot be used by Apply directly,
+   //Since it is not a sub-class of class Processor.
+   //The Processor and the Apply class are Not as decoupled.
+   //Use interface to complete decouple as follows:
+
+   public interface Processor {
+     public String name();
+     Object process(Object input);
+   }
+
+   class Upcase() implement Processor { //body }
+
+   public class Apply{
+     public static void process(Processor p, Object s){ //p could comes from anywhere outside the package.
+       System.out.println(p.process(s));
+     }
+     public static void main(String[] args){
+     process(new Upcase(), s);
+     Waveform w = new Waveform();
+     Apply.process(new FiterAdapter(new LowPass(1.0)), w); //And it could be more flexible.
+     }
+   }
+   //Conclusion: Interface is more global, more flexible than an abstract class.
+
+   #+BEGIN_SRC ?
+   #+END_SRC")
+** "Multiple inheritance" in Java.
    //
