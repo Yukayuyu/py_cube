@@ -387,7 +387,8 @@ To manipulate objects, C/C++ use &* pointers, which is treated as special object
 ** Enumerated types
    the *enum* keyword.
    [[./Cp5_Enum.java][Cp5_Enum.java]]
-   //the keyword seems to create some default methods.
+   [[./Cp5_Spiciness.java][Cp5_Spiciness.java]]
+   //the keyword creates some default methods.
    //which include toString(), ordinal()
 
 * Non-static variable cannot be referenced from a static context   
@@ -738,6 +739,55 @@ To manipulate objects, C/C++ use &* pointers, which is treated as special object
    //Conclusion: Interface is more global, more flexible than an abstract class.
 
    #+BEGIN_SRC ?
-   #+END_SRC")
+   #+END_SRC)
 ** "Multiple inheritance" in Java.
+   //Interface is for *to upcast to more than one base type*.
+   //Only 1 super class is allowed using *extends*
+   //While Multiple interfaces are allowed using *implements*
+   //implement vs abstract
+   //1. use interface whenever can, whenever abstraction can be done without explicitly stating the function body or var.
+   //2. to prevent client programming to new an "empty" object.
+   
+** Extending an interface with inheritance
+   interface Monster{
+     void meenace();
+   }
+   interface DangerousMonster extends Monster{
+     void destroy();
+   }
+   interface Lethal {
+     void kill();
+   }
+   interface Vampire extends DangerousMonster, Lethal {
+   void drinkBlood();
+   }
+   //provide easy extenability
+
+** Name collisions when combining interfaces
+   class C{ public int f(){return 1}; }
+   interface I { void f(); }
+   //! C5 extends C implements I ; //error
+   //return type different cannot differ methods away.
+   // *Avoid same method names in different Interfaces.*
+
+** Adapting to an interface
+   //Scanner Java SE5 class.
+   //by implementing method "read()", it is applicable to any existing class.
+
+** Fields in interfaces 
+   //Before Java SE5, the *enum* did not exist.
+   //Hence:
+   public interface Months{
+     int
+       JANUARY = 1, FEBRBUARY = 2, MARCH = 3,
+       APRIL = 4, MAY = 5, JUNE = 6, JULY =7,
+       AUGUST = 8, SEPTEMBER = 9, OCTOBER = 10,
+       NOVEMBER = 11, DECEMBER =12;
+   }
+   [[./Cp10_Months.java][Cp10_Months]]
+   [[./Cp10_InterfaceAsEnum.java][Cp10_InterfaceAsEnum]]
+   //Fileds cannot be *blank finals*
+
+//Apr 13th, ~p236
+** Nesting interfaces
    //
