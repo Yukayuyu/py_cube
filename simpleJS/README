@@ -1,0 +1,37 @@
+//Node.js
+
+* npm
+npm install
+npm install --production
+--save
+--save-dev
+
+
+* vscode
+debugger
+
+
+* Node.js
+** Attributes:
+1. An Open source JavaScript Framework;
+2. Async, Nonblocking Single Thread;
+3. Serveware
+
+** common commands
+   + exports
+   + module.exports
+
+** ES6
+*** callback function
+*** arrow function
+*** Promise
+   ES6 .then
+   7++ await async
+*** var/let/const
+    
+** Framework
+*** Express
+   npm install express -save 
+   
+
+//April, 04
