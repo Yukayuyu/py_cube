@@ -1,3 +1,4 @@
+;; -*- mode: org; eval: (company-mode 1); -*-
 //Thinking in Java, by Bruce Eckel, 1033 pages
 ==============================================
 * The common-error 
@@ -850,8 +851,12 @@ To manipulate objects, C/C++ use &* pointers, which is treated as special object
    // *inner class object could call outer class private functions.*
 
 ** Why inner classes?
-   //Merit: Each inner can *independently* inherit from an implementation. 
    //Must use: When multiple *abstract class* is wanted, to be extend.
+   //Features: 
+     //Each inner can *independently* inherit from an implementation.
+       +Which means different implementations is possible within a single parent class.
+       +Its creation not strictly tied to outer-class object. 
+       +Which then provide better orginaziton. (The Sequence does not have to be a Selector. [[./Cp11_Selector.java][Cp11_Selector]])
 
 #+NAME: multiple abstract class extensions
 #+HEADERS: :classname C
@@ -885,7 +890,230 @@ public class C{
 : absC.f.implement
 
 
-* ? Chapter 12, 
+** Closures & callbacks
+   A *closure* is a callable object that retains information from the scope in which it was created.
+     i.e. an inner class can manipulate private parameters in its parent class.
+
+*** *callbacks* function implementation using inner class
+    [[./Cp11_Callback.java][Cp11_Callback]]
+#+NAME: Callback
+#+HEADERS: :classname Cp11_Callback
+#+BEGIN_SRC java
+private class Closure implements Incrementable {
+    public void increment() {
+        Callee2.this.increment();
+    }
+}
+
+Incrementable getCallbackReference() {
+    return new Closure();
+}
+
+class Caller {
+    //body...,
+    //1.constructor with *Closure()* Object reference.
+    //2.ref.increment() -> void go(){}
+}
+public class Cp11_Callback{
+    public static void main(String[] args){
+        Callee2 c2 = new Callee2();
+        Caller caller = new Caller(c2.getCallbackReference());
+        caller2.go();
+    }
+}
+#+END_SRC
+
+#+RESULTS: Callback
+| 1 |
+| 2 |
+
+//It turned this.increment() into an Incrementable object.
+
+** ? Inner classes & control frameworks
+   
+** ? Inheriting from inner classes
+   //The super constructor must be explicitly called 
+#+NAME: InheritInner
+#+HEADERS: :classname InheritInner
+#+BEGIN_SRC java
+class A{
+    class AInner { 
+        int i;
+        AInner(){
+            i = 1;
+            System.out.println("hi");
+        }
+    }
+}
+public class InheritInner extends A.AInner{
+    //! InheritInner(){}
+    InheritInner(A x){
+        x.super(); //Though counter intuitive.
+    }
+    public static void main(String[] args){
+        A xa = new A();
+        InheritInner xaa = new InheritInner(xa);
+        System.out.println(xaa.i);
+        A.AInner xb = xa.new AInner();
+        System.out.println(xb.i);
+    }
+}
+#+END_SRC
+
+#+RESULTS: InheritInner
+| hi |
+|  1 |
+| hi |
+|  1 |
+
+** ? Local inner classes
+
+* Chapter 12, Holding Your Objects (Container basic)
+** Generics and type-safe containers
+   [[./Cp12_ArrayListWithoutGeneric.java][Cp12_ArrayListWithoutGeneric]]
+   [[./Cp12_ArrayListWithGeneric.java][Cp12_ArrayListWithGeneric]]
+   //the ArrayList<Generic(class)> can also upcast, take sub-class Objects.
+   //for(Apple c : apples)
+         //loop body
+** Basic concepts
+   //Two very basic interfaces:
+   1. Collection: a sequence of elements with rule(s) applied to them.
+      + List: holds the order of elements inserted.
+      + Set: cannot have duplicate elements
+      + Queue: *produces* the elements in the order determined by a *queuing discipline*
+   2. Map: a group of key-value object pairs, allowing value look-up with the key.
+      + ArrayList: allows object look-up with *number*.
+      + Map: allows look-up with *another object*. (also named as associatve array or a *dictionary*)
+        
+   //Upcasting also possible:
+   List<Apple> apples = new ArrayList<Apple>();
+   List<Apple> apples = new LinkedList<Apple>();
+   //Though by upcasting, sub-type's specific functions might be lost.
+   //e.g. TreeMap, LinkedList's functions that does not exist in Map, List.
+   [[./Cp12_SimpleCollection.java][Cp12_SimpleCollection]]
+   //0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 
+** Basic Methods; Adding groups of elements
+   add(): ensures that this Collection contains the specified element.
+   [[./Cp12_BasicMethods.java][Cp12_BasicMethods]]
+   #+NAME: BasicMethods
+   #+HEADERS: :classname 
+   #+BEGIN_SRC java
+   Collection<Integer> collection = new ArrayList<Integer>{Arrays.asList{1,2,3}}
+   Collection<Integer> collection = new ArrayList<Integer>();
+   Integer[] moreInts = {4,5,6};
+   collection.addAll(Arrays.asList(moreInts)); //inferior
+   Collections.addAll(collection, moreInts); //runs faster, hence the preferred approach
+   #+END_SRC
+   
+   //the Arrays.asList() take a guess on type.
+   [[./Cp12_AsListInference.java][Cp12_AsListInference]]
+** Printing containers
+   Arrays.toString()
+   [[./Cp12_PrintingContainers.java][Cp12_PrintingContainers]]
+   
+#+NAME: PrintingContainers
+#+HEADERS: :results table :classname PrintingContainers
+#+BEGIN_SRC java
+import java.util.*;
+
+public class PrintingContainers {
+    static Collection fill(Collection<String> collection) {
+        collection.add("rat");
+        collection.add("dog");
+        collection.add("dog");
+        return collection;
+    }
+
+    static Map fill(Map<String,String> map) {
+        map.put("rat", "Fuzzy");
+        map.put("dog", "Bosco");
+        map.put("dog", "Spot");
+        return map;
+    }
+
+    public static void main(String[] args) {
+        System.out.println(fill(new ArrayList<String>()));
+        System.out.println(fill(new LinkedList<String>()));
+        System.out.println(fill(new HashSet<String>()));
+        System.out.println(fill(new TreeSet<String>()));
+        System.out.println(fill(new LinkedHashSet<String>()));
+        System.out.println(fill(new HashMap<String,String>()));
+        System.out.println(fill(new TreeMap<String,String>()));
+        System.out.println(fill(new LinkedHashMap<String,String>()));
+    }
+}
+
+#+END_SRC
+
+#+RESULTS: PrintingContainers
+| [rat       | dog        | dog] |
+| [rat       | dog        | dog] |
+| [rat       | dog]       |      |
+| [dog       | rat]       |      |
+| [rat       | dog]       |      |
+| {rat=Fuzzy | dog=Spot}  |      |
+| {dog=Spot  | rat=Fuzzy} |      |
+| {rat=Fuzzy | dog=Spot}  |      |
+
+   //HashSet Fastest to retrieve. If inserting order matters, 
+   //LinkedHashSet or TreeSet(slower).
+*** interface List extends Collection, Iterable
+    //the List interface.
+    //promise to maintain elements in a particular sequence.
+    //Two types of List:
+     + ArrayList: excels at random accesing elements, but slower when inserting and removing elements in the middle of a list.
+     + LinkedList: provides optimal sequential access, insertion and deletion in the middle are cheaper, in exchange of a larger feature set than the ArrayList.
+           //Maybe related to Type Information.
+           
+    //Basic methods:
+    Obj.
+        add(Obj); add(positionInIndex, Obj); addAll(positionInIndex, Obj); get(id); 
+        remove(theExactObjRef); removeAll(); indexOf(theExactObj); clear();
+        subList(idStart, idEnd); contains(Obj); set(id, Obj); 
+
+    Collections.
+        sort(Obj); Collections.shuffle(Obj); 
+        
+*** interface Iterator
+#+NAME: Cp12_Iterator 
+#+HEADERS: :classname 
+#+BEGIN_SRC java
+List<Pet> pets = new ArrayList<Pet>(Arrays.asList("dog", "cat"));
+Iterator<Pet> it = pets.iterator();
+#+END_SRC
+    //it.
+         hasNext(); next(); remove(); 
+         
+*** ListIterator
+#+NAME: Cp12_ListIterator 
+#+HEADERS: :classname 
+#+BEGIN_SRC java
+List<Pet> pets = new ArrayList<Pet>(Arrays.asList("dog", "cat"));
+Iterator<Pet> it = pets.listIterator();
+#+END_SRC
+    //it.
+         hasNext(); next(); remove(); 
+         
+*** LinkedList 
+#+NAME: Cp12_LinkedList
+#+HEADERS: :classname 
+#+BEGIN_SRC java
+LinkedList<Pet> pets = new LinkedList<Pet>(Arrays.asList("dog", "cat"));
+#+END_SRC
+    //Obj.
+          getFirst(); element(); peek(); removeFirst(); remove(); poll(); addfirst(); offer(); removeLast(); 
+
+*** Stack
+    //implemented using LinkedList.
+    [[./Cp12_Stack.java][Cp12_Stack]]
+    //To avoid conflict: must specify the whole path:
+    //new java.util.Stack<String>();
+    //new net.my.package.Stack<String>();
+    
+*** Set
+    //
+System.out.print
+syso
 * Chapter 13, Error Handling
 * Chapter 14, Strings
 * Chapter 15,
