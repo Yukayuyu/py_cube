@@ -1,8 +1,15 @@
-public class HelloWorld {
+import static java.lang.System.out;
+
+public abstract class HelloWorld {
+
+
+    static {
+        out.println("Hello");
+    }
 
     public void worldX() throws Exception {}
 
-    public static void main(String[] args) {
+    public static void main(final String args[]) {
         // Prints "Hello, World" to the terminal window.
         System.out.println("Hello, World");
     }

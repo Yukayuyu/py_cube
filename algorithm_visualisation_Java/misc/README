@@ -1,4 +1,4 @@
-;; -*- mode: org; eval: (company-mode 1); -*-
+;; -*- mode: org; eval: (company-mode -1); -*-
 //Thinking in Java, by Bruce Eckel, 1033 pages
 ==============================================
 * The common-error 
@@ -1099,6 +1099,7 @@ Iterator<Pet> it = pets.listIterator();
 #+HEADERS: :classname 
 #+BEGIN_SRC java
 LinkedList<Pet> pets = new LinkedList<Pet>(Arrays.asList("dog", "cat"));
+
 #+END_SRC
     //Obj.
           getFirst(); element(); peek(); removeFirst(); remove(); poll(); addfirst(); offer(); removeLast(); 
@@ -1112,9 +1113,140 @@ LinkedList<Pet> pets = new LinkedList<Pet>(Arrays.asList("dog", "cat"));
     
 *** Set
     //
-System.out.print
-syso
-* Chapter 13, Error Handling
+    
+*** Map
+    [[./Cp12_Map.java][Cp12_Map]]
+    //Obj.
+          put("key", Obj); get("key"); containsKey("key"); continsValue(Obj);
+          
+    //Multi-dimention
+public class MapOfList{
+  public static Map<Person, List<? extends Pet>>
+    petPeople = new HashMap<Person, List<? extends Pet>>();
+  static {
+    //...body
+  }
+  public static void main(String[] args) {
+    System.out.println("People: " + petPeople.keySet());
+    System.out.println("Pets: " + petPeople.values());
+    for(Person person : petPeople.keySet()) {
+      print(person + " has:")
+      for(Pet pet : petPeople .get(person))
+        print("    " + pet);
+    }
+  }
+}
+
+*** Queue
+    //First-in, first-out
+    //important in transfering objects from one area of a program to another.
+    //important in Concurrency. 
+    //Use LinkedList to implement a Queue through upcast.
+    [[./Cp12_Queue.java][Cp12_Queue]]
+    //Queue.
+            offer(): instert to tail, return false if can't.
+            peek(), element(): return head without removing. False / NoSuchElementException if empty.
+            poll(), remove(): remove & return the head. null / NoSuchElementException if empty.
+            
+*** PriorityQueue
+    //when offer(), obj is sorted into the queue, default using natural order;
+    //The oreder can be modified by customizable *Comparator*;
+    //Which changes the order, ensuring peek(), poll(), remove()
+    
+*** Collection vs Iterator
+    //public class xxx extends AbstractCollection<Generic>;
+    //then implement hasNext(); next();
+   
+*** Foreach and iterators
+    for (Type t : obj) 
+    //Works for all Iterable(After SE5) objects.
+    //Two implementations:
+    [[./Cp12_Foreach.java][Cp12_Foreach]]
+  
+**  The Adapter Method idiom
+    //in case a reverse is needed.
+    //instead of overriding the iterator() method,
+    //write a function:
+    [[./Cp12_Reversible.java][Cp12_Reversible]]
+  
+**  Summary
+    1. Array can be multidimensional, and can hold primitives. However, size unchangable.
+    2. Collection holds single elements, Map holds associated pairs. Resizable automatically. Won't hold primitives, but autoboxing possible.
+    3. ArrayList if a lot of random access, while LinkedListif insert/remove in the middle.
+    4. Queues and Stacks are implemented using LinkedList.
+    5. Map associate Objects with Objects. HashMaps are designed for quick access, TreeMap keeps keys in sorted order, thus slower, while
+       a LinkedHashMap keeps keys in insertion order, while provide rapid access.
+    6. Set accepts one of each type of Object only. HashSets provide fast lookups, TreeSets keeps elements in sorted order, 
+       LinkedHashSets keep elements in insertion order.
+    7. no need to use the legacy classes Vector, Hashtable or Stack in new code.
+       
+    //Simple Container Taxonomy. p309
+    
+* Chapter 13, Error Handling with Exceptions
+** Basic exceptions
+   //exceptional condition -> a *new* exception object is created on the heap -> current path of execution is stopped ->
+   the reference for the exception object is ejected -> exception-handling mechanism takes over and looking for the *exception hander* and execute.
+** Exception arguments
+   //throw new NullPointerException("t = null");
+   //The string can be extracted.
+   //Note that the *throw* can throw any type of *Throwable*.
+** Catching an exception
+   //a guarded region:
+*** The try block 
+#+NAME: defaultname
+#+HEADERS: :results: table :classname 
+#+BEGIN_SRC java
+try {
+    // Code that might generate exceptions.
+} catch(Type1 id1)|{
+    // Handle exceptions of Type1.
+} catch(Type2 id2) {
+    // Handler2
+}
+#+END_SRC
+   //the id represents identifier.
+**** Termination vs. resumption
+     //for resumption, instead of throwing an exception, call a method that fixes the problem.
+     //or put try inside a while loop.
+     //However usually unpratical and hard to maintain especially in large systems, where the exception can be 
+     //generated from many points.
+** Creating customized exceptions
+#+NAME: Cp13_InheritingExceptions
+#+HEADERS: :results pp :classname InheritingExceptions
+#+BEGIN_SRC java
+class SimpleException extends Exception {}
+
+public class InheritingExceptions {
+    public void f() throws SimpleException{
+        System.out.println("Throw SimpleException from f()");
+        throw new SimpleException();
+    }
+    public static void main(String[] args){
+        InheritingExceptions sed = new InheritingExceptions();
+        try {
+            sed.f();
+        } catch(SimpleException e) {
+            System.out.println("catch");
+        }
+    }
+}
+#+END_SRC
+
+#+RESULTS: Cp13_InheritingExceptions
+: Throw SimpleException from f()
+: catch
+
+   //printStackTrace(printStream);
+   [[./Cp13_MyException.java][Cp13_MyException]]
+   [[./Cp13_Logging.java][Cp13_Logging]]
+Apr 19th, ~p321
+** The exception specification
+
+   
+
+   
+
+ 
 * Chapter 14, Strings
 * Chapter 15,
 * Chapter 16,
