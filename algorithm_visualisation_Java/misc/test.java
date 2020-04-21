@@ -10,27 +10,9 @@ public class test {
         this.i01 = i01;
     }
 
-    void method0() {
-        i++;
-    }
-
-    void method1() {
-        i++;
-    }
-
-    void method2(int i) {
-        i++;
-        System.out.println("haha");
-    }
 
     public static void main(String[] args) {
-        test2 x = new test2();
-        test3 y = new test3();
-        test x = new test();
-        x.method0();
-        x.method0();
-        System.out.println(test.i);
-        int j = test.i - 10;
+        int j = 1;
         switch (j) {
             case 0:
                 System.out.println(j);
@@ -68,8 +50,4 @@ public class test {
      * 
      * @author k,asd, a,a
      */
-    @Annot(x = 1, y = 2)
-    public void m1() {}
-
-    Runnable r = () -> process();
 };

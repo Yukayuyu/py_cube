@@ -1241,10 +1241,38 @@ public class InheritingExceptions {
    [[./Cp13_Logging.java][Cp13_Logging]]
 Apr 19th, ~p321
 ** The exception specification
+   //Must be thrown. 
+   void function() throw exception;
+   //However the throw can be compiled without really implementing a throw.
+   //Thus, possible to throw in abstract classes.
+** The *Exception* and how to catch'em all 
+   [[./Cp13_AllException.java][Cp13_AllException]]
+** The StackTrack Elements.
+   [[./Cp13_StackTrace.java][Cp13_StackTrace]]
+** Rethrowing an exception.
+catch(Exception e) {
+System.out.println("An exception was thrown.")
+throw e;
+}
+   //Any further catch block for the Exception e will be ignored,
+   //Meanwhile e will be thrown to exception handlers in the next higher context. 
+   //its attributes and info remain *unchanged*. i.e. The original info is kept.
+   //or also possible to overwrite the original using  method *fillInStackTrace()*.
+   //or throw another class of exception to achieve the save effect.
+** Exception chaining
+   //After JDK 1.4, all *Throwable* have the option to take a *cause* object in their constructor. 
+   //The *cause* is intended to be the originating exception.
+   //In 3 fundamental exception classes, the *cause* argument is allowed in the *constructor*:
+   | *Error*            | used by JVM to report system errors. |
+   | *Exception*        |                                      |
+   | *RuntimeException* |                                      |
+   //to chain any other type of exceptions, use the *initCause()* method.
+**   
+arr03[0][1] = 4;
+arr03[0] = new int[] {2, 2};
+System.out.println((arr03[0][1]));
+//Output: 2
 
-   
-
-   
 
  
 * Chapter 14, Strings
