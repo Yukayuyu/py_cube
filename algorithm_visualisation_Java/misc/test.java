@@ -1,53 +1,30 @@
-public class test {
-    private int i01 = 1;
-    private static int i = 1;
+abstract class testBaseClass {
+    private int i = 10;
 
-    public int getI01() {
-        return i01;
+    int getter() {
+        return i;
     }
 
-    public void setI01(int i01) {
-        this.i01 = i01;
+    abstract void f();
+}
+
+
+public class test extends testBaseClass {
+    private int i = 20;
+
+    int getter() {
+        return i;
     }
 
+    int sgetter() {
+        return super.getter();
+    }
+
+    void f() {}
 
     public static void main(String[] args) {
-        int j = 1;
-        switch (j) {
-            case 0:
-                System.out.println(j);
-                break;
-            case 1:
-                System.out.println(">10");
+        test x = new test();
+        System.out.println(x.sgetter());
 
-                break;
-            case 2:
-                break;
-            default:
-                System.out.println("df");
-                break;
-        }
-
-        String[] arr = {"cat", "fish", "cow", "a"};
-        System.out.println(arr);
-        if (i > 0) {
-            i++;
-        } else {
-            i--;
-        }
-    };
-
-    void m02() {
-        i++;
-        String[] sA = new String[] {"a", "b", "c"};
-        sA.clone();
     }
-
-    void m3() {}
-
-    /*
-     * Annotation
-     * 
-     * @author k,asd, a,a
-     */
-};
+}

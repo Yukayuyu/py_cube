@@ -9,6 +9,10 @@ class SimpleException extends Exception {
 }
 
 
+class HighlevelException extends Exception {
+}
+
+
 public class Cp13_MyException {
     public void f(String msg) throws SimpleException {
         System.out.println("Throw SimpleException from f()");
@@ -18,10 +22,16 @@ public class Cp13_MyException {
     public static void main(String[] args) {
         Cp13_MyException sed = new Cp13_MyException();
         try {
-            sed.f("mmmmsg");
-        } catch (SimpleException e) {
-            System.out.println("catch");
-            e.printStackTrace(System.err);
+            try {
+                sed.f("mmmmsg");
+            } catch (SimpleException e) {
+                e.printStackTrace(System.err);
+                System.out.println("++++++++++");
+                throw (HighlevelException) new HighlevelException().initCause(e);
+            }
+        } catch (HighlevelException h) {
+            h.printStackTrace(System.err);
+            System.out.println((double) new Integer(9));
         }
     }
 }

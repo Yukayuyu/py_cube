@@ -1266,15 +1266,58 @@ throw e;
    | *Error*            | used by JVM to report system errors. |
    | *Exception*        |                                      |
    | *RuntimeException* |                                      |
-   //to chain any other type of exceptions, use the *initCause()* method.
-**   
-arr03[0][1] = 4;
-arr03[0] = new int[] {2, 2};
-System.out.println((arr03[0][1]));
-//Output: 2
+   //to chain any other type of exceptions, use the *initCause()* method (inherited from the public class Throwable)
+try {
+     lowLevelOp();
+ } catch (LowLevelException le) {
+     throw (HighLevelException)
+           new HighLevelException().initCause(le); // Which uses cast. Legacy constructor
+ }
+   [[./Cp13_MyException.java][Cp13_MyException]]
+*** Multi-dimentional array
+ [[./Cp0_Array3D.java][Cp0_Array3D]]
+ arr03[0][1] = 4;
+ arr03[0] = new int[] {2, 2};
+ System.out.println((arr03[0][1]));
+ //Output: 2
+** Standard Java exceptions
+   //java.lang.Exception, check oracle documentation
+*** Special case: RuntimeException
+    [[./Cp13_RuntimeException.java][Cp13_RuntimeException]]
+    //RuntimeException is not required to be caught.
+    //If it gets to main(),
+    //printStackTrace() is called as the program exits.
+    //Error messages are printed to System.err.
+    //A RuntimeException means either:
+      1. An error programmer cannot anticipate. e.g. a null pointer outside of the program.
+      2. An error in the program. Such as an ArrayIndexOutOfBoundException.
+** Performing cleanup with *finally*.
+   *finally clause always run*.
+   //example usage:
+     1. As java's "goto" combined with the labeled break&continue statement.
+     2. guarantee a important cleanup, which will be executed no matter what.  
+        //e.g. use switch or if to implement multiple return point, finally use finally to cleanup.
+*** pitfall: finally silence exception
+    //Two situations:
+    [[./Cp13_Pitfall.java][Cp13_Pitfall]]
+    //a. Must ensure no exception is thrown in finally clause.
+    //b. Must not have "return" in finally clause because it will mute all exceptions.
+    // *Other situations*:
+    try{
+        f(); //report exception A.
+        g(); //report exception B.
+    } catch{//body} 
+    //then exception B will not be reported if A error.
+    
+** Exception restrictions
+   //When override a method, only exceptions that have been specified in the base class can be thrown.
+   //An sub-class exception can be thrown.
+   *Some advanced impromptu*:
+   [[./Cp13_MyExceptionAdvanced.java][Cp13_MyExceptionAdvanced]]
+   
 
 
- 
+
 * Chapter 14, Strings
 * Chapter 15,
 * Chapter 16,

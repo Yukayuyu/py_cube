@@ -1,11 +1,12 @@
-enum Note {
+enum Cp9EnumClassNote {
     MIDDLE_C, C_SHARP, B_FLAT
 }
+
 
 class Instrument {
     private int i;
 
-    public void play(Note n) {
+    public void play(Cp9EnumClassNote n) {
         System.out.println("Instrument.play()");
     }
 
@@ -15,9 +16,10 @@ class Instrument {
     }
 }
 
+
 class Wind extends Instrument {
     @Override
-    public void play(Note n) {
+    public void play(Cp9EnumClassNote n) {
         System.out.println("Wind.play()" + n);
     }
 
@@ -26,9 +28,11 @@ class Wind extends Instrument {
     }
 }
 
+
 public class Cp9_PolyUpcasting {
-    public static void tune(Instrument i) { // Polymorphism reduce duplicated code here and only here.
-        i.play(Note.MIDDLE_C);
+    public static void tune(Instrument i) { // Polymorphism reduce duplicated code here and only
+                                            // here.
+        i.play(Cp9EnumClassNote.MIDDLE_C);
         ((Wind) i).newM(); // Or cannot call newM(), since it's not in the Instrument class.
     }
 
