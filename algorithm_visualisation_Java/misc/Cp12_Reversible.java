@@ -1,12 +1,12 @@
 import java.util.*;
 
-class ReversibleArrayList<T> extends ArrayList<T> {
-    public ReversibleArrayList() {
+class Cp12_ReversibleArrayList<T> extends ArrayList<T> {
+    public Cp12_ReversibleArrayList() {
         super();
 
     }
 
-    public ReversibleArrayList(Collection<T> c) {
+    public Cp12_ReversibleArrayList(Collection<T> c) {
         super(c);
     }
 
@@ -61,9 +61,9 @@ class ReversibleArrayList<T> extends ArrayList<T> {
 
 public class Cp12_Reversible {
     public static void main(String[] args) {
-        ReversibleArrayList<String> ral =
-                new ReversibleArrayList<String>(Arrays.asList("a b c".split(" ")));
-        ReversibleArrayList<String> ral2 = new ReversibleArrayList<String>();
+        Cp12_ReversibleArrayList<String> ral =
+                new Cp12_ReversibleArrayList<String>(Arrays.asList("a b c".split(" ")));
+        Cp12_ReversibleArrayList<String> ral2 = new Cp12_ReversibleArrayList<String>();
         String[] s1 = ("fly me to the moon".split(" "));
         Collections.addAll(ral2, s1);
         for (String s : ral.reversed())

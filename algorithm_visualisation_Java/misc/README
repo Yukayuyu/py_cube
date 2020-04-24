@@ -1075,8 +1075,6 @@ public class PrintingContainers {
         sort(Obj); Collections.shuffle(Obj); 
         
 *** interface Iterator
-#+NAME: Cp12_Iterator 
-#+HEADERS: :classname 
 #+BEGIN_SRC java
 List<Pet> pets = new ArrayList<Pet>(Arrays.asList("dog", "cat"));
 Iterator<Pet> it = pets.iterator();
@@ -1085,8 +1083,6 @@ Iterator<Pet> it = pets.iterator();
          hasNext(); next(); remove(); 
          
 *** ListIterator
-#+NAME: Cp12_ListIterator 
-#+HEADERS: :classname 
 #+BEGIN_SRC java
 List<Pet> pets = new ArrayList<Pet>(Arrays.asList("dog", "cat"));
 Iterator<Pet> it = pets.listIterator();
@@ -1095,11 +1091,8 @@ Iterator<Pet> it = pets.listIterator();
          hasNext(); next(); remove(); 
          
 *** LinkedList 
-#+NAME: Cp12_LinkedList
-#+HEADERS: :classname 
 #+BEGIN_SRC java
 LinkedList<Pet> pets = new LinkedList<Pet>(Arrays.asList("dog", "cat"));
-
 #+END_SRC
     //Obj.
           getFirst(); element(); peek(); removeFirst(); remove(); poll(); addfirst(); offer(); removeLast(); 
@@ -1120,6 +1113,7 @@ LinkedList<Pet> pets = new LinkedList<Pet>(Arrays.asList("dog", "cat"));
           put("key", Obj); get("key"); containsKey("key"); continsValue(Obj);
           
     //Multi-dimention
+#+BEGIN_SRC java
 public class MapOfList{
   public static Map<Person, List<? extends Pet>>
     petPeople = new HashMap<Person, List<? extends Pet>>();
@@ -1136,6 +1130,7 @@ public class MapOfList{
     }
   }
 }
+#+END_SRC
 
 *** Queue
     //First-in, first-out
@@ -1193,8 +1188,6 @@ public class MapOfList{
 ** Catching an exception
    //a guarded region:
 *** The try block 
-#+NAME: defaultname
-#+HEADERS: :results: table :classname 
 #+BEGIN_SRC java
 try {
     // Code that might generate exceptions.
@@ -1315,10 +1308,113 @@ try {
    *Some advanced impromptu*:
    [[./Cp13_MyExceptionAdvanced.java][Cp13_MyExceptionAdvanced]]
    
+** Constructors. Handle Construction Exceptions.
+   //Sometimes, when constructor fail, the Obj won't be created, 
+   //However finally runs every time, so it will run no matter what.
+   //Use the following logic:
+try{
+    Construct x = new Construct(); // which may fail.
+    try{
+        // actions.
+    } finally {
+        x.dispose(); // clean-up if Obj x is constructed successfully.
+    }
+} catch (ConstructionException e) {
+    // Construction Exception handler
+}
+   //Guard each Object if its construction may fail.
 
+** Exception matching
+   //As discovered in
+   [[./Cp13_MyExceptionAdvanced.java][Cp13_MyExceptionAdvanced]]
+   //Catch follows the order.
+   
+** Alternative approaches and guidelines
+   //Some main logic of error handling:
+   //Don't catch an exception unless know what to do with it.
+   //The goal:
+     1. To separate error handling code with main code, thus more readable.
+     2. To reduce the amount of error-handling code, by allowing one handler to deal with multiple error sites.
+   *to swallow the Exception:*
+#+BEGIN_SRC java
+try {
+// ...body
+} catch(ObligatoryException e) {} // Gulp!
+#+END_SRC
+   //Once this is done, the Exception is completly vanished.
+   //Thus very hard to be re-discovered.
+   //Remember to check.
+   
+** History
+   //"...every invocation must be followed by a conditional test to determine what the outcome was.
+   //This requirement leads to programs that are difficult to read, and probably inefficient as well,
+   //thus discouraging programmers from signaling and handling exceptions."
+   Thus one of the original motivation of exception was to prevent this requirement.
+   //Authors reflection:
+   //Error checking's merit comes from:
+     1. A unified error-reporting model via exceptions.
+        That is, regardless of whether the programmer is forced by the compiler to handle them.
+     2. Type checking, regardless of *when* it takes place. 
+        That is, either at compile time or at run time is fine.
+        
+   //Moreover, *reflection* and *generic* are required to compensate for the overconstraining nature of static typing.
+   //Also, need to understand what the compiler is able to do.
+   
+** Passing exceptions to the console.
+   [[./Cp13_ExceptionToConsole.java][Cp13_ExceptionToConsole]]
+   // throw in main, which will be reflected in the console, does not require a catch.
+   
+** Converting checked to unchecked exceptions
+try{
+    // ... body
+} catch(AnExceptionIDontKnowWhatToDo e){
+    throw new RuntimeException(e);
+}
+   [[./Cp13_WrappedException.java][Cp13_WrappedException]]
+   //Different types of exceptions are wrapped in a RuntimeException Object as its cause.
+   //And since a RuntimeException does not require extra handling, more efficient.
+   //Thus when do not know what to do, exception can be passed to someone who can handle it.
+   
+** Exception guideline:
+   //Use exceptions to:
+     1. Handle problems at the approatiate leve. (Avoid catching unless know what to do with them.)
+     2. Fix the problem and call the method that cause the exception again.
+     3. Patch things up and continue without retrying the method.
+     4. Calculate some alternative result instead of what the method was suppose to produce.
+     5. Do whatever you can in the current context and rethrow the *same* exception to a higher context.
+     6. Do whatever you can in the current context and rethrow a *different* exception to a higher context.
+     7. Terminate the program.
+     8. Simplify. (Do not make things more complicated with the exception scheme.)
+     9. Make your library and program safer. (Consider it as short-term investment for debugging, and a long-term investment for application robustness.)
 
-
+** Summary
+   //The actual recovery aspect might only be 10 percent.
+   //However the bug reporting ablity is extremly useful. Even only with a Runtime exception.
+//Apr 24th, ~p354
 * Chapter 14, Strings
+** Immutable Strings
+   //String objects are immutable.
+** Overloading '+' vs. StringBuilder
+   //About Operator Overloading:
+   //(The '+' and '+=' for *String* are the only operators that are overloaded in Java, and Java does not allow the programmer to overload any others.)
+#+BEGIN_SRC java
+String s = "abc" + "mango" + 47;
+System.out.print(s);
+//Output: abcmango47
+#+END_SRC   
+*** To decompile/disassemble the code: javap
+    javap --help
+    javap -c ClassName //Disassemble the code
+[[./Cp14_SimpleString.java][Cp14_SimpleString]]
+[[./Cp14_SimpleStringDisassemble][Cp14_SimpleStringDisassemble]]
+
+    
+
+    
+
+
+
+
 * Chapter 15,
 * Chapter 16,
 * Chapter 17, Arrays

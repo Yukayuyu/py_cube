@@ -1,68 +1,69 @@
 import java.rmi.activation.ActivationException;
 
-interface testInterface {
+interface Cp13testInterface {
     void f() throws Exception;
 }
 
 
-class TestAnInitCause extends Exception {
+class Cp13TestAnInitCause extends Exception {
 }
 
 
-class TestMyException1 extends Exception {
+class Cp13TestMyException extends Exception {
     final String string;
 
-    TestMyException1() {
+    Cp13TestMyException() {
         super();
         string = "default";
     }
 
-    TestMyException1(String str) {
+    Cp13TestMyException(String str) {
         string = str;
     }
 
 }
 
 
-class TestMyException2 extends Throwable {
-    TestMyException2() {
+class Cp13TestMyThrowable extends Throwable {
+    Cp13TestMyThrowable() {
         super();
     }
 
-    TestMyException2(String message, Throwable cause) {
+    Cp13TestMyThrowable(String message, Throwable cause) {
         super(message, cause);
     }
 }
 
 
-public class Cp13_MyExceptionAdvanced implements testInterface {
+public class Cp13_MyExceptionAdvanced implements Cp13testInterface {
 
-    public void g() throws TestMyException2 {
+    public void g() throws Cp13TestMyThrowable {
         System.out.println("method g");
-        // throw (TestMyException2) new TestMyException2().initCause(new ActivationException());
+        // throw (Cp13TestMyThrowable) new Cp13TestMyThrowable().initCause(new
+        // ActivationException());
         // The same as:
-        throw (TestMyException2) new TestMyException2("a message", new TestAnInitCause());
+        throw (Cp13TestMyThrowable) new Cp13TestMyThrowable("a message", new Cp13TestAnInitCause());
         // ! throw (new TestMyException()).initCause(new ActivationException());
     }
 
-    public void f() throws TestMyException1 {
+    public void f() throws Cp13TestMyException {
         System.out.println("method f");
-        throw (TestMyException1) new TestMyException1();
+        throw (Cp13TestMyException) new Cp13TestMyException();
     }
-    // This works fine. Since TestMyException1 is a sub-class of Exception.
+    // This works fine. Since TestMyException is a sub-class of Exception.
 
-    // ! public void f() throws TestMyException2 {
+    // ! public void f() throws Cp13TestMyThrowable {
     // ! System.out.println("method f");
-    // ! throw(TestMyException2)new TestMyException2();
+    // ! throw(Cp13TestMyThrowable)new Cp13TestMyThrowable();
     // ! }
-    // This won't compile. Since TestMyException2 is not a sub-class of Exception.
+    // This won't compile. Since Cp13TestMyThrowable is not a sub-class of Exception.
 
     void run() {
         try {
             g();
             f();
             // If one exception happens, process stopped.
-        } catch (TestMyException1 e) {
+        } catch (Cp13TestMyException e) {
             System.out.println("catch Exception1");
             System.out.println(e.string); // The e thrown is a sub-class of the Exception specified
                                           // by the interface.
@@ -74,8 +75,8 @@ public class Cp13_MyExceptionAdvanced implements testInterface {
             System.out.println("+++++++++++++++");
             System.out.println(t.getCause());
         }
-        // ! catch (TestMyException2 e) {} // Won't compile since Already been caught.
-        // Even when g() is commented out (i.e. No TestMyException2 thrown).
+        // ! catch (Cp13TestMyThrowable e) {} // Won't compile since Already been caught.
+        // Even when g() is commented out (i.e. No Cp13TestMyThrowable thrown).
     }
 
 
