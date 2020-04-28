@@ -1,8 +1,6 @@
 import static java.lang.System.out;
 
 public abstract class HelloWorld {
-
-
     static {
         out.println("Hello");
     }

@@ -1,22 +1,37 @@
 Compiled from "Cp14_SimpleString.java"
 public class Cp14_SimpleString {
+  java.lang.Double d;
+
   public Cp14_SimpleString();
     Code:
        0: aload_0
        1: invokespecial #1                  // Method java/lang/Object."<init>":()V
-       4: return
+       4: aload_0
+       5: ldc2_w        #7                  // double 4.0d
+       8: invokestatic  #9                  // Method java/lang/Double.valueOf:(D)Ljava/lang/Double;
+      11: putfield      #15                 // Field d:Ljava/lang/Double;
+      14: return
 
   public static void main(java.lang.String[]);
     Code:
-       0: ldc           #7                  // String A Simple Test String.
-       2: astore_1
-       3: ldc           #9                  // String A Simple Concatenated String.
-       5: astore_2
-       6: getstatic     #11                 // Field java/lang/System.out:Ljava/io/PrintStream;
-       9: aload_1
-      10: invokevirtual #17                 // Method java/io/PrintStream.println:(Ljava/lang/String;)V
-      13: getstatic     #11                 // Field java/lang/System.out:Ljava/io/PrintStream;
+       0: new           #16                 // class Cp14_SimpleString
+       3: dup
+       4: invokespecial #21                 // Method "<init>":()V
+       7: astore_1
+       8: aload_1
+       9: astore_2
+      10: aload_2
+      11: getfield      #15                 // Field d:Ljava/lang/Double;
+      14: astore_3
+      15: aload_2
       16: aload_2
-      17: invokevirtual #17                 // Method java/io/PrintStream.println:(Ljava/lang/String;)V
-      20: return
+      17: getfield      #15                 // Field d:Ljava/lang/Double;
+      20: invokevirtual #22                 // Method java/lang/Double.doubleValue:()D
+      23: dconst_1
+      24: dadd
+      25: invokestatic  #9                  // Method java/lang/Double.valueOf:(D)Ljava/lang/Double;
+      28: putfield      #15                 // Field d:Ljava/lang/Double;
+      31: aload_3
+      32: pop
+      33: return
 }

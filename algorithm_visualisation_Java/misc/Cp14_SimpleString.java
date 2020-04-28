@@ -1,9 +1,12 @@
 public class Cp14_SimpleString {
+    // int i = 2;
+    // Integer j = 3;
+    Double d = (double) 4;
 
     public static void main(String[] args) {
-        String s1 = "A Simple Test String.";
-        String s2 = "A " + "Simple " + "Concatenated " + "String.";
-        System.out.println(s1);
-        System.out.println(s2);
+        Cp14_SimpleString x = new Cp14_SimpleString();
+        // x.i++;
+        // x.j++;
+        x.d++;
     }
 }

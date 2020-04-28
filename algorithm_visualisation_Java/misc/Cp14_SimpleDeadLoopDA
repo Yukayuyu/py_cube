@@ -1,0 +1,39 @@
+Compiled from "Cp14_SimpleDeadLoop.java"
+public class Cp14_SimpleDeadLoop {
+  public Cp14_SimpleDeadLoop();
+    Code:
+       0: aload_0
+       1: invokespecial #1                  // Method java/lang/Object."<init>":()V
+       4: return
+
+  public Cp14_SimpleDeadLoop retThis();
+    Code:
+       0: aload_0
+       1: areturn
+
+  public static void main(java.lang.String[]);
+    Code:
+       0: getstatic     #7                  // Field java/lang/System.out:Ljava/io/PrintStream;
+       3: getstatic     #13                 // Field counter:I
+       6: iconst_1
+       7: iadd
+       8: dup
+       9: putstatic     #13                 // Field counter:I
+      12: invokedynamic #19,  0             // InvokeDynamic #0:makeConcatWithConstants:(I)Ljava/lang/String;
+      17: invokevirtual #23                 // Method java/io/PrintStream.println:(Ljava/lang/String;)V
+      20: new           #14                 // class Cp14_SimpleDeadLoop
+      23: dup
+      24: invokespecial #29                 // Method "<init>":()V
+      27: astore_1
+      28: getstatic     #7                  // Field java/lang/System.out:Ljava/io/PrintStream;
+      31: aload_1
+      32: invokevirtual #30                 // Method retThis:()LCp14_SimpleDeadLoop;
+      35: invokevirtual #34                 // Method java/io/PrintStream.println:(Ljava/lang/Object;)V
+      38: return
+
+  static {};
+    Code:
+       0: iconst_0
+       1: putstatic     #13                 // Field counter:I
+       4: return
+}
