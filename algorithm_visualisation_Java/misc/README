@@ -17,7 +17,7 @@
     *TypeArg: FieldType | MethodType | NameArg | NumberArg
     *NumberArg: ('-')? DigitNotZero (Digit)* ';' | '0' ';'
     *NameArg: '$' Identifier ';'
-    Identifier: (any character except '.' ';' '[' '/' '<' '>' ':')*
+    Identifier: (any character except '.' ';' '[' '/' '<' '>' ':')*      ////]
    
 ==============================================
 * The disadvantage of Java.
@@ -1452,11 +1452,21 @@ System.out.print(s);
 ** Unintended recursion
    [[./Cp14_InfiniteRecursion.java][Cp14_InfiniteRecursion]]
    [[./Cp14_InfiniteRecursionDA][Cp14_InfiniteRecursionDA]]
-
    
    [[./Cp14_SimpleDeadLoop.java][Cp14_SimpleDeadLoop]]
    [[./Cp14_SimpleDeadLoopDA][Cp14_SimpleDeadLoopDA]]
+   // return "AString" + this, in toString() implicitly calls the toString(), which causes the infinite recursion;
+** Operations on Strings
+** String format specifier
+   [[./Cp14_Formatter.java][Cp14_Formatter]] 
+   f.format("%-10.10s %5s %,20.2f\n", "Total", "", total);
+   // %[argument_index$][flags][width][.precision]conversion
+   //the .10 in the string means to truncate the string by that number.
+*** a Hex Dumper
+    //String.format(String format, Object... args)
+    [[./Cp14_HexDumper.java][Cp14_HexDumper]]
    
+
 
 
     
