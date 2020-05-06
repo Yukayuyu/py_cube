@@ -9,7 +9,7 @@
     MethodType: '(' (FieldType)* ')' (FieldType | 'V')
     FieldType: PrimitiveType | ArrayType | ObjectType | *TypeExpr
     PrimitiveType: 'B' | 'C' | 'D' | 'F' | 'I' | 'J' | 'S' | 'Z'
-    ArrayType: '[' (PrimitiveType | ArrayType | ObjectType)
+    ArrayType: '[' (PrimitiveType | ArrayType | ObjectType)             ////]
     ObjectType: 'L' ClassName ';'
     *TypeExpr: TypeCarrier '/' (TypeOpName)? (';' | '[' (TypeArg)+ ']' )
     *TypeCarrier: FieldType | `L`
@@ -1465,16 +1465,91 @@ System.out.print(s);
 *** a Hex Dumper
     //String.format(String format, Object... args)
     [[./Cp14_HexDumper.java][Cp14_HexDumper]]
+** Regular Expression 
+//the *Quantifiers*, p374.
+| Greedy | Reluctant | Possessive | Matches                                 |
+| X?     | X??       | X?+        | X, one or none                          |
+| X*     | X*?       | X*+        | X, zero or more                         |
+| X+     | X+?       | X++        | X, one or more                          |
+| X{n}   | X{n}?     | X{n}+      | X, exactly n times                      |
+| X{n,}  | X{n,}?    | X{n,}+     | X, at least n times                     |
+| X{n,m} | X{n,m}?   | X{n,m}+    | X, at least n but not more than m times |
+   
+#+BEGIN_SRC java
+System.out.println("+911".matches("(-|\\+)?\\d+")); // true
+//------------
+StringObj.split(regex); // split("n\\W+");
+#+END_SRC
+   //More in JDK documentation, section:
+   java.util.regex.Pattern
+
+*** Match in String
+    [[./Cp14_MatchInString.java][Cp14_MatchInString]]
+#+BEGIN_SRC java
+    String s = "-1231234123";
+    Pattern p = Pattern.compile("-\\d*");
+    Matcher m = p.matcher(s);
+    // m.reset("newString"); //reset() the Matcher m to new string. 
+                             //m.reset(line); where (String line: new TextFile(args[0])){};
+    System.out.println("maches(): " + m.matches()); // matches the whole string.
+                                   // m.lookingAt() //matches from the start.
+    while(m.find()){ //matches from anywhere.
+        System.out.println(m.group() + " atpos: " + m.start() + "-" + (m.end() - 1));
+    } 
+#+END_SRC:
+
+*** Groups
+    [[./Cp14_RegexGroup.java][Cp14_RegexGroup]]
+
+*** ? Pattern.flag
+    
+*** split()
+    Arrays.toString(Pattern.compile("!!").split(input));
+   
+*** ? Replace operations
+    //replaceFirst(); replaceAll(); appendReplacement(); appendTail();
+    
+** ? Scanning input p389
+   [[./Cp14_SimpleRead.java][Cp14_SimpleRead]]
+   //Scanner take a File Object, an InputStream, a String, or a Readable;
+   [[./Cp14_Scanner.java][Cp14_Scanner]] 
+   
+*** ? StringTokenizer p389
+    //to split string before scanner or split() exist in JDK.
+
+* Chapter 15, Type Information
+  //Runtime type infomation (RTTI) allows program to discover and use type information at runtime. 
+** The need for RTTI
+   psvm{
+       List<Shape> shapeList = Arrays.asList(
+           new Circle(), new Square(), new Triangle()
+       );
+       for(Shape shape : shapeList){
+           shape.draw();
+       }
+   }
+   //RTTI means that, at run time, the type of an object is identified.
+   //RTTI routine:
+     1. JVM load *Class object* using a subsystem named *class loader*.
+     2. Which might comprise a chain of class loaders, however, only one *primordial class loader*.
+     3. Which then loads *trusted classes*, including Java API classes, typically from the local disk, but can also include additional class loaders using hook, under special needs (e.g. related to Web server applications or downloading classes across a network).
+     4. All classes are loaded into the JVM dynamically, upon the first time a static member of that class is referenced (the constructor is also a static method implicitly).
+     5. The class loader first checks if the *Class* object for the specific type is loaded. If not, the default class loader finds the .class file by name (an add-on class loader might, e.g., look for the bytecodes in a database instead). As the bytes for that class are loaded, they are *verified* to ensure that they have not been corrupted and that they do not comprise bad Java code(one of the lines of defense for security in Java).
+     6. Once the *Class* object for that type is in memory, it is used to create all objects of that type.
+    //Class *Class*
+    //Class.forName("X"); //returns the class object Class<?> X;
+
+*** the Class object. Class.forName()
+    [[./Cp15_forName.java][Cp15_forName]]
+    //Reference to the appropriate *Class* object first, in order to use type information at run time.
+    //2 convenient methods: 
+      1. Class.forName("ClassName"). Which returns a reference to a particular class object.
+      2. nameOfAnObj.getClass(). 
+    //Literally, do not mix the two up. the returned classReference belongs to Class Class<T>
+
+** Class literals ~p399
    
 
-
-
-    
-
-
-
-
-* Chapter 15,
 * Chapter 16,
 * Chapter 17, Arrays
 * Chapter 18, 
