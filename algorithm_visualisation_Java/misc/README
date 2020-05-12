@@ -1556,3 +1556,85 @@ StringObj.split(regex); // split("n\\W+");
 * Chapter 19, 
 * Chapter 20, Annotations
 * Chapter 21, Concurrency
+  //speed vs. design manageablity
+  //utilize multiple cores 
+  //also may improve speed in single core processor (different from hyperthreading)
+  // *blocking*, e.g. program stall during I/O.
+  //Problem exists in dealing with global variables. need communication. (Go).
+  //Language level: does function call produces side effects: *Erlang*
+  
+  //java threading creates tasks *whithin* the single process represented by the executing program.
+          , ? which increase operating system transparency.(e.g.?)
+            
+  //The necessity of concurrency code designing:
+      + To solve some particular problem, e.g. a simulation, in which the interaction among independent elements is necessary.
+        Multithreaded systems often only support a relatively small number of threads, on the order of tens or hundreds. The number is platform dependent. in Java, it depends on the version of JVM.
+        in Java, programmer should assume that threads number will not be large enough to assign one thread for each individual element.
+        
+  //A solution: 
+    + *cooperative* multithreading. Each task voluntarily gives up control, which requires the programmer to consciously insert some kind of yielding statement into each task.
+      Advantage: 
+      | Context switching is typically much cheaper (than with a preemptive system)               |
+      | ? Theoretically no limit to the number of independent tasks that can be running at once]. |
+      //Hence, when dealing with a large number of simulation elements, this could be the ideal solution.                                                                            
+      //However, some cooperative systems are not designed to distribute tasks across processors, which could be very limiting. (examples?)
+
+    + Java: *preemptive* threading. scheduling mechanism provides time sices for each thread, periodically interrupting a thread and context switching to another thread so that each one is given a reasonable amount of time to drive its task.
+      *messaging* system, when multiple independent computers distributed across a network exists. Then all the processes are running completely independently of each other,
+
+** Basic threading
+   //each of these independent tasks(subtasks) is driven by a *thread of execution*, which is a single sequential flow of control within a process. A single process can thus have multiple concurrently executing tasks. 
+   //The CPU allocation is seperated in a different layer.
+
+*** Defining tasks
+    A Thread drives tasks, hence need a way to describe the task. Using *Runnable*.
+    [[./Cp21_LiftOff.java][Cp21_LiftOff]]
+    [[./Cp21_LiftOffRun.java][Cp21_LiftOffRun]]
+
+*** The *Thread* class
+    [[./Cp21_LiftOffBasicThreads.java][Cp21_LiftOffBasicThreads]] 
+    Thread t = Thread(Runnable);
+    t.start(); // start(), when called, JVM calls the run() method of this thread.
+    [[./Cp21_LiftOffMoreBasicThreads.java][Cp21_LiftOffMoreBasicThreads]] 
+    //About public static void Thread.yield();
+        + This method is rarely approprite to use. However may be useful for debugging or testing, where it may help to reproduce bugs due to race conditions.
+    //About GBC:
+        main{
+            new Thread(Runnable).start();
+        }
+
+        + Though it seems no reference is generated when a new thread is called, and thus might be GBCed, it is not. *Each Thread has a reference stored somewhere, and cannot be cleaned up ultil the task exits its run() and dies*. 
+     [[./Cp21_Print3TimesReturn.java][Cp21_Print3TimesReturn]]
+     
+
+** Using Executors
+   //Java SE5 java.util.concurrent *Executors*
+   public interface Executor throws RejectedExcecutionException, NullPointerException{
+       void execute(Runnable command);
+   }
+   //The interafce provides a way of decoupling task submission from the mechanics of how each task will be run, including details of thread use scheduling, etc.
+       //Usage: Instead of
+           new Thread(new(RunnableTask())).start();
+       //use the following:
+           Executor executor = anExecutor;
+           executor.execute(new RunnableTask1());
+           executor.execute(new RunnableTask2());
+           [[./Cp21_ExecutorDirect.java][Cp21_ExecutorDirect]]
+
+#+BEGIN_SRC java
+import java.util.concurrent.*;
+
+public class anExecutor01 implements Executor {
+    public void execute(Runnable r) {
+        r.run();
+    }
+}
+public class anExecutor02 implements Executor {
+    public void execute(Runnable r) {
+        new Thread(r).start();
+    }
+}
+#+END_SRC
+
+       
+    

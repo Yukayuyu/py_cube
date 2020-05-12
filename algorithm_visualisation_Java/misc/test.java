@@ -1,5 +1,5 @@
-public class test {
-    public static void main(String[] args) throws Exception {
+class test {
+    public static void main(String[] abc) throws Exception {
         byte[] b = new byte[2];
         b[0] = 100;
         b[1] = 0x2E;

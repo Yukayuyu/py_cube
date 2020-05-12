@@ -4,11 +4,13 @@ public abstract class HelloWorld {
     static {
         out.println("Hello");
     }
+    int i = 1;
 
     public void worldX() throws Exception {}
 
     public static void main(final String args[]) {
         // Prints "Hello, World" to the terminal window.
+        i = 2;
         System.out.println("Hello, World");
     }
 
