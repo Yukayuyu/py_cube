@@ -1,5 +1,17 @@
-class test {
-    public static void main(String[] abc) throws Exception {
+public class test {
+    static int i = 1;
+
+    public static void main(final String[] abc) throws Exception {
+        HelloWorld.main(abc);
+        abc[0] = "10";
+        abc = new String[]{"13"};
+        System.out.println(abc[0]);
+        
+        abc[0] = "1";
+        System.out.println(abc[0]);
+        String[] args = new String[] {};
+        HelloWorld.main(args);
+        //HelloWorld x = new HelloWorld();
         byte[] b = new byte[2];
         b[0] = 100;
         b[1] = 0x2E;

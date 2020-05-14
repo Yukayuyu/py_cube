@@ -1,6 +1,6 @@
 import static java.lang.System.out;
 
-public abstract class HelloWorld {
+public class HelloWorld {
     static {
         out.println("Hello");
     }
@@ -10,8 +10,9 @@ public abstract class HelloWorld {
 
     public static void main(final String args[]) {
         // Prints "Hello, World" to the terminal window.
-        i = 2;
-        System.out.println("Hello, World");
+        HelloWorld x = new HelloWorld();
+        x.i = 2;
+        System.out.println("Hello, World" + x.i);
     }
 
     /**

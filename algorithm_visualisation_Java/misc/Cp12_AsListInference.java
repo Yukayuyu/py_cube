@@ -1,36 +1,36 @@
 import java.util.*;
 
-class Snow {
+class Cp12_Snow {
 }
 
 
-class Powder extends Snow {
+class Cp12_Powder extends Cp12_Snow {
 }
 
 
-class Light extends Powder {
+class Cp12_Light extends Cp12_Powder {
 }
 
 
-class Heavy extends Powder {
+class Cp12_Heavy extends Cp12_Powder {
 }
 
 
-class Crusty extends Snow {
+class Cp12_Crusty extends Cp12_Snow {
 }
 
 
 public class Cp12_AsListInference {
     public static void main(String[] args) {
-        List<Snow> snow1 = Arrays.asList(new Crusty(), new Powder());
-        List<Snow> snow4 = Arrays.asList(new Light(), new Heavy());
+        List<Cp12_Snow> snow1 = Arrays.asList(new Cp12_Crusty(), new Cp12_Powder());
+        List<Cp12_Snow> snow4 = Arrays.asList(new Cp12_Light(), new Cp12_Heavy());
         // Maybe won't compile, (depends on JDK?)
         // found: java.util.List<Powder> required:
         // java.util.List<Snow>
-        List<Snow> snow2 = Arrays.<Snow>asList( // explicit type argument specification
+        List<Cp12_Snow> snow2 = Arrays.<Cp12_Snow>asList( // explicit type argument specification
                 new Light());
-        List<Snow> snow3 = new ArrayList<Snow>();
-        Collections.addAll(snow3, new Light(), new Heavy()); // doesn't get confused
+        List<Cp12_Snow> snow3 = new ArrayList<Cp12_Snow>();
+        Collections.addAll(snow3, new Cp12_Light(), new Cp12_Heavy()); // doesn't get confused
         // Collections.addAll check the type of the first element, and add others into it.
         System.out.println(snow1);
         System.out.println(snow2);

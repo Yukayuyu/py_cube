@@ -1,6 +1,10 @@
 ;; -*- mode: org; eval: (company-mode -1); -*-
 //Thinking in Java, by Bruce Eckel, 1033 pages
 ==============================================
+* TODO
+  + Sorting
+  + Interface
+  + lambda
 * The common-error 
 ** the local variables is always not public;
 [[./Cp8_ConstructorsWithoutArgument.java::5][Cp8_ConstructorsWithoutArguent::5]] 
@@ -18,6 +22,14 @@
     *NumberArg: ('-')? DigitNotZero (Digit)* ';' | '0' ';'
     *NameArg: '$' Identifier ';'
     Identifier: (any character except '.' ';' '[' '/' '<' '>' ':')*      ////]
+    
+** Lexical Structure
+*** Single quotes vs Double quotes
+    //single quotes for literal char s, double quotes for literal String s, like so: char c = 'a'; String s = "hello"; They cannot be used any other way around
+    | 's' | literal char s   |
+    | "s" | literal String s |
+*** Unicode Escapes
+    [[./Cp0_UnicodeEscapes.java][Cp0_UnicodeEscapes]]
    
 ==============================================
 * The disadvantage of Java.
@@ -1623,7 +1635,6 @@ StringObj.split(regex); // split("n\\W+");
 
 #+BEGIN_SRC java
 import java.util.concurrent.*;
-
 public class anExecutor01 implements Executor {
     public void execute(Runnable r) {
         r.run();
@@ -1635,6 +1646,10 @@ public class anExecutor02 implements Executor {
     }
 }
 #+END_SRC
-
-       
-    
+    //Class Structure:
+    + class Executors: 
+        - static ExecutorService newCachedThreadPool();
+        - static ExecutorService newCachedThreadPool(ThreadFactory threadFactory);
+    + Interface ExecutorService extends Executor:
+        - void execute();
+      
