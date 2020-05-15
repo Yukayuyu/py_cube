@@ -1,30 +1,24 @@
-import static java.lang.System.out;
+import java.util.Calendar;
 
 public class HelloWorld {
-    static {
-        out.println("Hello");
-    }
-    int i = 1;
+    int i;
 
-    public void worldX() throws Exception {}
-
-    public static void main(final String args[]) {
-        // Prints "Hello, World" to the terminal window.
-        HelloWorld x = new HelloWorld();
-        x.i = 2;
-        System.out.println("Hello, World" + x.i);
+    HelloWorld() {
+        i = 1;
     }
 
-    /**
-     * @Param String a, int b, String c, String d
-     * @author k docs body
-     */
-    public static int fucttttttttttion(int a, int b, int... c) {
-        return (0);
+    void run() {
+        Calendar c = Calendar.getInstance();
+        c.set(2020, 06, 02);
+        int i = c.get(4);
+        System.out.println(c.WEEK_OF_MONTH);
+        System.out.println(i);
+
     }
 
-    @Override
-    public String toString() {
-        return "HelloWorld []";
+    public static void main(String args[]) {
+        HelloWorld obj = new HelloWorld();
+        obj.run();
+
     }
 }

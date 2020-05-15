@@ -1,27 +1,47 @@
-class Base01{
+class Base01 {
     int i = 1;
     int k = 5;
-    Base01(){
-	int i = 2;
-	System.out.println("Base01Constructor");
+
+    Base01() {
+        int i = 2;
+        Integer j = 2;
+        System.out.println("Base01Constructor");
+    }
+
+    void method() {
+        System.out.println("method in super");
     }
 }
-public class Cp8_ConstructorsWithoutArgument extends Base01{
+
+
+public class Cp8_ConstructorsWithoutArgument extends Base01 {
     int k = 3;
     Integer j;
-    Cp8_ConstructorsWithoutArgument(){
-	j = new Integer(4);
-	System.out.println("mainConstructor");
+
+    Cp8_ConstructorsWithoutArgument() {
+        j = new Integer(4);
+        System.out.println("mainConstructor");
     }
-    public static void main (String[] args){
-	Cp8_ConstructorsWithoutArgument x = new Cp8_ConstructorsWithoutArgument();
-	System.out.println(x.i);	
-	System.out.println(x.j);	
-	System.out.println(x.k); // x.k == 3;	
-	//
-	Base01 y = x;
-	System.out.println(y.i);	
-	System.out.println(y.k); // y.k == 5;
-	//! System.out.println(y.j);	
+
+    @Override
+    void method() {
+        System.out.println("method in this");
+    }
+
+
+    public static void main(String[] args) {
+        Cp8_ConstructorsWithoutArgument x = new Cp8_ConstructorsWithoutArgument();
+        System.out.println(x.i + " x.i's value from super class's field");
+        System.out.println(x.j + " x.j's value from this constructor");
+        System.out.println(x.k + " x.k's value from this class's field, which overrides the super");
+        Base01 y = x;
+        System.out.println(y.i + " y uses super class's naming space");
+        System.out.println(y.k + " y uses super class's naming space"); // y.k == 5;
+        // ! System.out.println(y.j);
+        Base01 z = new Cp8_ConstructorsWithoutArgument();
+        System.out.println(z.k + " z.k Polymorphing, though uses super's field");
+        z.method();
+        System.out.println(z.j + " z.j Polymorphing, though uses super's field");
+
     }
 }

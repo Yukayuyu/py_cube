@@ -2,10 +2,19 @@
 //Thinking in Java, by Bruce Eckel, 1033 pages
 ==============================================
 * TODO
-  + Sorting
-  + Interface
-  + lambda
-* The common-error 
+  + IO
+  + Generic
+    //Directly related to datatype implementation. Hence must be read.
+    //And seems very intriguing
+  + TDD
+  + Comparable 
+
+* FAQ
+** The disadvantage of Java.
+  1. The behavoir of compiler is just "heavy knowledge".
+  2. Hard to debug (e.g. gbc binary walk style, or even compare to python.) 
+  3. Hard to implement GUI/Simple math(arrays, matrix, calculation, statics), compare to R, python.
+  4. The performance of Java heavily relies on Compiler/JVM's algorithm/optimization, thus the *legacy code* could be heavy. Which increase the long-term maintainence (human) cost.
 ** the local variables is always not public;
 [[./Cp8_ConstructorsWithoutArgument.java::5][Cp8_ConstructorsWithoutArguent::5]] 
 
@@ -24,20 +33,21 @@
     Identifier: (any character except '.' ';' '[' '/' '<' '>' ':')*      ////]
     
 ** Lexical Structure
+*** Unicode Escapes
+    [[./Cp0_UnicodeEscapes.java][Cp0_UnicodeEscapes]]
+   
 *** Single quotes vs Double quotes
     //single quotes for literal char s, double quotes for literal String s, like so: char c = 'a'; String s = "hello"; They cannot be used any other way around
     | 's' | literal char s   |
     | "s" | literal String s |
-*** Unicode Escapes
-    [[./Cp0_UnicodeEscapes.java][Cp0_UnicodeEscapes]]
-   
-==============================================
-* The disadvantage of Java.
-  1. "How compiler work" is just some heavy knowledge. Hard to debug (e.g. gbc binary walk style, or even compare to python.) 
-  2. GUI/Simple math(arrays, matrix, calculation, statics) is hard to implement, compare to R, python.
-  3. Since Java's performance heavily rely on Compiler/JVM's algorithm, the Legacy code shall be heavy. This increase the Long-term upgrade cost.
-==============================================
-//Mar 3, p0 ~ p33
+    
+** Fields initialization orders
+   [[./Cp0_FieldsInitializationOrder.java][Cp0_FieldsIniatializationOrder]]
+
+** ? *If* or *for* has its own scope;
+   [[./Cp0_ScopeOfIf.java][Cp0_ScopeOfIf]]
+
+** 
 * Chapter 2. Introduction to Objects.
 Java 1. > C++ when objects are more "dynamic". e.g. handling data that with an always changing size. Reasons: variables declaration conventions (effect how to compile). (cpp automatic/scoped variables or static in size) vs (Java's convention, the dynamic approach, e.g. the heap).
   However the dynamic method requires more headers, hence slower.
@@ -59,6 +69,7 @@ Java 1. > C++ when objects are more "dynamic". e.g. handling data that with an a
     In cross-platform cases, Java applet/JWS > .Net, for obvious reason. Though in enterprise all-clients-Windows case exists.
     In real world, cases depends on the Legacy code, and the cost of each solution.
     Server-side-programming, including text processing & database r/w, are traditionally implemented using Perl, Python, C++ ,.etc to create CGI programs. For complicated usage(supposely dynamic large data?), servlets/JSPs kicks in. In this scenario, Java wins by cross-platforming. (there're more)
+//Mar 3, p0 ~ p33
 
 * Chapter 3. Everything is an Object
 To manipulate objects, C/C++ use &* pointers, which is treated as special objects that each refer to a position in the memory. As for Java, the process is automated, and Class.Obj refers to the object in the memory.
@@ -87,6 +98,7 @@ To manipulate objects, C/C++ use &* pointers, which is treated as special object
     Constant values are hard coded since it never changes. Somecases in Read-Only-Memory(ROM). e.g. string pool.
   e. Non-RAM storage. 
     Data lives outside a program. e.g. Streamed objects & Persistent objects. (e.g. used in JDBC/Hibernation)
+     //the default length of the Object reference is 8 bits, and points to a maximum heap size of 32GB.
 
 ** Other datatypes: 
   High-precision numbers(Check later).
@@ -1476,7 +1488,7 @@ System.out.print(s);
    //the .10 in the string means to truncate the string by that number.
 *** a Hex Dumper
     //String.format(String format, Object... args)
-    [[./Cp14_HexDumper.java][Cp14_HexDumper]]
+    [[./Cp0_HexDumper.java][Cp0_HexDumper]]
 ** Regular Expression 
 //the *Quantifiers*, p374.
 | Greedy | Reluctant | Possessive | Matches                                 |
@@ -1562,11 +1574,41 @@ StringObj.split(regex); // split("n\\W+");
 ** Class literals ~p399
    
 
-* Chapter 16,
+* Chapter 16, Generics
+  [[./Cp16_GenericMethodSimple.java][Cp16_GenericMethodSimple]]
+
 * Chapter 17, Arrays
 * Chapter 18, 
 * Chapter 19, 
 * Chapter 20, Annotations
+  //Annotations is also known as *metadata*. It provide a formalized way to add information to the code so that the data is easily accessable at some later point.
+  //The invention is partly motivated by a general trend towards combining meta with src files, instead of keeping it in external documents, as well as a response to feature pressure from other languages, e.g. C#.
+  //Introduced in Java SE5.
+  //Java SE5 *java.lang* defines 3 annotations: *@Override, @Deprecated, @SupressWarnings*, the @SupressWaring is allowed but not supported thus ignored before Java SE5.
+** Base syntax
+   [[./Cp20_BasicAnnotationDefine.java][Cp20_BasicAnnotationDefine]]
+   [[./Cp20_BasicAnnotationRun.java][Cp20_BasicAnnotationRun]]
+
+*** Annotations That Apply to Other Annotations
+    //The so-called *meta-annotations*.
+    //Defined in java.lang.annotation. See [[https://docs.oracle.com/javase/tutorial/java/annotations/predefined.html][docs.oracle.com, annotations predefined]]
+    + @Rentention specifies how the marked annotation is stored: 
+      - RetentionPolicy.SOURCE - The marked annotion is retained only in the source level and is ignored by the compiler.
+      - RetentionPolicy.CLASS - The marked annotation is retained by the compiler at compile time, but is ignored by the JVM.
+      - RetentionPolicy.RUNTIME - The marked annotation is retained by the JVM so it can be used by the runtime environment.
+    + @Documented indicates that, whenever it is used, those elements should be documented in Javadoc, whereas the default behavior is to not include it.
+    + @Target marks another annotation to restrict what kind of Java elements the annotation can be applied to. Allows the following values:
+      | ElementType.    | ~ can be applied to a/an: |
+      | ANNOTATION_TYPE | annotation type           |
+      | CONSTRUCTOR     | constructor               |
+      | FIELD           | field or property         |
+      | LOCAL_VARIABLE  | local varible             |
+      | METHOD          | method-level annotation   |
+      | PACKAGE         | package declaration       |
+      | PARAMETER       | parameters of a method    |
+      | TYPE            | element of a class        |      
+ 
+  
 * Chapter 21, Concurrency
   //speed vs. design manageablity
   //utilize multiple cores 
@@ -1598,10 +1640,11 @@ StringObj.split(regex); // split("n\\W+");
    //each of these independent tasks(subtasks) is driven by a *thread of execution*, which is a single sequential flow of control within a process. A single process can thus have multiple concurrently executing tasks. 
    //The CPU allocation is seperated in a different layer.
 
-*** Defining tasks
-    A Thread drives tasks, hence need a way to describe the task. Using *Runnable*.
+*** Defining tasks, *Runnable* run();
+    //A Thread drives tasks, hence need a way to describe the task. Using *Runnable*.
     [[./Cp21_LiftOff.java][Cp21_LiftOff]]
     [[./Cp21_LiftOffRun.java][Cp21_LiftOffRun]]
+    new ClassName().f();
 
 *** The *Thread* class
     [[./Cp21_LiftOffBasicThreads.java][Cp21_LiftOffBasicThreads]] 
@@ -1619,7 +1662,7 @@ StringObj.split(regex); // split("n\\W+");
      [[./Cp21_Print3TimesReturn.java][Cp21_Print3TimesReturn]]
      
 
-** Using Executors
+** Using Executors executor.execute(new Runnable);
    //Java SE5 java.util.concurrent *Executors*
    public interface Executor throws RejectedExcecutionException, NullPointerException{
        void execute(Runnable command);
@@ -1648,8 +1691,31 @@ public class anExecutor02 implements Executor {
 #+END_SRC
     //Class Structure:
     + class Executors: 
-        - static ExecutorService newCachedThreadPool();
-        - static ExecutorService newCachedThreadPool(ThreadFactory threadFactory);
+      - static ExecutorService newCachedThreadPool();
+      - static ExecutorService newCachedThreadPool(ThreadFactory threadFactory);
+      - static newSingleThreadExecutor();
+        [[./Cp21_LiftOffSingleThreadExecutor.java][Cp21_LiftOffSingleThreadExecutor]] 
+        
+
     + Interface ExecutorService extends Executor:
-        - void execute();
-      
+      - void execute();
+      - void shutdown();
+
+** Producing return values from tasks *Callable* Java SE5. V call().
+#+BEGIN_SRC java
+@FunctionalInterface
+public Interface Callable<V>{
+    void call();
+}
+#+END_SRC
+   //Must be invoked using *ExecutorService submit()* method.
+   [[./Cp21_CallableLiftOff.java][Cp21_CallableLiftOff]]
+  
+*** ? which is then possible to combine with *isDone()*
+
+*** ? Executors.callable() 
+    //The overloaded Executors.callable() takes a *Runnable* and *produces* a Callable.
+
+*** ? ExecutorService has some "invoke" methods that run collections of *Callable* objects.
+    
+   
