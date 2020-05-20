@@ -1,24 +1,27 @@
-import java.util.Calendar;
+class testBase {
+
+    int i = 1;
+
+    testBase() {
+        this.i = 10;
+    }
+
+    testBase(int i) {
+        this();
+        System.out.println(++this.i);
+    }
+
+}
+
 
 public class HelloWorld {
-    int i;
-
-    HelloWorld() {
-        i = 1;
-    }
-
-    void run() {
-        Calendar c = Calendar.getInstance();
-        c.set(2020, 06, 02);
-        int i = c.get(4);
-        System.out.println(c.WEEK_OF_MONTH);
-        System.out.println(i);
-
-    }
 
     public static void main(String args[]) {
-        HelloWorld obj = new HelloWorld();
-        obj.run();
-
+        System.out.println("1");
+        {
+            System.out.println("2");
+        }
+        testBase x = new testBase(3);
+        System.out.println(x.i);
     }
 }

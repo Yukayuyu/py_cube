@@ -1,13 +1,12 @@
-import java.lang.annotation.*;
-
-@Cp20_ClassMetadataCustomize(author = "k", date = "05/15/2020", reviewers = {"k", "k again"})
 public class Cp20_BasicAnnotationRun {
-    public void methodToBeTest() {
+    @Cp20_BasicAnnotationDefine(author = "k", ID = 01, reviewers = {"k", "k again"})
+    public void useCase01() {
         System.out.println("Executing..");
     };
 
-    void testExecute() {
-        methodToBeTest();
+    @Cp20_BasicAnnotationDefine(author = "k", ID = 02, reviewers = {"k", "k again"})
+    public boolean useCase02() {
+        return false;
     }
 
     public static void main(String[] args) {}

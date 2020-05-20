@@ -1,12 +1,8 @@
 public class test3 {
-    static int test3 = 1;
-
-    void f() {
-        test3 = 10;
-    }
+    static int i = 1;
+    static int j = 1;
 
     public static void main(String[] args) {
-        class 
-
+        System.out.println(i==j);
     }
 }

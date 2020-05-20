@@ -2,14 +2,35 @@
 //Thinking in Java, by Bruce Eckel, 1033 pages
 ==============================================
 * TODO
-  + IO
+  + IO - Serializable
   + Generic
     //Directly related to datatype implementation. Hence must be read.
     //And seems very intriguing
   + TDD
-  + Comparable 
+  + Comparable
+  + SQL
 
 * FAQ
+** Eclipse hotkeys
+   | Command                             | Key(O=Shift+o)  |
+   |-------------------------------------+-----------------|
+   | Organize Imports                    | C-O             |
+   | Find Actions                        | C-3             |
+   | Jump to Definition                  | F3              |
+   | Jump back                           | A-LeftArrow     |
+   | Source menu                         | A-S             |
+   | Content Assist                      | C-I(customized) |
+   | ----syso                            | Content Assist  |
+   | ----syser                           | Content Assist  |
+   | ----main                            | Content Assist  |
+   | ?----References - Project           | Content Assist  |
+   | Auto-complete /** or Single Bracket | Enter           |
+   | Windows Components                  |                 |
+   | ---- Statusbar                      |                 |
+   | ---- Main Toolbar                   |                 |
+   | Working Sets                        |                 |
+   | Switch between Editors              | A-e             |
+
 ** The disadvantage of Java.
   1. The behavoir of compiler is just "heavy knowledge".
   2. Hard to debug (e.g. gbc binary walk style, or even compare to python.) 
@@ -22,7 +43,7 @@
     MethodType: '(' (FieldType)* ')' (FieldType | 'V')
     FieldType: PrimitiveType | ArrayType | ObjectType | *TypeExpr
     PrimitiveType: 'B' | 'C' | 'D' | 'F' | 'I' | 'J' | 'S' | 'Z'
-    ArrayType: '[' (PrimitiveType | ArrayType | ObjectType)             ////]
+    ArrayType: '[' (PrimitiveType | Array - Type | ObjectType)             ////]
     ObjectType: 'L' ClassName ';'
     *TypeExpr: TypeCarrier '/' (TypeOpName)? (';' | '[' (TypeArg)+ ']' )
     *TypeCarrier: FieldType | `L`
@@ -47,7 +68,32 @@
 ** ? *If* or *for* has its own scope;
    [[./Cp0_ScopeOfIf.java][Cp0_ScopeOfIf]]
 
-** 
+** the == compares value only.
+   it means: [[./Cp0_DoubleEqualCompareResult.java][Cp0_DoubleEqualCompareResult]]
+   returns false since the wrapper class is used, contents in the array is reference rather than actually value.
+
+** Cannot compile or run class in package    
+   //To compile or run the file */work/packageName/file.java* (with a first line: *package packageName;*)
+   //Under the working directory /work/packageName/*, run:
+     + *javac --class-path ../ file.java*
+   //Or go 1 level up to /work/* and run:
+     + javac ./packageName/Member.java
+Or simply use java instead of javac to execute.
+
+** {}the brack inside a method seems illegal, depends on compiler.
+   //However, the {} inside the field is allowed, though will not be executed. (check JVM?)
+
+** Function when inheriting
+   [[./Cp0_InheritedThis.java][Cp0_InheritedThis]]
+   [[./Cp0_InheritedThisBinary.hex][Cp0_InheritedThisBinary]]
+   //Check the binary file. Then we know that:
+   //In JVM, calling a method defined in super class (which means inheritance but without override), is implemented though specifying the name of the function and a reference to the parent.
+   //Hence in this case, the run() is not recompiled, and the arguments within, point to the constant pool of the parent class.
+*** *Hiding Fields*
+    //Within a class, a field that has the same name as a field in the superclass hides the superclass's field, even if their types are different. Within the subclass, the field in the superclass cannot be referenced by its simple name. Instead, the field must be accessed through super, which is covered in the next section. Generally speaking, we don't recommend hiding fields as it makes code difficult to read.
+
+
+
 * Chapter 2. Introduction to Objects.
 Java 1. > C++ when objects are more "dynamic". e.g. handling data that with an always changing size. Reasons: variables declaration conventions (effect how to compile). (cpp automatic/scoped variables or static in size) vs (Java's convention, the dynamic approach, e.g. the heap).
   However the dynamic method requires more headers, hence slower.
@@ -141,6 +187,8 @@ To manipulate objects, C/C++ use &* pointers, which is treated as special object
     | long    | 0L       | 64 bits               |
     | float   | 0.0f     | 32 bits               |
     | double  | 0.0d     | 64 bits               |
+    //However, when assigning long value, must use the L notation after the value. 
+        long l = 0xFFFFFFFFFFFFFFFFL;
 
 ***  *importing packages/classes*
      import java.util.ArrayList; //java.util is a package
@@ -188,9 +236,11 @@ To manipulate objects, C/C++ use &* pointers, which is treated as special object
    Private inner class -> referenced as *new* instance in a *public method* of the class-> main{call class constructor -> call the method};
    
 ** comparison
-   *equals()* (class java.lang.Object) 
-   *x.equals(y)* returns true if and noly if x & y points to the same object.
-   while as in String class, there's another equals() that compares string content if match.
+   * *equals()* (class java.lang.Object) 
+   * *x.equals(y)* returns true if and noly if x & y points to the same object.
+       while as in String class, there's another equals() that compares string content if match.
+   * *instanceof*, find if is subclass or implementation.
+
 
 ** && || !
 
@@ -590,7 +640,11 @@ To manipulate objects, C/C++ use &* pointers, which is treated as special object
    //Upcasting(inheritance) or Composition?
    //in Polymorphism.
 
-** *Final*
+** the *Final* modifier
+   | Final Classes:  | cannot be subclssed                          |
+   | Final methods:  | cannot be overridden or hidden by subclasses |
+   | Final variables | can only be initialized once.                |
+   
    Either a *compile-time constant* that won't ever change.
    Or can be a value initialized at run time that you don't want changed. (?) 
    
@@ -599,24 +653,24 @@ To manipulate objects, C/C++ use &* pointers, which is treated as special object
    
    *final* primitive cannot be changed.
    *final* pointer cannot be pointing to other objects. Though the objects can be modified.
-   [[./Cp8_Final.java][Cp8_Final.java]]
+   [[./Cp8_Final.java][Cp8_Final]]
    
-** Blank finals
-   [[./Cp8_Final.java::8][Cp8_Final.java::Line8]]
+*** Blank finals
+    [[./Cp8_Final.java::8][Cp8_Final.java::Line8]]
    
-** final argsList
-   void f(final int i), then {i++} becomes illegal.
-   //primaily used to pass data to anonymous inner classes.
+*** final argsList
+    void f(final int i), then {i++} becomes illegal.
+    //primaily used to pass data to anonymous inner classes.
    
-** When to use *final methods*
-   1. Only use it to *prevent inhiritage / override.*
-   2. (Deprecated, esp. after the *Hotspot* engine) Before Java SE 5/6, increase efficiency in some situations. When compile, invoke *inline calls*, which replace the method call with a copy of the actual code. As a result, the overhead is eliminated.
-   [[./Cp8_FinalMethods.java][Cp8_FinalMethods.java]]
+*** When to use *final methods*
+    1. Only use it to *prevent inhiritage / override.*
+    2. (Deprecated, esp. after the *Hotspot* engine) Before Java SE 5/6, increase efficiency in some situations. When compile, invoke *inline calls*, which replace the method call with a copy of the actual code. As a result, the overhead is eliminated.
+    [[./Cp8_FinalMethods.java][Cp8_FinalMethods.java]]
    
-** final classes
-   cannot be inherited (extended).
-   1. for Design reason.
-   2. for Security reason.
+*** final classes
+    cannot be inherited (extended).
+    1. for Design reason.
+    2. for Security reason.
 
 *** the demerit of final.
     the Java 1.0/1.1 *Vector* class's methods are all final, which is bad. Due to:
@@ -1591,13 +1645,14 @@ StringObj.split(regex); // split("n\\W+");
 
 *** Annotations That Apply to Other Annotations
     //The so-called *meta-annotations*.
+    //Maybe, check Enum RetentionPolicy. which store those options.
     //Defined in java.lang.annotation. See [[https://docs.oracle.com/javase/tutorial/java/annotations/predefined.html][docs.oracle.com, annotations predefined]]
-    + @Rentention specifies how the marked annotation is stored: 
+    + *@Rentention(policy)* specifies how the marked annotation is stored: 
       - RetentionPolicy.SOURCE - The marked annotion is retained only in the source level and is ignored by the compiler.
       - RetentionPolicy.CLASS - The marked annotation is retained by the compiler at compile time, but is ignored by the JVM.
       - RetentionPolicy.RUNTIME - The marked annotation is retained by the JVM so it can be used by the runtime environment.
-    + @Documented indicates that, whenever it is used, those elements should be documented in Javadoc, whereas the default behavior is to not include it.
-    + @Target marks another annotation to restrict what kind of Java elements the annotation can be applied to. Allows the following values:
+    + *@Documented(args)* indicates that, whenever it is used, those elements should be documented in Javadoc, whereas the default behavior is to not include it.
+    + *@Target(args)* marks another annotation to restrict what kind of Java elements the annotation can be applied to. Allows the following values:
       | ElementType.    | ~ can be applied to a/an: |
       | ANNOTATION_TYPE | annotation type           |
       | CONSTRUCTOR     | constructor               |
@@ -1606,7 +1661,62 @@ StringObj.split(regex); // split("n\\W+");
       | METHOD          | method-level annotation   |
       | PACKAGE         | package declaration       |
       | PARAMETER       | parameters of a method    |
-      | TYPE            | element of a class        |      
+      | TYPE            | element of a class        |
+*** marker annotation
+    + *@Inherited* allow subclasses to inherit parent annotations.
+      //i.e, the sub-class will or will not inherit the annotion from the parent class.
+    An annotation without any elements. such as "@Test". "@UseCase()"
+    //Like the use case below, annotation might be used as descriptions, to mark empty cases, which could then be filled later.
+    [[./Cp20_BasicAnnotationDefine.java][Cp20_BasicAnnotationDefine]]
+    [[./Cp20_BasicAnnotationRun.java][Cp20_BasicAnnotationRun]]
+** Writing annotation processors
+   //Annotation differ with comments in that, it supports self-created tools, which helps in creating those comments.
+   //Java SE5 provides extensions to the reflection API, which help to create annotation processors.
+   //Also, an external tool named *apt* is added to help programmers in parsing Java source code with annotations.
+   *public <T extends Annotation> T getAnnotation(Class<T> annotationClass)*
+   [[./Cp20_BasicAnnotationProcessor.java][Cp20_BasicAnnotationProcessor]]
+   //Note that if not specify that retain info at runtime, then cannot be processed.
+   The following elements could exist in such an annotation:
+   | All primitives             |
+   | String                     |
+   | Class                      |
+   | Enums                      |
+   | Annotations                |
+   | Arrays of any of the above |
+** Default value constraints
+   Non-primitive elements cannot take *null* as value, neither in src or in the annotation. 
+      //Go around with -1 or emtpy string "".
+** Generating external files
+   //check the package Cp20AnnotationPkg
+   [[./Cp20_Member.java][Cp20_Member]]
+   //Also, @SQLString(30) is a shortcut for assigning, the value to the only 1 var with arithmetic value, if it is named as *value*.
+*** ? Alternative solutions
+    //some alternative designed for solving the SQL problem.
+    //However has limitation and the annotation design seems to be the best.
+
+** Annotations don't support inheritance
+   *extends* keyword is not supported with *@interfaces*.
+
+** Implementing the processor
+   //A processor which read a class file, checks for its database annotations and generates the SQL command for making the database.
+   [[./Cp20_TableCreator.java][Cp20_TableCreator]]
+   
+   
+** ? java.lang.reflect *Interface AnnotatedElement*
+   public interface AnnotatedElement;
+     ? Where is an annotation A?
+     + directly on an element E if E has RuntimeVisible Annotations in which contains A.
+    
+   
+** ? Use *apt* to process annotations
+*** ? Using the Visitor pattern with apt
+** Annotation-based unit testing
+   //Annotation based test: Junit, merit: is able to test both private methods and public ones.
+   
+
+
+
+    
  
   
 * Chapter 21, Concurrency
