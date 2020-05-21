@@ -9,6 +9,7 @@
   + TDD
   + Comparable
   + SQL
+  + HTTP (get / URL / servelet)
 
 * FAQ
 ** Eclipse hotkeys
@@ -89,11 +90,31 @@ Or simply use java instead of javac to execute.
    //Check the binary file. Then we know that:
    //In JVM, calling a method defined in super class (which means inheritance but without override), is implemented though specifying the name of the function and a reference to the parent.
    //Hence in this case, the run() is not recompiled, and the arguments within, point to the constant pool of the parent class.
+   //What if polymorphism?
+   [[./Cp0_PolyThis.java][Cp0_PolyThis]]
+   //If override, then the method is always bound to the child method.
+   //Without override, there exists only one method definition, i.e. in the parent class. 
+
 *** *Hiding Fields*
     //Within a class, a field that has the same name as a field in the superclass hides the superclass's field, even if their types are different. Within the subclass, the field in the superclass cannot be referenced by its simple name. Instead, the field must be accessed through super, which is covered in the next section. Generally speaking, we don't recommend hiding fields as it makes code difficult to read.
+** Interface vs Abstract Class
+   [[./Cp0_InterfaceVsAbstractClass.java][Cp0_InterfaceVsAbstractClass]]
+   
+** access *private* from other object.
+   [[./Cp0_PrivateFieldOtherClassGetter.java][Cp0_PrivateFieldOtherClassGetter]]
+   //i.e., a.(setter, b); //can be used to set private field of b.
+   
+** auto initialization default value and char[]
+   //Auto initialized *char[]* object throw NullPointerException when call java.io.Writer.write;
+   [[./Cp0_DefaultValue.java][Cp0_DefaultValue]]
+   //the syso(char[]); invoke PrintStream.println(char[]) directly and seems to behavior differently
+   //with auto initialization, the syso(char[]) still throw an null pointer exception.
+   //just same as only char[] can be printed.
+   //only content within char[] will be tried to accessed in toString()
 
-
-
+** ClassName c = null; is legal?
+   //Integer ii = null; is legal.
+   //aconst_null , putfield. //null is of the size of a pointer.
 * Chapter 2. Introduction to Objects.
 Java 1. > C++ when objects are more "dynamic". e.g. handling data that with an always changing size. Reasons: variables declaration conventions (effect how to compile). (cpp automatic/scoped variables or static in size) vs (Java's convention, the dynamic approach, e.g. the heap).
   However the dynamic method requires more headers, hence slower.
@@ -116,6 +137,14 @@ Java 1. > C++ when objects are more "dynamic". e.g. handling data that with an a
     In real world, cases depends on the Legacy code, and the cost of each solution.
     Server-side-programming, including text processing & database r/w, are traditionally implemented using Perl, Python, C++ ,.etc to create CGI programs. For complicated usage(supposely dynamic large data?), servlets/JSPs kicks in. In this scenario, Java wins by cross-platforming. (there're more)
 //Mar 3, p0 ~ p33
+** Downcast
+   //Compiler check if the father object could be child object.
+   //If possible, then compiler allows downcast.
+   //In runtime, if cast fail, throw runtime error.
+   [[./Cp2_Downcasting.java][Cp2_Downcasting]]
+   //instanceof: Merit: 
+   //in very bad degisn, if the polymophism is necessary, however *a specific child method*, which is absent in parent class, is desired.
+   [[./Cp2_Upcasting.java][Cp2_Upcasting]]
 
 * Chapter 3. Everything is an Object
 To manipulate objects, C/C++ use &* pointers, which is treated as special objects that each refer to a position in the memory. As for Java, the process is automated, and Class.Obj refers to the object in the memory.
@@ -336,6 +365,7 @@ To manipulate objects, C/C++ use &* pointers, which is treated as special object
    
 //Mar 11, ~p117
 ** "goto" - "label"
+   [[./Cp5_Label.java][Cp5_Label]]
    the label better to be exactly before a control flow. 
    label1:
    outer-iter{
@@ -684,6 +714,7 @@ To manipulate objects, C/C++ use &* pointers, which is treated as special object
    So when a new constructor is called, the class code is loaded.
    Loading also happens when other static methods or field is called.
    And the initialization happends only once.
+   [[./Cp0_FieldsInitializationOrder.java][Cp0_FieldsIniatializationOrder]]
 
 //Mar 27, ~p189
 ** Initialization with inheritance
@@ -888,6 +919,9 @@ To manipulate objects, C/C++ use &* pointers, which is treated as special object
    // *Factory Method* designing pattern produce objects thta fit the interface.
    //commonly used in building *framework*.
    //More elegent using innerclass.
+
+** Java interface allows *default* and *static* method in JE8 and after.
+   [[./Cp10_InterfaceDefaultStatic.java][Cp10_InterfaceDefaultStaic]]
    
 ** Summary
    //Abstraction should be motivated by a real need.
@@ -921,13 +955,32 @@ To manipulate objects, C/C++ use &* pointers, which is treated as special object
    if(b){class x{//body, encapsulation & getter;}} 
    //then the code is not accessable outside the scope.
    
-** ? Anonymous inner classes
-   [[./Cp11_AnonymousInner.java][Cp11_AnonymousInner]]
+** Anonymous inner classes
+   //inner class inside a method (an implementation of the abstract method?)
+   [[./Cp11_InnerInMethod.java][Cp11_InnerInMethod]] //this is already anonymous inner? 
+   Temp, Broken: [[./Cp11_AnonymousInner.java][Cp11_AnonymousInner]] 
+   Q: which super? whosyourdaddy?
+   //For inner class inside a class, see the [[./Cp11_Selector.java][Cp11_Selector]] example.
    
 ** ? Factory Method revisited
 
-** ? Nested classes
+** Nested classes
+   Terminology: Nested classes are divided into two categories: static and non-static. 
+     + *Nested classes that are declared static are called static nested classes.*
+     + *Non-static nested classes are called inner classes.*
+   A nested class is a static inner class. It has attribute such as:
+     + Does not need an outer-class object to create.
+     + Cannot access a non-static out-class object from an object of a nested class.
+     + Can have static data, field, or nested classes. Which is different from ordinary inner classes.
+*** Why Use Inner Classes?
+     + to logically group classes that are only used in one place.
+        //If a class is useful to only one other class, then it is logical to embed it in that class and keep the two together. Nesting such "helper classes" makes their package more streamlined.
+     + increases encapsulation
+        //Consider two top-level classes, A and B, where B needs access to members of A that would otherwise be declared private. By hiding class B within class A, A's members can be declared private and B can access them. In addition, B itself can be hidden from the outside world.
+     + It can lead to more readable and mantainable code:
+        //Nesting small classes within top-level classes places the code closer to where it is used.
 
+        
 ** Classes inside interfaces p257
    public interface C{
    void howdy();
@@ -989,77 +1042,32 @@ public class C{
 
 *** *callbacks* function implementation using inner class
     [[./Cp11_Callback.java][Cp11_Callback]]
-#+NAME: Callback
-#+HEADERS: :classname Cp11_Callback
-#+BEGIN_SRC java
-private class Closure implements Incrementable {
-    public void increment() {
-        Callee2.this.increment();
-    }
-}
-
-Incrementable getCallbackReference() {
-    return new Closure();
-}
-
-class Caller {
-    //body...,
-    //1.constructor with *Closure()* Object reference.
-    //2.ref.increment() -> void go(){}
-}
-public class Cp11_Callback{
-    public static void main(String[] args){
-        Callee2 c2 = new Callee2();
-        Caller caller = new Caller(c2.getCallbackReference());
-        caller2.go();
-    }
-}
-#+END_SRC
-
-#+RESULTS: Callback
-| 1 |
-| 2 |
-
 //It turned this.increment() into an Incrementable object.
 
 ** ? Inner classes & control frameworks
    
-** ? Inheriting from inner classes
-   //The super constructor must be explicitly called 
-#+NAME: InheritInner
-#+HEADERS: :classname InheritInner
-#+BEGIN_SRC java
-class A{
-    class AInner { 
-        int i;
-        AInner(){
-            i = 1;
-            System.out.println("hi");
-        }
-    }
-}
-public class InheritInner extends A.AInner{
-    //! InheritInner(){}
-    InheritInner(A x){
-        x.super(); //Though counter intuitive.
-    }
-    public static void main(String[] args){
-        A xa = new A();
-        InheritInner xaa = new InheritInner(xa);
-        System.out.println(xaa.i);
-        A.AInner xb = xa.new AInner();
-        System.out.println(xb.i);
-    }
-}
-#+END_SRC
-
-#+RESULTS: InheritInner
-| hi |
-|  1 |
-| hi |
-|  1 |
+** Inheriting from inner classes
+   //Since an instance of an inner class must be attached to a parent class.
+   //The super constructor must be explicitly called before the construction.
+   [[./Cp11_InheritingAnInner.java][Cp11_InheritingAnInner]]
+   //! broken [[./Cp0_Super.java][Cp0_Super]]
 
 ** ? Local inner classes
+   
+** Summary
+*** (Static) Nested Classes:
+    Accessed using the enclosing class name:
+        OuterClass.StaticNestedClass
+    To create an new instance, use the following syntax:
+        OuterClass.StaticNestedClass nestedObject = new OuterClass.StaticNestedClass();
+*** (Non-static) Inner Classes:
+    An instance of InnerClass can exist only within an instance of OutClass, and has direct access to the methods and fields of its enclosing instance.
+    To create an new instance, use the following syntax:
+        OuterClass.InnerClass innerObject = outerObject.new InnerClass();
+    There are two special kinds of inner classes: local classes and anoymous classes.
+*** Shadowing
+    In the inner class, if a variable is declared with the same name as an existing variable in the enclosing scope, then the declaration *shadows* the declaration of the enclosing scope. A shadowed declaration cannot be referred by its name alone:
+    [[./Cp11_Shadowing.java][Cp11_Shadowing]]
 
 * Chapter 12, Holding Your Objects (Container basic)
 ** Generics and type-safe containers
@@ -1626,14 +1634,22 @@ StringObj.split(regex); // split("n\\W+");
     //Literally, do not mix the two up. the returned classReference belongs to Class Class<T>
 
 ** Class literals ~p399
-   
+   the *class literal* is:
+   //A second way to produce the reference to a Class object.
+         FancyToy.class
+   //It is simpler, and safer since it's checked at compile time(thus need not a *try* block). and more efficient since eliminateds the *forName()* method call.
+   //Also applies to interfaces, arrays, and primitive types as well as normal class.
+   //In addition, there exist a standard field called *TYPE* for each of the primitive wrapper class.
 
-* Chapter 16, Generics
+* Chapter 16, ? Generics
   [[./Cp16_GenericMethodSimple.java][Cp16_GenericMethodSimple]]
 
-* Chapter 17, Arrays
-* Chapter 18, 
-* Chapter 19, 
+** 
+  
+* Chapter 17, ? Arrays
+* Chapter 18, ? Containers in Depth
+* Chapter 19, ? I/O
+* Chapter 22, ? Enumerated Types
 * Chapter 20, Annotations
   //Annotations is also known as *metadata*. It provide a formalized way to add information to the code so that the data is easily accessable at some later point.
   //The invention is partly motivated by a general trend towards combining meta with src files, instead of keeping it in external documents, as well as a response to feature pressure from other languages, e.g. C#.
@@ -1712,12 +1728,7 @@ StringObj.split(regex); // split("n\\W+");
 *** ? Using the Visitor pattern with apt
 ** Annotation-based unit testing
    //Annotation based test: Junit, merit: is able to test both private methods and public ones.
-   
-
-
-
-    
- 
+*** ? How to delete the test methods
   
 * Chapter 21, Concurrency
   //speed vs. design manageablity
