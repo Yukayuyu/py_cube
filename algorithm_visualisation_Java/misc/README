@@ -10,6 +10,8 @@
   + Comparable
   + SQL
   + HTTP (get / URL / servelet)
+  + Serialize - In/OutputStream
+
 
 * FAQ
 ** Eclipse hotkeys
@@ -115,6 +117,21 @@ Or simply use java instead of javac to execute.
 ** ClassName c = null; is legal?
    //Integer ii = null; is legal.
    //aconst_null , putfield. //null is of the size of a pointer.
+
+** Class or Field initialization order
+   //Static block -> Normal block,(with order) -> Constructor ->
+   [[./Cp0_InitOrderp162.java][Cp0_InitOrderp162]]
+   [[./Cp0_FieldsInitializationOrder.java][Cp0_FieldInitializationOrder]]
+
+** Field behavior when inheritance
+   [[./Cp0_FieldBehaviorWhenInheritance.java][Cp0_FieldBehaviorWhenInheritance]]
+   //without shadowing, the child class seems to share a same ield namespace with its parent.
+
+** covariance and contravariance (共変戻り値)
+   //After JE5
+   [[./Cp0_CovarianceAndContravariance.java][Cp0_ConvarianceAndContravariance]]
+** non-static function call in constructor
+   [[./Cp0_nonstaticFunctionCallInConstructor.java][Cp0_nonstaticFunctionCallInConstructor]]
 * Chapter 2. Introduction to Objects.
 Java 1. > C++ when objects are more "dynamic". e.g. handling data that with an always changing size. Reasons: variables declaration conventions (effect how to compile). (cpp automatic/scoped variables or static in size) vs (Java's convention, the dynamic approach, e.g. the heap).
   However the dynamic method requires more headers, hence slower.
@@ -920,13 +937,12 @@ To manipulate objects, C/C++ use &* pointers, which is treated as special object
    //commonly used in building *framework*.
    //More elegent using innerclass.
 
-** Java interface allows *default* and *static* method in JE8 and after.
-   [[./Cp10_InterfaceDefaultStatic.java][Cp10_InterfaceDefaultStaic]]
-   
 ** Summary
    //Abstraction should be motivated by a real need.
    //Interfaces should be something that I refactor to when necessary, but not everywhere.
    //A guidline might be to *prefer classes over interfaces*, and use interface only when clearly necessary.
+*** *default methods* and *static methods* in interface int JE8
+   [[./Cp10_InterfaceDefaultStatic.java][Cp10_InterfaceDefaultStaic]]
 
 * Chapter 11, Inner Classes
   //Allow code to be more elegant and clear.
@@ -1209,6 +1225,8 @@ LinkedList<Pet> pets = new LinkedList<Pet>(Arrays.asList("dog", "cat"));
     //
     
 *** Map
+    //use for each to loop through key/value/pair.
+    //map.keySet(); map.values(); entrySet();
     [[./Cp12_Map.java][Cp12_Map]]
     //Obj.
           put("key", Obj); get("key"); containsKey("key"); continsValue(Obj);
@@ -1279,6 +1297,8 @@ public class MapOfList{
     //Simple Container Taxonomy. p309
     
 * Chapter 13, Error Handling with Exceptions
+  [[./Cp13_SevenIsEvil.java][Cp13_SevenIsEvil]]
+  // ? the block after finally is still executed.
 ** Basic exceptions
    //exceptional condition -> a *new* exception object is created on the heap -> current path of execution is stopped ->
    the reference for the exception object is ejected -> exception-handling mechanism takes over and looking for the *exception hander* and execute.
@@ -1339,7 +1359,7 @@ Apr 19th, ~p321
    void function() throw exception;
    //However the throw can be compiled without really implementing a throw.
    //Thus, possible to throw in abstract classes.
-** The *Exception* and how to catch'em all 
+** The *Exception* and how to catch all exceptions
    [[./Cp13_AllException.java][Cp13_AllException]]
 ** The StackTrack Elements.
    [[./Cp13_StackTrace.java][Cp13_StackTrace]]
@@ -1387,6 +1407,7 @@ try {
       2. An error in the program. Such as an ArrayIndexOutOfBoundException.
 ** Performing cleanup with *finally*.
    *finally clause always run*.
+   //even on error.
    //example usage:
      1. As java's "goto" combined with the labeled break&continue statement.
      2. guarantee a important cleanup, which will be executed no matter what.  
@@ -1489,6 +1510,9 @@ try{
      9. Make your library and program safer. (Consider it as short-term investment for debugging, and a long-term investment for application robustness.)
 
 ** Summary
+   [[./Cp13_AllException.java][Cp13_AllException]] //Catch all exceptions
+   [[./Cp13_WrappedException.java][Cp13_WrappedException]]
+
    //The actual recovery aspect might only be 10 percent.
    //However the bug reporting ablity is extremly useful. Even only with a Runtime exception.
 //Apr 24th, ~p354
@@ -1603,7 +1627,7 @@ StringObj.split(regex); // split("n\\W+");
 *** ? StringTokenizer p389
     //to split string before scanner or split() exist in JDK.
 
-* Chapter 15, Type Information
+* Chapter 15, ? Type Information
   //Runtime type infomation (RTTI) allows program to discover and use type information at runtime. 
 ** The need for RTTI
    psvm{
@@ -1649,6 +1673,40 @@ StringObj.split(regex); // split("n\\W+");
 * Chapter 17, ? Arrays
 * Chapter 18, ? Containers in Depth
 * Chapter 19, ? I/O
+  //
+** the *File* class
+   //a or a set of "FilePath". to list all filenames, use list() which returns a String[].
+   //if a different directory listing is desired, create a different *File* object.
+   //to filter, *Filename Filter* interface
+*** a directory lister 
+    ? [[./Cp19_DirectoryLister.java][Cp19_DirectoryLister]] //String comparator, Arrays.sort.
+     [[./Cp19_DirectoryListerAnonymousInner.java][Cp19_DirectoryListerAnonymousInner]] 
+     
+** Directory utilities
+
+** ?
+** Input and Output
+   //a *stream* represents a kind of data source or sink as an object capable of producing or receiving data.
+   //The stream hides the details of what happens to the data inside the actual I/O devide.
+   //Through inheritance, everything derived from the *InputStream* or *Reader* classes has basic method *read()* for reading a single byte or a byte array. Likewise, all child of *OutputStream* or *Writer* classes has basic method *write()* for writing byte or a byte array.
+   //However they are rarely used, instead implemented by other methods, which is *decorator* design pattern.
+   
+** Type of InputStream:
+   *InputStream* represent classes that produce input from different sources. the sources can be:
+      + a byte[] array
+      + a String object
+      + a file
+      + a "pipe" *PipedInputStream*
+      + a sequence of other steams, so it can be combined into a single stream
+      + Other sources, such as an Internet connection.
+    //Table of usage: p657
+
+** ?
+** Buffered input file
+   [[./Cp19_BufferedInputFile.java][Cp19_BufferedInputFile]]
+   //simple input
+** Basic file output
+   [[./Cp19_BasicFileOutput.java][Cp19_BasicFileOutput]]
 * Chapter 22, ? Enumerated Types
 * Chapter 20, Annotations
   //Annotations is also known as *metadata*. It provide a formalized way to add information to the code so that the data is easily accessable at some later point.
@@ -1658,6 +1716,8 @@ StringObj.split(regex); // split("n\\W+");
 ** Base syntax
    [[./Cp20_BasicAnnotationDefine.java][Cp20_BasicAnnotationDefine]]
    [[./Cp20_BasicAnnotationRun.java][Cp20_BasicAnnotationRun]]
+** Storing and recovering data
+   [[./Cp19_StoringAndRecovering.java][Cp19_StoringAndRecovering]]
 
 *** Annotations That Apply to Other Annotations
     //The so-called *meta-annotations*.

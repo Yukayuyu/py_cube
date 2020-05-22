@@ -1,10 +1,13 @@
 interface Cp0InterfaceVsAbstractClassInterface {
     int j = 20;
+    // ! private int z = 1; // private field not allowed.
 }
 
 
 abstract class Cp0InterfaceVsAbstractClassAbstractClass {
     int i = 10;
+
+    private int j = 1; // private field is allowed.
 
     private void f() {
         System.out.println(

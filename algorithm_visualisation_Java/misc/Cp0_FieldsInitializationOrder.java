@@ -7,7 +7,6 @@ class Cp0_FieldsBase {
     static void staticMethod() {
         System.out.println("FieldBase static method");
     }
-
 }
 
 
