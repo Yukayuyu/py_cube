@@ -126,6 +126,8 @@ Or simply use java instead of javac to execute.
 ** Field behavior when inheritance
    [[./Cp0_FieldBehaviorWhenInheritance.java][Cp0_FieldBehaviorWhenInheritance]]
    //without shadowing, the child class seems to share a same ield namespace with its parent.
+   [[./Cp0_FieldBehavior2.java][Cp0_FieldBehavior2]]
+   
 
 ** covariance and contravariance (共変戻り値)
    //After JE5
