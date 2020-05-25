@@ -68,8 +68,12 @@
 ** Fields initialization orders
    [[./Cp0_FieldsInitializationOrder.java][Cp0_FieldsIniatializationOrder]]
 
-** ? *If* or *for* has its own scope;
-   [[./Cp0_ScopeOfIf.java][Cp0_ScopeOfIf]]
+** Scopes, local var cannot be duplicated, in *lambda, for, as well as codeblock*.
+   [[./Cp0_Scopes.java][Cp0_Scopes]]
+   //However, lambda is a more special type, since for can take local var as a parameter directly,
+   //But lambda can only take an unoccupied variable name.
+   [[./Cp0_Scopes2.java][Cp0_Scopes2]]
+   //Local variable defined in an enclosing scope must be final or effectively final.
 
 ** the == compares value only.
    it means: [[./Cp0_DoubleEqualCompareResult.java][Cp0_DoubleEqualCompareResult]]
@@ -134,6 +138,11 @@ Or simply use java instead of javac to execute.
    [[./Cp0_CovarianceAndContravariance.java][Cp0_ConvarianceAndContravariance]]
 ** non-static function call in constructor
    [[./Cp0_nonstaticFunctionCallInConstructor.java][Cp0_nonstaticFunctionCallInConstructor]]
+** merit of immutable objects
+   + guarantee the value will not change.
+   + thread safe
+   + not necessary to deep copy
+   + shareable among multiple clients
 * Chapter 2. Introduction to Objects.
 Java 1. > C++ when objects are more "dynamic". e.g. handling data that with an always changing size. Reasons: variables declaration conventions (effect how to compile). (cpp automatic/scoped variables or static in size) vs (Java's convention, the dynamic approach, e.g. the heap).
   However the dynamic method requires more headers, hence slower.
@@ -1515,10 +1524,23 @@ try{
    [[./Cp13_AllException.java][Cp13_AllException]] //Catch all exceptions
    [[./Cp13_WrappedException.java][Cp13_WrappedException]]
    [[./Cp13_ReturnJVMCode.java][Cp13_ReturnJVMCode]]
+   [[./Cp13_CatchFinallyExecuteOrder.java][Cp13_CatchFinallyExecuteOrder]] //Try->Catch->Finally->Return(even if in CatchBlock)
 
-   //The actual recovery aspect might only be 10 percent.
-   //However the bug reporting ablity is extremly useful. Even only with a Runtime exception.
-//Apr 24th, ~p354
+
+    //The actual recovery aspect might only be 10 percent.
+    //However the bug reporting ablity is extremly useful. Even only with a Runtime exception.
+ //Apr 24th, ~p354
+*** Frequently Used Exceptions
+   + ArrayIndexOutOfBoundsException: RuntimeException, Thrown to indicate that an array has been accessed with an illegal index. *The index is either negative or greater than or equal to the size of the array.*
+   + IndexOutOfBoundsException: RuntimeException, Thrown to indicate that an index of some sort (such as to an array, to a string, or to a vector) is out of range.
+     - listObject.get();
+   + NumberFormatException:
+     - Integer.parseInt("#")
+   + IllegalArgumentException
+   + IllegalStateException //JVM error?
+   + ExceptionInInitializerError
+     - nullString.length()[[./Cp13_ExceptionInInitializerError.java][Cp13_ExceptionInInitializer]]
+
 * Chapter 14, Strings
 ** Immutable Strings
    //String objects are immutable.
@@ -1578,7 +1600,7 @@ System.out.print(s);
 *** a Hex Dumper
     //String.format(String format, Object... args)
     [[./Cp0_HexDumper.java][Cp0_HexDumper]]
-** Regular Expression 
+** Regular Expression p372
 //the *Quantifiers*, p374.
 | Greedy | Reluctant | Possessive | Matches                                 |
 | X?     | X??       | X?+        | X, one or none                          |
@@ -1668,6 +1690,11 @@ StringObj.split(regex); // split("n\\W+");
    //Also applies to interfaces, arrays, and primitive types as well as normal class.
    //In addition, there exist a standard field called *TYPE* for each of the primitive wrapper class.
 
+** Summary
+
+*** Using Reflection 
+    [[./Cp15_ReflectionDumpMethods.java][Cp15_ReflectionDumpMethods]]
+    reflection instead of CGI? //The idea seems to be "reusing" an app, by changing its input. instead of copying and restart the whole app, which is the CGI method.
 * Chapter 16, ? Generics
   [[./Cp16_GenericMethodSimple.java][Cp16_GenericMethodSimple]]
 
@@ -1902,4 +1929,141 @@ public Interface Callable<V>{
 
 *** ? ExecutorService has some "invoke" methods that run collections of *Callable* objects.
     
+   
+* Chapter 30, Designing Patterns 
+** Factory getInstance method
+   //Use the following to generate instance instead a constructor. Example is the abstract class Calendar.
+   public static getInstanceOf();
+   [[./Cp30_FactoryGetInstance.java][Cp30_FactoryGetInstance]]
+* Chapter 31, Frequently Used API
+** String. String s = "abcde"
+   + *static* valueOf()
+     //String d = String.valueOf("hi");
+     //Double quotation mark is needed when a string is passed.
+   + replaceAll(String regex, String replacement)
+     //still, *immutable* is the String!
+   + indexOf()
+     //s.indexOf("bc");
+     //return:1, returns -1 if the string searched does not exist.
+   + substring()
+     //s.substring(2,4)
+     //return:cd
+     //remember the (k,m+1)
+   + trim()
+     //return char with code greater than \u0020, substring(k,m+1)
+     //String d = " a b c \t "; d.trim();
+     //return:"abc"
+   + replace(char oldChar, char newChar)
+   + replace(CharSequence target, CharSequence replacement)
+     //String d = "aaaaa"; Syso(d.replace("aa", "b"));
+     //return:"bba";
+     //Carefull not to mix char with CharSequence, e.g. s.replace("aa", 'b') is compile error.
+   + charAt()
+     //s.charAt(s.length());
+     //return:StringIndexOutOfBoundsException
+   + startsWith(String prefix)
+   + startsWith(String prefix, int toffset)
+     //Tests if the substring of this string beginning at the specified index starts with the specified prefix.
+     [[./Cp31_StartsWith.java][Cp31_StartsWith]]
+   + concat(String str)
+     //"abcde".concat("s");
+     //returns:"abcdes"
+   + Plus overloadding pitfall
+     [[./Cp31_PlusOverloadding.java][Cp31_PlusOverloadding]]
+     //syso(10+20+"30");
+     //return:"3030"
+** StringBuilder StringBuilder sb = new StringBuilder("abc");
+   + StringBuilder()
+   + StringBuilder(CharSequence seq)
+     //The initial capacity is 16 plus the length of the CharSequence argument.
+     [[./Cp31_StringBuilder.java][Cp31_StringBuilder]]
+     //boolean b = true; String.valueOf(b);
+     //returns:"true"
+   + insert(...);
+     //sb.append("de").insert(2, "g"); syso(sb);
+     //returns:"abgcde"
+   + delete(1,3)
+   + deleteCharAt(2)
+   + reverse()
+     //StringBuilder is *not immutable*
+   + replace(int start, int end, String str)
+     //Replaces the characters in a substring of this sequence with characters in the specified String.
+   + CharSequene subSequence(int start, int end)
+   + String substring(int start)
+   + String substring(int start, int end)
+     [[./Cp31_CharSequence.java][Cp31_CharSequence]]
+
+** Lambda
+   [[./Cp31_Lambda.java][Cp31_Lambda]]
+   //Single line, 
+   //If single variable, the Round brackets are omittable.
+   //Pitfall: *Cannot modify enclosing variable.*
+   f(){
+       int i = 0;
+       LambdaInterface x = () -> {
+           // ! i++; //illegal, i must be effectively final. 
+           System.out.println(i); //access only is allowed.
+       }
+   }
+   
+** interface java.util.function.Predicate
+   @FunctionalInterface 
+   public interface Predicated<T>{
+       boolean test(T t);
+   }
+   //Parent:
+   @FunctionalInterface
+   public interface Function<T, R>{
+       <R> apply(T t);
+   }
+   [[./Cp31_Function.java][Cp31_Funtion]]
+   [[./Cp31_Predicate.java][Cp31_Predicate]]
+
+** List.
+   + boolean contains(Object o)
+
+** java.time.LocalDate.
+   //LocalDate object is *immutable*, while Calendar is mutable.
+   + *static of(2015,0,1)* //throw DateTimeException, which is RunTimeException.
+   + *static parse(CharSequence text, & DateTimeFormatter formatter)* //text = "2015-01-01".
+   + *static now(&...)*
+   + equals 
+     //Checks if this date is equal to another date.
+     [[./Cp31_LocalDate.java][Cp31_LocalDate]]
+   + plusDays(long daysToAdd) //return:LocalDate
+   + plusMonths(long monthsToAdd)
+   + plusWeeks(long weeksToAdd)
+   + plusYears(long yearsToAdd)
+
+** java.time.LocalTime. 
+   //Pitfall: *immutable* too.
+   + *static of(int hour, int minute, int second, & int nanoOfSecond)*
+   + plusHours(long hoursToAdd) //time.plusHours(12); //returns:time immutable.
+
+** java.time.LocalDateTime
+   + of(yr, month, day, hr, min, &sec)
+
+** java.time.Duration
+   + *static Duration betwwen(Temporal startInclusive, Temporal endExclusive)*
+     //Both LocalDateTime and LocalTime implement the interface Temporal.
+     [[./Cp31_Duration.java][Cp31_Duration]]
+   + toHours(); //gets the number of hours in this duration.
+     
+** now
+   [[./Cp31_Now.java][Cp31_Now]]
+   
+** java.time.Period
+   //to calculate the date difference:
+   + *static Period between(LocalDate startDateInclusive, LocalDate endDateExclusive)*
+   + Period LocalTimeObject.until(targetLocalTimeObject)
+     
+** java.time.format.DateTimeFormatter
+   [[./Cp31_DateTimeFormatter.java][Cp31_DateTimeFormatter]]
+   
+** java.time.ZonedDateTime
+   + *static ZonedDateTime.of(LocalDate date, LocalTime time, ZoneID zone)*
+   + *static ZonedDateTime.of(LocalDateTime localDateTime, ZoneID zone)*
+   
+
+
    
