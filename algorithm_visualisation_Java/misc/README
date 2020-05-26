@@ -1072,6 +1072,7 @@ public class C{
 *** *callbacks* function implementation using inner class
     [[./Cp11_Callback.java][Cp11_Callback]]
 //It turned this.increment() into an Incrementable object.
+//The nature of Callback, should be passing variable(s) as well as *a function*, which is determined on Runtime, to a Caller, which then execute the function.
 
 ** ? Inner classes & control frameworks
    
@@ -1617,9 +1618,13 @@ System.out.println("+911".matches("(-|\\+)?\\d+")); // true
 //------------
 StringObj.split(regex); // split("n\\W+");
 #+END_SRC
+
    //More in JDK documentation, section:
    java.util.regex.Pattern
 
+*** String[] split(String regex, & int limit)
+    [[./Cp14_Split.java][Cp14_Split]] 
+   
 *** Match in String
     [[./Cp14_MatchInString.java][Cp14_MatchInString]]
 #+BEGIN_SRC java
@@ -1787,6 +1792,10 @@ StringObj.split(regex); // split("n\\W+");
 *** Serialization
     [[./Cp19_SerializationBasic.java][Cp19_SerializationBasic]]
     [[./Cp19_DeserializationBasic.java][Cp19_DeserializationBasic]]
+    ////
+    //Override the default readObject(), writeObject() method.
+    [[./Cp19_SerializationCustomized.java][Cp19_SerializationCustomized]]
+    [[./Cp19_DeserializationCustomized.java][Cp19_DeserializationCustomized]]
 
 
 * Chapter 22, ? Enumerated Types
@@ -1988,6 +1997,13 @@ public Interface Callable<V>{
 *** Mutex
     //A mutex(or mutual exclusion) is the simplest type of synchronizer - it ensures that only one thread can execute the critical section of a computer program at a time. To access a critical section, a thread acquires the mutex, then accesses the critical section, and finally releases the mutex.
 *** Thread Safety
+    *To avoid the ConcurrentModificationException*:
+    [[./Cp21_AvoidConcurrentModificationException.java][Cp21_AvoidConcurrentModificationException]]
+
+    //Regarding to *Collection, List, and etc.*
+    //Since those are normally only used as an container, in other words, the data inside is not constantly changing. Hence the thread safety is in that sense not that important. 
+    ConcurrentModificationException:
+    [[./Cp21_ConcurrentModificationException.java][Cp21_ConcurrentModificationException]]
     //Three levels of safety:
     //Unsafe, Thread safe - Serializable, Thread safe - MT-Safe
     An unsafe procedure can be made thread safe and serializable by surrounding it with statements to lock and unlock a mutex. 
@@ -2097,6 +2113,10 @@ public Interface Callable<V>{
 
 ** List.
    + boolean contains(Object o)
+*** removeIf
+    default boolean removeIf(Predicate<? super E> filter)
+    filter - a predicate which returns true for elements to be removed.
+    [[./Cp21_AvoidConcurrentModificationException.java::16][Cp21_AvoidConcurrentModificationException::16]]
 
 ** java.time.LocalDate.
    //LocalDate object is *immutable*, while Calendar is mutable.
