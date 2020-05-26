@@ -11,6 +11,8 @@
   + SQL
   + HTTP (get / URL / servelet)
   + Serialize - In/OutputStream
+  + Use Runnable to multi-threading access database
+  + Singleton designing pattern
 
 
 * FAQ
@@ -1737,6 +1739,56 @@ StringObj.split(regex); // split("n\\W+");
    //simple input
 ** Basic file output
    [[./Cp19_BasicFileOutput.java][Cp19_BasicFileOutput]]
+** Summary
+*** InputStream & OutputStream vs. Readers & Writers
+    //The later was newly introduced in Java 1.1, but aims not at replacing the former one.
+    //Instead, the former is used in *byte-oriented I/O*, while as the later is used in *Unicode-compliant, character-based I/O*
+    //The former only support 8-bit byte steams so that it doesn't handle the 16-bit Unicode characters well. In addition, the later one is faster.
+    //Bridging: *InputStreamReader* converts an InputStream to a Reader, *OutputStreamWriter* converts an OutputSteam to a Writer.
+
+    //It is *sensible* to:
+    //Try to use the *Reader* and *Writer* class whenever possible.
+    //However, sometimes the byte-oriented I/O is the right answer. In those cases, code may not compile with char-based Reader and Writer.
+    //In particular, the *java.util.zip* library is byte-oriented rather than char-oriented.
+*** Sources and sinks of data
+    | Java 1.0 classes                      | Java 1.1 classes             |
+    |---------------------------------------+------------------------------|
+    | InputStream                           | Reader                       |
+    |                                       | adapter: InputStream Reader  |
+    | OutputSteam                           | Writer                       |
+    |                                       | adapter: OutputStream Writer |
+    | FileInputStream                       | FileReader                   |
+    | FileOutputStream                      | FileWriter                   |
+    | StringBufferedInputStream(deprecated) | StringReader                 |
+    | (no corresponding class)              | StringWriter                 |
+    | ByteArrayInputStream                  | CharArrayReader              |
+    | ByteArrayOutputStream                 | CharArrayWriter              |
+    | PipedInputStream                      | PipedReader                  |
+    | PipedOutputStream                     | PipedWriter                  |
+
+*** "Decorator" classes
+    | Filters: Java 1.0 classes         | Corresponding Java 1.1 classes                  |
+    | FilterInputStream                 | FilterReader                                    |
+    | FilterOutputStream                | FilterWriter(abstract class with no subclasses) |
+    | BufferedInputStream               | BufferedReader(also has readLine())             |
+    | BufferedOutputStream              | BufferedWriter                                  |
+    | DataInputStream                   |                                                 |
+    | PrintSteam                        | PrintWriter                                     |
+    | LineNumberInputStream(deprecated) | LineNumberReader                                |
+    | Stream Tokenizer                  | Stream Tokenizer                                |
+    | PushbackInputStream               | PushbackReader                                  |
+
+*** PrintWriter
+    public class PrintWriter extends Writer{} 
+    //Prints formatted representations of objects to a text-output stream. 
+    //Its constructor support both OutputStream and Writer.
+    //The class implements all of the print methods found in PrintStream.
+    //See: [[./Cp19_BasicFileOutput.java][Cp19_BasicFileOutput]]
+*** Serialization
+    [[./Cp19_SerializationBasic.java][Cp19_SerializationBasic]]
+    [[./Cp19_DeserializationBasic.java][Cp19_DeserializationBasic]]
+
+
 * Chapter 22, ? Enumerated Types
 * Chapter 20, Annotations
   //Annotations is also known as *metadata*. It provide a formalized way to add information to the code so that the data is easily accessable at some later point.
@@ -1930,11 +1982,35 @@ public Interface Callable<V>{
 *** ? ExecutorService has some "invoke" methods that run collections of *Callable* objects.
     
    
+** Summary
+   [[./Cp21_SleepException.java][Cp21_SleepException]]
+
+*** Mutex
+    //A mutex(or mutual exclusion) is the simplest type of synchronizer - it ensures that only one thread can execute the critical section of a computer program at a time. To access a critical section, a thread acquires the mutex, then accesses the critical section, and finally releases the mutex.
+*** Thread Safety
+    //Three levels of safety:
+    //Unsafe, Thread safe - Serializable, Thread safe - MT-Safe
+    An unsafe procedure can be made thread safe and serializable by surrounding it with statements to lock and unlock a mutex. 
+    Next is a serializable version of this routine with a single mutex.
+    The last version is MT-safe. It uses one lock for each file, allowing two threads to print to different files at the same time. So, a routine is MT-safe when it is thread safe and its execution does not negatively affect performance.
+    [[./Cp21_DegreesOfThreadSafety.java][Cp21_DegreesOfThreadSafety]]
+    
 * Chapter 30, Designing Patterns 
 ** Factory getInstance method
    //Use the following to generate instance instead a constructor. Example is the abstract class Calendar.
    public static getInstanceOf();
    [[./Cp30_FactoryGetInstance.java][Cp30_FactoryGetInstance]]
+** Singleton pattern
+   //The singleton solves problem like:
+     + How to ensure that a class has only one instance?
+     + How can the solo instance of a class be accessed easily?
+     + How can a class control its instantiation?
+     + How can the number of instances of a class be restricted?
+   //The pattern offers solution using pattern described as:
+     + Hide the constructor of the class.
+     + Define a public static operation(getInstance()) that returns the solo instance of the class.
+   [[./Cp30_SingletonBasic.java][Cp30_SingletonBasic]] //Not-thread safe, multiple instance might be be initialized.
+   [[./Cp30_SingletonImproved.java][Cp30_SingletonImproved]] //Bill Pugh Singleton Implementation, Thread safe.
 * Chapter 31, Frequently Used API
 ** String. String s = "abcde"
    + *static* valueOf()
