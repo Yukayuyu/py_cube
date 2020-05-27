@@ -1,4 +1,3 @@
-
 public class p62 {
     public static void main(String[] args) {
         if (false)

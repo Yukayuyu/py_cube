@@ -1,5 +1,3 @@
-package ocjp8;
-
 public class p61 {
     String s1 = "1";
     String s2 = "1";

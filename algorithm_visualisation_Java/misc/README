@@ -2,7 +2,6 @@
 //Thinking in Java, by Bruce Eckel, 1033 pages
 ==============================================
 * TODO
-  + IO - Serializable
   + Generic
     //Directly related to datatype implementation. Hence must be read.
     //And seems very intriguing
@@ -10,9 +9,7 @@
   + Comparable
   + SQL
   + HTTP (get / URL / servelet)
-  + Serialize - In/OutputStream
   + Use Runnable to multi-threading access database
-  + Singleton designing pattern
 
 
 * FAQ
@@ -71,11 +68,21 @@
    [[./Cp0_FieldsInitializationOrder.java][Cp0_FieldsIniatializationOrder]]
 
 ** Scopes, local var cannot be duplicated, in *lambda, for, as well as codeblock*.
-   [[./Cp0_Scopes.java][Cp0_Scopes]]
-   //However, lambda is a more special type, since for can take local var as a parameter directly,
-   //But lambda can only take an unoccupied variable name.
-   [[./Cp0_Scopes2.java][Cp0_Scopes2]]
+   [[./Cp0_ScopeOfFor.java][Cp0_ScopeOfFor]]
+   //in the scope of *For*:
+      + local variable define dulplication not allowed.
+      + However, the local variables in the enclosing scope can be modified.
+
+   [[./Cp0_ScopeOfLambda.java][Cp0_ScopeOfLambda]]
+   //in the scope of *lambda*;
+   //Pitfal: lambda defines a "variable", so that it can only take an unoccupied variable name.
    //Local variable defined in an enclosing scope must be final or effectively final.
+
+   [[./Cp0_ScopeTryCatchFinally.java][Cp0_ScopeTryCatchFinally]]
+   //Rather than scope, this is about the implementation of try catch finally.
+   //Try block -> if exception -> jump to (catch block) ->  
+   //Then all code in catch is compiled by JVM. Which means the return value is interpreted (calculated) before the finally block. The operations in the finally block are then inserted *before the exit point*.
+   
 
 ** the == compares value only.
    it means: [[./Cp0_DoubleEqualCompareResult.java][Cp0_DoubleEqualCompareResult]]
