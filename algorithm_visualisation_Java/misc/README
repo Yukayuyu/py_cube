@@ -152,6 +152,15 @@ Or simply use java instead of javac to execute.
    + thread safe
    + not necessary to deep copy
    + shareable among multiple clients
+     
+     
+   
+** Arrays vs. Collection
+   The fastest way to print an array/collecton:
+     + For anArray, use Arrays.toString(anArray);
+     + For anCollection, just print it. It has its own toString() method;
+** fail-fast iterator
+   [[./Cp0_FailfastIterator.java][Cp0_FailfastIterator]]
 * Chapter 2. Introduction to Objects.
 Java 1. > C++ when objects are more "dynamic". e.g. handling data that with an always changing size. Reasons: variables declaration conventions (effect how to compile). (cpp automatic/scoped variables or static in size) vs (Java's convention, the dynamic approach, e.g. the heap).
   However the dynamic method requires more headers, hence slower.
@@ -1709,6 +1718,15 @@ StringObj.split(regex); // split("n\\W+");
 *** Using Reflection 
     [[./Cp15_ReflectionDumpMethods.java][Cp15_ReflectionDumpMethods]]
     reflection instead of CGI? //The idea seems to be "reusing" an app, by changing its input. instead of copying and restart the whole app, which is the CGI method.
+    
+*** Object.getClass()
+    [[./Cp15_GetClass.java][Cp15_GetClass]]
+    //The actual result type is Class<? extends |X|> where |X| is the erasure of the static type of the expression on which getClass is called.
+    //e.g.:
+    Number n = 0;
+    Class<? extends Number> c = n.getClass();
+    //syso(c) == class java.lang.Integer
+
 * Chapter 16, ? Generics
   [[./Cp16_GenericMethodSimple.java][Cp16_GenericMethodSimple]]
 
@@ -2018,6 +2036,9 @@ public Interface Callable<V>{
     The last version is MT-safe. It uses one lock for each file, allowing two threads to print to different files at the same time. So, a routine is MT-safe when it is thread safe and its execution does not negatively affect performance.
     [[./Cp21_DegreesOfThreadSafety.java][Cp21_DegreesOfThreadSafety]]
     
+    
+*** Thread Safety - System.arraycopy()
+    [[./Cp21_ThreadSafetyArraycopy.java][Cp21_ThreadSafetyArraycopy]]
 * Chapter 30, Designing Patterns 
 ** Factory getInstance method
    //Use the following to generate instance instead a constructor. Example is the abstract class Calendar.
@@ -2118,6 +2139,12 @@ public Interface Callable<V>{
    [[./Cp31_Function.java][Cp31_Funtion]]
    [[./Cp31_Predicate.java][Cp31_Predicate]]
 
+   
+** Collection.sort and interface Comparator
+   [[./Cp31_CollectionSimpleSort.java][Cp31_CollectionSimpleSort]]
+   
+** Stream
+
 ** List.
    + boolean contains(Object o)
 *** removeIf
@@ -2170,3 +2197,7 @@ public Interface Callable<V>{
 
 
    
+   
+* Chapter 32, Frequently Used framework
+** Log4j
+   //Log for Java
