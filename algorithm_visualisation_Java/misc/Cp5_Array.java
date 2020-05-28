@@ -1,5 +1,6 @@
 import java.lang.reflect.Array;
 import java.util.Arrays;
+@SuppressWarnings("all")
 public class Cp5_Array{
     public static void main (String[] args){
 	int[] a1 = {1, 2, 3, 4, 5};

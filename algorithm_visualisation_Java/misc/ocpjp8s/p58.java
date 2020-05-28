@@ -1,3 +1,6 @@
+package ocpjp8s;
+
+@SuppressWarnings("all")
 class p58Sample {
     private int num;
     private String name;

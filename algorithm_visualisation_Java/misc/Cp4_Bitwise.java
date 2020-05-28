@@ -1,3 +1,4 @@
+@SuppressWarnings("all")
 public class Cp4_Bitwise{
     static byte i = (byte) 0b00010001;
     static byte j = (byte) 0b00110010;

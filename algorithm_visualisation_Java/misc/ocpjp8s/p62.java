@@ -1,3 +1,6 @@
+package ocpjp8s;
+
+@SuppressWarnings("all")
 public class p62 {
     public static void main(String[] args) {
         if (false)

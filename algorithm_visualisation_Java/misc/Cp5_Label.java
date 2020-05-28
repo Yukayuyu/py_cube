@@ -1,3 +1,4 @@
+@SuppressWarnings("all")
 public class Cp5_Label {
     public static void main(String[] args) {
         boolean flag = true;

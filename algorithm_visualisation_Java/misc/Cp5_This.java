@@ -1,6 +1,6 @@
-class C{
+class Cp5_ThisC{
     private int i = 0;
-    C increment (){
+    Cp5_ThisC  increment (){
 	i++;
     return this;
     }
@@ -10,7 +10,7 @@ class C{
 }
 public class Cp5_This{
     public static void main(String[] args){
-	C x = new C(); 
+	Cp5_ThisC x = new Cp5_ThisC(); 
 	int j = x.increment().increment().increment().getter();
 	System.out.println(j);
     }

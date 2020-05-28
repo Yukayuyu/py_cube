@@ -30,6 +30,7 @@ class B2 extends A{
     System.out.println("B2, this.i = " + this.i.toString());
   }
 }
+@SuppressWarnings("all")
 public class Cp8_Super {
     public static void main (String[] args){
 	B x = new B(2);

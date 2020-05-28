@@ -9,6 +9,7 @@ public class Cp5_VarArgs2{
 	    System.out.print(" " + s);
 	System.out.println();
     }
+@SuppressWarnings("all")
     public static void main (String[] args){
 	int i = 1;
 	Object c = (Object) i;

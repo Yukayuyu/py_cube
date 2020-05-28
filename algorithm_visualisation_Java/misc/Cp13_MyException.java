@@ -1,3 +1,4 @@
+@SuppressWarnings("all")
 class SimpleException extends Exception {
     public SimpleException() {
         super();
@@ -9,6 +10,7 @@ class SimpleException extends Exception {
 }
 
 
+@SuppressWarnings("all")
 class HighlevelException extends Exception {
 }
 
@@ -19,6 +21,7 @@ public class Cp13_MyException {
         throw new SimpleException();
     }
 
+@SuppressWarnings("all")
     public static void main(String[] args) {
         Cp13_MyException sed = new Cp13_MyException();
         try {

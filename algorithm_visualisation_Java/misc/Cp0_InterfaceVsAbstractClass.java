@@ -4,6 +4,7 @@ interface Cp0InterfaceVsAbstractClassInterface {
 }
 
 
+@SuppressWarnings("all")
 abstract class Cp0InterfaceVsAbstractClassAbstractClass {
     int i = 10;
 
@@ -39,6 +40,7 @@ public class Cp0_InterfaceVsAbstractClass extends Cp0InterfaceVsAbstractClassAbs
         super.callf();
     }
 
+@SuppressWarnings("all")
     public static void main(String[] args) {
         Cp0_InterfaceVsAbstractClass x = new Cp0_InterfaceVsAbstractClass();
         x.callf();

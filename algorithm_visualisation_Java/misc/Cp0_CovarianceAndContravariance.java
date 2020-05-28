@@ -11,7 +11,7 @@ abstract class Cp0_ConvarianceAndContravarianceBase {
 }
 
 
-public class Cp0_ConvarianceAndContravariance extends Cp0_ConvarianceAndContravarianceBase {
+public abstract class Cp0_CovarianceAndContravariance extends Cp0_ConvarianceAndContravarianceBase {
     // ! void f() {} // cannot reduce the visibility.
 
     // ! public int f() {return 1;} // return type not compatible.
@@ -20,7 +20,7 @@ public class Cp0_ConvarianceAndContravariance extends Cp0_ConvarianceAndContrava
     public void f() {}
 
     @Override
-    public Integer g() {}; // this function g() is covariant because it returns a subclass of
+    public Integer g() {return 1;}; // this function g() is covariant because it returns a subclass of
                            // Number.
 
     @Override

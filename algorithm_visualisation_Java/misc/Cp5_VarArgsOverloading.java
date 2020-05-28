@@ -11,6 +11,7 @@ public class Cp5_VarArgsOverloading{
 	    System.out.print(" " + s);
 	System.out.println();
     }
+@SuppressWarnings("all")
     public static void main (String[] args){
 	overloadingFunction(99);
 	overloadingFunction(new Object[]{new Integer (1)});

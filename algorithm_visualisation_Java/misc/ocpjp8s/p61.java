@@ -1,3 +1,5 @@
+package ocpjp8s;
+
 public class p61 {
     String s1 = "1";
     String s2 = "1";

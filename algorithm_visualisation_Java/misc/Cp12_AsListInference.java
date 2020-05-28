@@ -28,7 +28,7 @@ public class Cp12_AsListInference {
         // found: java.util.List<Powder> required:
         // java.util.List<Snow>
         List<Cp12_Snow> snow2 = Arrays.<Cp12_Snow>asList( // explicit type argument specification
-                new Light());
+                new Cp12_Light());
         List<Cp12_Snow> snow3 = new ArrayList<Cp12_Snow>();
         Collections.addAll(snow3, new Cp12_Light(), new Cp12_Heavy()); // doesn't get confused
         // Collections.addAll check the type of the first element, and add others into it.

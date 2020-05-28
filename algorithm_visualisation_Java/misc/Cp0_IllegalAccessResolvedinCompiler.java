@@ -1,3 +1,4 @@
+@SuppressWarnings("all")
 class Cp0_IllegalAccessBase {
     private int i = 1;
 
@@ -8,6 +9,7 @@ class Cp0_IllegalAccessBase {
 }
 
 
+@SuppressWarnings("all")
 public class Cp0_IllegalAccessResolvedinCompiler {
     private int i = 2;
 

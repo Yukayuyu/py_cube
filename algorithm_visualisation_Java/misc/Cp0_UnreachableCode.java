@@ -1,3 +1,4 @@
+@SuppressWarnings("all")
 public class Cp0_UnreachableCode {
     public static void main(String[] args) {
         if (true) {

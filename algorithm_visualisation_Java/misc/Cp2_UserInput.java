@@ -8,6 +8,7 @@ class Cp2_UserInput{
         System.out.println("You entered integer "+a);
         float b = in.nextFloat();
         System.out.println("You entered float "+b);
+        in.close();
     }
 }
 

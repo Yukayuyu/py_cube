@@ -1,5 +1,6 @@
 import java.util.*;
 
+@SuppressWarnings("all")
 public class PrintingContainers {
     static Collection fill(Collection<String> collection) {
         collection.add("rat");

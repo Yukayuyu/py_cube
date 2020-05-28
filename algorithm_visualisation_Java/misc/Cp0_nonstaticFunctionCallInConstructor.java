@@ -2,6 +2,7 @@ class Cp0_nonstaticFunctionCallInConstructorBase {
     private int i = 1;
     private int j = 1;
 
+@SuppressWarnings("all")
     Cp0_nonstaticFunctionCallInConstructorBase(int j) {
         f();
         this.f();

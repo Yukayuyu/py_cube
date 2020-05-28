@@ -15,5 +15,6 @@ public class Cp19_StoringAndRecovering {
         System.out.println(in.readUTF());
         System.out.println(in.readDouble());;
         System.out.println(in.readUTF());
+        in.close();
     }
 }

@@ -1,7 +1,9 @@
+@SuppressWarnings("all")
 class Cp13_MinorException extends Exception {
 }
 
 
+@SuppressWarnings("all")
 class Cp13_MajorException extends Exception {
 }
 
@@ -37,6 +39,7 @@ class Cp13_PitfallCase2 {
         throw new Cp13_MajorException();
     }
 
+@SuppressWarnings("all")
     void run() {
         Cp13_PitfallCase2 x = new Cp13_PitfallCase2();
         try {

@@ -20,6 +20,7 @@ class Cp30_SingletonBasicSingleton2 {
 }
 
 
+@SuppressWarnings("all")
 public class Cp30_SingletonImproved {
     public static void main(String[] args) {
         Cp30_SingletonBasicSingleton s = Cp30_SingletonBasicSingleton.getInstance();

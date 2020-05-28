@@ -4,6 +4,7 @@ class Super {
     static int j = 0;
     public int getJ(){return j;}
 }
+@SuppressWarnings("all")
 class Sub extends Super{
     public int i = 1;
     public int getI(){return i;}
@@ -12,6 +13,7 @@ class Sub extends Super{
     public int getJ(){return j;}
     public int getSuperJ(){return super.j;}
 }
+@SuppressWarnings("all")
 public class Cp9_PolyPitfall{
     public static void main (String[] args){
 	Super sup = new Sub();

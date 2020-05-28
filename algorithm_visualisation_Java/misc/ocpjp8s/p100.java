@@ -1,3 +1,5 @@
+package ocpjp8s;
+
 public class p100 {
     public static void main(String[] args) {
         int[][] arrA = {{1, 2}, {3, 4}};

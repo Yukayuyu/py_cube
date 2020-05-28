@@ -1,5 +1,6 @@
 import java.time.*;
 
+@SuppressWarnings("all")
 public class Cp31_Duration {
     public static void main(String[] args) {
         LocalDate a = LocalDate.of(2019, 01, 01);

@@ -1,3 +1,4 @@
+@SuppressWarnings("all")
 public class Cp5_VarArgs{
     //A Static Method
     static Object obj = new Integer(1);
@@ -11,7 +12,7 @@ public class Cp5_VarArgs{
     public static void main (String[] args){
 	int i = 1;
 	Object c = (Object) i;
-	System.out.printlnc.getClass());
+	System.out.println(c.getClass());
 
 	printArray(new Object[]{
 		new Integer(47), new Float(3.141)

@@ -23,6 +23,6 @@ public class Cp5_ControlFlow{
 	for (char c : "Hello".toCharArray())
 	    System.out.print(c + " ");
 	List<Integer> range = java.util.stream.IntStream.rangeClosed(1, 10).boxed().collect(java.util.stream.Collectors.toList());
-	System.out.printlna(range);
+	System.out.println(range);
     }
 }

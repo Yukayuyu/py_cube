@@ -1,4 +1,4 @@
-package temp;
+package Cp20AnnotationPkg;
 
 @DBTable(name = "aName")
 public class test {

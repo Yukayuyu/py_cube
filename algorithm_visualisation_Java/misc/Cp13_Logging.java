@@ -2,6 +2,7 @@ import java.io.*;
 import java.util.logging.*;
 
 // My customized exception
+@SuppressWarnings("all")
 class ACustomizedException extends Exception {
     private static Logger logger = Logger.getLogger("Static Logger in class ACustomizedException");
 

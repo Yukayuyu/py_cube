@@ -14,12 +14,14 @@ public class Cp14_Scanner {
         }
         Scanner scanner2 = new Scanner(Data2);
         String pattern = "(\\d+[.]\\d+[.]\\d+[.]\\d+)@" + "(\\d{2}/\\d{2}/\\d{4})";
+        scanner1.close();
         while (scanner2.hasNext(pattern)) {
             scanner2.next(pattern);
             MatchResult match = scanner2.match();
             String ip = match.group(1);
             String date = match.group(2);
-            System.out.printf("Access on %s from %s\n", date, ip);
+            System.out.printf("Access on %s from %s\n", date, ip); 
         }
+        scanner2.close();
     }
 }

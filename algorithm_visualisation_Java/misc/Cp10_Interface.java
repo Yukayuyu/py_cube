@@ -1,25 +1,30 @@
-interface I01 {
-  // int i = 0;
-  public void ipp();
-}
-abstract A02{
-  // int i = 0;
-  public void ipp();
+interface Cp10_InterfaceI01 {
+    int i = 0;
+    //All variables defined in an interface are implicitly static final.
+
+    public void ipp();
 }
 
 
-class C01 implements I01 {
-  private int i = 11;
+abstract class Cp10_InterfaceA02 {
+    int i = 0;
 
-  public void ipp() {
-    System.out.println(++i);
-  }
+    public abstract void ipp();
+}
+
+
+class Cp10_InterfaceC01 extends Cp10_InterfaceA02 implements Cp10_InterfaceI01 {
+    private int i = 11;
+
+    public void ipp() {
+        System.out.println(++i);
+    }
 }
 
 
 public class Cp10_Interface {
-  public static void main(String[] args) {
-    C01 x = new C01();
-    x.ipp();
-  }
+    public static void main(String[] args) {
+        Cp10_InterfaceC01 x = new Cp10_InterfaceC01();
+        x.ipp();
+    }
 }

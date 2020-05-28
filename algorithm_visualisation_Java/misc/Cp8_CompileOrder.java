@@ -14,6 +14,7 @@ class Base01{
 	System.out.println("base01FirstMethod");
     }
 }
+@SuppressWarnings("all")
 class Extend01 extends Base01{
     Extend01(){
 	System.out.println("Extend01Constructor");
@@ -22,6 +23,7 @@ class Extend01 extends Base01{
 	System.out.println("extend01SecondMethod"); 
     }
 }
+@SuppressWarnings("all")
 public class Cp8_CompileOrder{
     Cp8_CompileOrder(){
 	System.out.println("Cp8_CompileOrderConstructor"); // not called

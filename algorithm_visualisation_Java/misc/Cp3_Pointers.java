@@ -26,6 +26,8 @@ public class Cp3_Pointers {
 	//Systm.out.println(f);
 
     }
+
+@SuppressWarnings("all")
     public static void fun3(){
 	int[] an_int_array = {1, 2, 3};
 	System.out.println(an_int_array);

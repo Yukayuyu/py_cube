@@ -1,5 +1,6 @@
 import java.util.*;
 
+@SuppressWarnings("all")
 class Cp12_ReversibleArrayList<T> extends ArrayList<T> {
     public Cp12_ReversibleArrayList() {
         super();

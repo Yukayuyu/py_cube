@@ -1,3 +1,4 @@
+@SuppressWarnings("all")
 class Cp0_InitOrderp162Sample {
     void Cp0_InitOrderp162Sample() { // this method has a constructor name but still can be compiled
                                      // and called.
@@ -26,6 +27,7 @@ class Cp0_InitOrderp162Sample {
 }
 
 
+@SuppressWarnings("all")
 public class Cp0_InitOrderp162 {
     public static void main(String[] args) {
         Cp0_InitOrderp162Sample x = new Cp0_InitOrderp162Sample(1);

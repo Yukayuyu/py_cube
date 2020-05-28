@@ -1,3 +1,4 @@
+@SuppressWarnings("all")
 public class Cp5_Initialize{
     int i;
     static int j;

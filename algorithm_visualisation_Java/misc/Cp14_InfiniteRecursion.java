@@ -1,4 +1,4 @@
-import java.util.*;
+@SuppressWarnings("all") 
 public class Cp14_InfiniteRecursion {
     public String toString(){
         //return " InfiniteRecursion address: " + this + "\n";

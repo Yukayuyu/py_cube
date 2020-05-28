@@ -1,3 +1,5 @@
+package ocpjp8s;
+
 public class p250_1 {
     public static void main(String[] args) {
         try {

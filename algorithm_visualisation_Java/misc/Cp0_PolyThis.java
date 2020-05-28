@@ -1,4 +1,4 @@
-class Cp0_InheritedThisBase {
+class Cp0_InheritedThisBase02 {
     String name = "parentName";
 
     void run() {
@@ -7,7 +7,7 @@ class Cp0_InheritedThisBase {
 }
 
 
-public class Cp0_PolyThis extends Cp0_InheritedThisBase {
+public class Cp0_PolyThis extends Cp0_InheritedThisBase02{
     String name = new String("child name");
 
     // @Override
@@ -16,7 +16,7 @@ public class Cp0_PolyThis extends Cp0_InheritedThisBase {
     // }
 
     public static void main(String[] args) {
-        Cp0_InheritedThisBase x = new Cp0_PolyThis();
+        Cp0_InheritedThisBase02 x = new Cp0_PolyThis();
         x.run();
     }
 }

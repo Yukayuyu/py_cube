@@ -1,3 +1,5 @@
+package ocpjp8s;
+
 public class p250_2 {
     static String f() {
         try {
@@ -15,7 +17,5 @@ public class p250_2 {
 
     public static void main(String[] args) {
         System.out.println(f());
-        throw 
-    }
-
+    } 
 }

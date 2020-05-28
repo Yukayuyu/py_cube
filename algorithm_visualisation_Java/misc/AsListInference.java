@@ -5,6 +5,7 @@ class Light extends Powder {}
 class Heavy extends Powder {}
 class Crusty extends Snow {}
 
+@SuppressWarnings("all")
 public class AsListInference {
     public static void main(String[] args) {
         List<Snow> snow1 = Arrays.asList(

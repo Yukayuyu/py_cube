@@ -1,5 +1,6 @@
 import java.io.IOException;
 
+@SuppressWarnings("all")
 class TestMyThrowable extends Throwable {
     TestMyThrowable() {
         super();

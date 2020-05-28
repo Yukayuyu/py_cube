@@ -1,14 +1,14 @@
-import java.rmi.activation.ActivationException;
-
 interface Cp13testInterface {
     void f() throws Exception;
 }
 
 
+@SuppressWarnings("all")
 class Cp13TestAnInitCause extends Exception {
 }
 
 
+@SuppressWarnings("all")
 class Cp13TestMyException extends Exception {
     final String string;
 
@@ -24,6 +24,7 @@ class Cp13TestMyException extends Exception {
 }
 
 
+@SuppressWarnings("all")
 class Cp13TestMyThrowable extends Throwable {
     Cp13TestMyThrowable() {
         super();

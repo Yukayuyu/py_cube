@@ -43,6 +43,7 @@ public class Cp0_FieldsInitializationOrder {
         System.out.println("Other obsolete static methods");
     }
 
+@SuppressWarnings("all")
     public static void main(String[] args) {
         System.out.println("Other static methods second, staticI = " + staticI);
         System.out.println("staticI = " + staticI);

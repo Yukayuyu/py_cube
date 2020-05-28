@@ -8,6 +8,7 @@ public class Cp3_Class{
     static class StaticTest{
 	static int i = 1;
     }
+@SuppressWarnings("all")
     public static void staticTestMethod(){
 	StaticTest St1 = new StaticTest();
 	StaticTest St2 = new StaticTest();

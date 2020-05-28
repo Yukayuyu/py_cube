@@ -12,7 +12,7 @@ class Cp15_Extend extends Cp15_Base {
 
 }
 
-
+@SuppressWarnings("all")
 public class Cp15_forName {
     public static void main(String[] args) throws ClassNotFoundException, Exception {
         Class t = Class.forName("java.lang.Thread");
