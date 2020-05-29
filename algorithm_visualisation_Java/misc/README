@@ -180,6 +180,13 @@ Or simply use java instead of javac to execute.
 ** While without curly bracket
    [[./Cp0_WhileWithoutCurlyBracket.java][Cp0_WhileWithoutCurlyBracket]]
    //not nestable
+   
+** Is it legal to throw without throws, if guarded? Legal.
+   [[./Cp0_LegalToThrowIfGuarded.java][Cp0_LegalToThrowIfGuarded]]
+   //Safe if guarded.
+   
+** ? null String, null or nullPointerException?
+   [[./Cp0_NullString.java][Cp0_NullString]]
 
 * Chapter 2. Introduction to Objects.
 Java 1. > C++ when objects are more "dynamic". e.g. handling data that with an always changing size. Reasons: variables declaration conventions (effect how to compile). (cpp automatic/scoped variables or static in size) vs (Java's convention, the dynamic approach, e.g. the heap).
@@ -2224,3 +2231,39 @@ public Interface Callable<V>{
 * Chapter 32, Frequently Used framework
 ** Log4j
    //Log for Java
+
+   
+
+* Chapter 33, General
+** Http/s -- belongs to OSI Application Layer
+   //rfc2616
+*** Overall Operation
+       The HTTP protocol is a request/response protocol. A client sends a
+   request to the server in the form of a request method, URI, and
+   protocol version, followed by a MIME-like message containing request
+   modifiers, client information, and possible body content over a
+   connection with a server. The server responds with a status line,
+   including the message's protocol version and a success or error code,
+   followed by a MIME-like message containing server information, entity
+   metainformation, and possible entity-body content. The relationship
+   between HTTP and MIME is described in appendix 19.4.
+   
+*** Methods
+**** GET
+       The GET method means retrieve whatever information (in the form of an
+   entity) is identified by the Request-URI. If the Request-URI refers
+   to a data-producing process, it is the produced data which shall be
+   returned as the entity in the response and not the source text of the
+   process, unless that text happens to be the output of the process.
+   *conditional GET*
+   *partial GET*
+
+**** HEAD 
+       The HEAD method is identical to GET except that the server MUST NOT
+   return a message-body in the response. The metainformation contained
+   in the HTTP headers in response to a HEAD request SHOULD be identical
+   to the information sent in response to a GET request. This method can
+   be used for obtaining metainformation about the entity implied by the
+   request without transferring the entity-body itself. This method is
+   often used for testing hypertext links for validity, accessibility,
+   and recent modification.
