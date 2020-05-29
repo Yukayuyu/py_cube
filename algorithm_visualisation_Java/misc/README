@@ -82,7 +82,10 @@
    //Rather than scope, this is about the implementation of try catch finally.
    //Try block -> if exception -> jump to (catch block) ->  
    //Then all code in catch is compiled by JVM. Which means the return value is interpreted (calculated) before the finally block. The operations in the finally block are then inserted *before the exit point*.
-   
+
+   [[./Cp0_ScopeTryCatchFinally2.java][Cp0_ScopeTryCatchFinally2]] 
+   //The variable from enclosing bracket can be accessed, however, 
+   //Variables defined within the bracket are local: *The variables defined inside the Try Catch Finally bracket stays inside the bracket.*
 
 ** the == compares value only.
    it means: [[./Cp0_DoubleEqualCompareResult.java][Cp0_DoubleEqualCompareResult]]
@@ -161,6 +164,23 @@ Or simply use java instead of javac to execute.
      + For anCollection, just print it. It has its own toString() method;
 ** fail-fast iterator
    [[./Cp0_FailfastIterator.java][Cp0_FailfastIterator]]
+** constructor with inheritance, super() this() rules.
+   [[./Cp0_SuperThisInheritance.java][Cp0_SuperThisInheritance]]
+** ClassCastException or Compile Error
+   [[./Cp0_ClassCastExceptionOrCimpileError.java][Cp0_ClassCastExceptionOrCimpileError]]
+   
+** Default type of Literals
+   |   1 | int    |
+   | 1.0 | double |
+   
+** If without curly bracket
+   [[./Cp0_IfWithoutCurlyBracket.java][Cp0_IfWithoutCurlyBracket]]
+   //nestable
+   
+** While without curly bracket
+   [[./Cp0_WhileWithoutCurlyBracket.java][Cp0_WhileWithoutCurlyBracket]]
+   //not nestable
+
 * Chapter 2. Introduction to Objects.
 Java 1. > C++ when objects are more "dynamic". e.g. handling data that with an always changing size. Reasons: variables declaration conventions (effect how to compile). (cpp automatic/scoped variables or static in size) vs (Java's convention, the dynamic approach, e.g. the heap).
   However the dynamic method requires more headers, hence slower.
@@ -1096,7 +1116,6 @@ public class C{
    //Since an instance of an inner class must be attached to a parent class.
    //The super constructor must be explicitly called before the construction.
    [[./Cp11_InheritingAnInner.java][Cp11_InheritingAnInner]]
-   //! broken [[./Cp0_Super.java][Cp0_Super]]
 
 ** ? Local inner classes
    
@@ -2197,6 +2216,10 @@ public Interface Callable<V>{
 
 
    
+   
+** valueOf()
+   [[./Cp31_ValueOf.java][Cp31_ValueOf]]
+
    
 * Chapter 32, Frequently Used framework
 ** Log4j
