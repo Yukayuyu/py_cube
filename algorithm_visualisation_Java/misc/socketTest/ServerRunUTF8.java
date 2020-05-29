@@ -23,7 +23,8 @@ class Server {
         try {
             // IPアドレスとポート番号を指定してサーバー側のソケットを作成
             sSocket = new ServerSocket();
-            sSocket.bind(new InetSocketAddress("127.0.0.1", 8765));
+            // ! sSocket.bind(new InetSocketAddress("127.0.0.1", 8765));
+            sSocket.bind(new InetSocketAddress("192.168.3.28", 8764));
 
             System.out.println("クライアントからの入力待ち状態");
 

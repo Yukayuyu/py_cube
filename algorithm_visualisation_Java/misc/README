@@ -3,13 +3,10 @@
 ==============================================
 * TODO
   + Generic
-    //Directly related to datatype implementation. Hence must be read.
-    //And seems very intriguing
   + TDD
   + Comparable
   + SQL
-  + HTTP (get / URL / servelet)
-  + Use Runnable to multi-threading access database
+  + HTTP (get / URL / servelet) rfc2616
 
 
 * FAQ
@@ -144,7 +141,6 @@ Or simply use java instead of javac to execute.
    //without shadowing, the child class seems to share a same ield namespace with its parent.
    [[./Cp0_FieldBehavior2.java][Cp0_FieldBehavior2]]
    
-
 ** covariance and contravariance (共変戻り値)
    //After JE5
    [[./Cp0_CovarianceAndContravariance.java][Cp0_ConvarianceAndContravariance]]
@@ -157,7 +153,6 @@ Or simply use java instead of javac to execute.
    + shareable among multiple clients
      
      
-   
 ** Arrays vs. Collection
    The fastest way to print an array/collecton:
      + For anArray, use Arrays.toString(anArray);
@@ -187,6 +182,10 @@ Or simply use java instead of javac to execute.
    
 ** ? null String, null or nullPointerException?
    [[./Cp0_NullString.java][Cp0_NullString]]
+
+** Polymorphism pitfall, rebind timing.
+   [[./Cp0_PolyPitfall01.java][Cp0_PolyPitfall01]]
+   // i.e. cannot convert a polyed to another unrelated polyed object.
 
 * Chapter 2. Introduction to Objects.
 Java 1. > C++ when objects are more "dynamic". e.g. handling data that with an always changing size. Reasons: variables declaration conventions (effect how to compile). (cpp automatic/scoped variables or static in size) vs (Java's convention, the dynamic approach, e.g. the heap).

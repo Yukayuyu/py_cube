@@ -22,6 +22,5 @@ class Cp31_ValueOf {
         // is same as:
         System.out.println(new Integer(Integer.parseInt("-3")));
         System.out.println("------------------------------------------------------------------");
-        i
     }
 }
