@@ -11,5 +11,12 @@ class p493 {
         for (int i : array) {
             System.out.println(i);
         }
+        System.out.println("----------------");
+        int[] array3;
+        array3 = array;
+        array3[0] = 5;
+        for (int i : array3) {
+            System.out.println(i);
+        }
     }
 }

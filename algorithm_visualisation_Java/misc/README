@@ -152,7 +152,6 @@ Or simply use java instead of javac to execute.
    + not necessary to deep copy
    + shareable among multiple clients
      
-     
 ** Arrays vs. Collection
    The fastest way to print an array/collecton:
      + For anArray, use Arrays.toString(anArray);
@@ -186,6 +185,22 @@ Or simply use java instead of javac to execute.
 ** Polymorphism pitfall, rebind timing.
    [[./Cp0_PolyPitfall01.java][Cp0_PolyPitfall01]]
    // i.e. cannot convert a polyed to another unrelated polyed object.
+
+** ? Object.clone() pitfall
+   //The general intent is:
+   For any Object x, 
+       (x.clone() != x) && (x.clone().getClass() == x.getClass()) holds true.
+   ? [[./Cp0_ObjectClonePitfall.java][Cp0_ObjectClonePitfall]]
+   //Check the oracle javadoc on Object.clone():
+   //1. it performs a shallowcopy as described below. 
+   //2. only objects that implemented clonable are able to call it without causing a (not runtime) Exception.
+   //3. arrays implemented cloneable by default.  
+    By convention, the object returned by this method should be independent of this object (which is being cloned). To achieve this independence, it may be necessary to modify one or more fields of the object returned by super.clone before returning it. Typically, this means copying any mutable objects that comprise the internal "deep structure" of the object being cloned and replacing the references to these objects with references to the copies. If a class contains only primitive fields or references to immutable objects, then it is usually the case that no fields in the object returned by super.clone need to be modified.
+
+The method clone for class Object performs a specific cloning operation. First, if the class of this object does not implement the interface Cloneable, then a CloneNotSupportedException is thrown. Note that all arrays are considered to implement the interface Cloneable and that the return type of the clone method of an array type T[] is T[] where T is any reference or primitive type. Otherwise, this method creates a new instance of the class of this object and initializes all its fields with exactly the contents of the corresponding fields of this object, as if by assignment; the contents of the fields are not themselves cloned. Thus, this method performs a "shallow copy" of this object, not a "deep copy" operation.
+
+The class Object does not itself implement the interface Cloneable, so calling the clone method on an object whose class is Object will result in throwing an exception at run time.
+
 
 * Chapter 2. Introduction to Objects.
 Java 1. > C++ when objects are more "dynamic". e.g. handling data that with an always changing size. Reasons: variables declaration conventions (effect how to compile). (cpp automatic/scoped variables or static in size) vs (Java's convention, the dynamic approach, e.g. the heap).
@@ -2172,7 +2187,7 @@ public Interface Callable<V>{
 
 ** List.
    + boolean contains(Object o)
-*** removeIf
+*** ? removeIf < ? super E > in function
     default boolean removeIf(Predicate<? super E> filter)
     filter - a predicate which returns true for elements to be removed.
     [[./Cp21_AvoidConcurrentModificationException.java::16][Cp21_AvoidConcurrentModificationException::16]]
