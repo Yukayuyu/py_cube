@@ -3,6 +3,7 @@ interface test1int{
     
 }
 class test1base implements test1int{
+    test1base(){}
     test1base(int i ){
     }
 }
