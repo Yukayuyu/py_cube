@@ -2247,6 +2247,8 @@ public Interface Callable<V>{
    //Log for Java
 
    
+   
+** maven
 
 * Chapter 33, General
 ** Http/s -- belongs to OSI Application Layer
@@ -2350,4 +2352,7 @@ public Interface Callable<V>{
 
 ** JDBC
 
+* Chapter 34, database
+** Keywords
+   commit, rollback, top, update, prepared statement
 
