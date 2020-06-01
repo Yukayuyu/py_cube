@@ -1,13 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
+	<classpathentry excluding="#*#|*.java~" kind="src" path=""/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER">
 		<attributes>
 			<attribute name="module" value="true"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry excluding="#*#|*.java~" kind="src" path=""/>
 	<classpathentry kind="lib" path="/home/k/code/ENVScripts/javaAdditionalClasspath/junit4/junit-4.10.jar"/>
 	<classpathentry kind="lib" path="/home/k/code/ENVScripts/javaAdditionalClasspath/junit4/junit-4.10-src.jar"/>
 	<classpathentry kind="lib" path="/home/k/code/ENVScripts/javaAdditionalClasspath/junit4/junit-dep-4.10.jar"/>
+	<classpathentry kind="lib" path="/home/k/code/ENVScripts/javaAdditionalClasspath/jdbc10/ojdbc10.jar"/>
+	<classpathentry kind="lib" path="/home/k/code/ENVScripts/javaAdditionalClasspath/jdbc10/ons.jar"/>
+	<classpathentry kind="lib" path="/home/k/code/ENVScripts/javaAdditionalClasspath/jdbc10/oraclepki.jar"/>
+	<classpathentry kind="lib" path="/home/k/code/ENVScripts/javaAdditionalClasspath/jdbc10/orai18n.jar"/>
+	<classpathentry kind="lib" path="/home/k/code/ENVScripts/javaAdditionalClasspath/jdbc10/osdt_cert.jar"/>
+	<classpathentry kind="lib" path="/home/k/code/ENVScripts/javaAdditionalClasspath/jdbc10/osdt_core.jar"/>
+	<classpathentry kind="lib" path="/home/k/code/ENVScripts/javaAdditionalClasspath/jdbc10/simplefan.jar"/>
+	<classpathentry kind="lib" path="/home/k/code/ENVScripts/javaAdditionalClasspath/jdbc10/ucp.jar"/>
+	<classpathentry kind="lib" path="/home/k/code/ENVScripts/javaAdditionalClasspath/jdbc10/xdb.jar"/>
 	<classpathentry kind="output" path=""/>
 </classpath>
