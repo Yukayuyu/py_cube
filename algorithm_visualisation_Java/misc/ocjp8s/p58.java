@@ -1,4 +1,4 @@
-package ocpjp8s;
+package ocjp8s;
 
 @SuppressWarnings("all")
 class p58Sample {

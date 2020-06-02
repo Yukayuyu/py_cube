@@ -1,4 +1,4 @@
-package ocpjp8s;
+package ocjp8s;
 
 @SuppressWarnings("all")
 public class p62 {

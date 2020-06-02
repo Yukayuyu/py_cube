@@ -1,4 +1,4 @@
-package ocpjp8s;
+package ocjp8s;
 
 public class p250_2 {
     static String f() {
