@@ -6,7 +6,7 @@ public class Entity01User implements Serializable {
     private static final long serialVersionUID = 1111L;
     private String name;
     private String password;
-    private String userID;
+    private String uID;
 
     public String getName() {
         return name;
@@ -25,15 +25,15 @@ public class Entity01User implements Serializable {
     }
 
     public String getUserID() {
-        return userID;
+        return uID;
     }
 
     public void setUserID(String userID) {
-        this.userID = userID;
+        this.uID = userID;
     }
 
     @Override
     public String toString() {
-        return (name + " | " + password + " | " + userID);
+        return (name + " | " + password + " | " + uID);
     } 
 }

@@ -201,6 +201,8 @@ The method clone for class Object performs a specific cloning operation. First, 
 
 The class Object does not itself implement the interface Cloneable, so calling the clone method on an object whose class is Object will result in throwing an exception at run time.
 
+** null can be cast to object
+   *(ObjectClass)null* is legal;
 
 * Chapter 2. Introduction to Objects.
 Java 1. > C++ when objects are more "dynamic". e.g. handling data that with an always changing size. Reasons: variables declaration conventions (effect how to compile). (cpp automatic/scoped variables or static in size) vs (Java's convention, the dynamic approach, e.g. the heap).
