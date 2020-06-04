@@ -204,6 +204,12 @@ The class Object does not itself implement the interface Cloneable, so calling t
 ** null can be cast to object
    *(ObjectClass)null* is legal;
 
+   
+** find the relative file path when I/O
+    String fileName = new File("").getAbsolutePath();
+    fileName = (fileName.concat("/src/.../fineName.suffix"));
+    BufferedReader in = new BufferedReader(new FileReader(fileName));
+
 * Chapter 2. Introduction to Objects.
 Java 1. > C++ when objects are more "dynamic". e.g. handling data that with an always changing size. Reasons: variables declaration conventions (effect how to compile). (cpp automatic/scoped variables or static in size) vs (Java's convention, the dynamic approach, e.g. the heap).
   However the dynamic method requires more headers, hence slower.
