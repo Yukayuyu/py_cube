@@ -2186,14 +2186,11 @@ public Interface Callable<V>{
    [[./Cp31_CollectionSimpleSort.java][Cp31_CollectionSimpleSort]]
    
 ** Stream
+   [[./Cp31_SimpleStream.java][Cp31_SimpleStream]]
 
 ** List.
    + boolean contains(Object o)
-*** ? removeIf < ? super E > in function
-    default boolean removeIf(Predicate<? super E> filter)
-    filter - a predicate which returns true for elements to be removed.
-    [[./Cp21_AvoidConcurrentModificationException.java::16][Cp21_AvoidConcurrentModificationException::16]]
-
+*** ? removeIf < ? super E > in function default boolean removeIf(Predicate<? super E> filter) filter - a predicate which returns true for elements to be removed. [[./Cp21_AvoidConcurrentModificationException.java::16][Cp21_AvoidConcurrentModificationException::16]]
 ** java.time.LocalDate.
    //LocalDate object is *immutable*, while Calendar is mutable.
    + *static of(2015,0,1)* //throw DateTimeException, which is RunTimeException.
@@ -2244,6 +2241,9 @@ public Interface Callable<V>{
    [[./Cp31_ValueOf.java][Cp31_ValueOf]]
 
    
+** apache common library
+   [[./Cp31_ReflectionToStringBuilder.java][Cp31_ReflectionToStringBuilder]]
+
 * Chapter 32, Frequently Used framework
 ** Log4j
    //Log for Java
