@@ -1872,6 +1872,8 @@ StringObj.split(regex); // split("n\\W+");
 
 
 * Chapter 22, ? Enumerated Types
+** Basic enum features
+   [[./Cp22_EnumBasic.java][Cp22_EnumBasic]]
 * Chapter 20, Annotations
   //Annotations is also known as *metadata*. It provide a formalized way to add information to the code so that the data is easily accessable at some later point.
   //The invention is partly motivated by a general trend towards combining meta with src files, instead of keeping it in external documents, as well as a response to feature pressure from other languages, e.g. C#.
