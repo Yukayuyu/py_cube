@@ -1,0 +1,5 @@
+渡辺, General Affairs, Boss, 20200101
+大河内 賢也, Graphic Design, NotBoss, 20100101
+花, Central Dogma, Boss, 20100101
+水田, Head Office, SuperMario, 20100101
+今川, Head Office, SuperMario, 20200101

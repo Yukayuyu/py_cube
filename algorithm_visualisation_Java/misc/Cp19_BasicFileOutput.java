@@ -1,4 +1,5 @@
 import java.io.*;
+import java 
 
 public class Cp19_BasicFileOutput {
     static String file = "Cp10_BasicFileOutput.out";

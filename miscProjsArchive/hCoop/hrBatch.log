@@ -1,0 +1,4 @@
+ERROR	2020-06-10 17:26:47,463	0	ClientyEntity	[main]	Logger: socket connection fail, abnormal exit on client
+ERROR	2020-06-10 17:26:47,467	4	ClientyEntity	[main]	java.net.NoRouteToHostException: No route to host
+ERROR	2020-06-10 17:38:38,848	0	ClientyEntity	[main]	Logger: socket connection fail, abnormal exit on client
+ERROR	2020-06-10 17:38:38,849	1	ClientyEntity	[main]	java.net.NoRouteToHostException: No route to host

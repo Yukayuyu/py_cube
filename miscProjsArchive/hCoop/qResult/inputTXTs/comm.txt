@@ -1,0 +1,5 @@
+渡辺, add1, add2, 0777777777, 09099999999, watanabe@gmail.com
+大河内 賢也, add1, add2, 0333377777, 09099399999, kenya@gmail.com 
+花, add1, add2, 0722222777, 09099999999, hana@gmail.com
+水田, , , , , isoda@noMail.com
+今川,,,,,imakawa@potato.com

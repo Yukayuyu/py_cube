@@ -1,0 +1,35 @@
+!SESSION 2020-06-03 17:06:31.962 -----------------------------------------------
+eclipse.buildId=4.15.0.I20200305-0155
+java.version=14.0.1
+java.vendor=N/A
+BootLoader constants: OS=linux, ARCH=x86_64, WS=gtk, NL=en_US
+Framework arguments:  -product org.eclipse.epp.package.java.product
+Command-line arguments:  -data /home/k/code/hCoop -os linux -ws gtk -arch x86_64 -product org.eclipse.epp.package.java.product
+
+!ENTRY org.eclipse.core.resources 4 77 2020-06-03 17:08:37.243
+!MESSAGE Invalid project description.
+!SUBENTRY 1 unknown 0 0 2020-06-03 17:08:37.243
+!MESSAGE OK
+!SUBENTRY 1 org.eclipse.core.resources 4 77 2020-06-03 17:08:37.243
+!MESSAGE /home/k/code/hCoop overlaps the workspace location: /home/k/code/hCoop
+
+!ENTRY org.eclipse.core.resources 4 77 2020-06-03 17:09:09.786
+!MESSAGE Invalid project description.
+!SUBENTRY 1 unknown 0 0 2020-06-03 17:09:09.787
+!MESSAGE OK
+!SUBENTRY 1 org.eclipse.core.resources 4 77 2020-06-03 17:09:09.787
+!MESSAGE /home/k/code/hCoop overlaps the workspace location: /home/k/code/hCoop
+
+!ENTRY org.eclipse.core.resources 4 77 2020-06-03 17:09:41.805
+!MESSAGE Invalid project description.
+!SUBENTRY 1 unknown 0 0 2020-06-03 17:09:41.805
+!MESSAGE OK
+!SUBENTRY 1 org.eclipse.core.resources 4 77 2020-06-03 17:09:41.805
+!MESSAGE /home/k/code/hCoop overlaps the workspace location: /home/k/code/hCoop
+
+!ENTRY org.eclipse.core.resources 4 77 2020-06-03 17:10:46.981
+!MESSAGE Invalid project description.
+!SUBENTRY 1 unknown 0 0 2020-06-03 17:10:46.981
+!MESSAGE OK
+!SUBENTRY 1 org.eclipse.core.resources 4 77 2020-06-03 17:10:46.982
+!MESSAGE /home/k/code/hCoop overlaps the workspace location: /home/k/code/hCoop

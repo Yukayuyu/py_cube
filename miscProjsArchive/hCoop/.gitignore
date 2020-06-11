@@ -1,0 +1,11 @@
+.DS_Store
+.\#*
+\#*\#
+*~
+.*.swp
+*.class
+.vscode
+.cache
+/target/
+/src/main/resources/
+sqlconfig.properties

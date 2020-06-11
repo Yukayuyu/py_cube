@@ -1,0 +1,49 @@
+* Dependencies
+  + Maven
+  + Mybatis
+  + Socket
+  + JavaMail
+  + Log4j2
+  + Junit
+* Function required
+
+*TODO
+| Done? | Tested? | Author | Package                | Content                     |                                                         | CompleteDate |
+|-------+---------+--------+------------------------+-----------------------------+---------------------------------------------------------+--------------|
+| Y     | -       | cc     | -                      | -                           | //Software architecture (interface design .etc)         | June 4th     |
+| Y     | -       | TT     | -                      | -                           | //Database table structure                              | June 4th     |
+| Y     | -       | cc     | dataObjs               | -                           | //Java dataObject structure (comply with the db design) | June 4th     |
+|-------+---------+--------+------------------------+-----------------------------+---------------------------------------------------------+--------------|
+| Y     | Y       | cc     | common.dataIO          | txt -> dataObj              | //parse .txt file to dataObj                            | June 4th     |
+|       |         |        | common.util            | dataObj -> dataObj          | //dataObj processing, e.g. generate unique id           |              |
+| Y     |         | TT, cc | simpleBatis            |                             | //db connection                                         | June 5th     |
+|       |         | cc     | simpleBatis.Mapper     | String args -> List<Record> | //interface design                                      |              |
+|       |         | TT     | simpleBatis.Mapper     | UserMapper.XML              | //db QUERY implementation                               |              |
+|       |         |        | common.dataIO          | dataObj -> txt              | //parse dataObj to .txt file                            |              |
+|       |         |        | communication.socket   |                             | //a *server* to receive data                            |              |
+|       |         |        | communication.socket   |                             | //a *client* to send data                               |              |
+| Y     |         | TT     | communication.javaMail | ("Head", "Text") -> mail    | //send mail with javaMail                               | June 4th     |
+
+** necessary SQL:
+   1. getAll
+
+* File Format:
+** txt file x3:
+    //txt files are without title, split with a comma ","
+    *base.txt*
+    employee_name, kana_name, sex, birthdate
+    *comm.txt*
+    employee_name, address1, address2, fixed-line phone, mobile phone , email
+    *dept.txt*
+    employee_name, department_name, position_name, hired_date
+
+** SQL table x3
+    *db: batch_db*
+    *TBL1 employee*
+    id, department_id(fk), position_id(fk), employee_name, kana_name, sex, birthdate, address, fixed_line_phone, mobile_phone, email, hired_date
+    *TBL2  department*
+    id, department_name
+      + id format: D01
+    *TBL3 pos*
+    id, pos_name 
+      + id format: P01

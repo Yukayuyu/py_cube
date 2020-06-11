@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- @author: cc -->
+
+<mapper namespace="simpleBatis.Mapper.UserMapper">
+	<!-- column: columns of the SQLtable, property: fieldName of the dataObject -->
+	<resultMap id="EmployeeInfo" type="dataObjects.Record">
+		<result column="id" property="id" />
+		<result column="department_id" property="department_id" />
+		<result column="position_id" property="pos_id" />
+		<result column="employee_name" property="employee_name" />
+		<result column="kana_name" property="kana_name" />
+		<result column="sex" property="sex" />
+		<result column="birthdate" property="birthdate" />
+		<result column="address" property="address" />
+		<result column="fixed_line_phone" property="fixed_line_phone" />
+		<result column="mobile_phone" property="mobile_phone" />
+		<result column="email" property="email" />
+		<result column="hired_date" property="hired_date" />
+	</resultMap>
+	<resultMap id="DeptInfo" type="dataObjects.Record">
+		<result column="id" property="department_id" />
+		<result column="department_name" property="department_name" />
+	</resultMap>
+	<resultMap id="PossInfo" type="dataObjects.Record">
+		<result column="id" property="pos_id" />
+		<result column="pos_name" property="pos_name" />
+	</resultMap>
+	<resultMap id="JoinedInfo" type="dataObjects.Record"
+		extends="EmployeeInfo">
+		<result column="department_name" property="department_name" />
+		<result column="pos_name" property="pos_name" />
+	</resultMap>
+
+
+	<!-- List<Record> getAllRecordsFromEmployee() -->
+	<select id="getAllRecordsFromEmployee" resultMap="EmployeeInfo">
+		SELECT *
+		FROM
+		employee
+	</select>
+
+	<select id="getAllRecordsFromDepartment" resultMap="DeptInfo">
+		SELECT *
+		FROM
+		department
+	</select>
+
+	<select id="getAllRecordsFromPosition" resultMap="PossInfo">
+		SELECT *
+		FROM
+		pos
+	</select>
+
+	<!-- 指定したPKからメールアドレスを出す -->
+	<!-- String getTheEmail(String userID); -->
+	<select id="getTheEmail" resultMap="EmployeeInfo"
+		parameterType="String">
+		SELECT email
+		FROM employee
+		WHERE employee.id= #{param1}
+	</select>
+	
+	<!-- 指定したPKに関する全情報を出す -->
+	<!-- Record getARecordWithPK(String userID); -->
+	<select id="getARecordWithPK" resultMap="EmployeeInfo"
+		parameterType="String">
+		SELECT *
+		FROM employee
+		JOIN department ON
+		employee.department_id=department.id
+		JOIN pos ON
+		employee.position_id=pos.id
+		WHERE employee.id= #{param1}
+	</select>
+
+	<!-- List<Record> getAllResultJoined(); -->
+	<!-- 全てのテーブルをjoinし、社員情報を戻す -->
+	<select id="getAllEmpInfoJoined" resultMap="JoinedInfo">
+		SELECT *
+		FROM employee
+		LEFT JOIN department ON
+		employee.department_id=department.id
+		LEFT JOIN
+		pos ON
+		employee.position_id=pos.id
+	</select>
+
+	<!-- dept名でdeptIDを引き出す -->
+	<!-- String getDeptID(String deptName); -->
+	<select id="getDeptID" resultType="java.lang.String"
+		parameterType="String">
+		SELECT id FROM department WHERE department_name LIKE
+		#{param1}
+	</select>
+
+	<!-- position名でpositionIDを引き出す -->
+	<!-- String getPositionID(String positionName); -->
+	<select id="getPositionID" resultType="java.lang.String"
+		parameterType="String">
+		SELECT id FROM pos WHERE pos_name like #{param1}
+	</select>
+
+	<!-- insert, リストの中のレコードをDBに追加 -->
+	<insert id="insertEmployee" parameterType="dataObjects.Record">
+		INSERT INTO employee
+		(id , department_id, position_id, employee_name,
+		kana_name, sex,
+		birthdate, address, fixed_line_phone, mobile_phone,
+		email, hired_date)
+		VALUES (#{id}, #{department_id}, #{pos_id}, #{employee_name},
+		#{kana_name}, #{sex}, #{birthdate}, #{address}, #{fixed_line_phone},
+		#{mobile_phone}, #{email}, #{hired_date})
+	</insert>
+
+	<!-- insert, レコードをdepartmentテーブルに追加 -->
+	<insert id="insertDepartment" parameterType="dataObjects.Record">
+		INSERT INTO
+		department (id, department_name)
+		VALUES (#{department_id},
+		#{department_name})
+	</insert>
+
+	<!-- insert, レコードをpositionテーブルに追加 -->
+	<insert id="insertPosition" parameterType="dataObjects.Record">
+		INSERT INTO pos ( id,
+		pos_name) VALUES (#{pos_id}, #{pos_name})
+	</insert>
+
+	<!-- Employeeテーブルの指定レコードを変更 -->
+	<update id="updateEmployee" parameterType="dataObjects.Record">
+		UPDATE employee
+		<set>
+			<if test="department_id != null"> department_id=#{department_id},</if>
+			<if test="position_id != null ">position_id=#{pos_id},</if>
+			<if test="employee_name != null">employee_name=#{employee_name}, </if>
+			<if test="kana_name != null">kana_name=#{kana_name},</if>
+			<if test="sex != null"> sex=#{sex},</if>
+			<if test="birthdate != null">birthdate=#{birthdate},</if>
+			<if test="address != null"> address=#{address},</if>
+			<if test="fixed_line_phone != null">fixed_line_phone=#{fixed_line_phone},</if>
+			<if test="mobile_phone != null">mobile_phone=#{mobile_phone},</if>
+			<if test="email != null">email=#{email},</if>
+			<if test="hired_date != null"> hired_date=#{hired_date} ,</if>
+		</set>
+		WHERE id=#{id}
+	</update>
+
+	<!-- Employeeテーブルの指定レコードを削除 -->
+	<delete id="deleteEmployee" parameterType="dataObjects.Record"> DELETE FROM employee
+		WHERE id=#{id}
+	</delete>
+</mapper> 
