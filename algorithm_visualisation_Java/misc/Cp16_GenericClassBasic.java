@@ -22,6 +22,5 @@ public class Cp16_GenericClassBasic<T> {
                 new Cp16_GenericClassBasic<Cp16_GenericClassBasicBase>(
                         new Cp16_GenericClassBasicBase());
         Cp16_GenericClassBasicBase a = x.get(); // no cast needed
-
     }
 }

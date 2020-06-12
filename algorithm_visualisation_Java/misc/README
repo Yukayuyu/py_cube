@@ -1781,6 +1781,11 @@ StringObj.split(regex); // split("n\\W+");
     [[./Cp16_GenericMethodSimple.java][Cp16_GenericMethodSimple]]
     [[./Cp16_GenericClassBasic.java][Cp16_GenericClassBasic]]
     
+*** A tuple library
+    //The concept of *Data Transfer Object(or Messenger)*. Read-only. used in, e.g. return a pair of values.
+    //Generic can be used to constrain the input type.
+    [[./Cp16_TuplePair.java][Cp16_TuplePair]]
+    
 
 
   
@@ -2372,6 +2377,120 @@ public Interface Callable<V>{
    commit, rollback, top, update, prepared statement
 
    
+** DBMS
+   is designed to:
+     + reduce error (insert wrong element/delete by accident)
+   
+** some Basics    
+*** mySQL data type
+   MySQL document - *Numeric Data Types*:
+    TINYINT: 1 byte, 0 to 255
+    SMALLINT: 2 bytes, -2^15 (-32,768) to 2^15-1 (32,767)
+    INT: 4 bytes, -2^31 (-2,147,483,648) to 2^31-1 (2,147,483,647)
+    BIGINT: 8 bytes, -2^63 (-9,223,372,036,854,775,808) to 2^63-1 (9,223,372,036,854,775,807)
+    equals to java corresponding type.
+*** Reserved words
+*** arithmetic operators
+    | *                  |                                     |                                                  |
+    | -                  |                                     |                                                  |
+    | *                  |                                     |                                                  |
+    | /                  |                                     |                                                  |
+    | DIV                | 8 DIV 3 -> 2                        | Integer division                                 |
+    | %                  |                                     |                                                  |
+    | MOD                |                                     |                                                  |
+    | =                  |                                     |                                                  |
+    | <=>                |                                     |                                                  |
+    | <>                 |                                     |                                                  |
+    | !=                 |                                     |                                                  |
+    | <                  |                                     |                                                  |
+    | <=                 |                                     |                                                  |
+    | >                  |                                     |                                                  |
+    | >=                 |                                     |                                                  |
+    |--------------------+-------------------------------------+--------------------------------------------------|
+    | IS NULL            |                                     |                                                  |
+    | IS NOT NULL        |                                     |                                                  |
+    | IS                 |                                     |                                                  |
+    | IS NOT             |                                     |                                                  |
+    | BETWEEN AND        | a BETWEEN min AND max               |                                                  |
+    | NOT BETWEEN AND    |                                     |                                                  |
+    | IN                 | a IN (value,...)                    | a equals to any of the values within the bracket |
+    | NOT IN             |                                     |                                                  |
+    | LIKE               | a LIKE regex                        | pattern matching using regex                     |
+    | NOT LIKE           |                                     |                                                  |
+    |--------------------+-------------------------------------+--------------------------------------------------|
+    | AND                |                                     |                                                  |
+    | &&                 |                                     |                                                  |
+    | OR/java logical OR |                                     |                                                  |
+    | XOR                |                                     |                                                  |
+    | NOT !              |                                     |                                                  |
+    |--------------------+-------------------------------------+--------------------------------------------------|
+    | &                  |                                     |                                                  |
+    | java bit or        |                                     |                                                  |
+    | ^                  | a^b                                 | bit XOR                                          |
+    | ~                  |                                     | bit NOT                                          |
+    | <<                 |                                     |                                                  |
+    | >>                 | -4294967295>>1->9223372034707292160 | *different from java*, *unsigned*                |
+    | >>                 | -16>>1->9223372034707292160 | *different from java*, *unsigned*                |
+
+    
+*** DB normalization (正規化) 
+    1NF, 2NF, 3NF, BCNF, ...
+    1NF: 
+         + Each table cell should contain a single value.
+         + Each record needs to be unique.
+           
+    2NF:
+         + Be in 1NF
+         + Single Column Primary Key
+           
+    3NF:
+         + Be in 2NF
+         + Has no transitive functional dependencies
+           
+    BCNF: 4, 5, 6 more than 1 key per table
+           
+//foreign key: can be used to check, and prevent input error, must exist in parent table first.
+
+*** terminology
+    A transitive functional dependency is when changing a non-key column, might cause any of the other non-key columns to change
+
+*** Examples
+    [[./Cp34_CASEWHEN.sql][Cp34_CASEWHEN]]
+    [[./Cp34_EXISTS.sql][Cp34_EXISTS]]
+    [[./Cp34_GROUPBY.sql][Cp34_GROUPBY]]
+    [[./Cp34_CREATETABLEAS.sql][Cp34_CREATETABLEAS]]
+    *bind variables*
+    "?", ":name", "@name"
+    
+** Efficiency
+   | to avoid    | better             |
+   |-------------+--------------------|
+   | SELECT *    | SELECT column name |
+   | x>0 and x<5 | x BETWEEN 0 AND 5  | //2 queries
+   |             |                    |
+   
+   //Executing order:
+       FROM, WHERE, GROUPBY, HAVING, SELECT, ORDERBY
+       
+   //ストアドプロシージャ (stored procedure) 
+   //master table(or more detailed master), transaction table, 
+
+   
+** Injection
+    Defence Options (DO):
+*** DO1: Prepared statement (with Parameterized Queries)
+    //in rare situation where a prepared statment harms performence, a. strongly validate all data; b. escape all user supplied input.
+    via *variable binding*
+    [[./Cp34_PreparedStatement.java]]
+
+
+*** DO2: Escaping
+    [[./Cp34_InjectingEscaping.php][Cp34_InjectingEscaping]]
+    
+    
+
+   
+
 * Chapter 35, Maven
 ** POM
   + *groupId*: This element indicates the unique identifier of the organization or group that created the project. The groupId is one of the key identifiers of a project and is typically based on the fully qualified domain name of your organization. For example org.apache.maven.plugins is the designated groupId for all Maven plugins.
