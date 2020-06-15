@@ -1,0 +1,13 @@
+<select id="countByUserList" resultType="_int" parameterType="list">
+select count(*) from users
+  <where>
+    id in
+    <foreach item="item" collection="list" separator="," open="(" close=")" index="">
+      #{item.id, jdbcType=NUMERIC}
+    </foreach>
+  </where>
+</select>
+<!-- used to loop through the Array/List/Map parameter been passed -->
+https://blog.csdn.net/isea533/java/article/details/21237175
+
+

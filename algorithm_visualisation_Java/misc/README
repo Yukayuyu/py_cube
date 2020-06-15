@@ -11,6 +11,9 @@
 ** Eclipse hotkeys
    | Command                             | Key(O=Shift+o)  |
    |-------------------------------------+-----------------|
+   |                                     |                 |
+   | Switch Editors                      | C-F7            |
+   | Show All Hotkeys                    | C-L             |
    | Organize Imports                    | C-O             |
    | Find Actions                        | C-3             |
    | Jump to Definition                  | F3              |
@@ -2476,7 +2479,10 @@ public Interface Callable<V>{
     [[./Cp34_EXISTS.sql][Cp34_EXISTS]]
     [[./Cp34_GROUPBY.sql][Cp34_GROUPBY]]
     [[./Cp34_CREATETABLEAS.sql][Cp34_CREATETABLEAS]]
-    
+    [[./Cp34_WHEN.sql][Cp34_WHEN]] 
+    ./Cp34_MULTIPLELEJOIN.sql
+    [[./Cp34_MULTIPLELEJOIN.sql][Cp34_MULTIPLELEJOIN]]
+
     *bind variables*
     "?", ":name", "@name"
     
@@ -2505,9 +2511,11 @@ public Interface Callable<V>{
 *** DO2: Escaping
     [[./Cp34_InjectingEscaping.php][Cp34_InjectingEscaping]]
     
-    
 
+** Mybatis trivia
+   [[./Cp34_MybatisForeachMapper.xml][Cp34_MybatisForeachMapper]]
    
+*** <![CDATA[ //SQLBODY ]]>
 
 * Chapter 35, Maven
 ** POM

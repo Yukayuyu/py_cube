@@ -18,7 +18,6 @@ public interface UserMapper {
 
 	List<Record> getAllEmpInfoJoined();
 
-	
     //	<!-- 指定したPKからメールアドレスを出す -->
 	String getTheEmail(String userID);
 	
