@@ -36,7 +36,7 @@ SELECT sname FROM student JOIN score ON student.sno=score.sno WHERE `cno`='3-105
 -- 20、scoreTBLに選修課程二科以上（>=2）の生徒の点数が最高点数ではないレコード。
 SELECT sno, cno, MAX(degree) as md FROM score GROUP BY cno HAVING EXISTS
 (SELECT sno, cno FROM score GROUP BY cno HAVING Count(cno) > 1);
--- 21、成績が生徒番号“109”、課程“3-105の成績より高い成績の全部レコード。
+             -- 21、成績が生徒番号“109”、課程“3-105の成績より高い成績の全部レコード。
 -- 22、生徒番号108の生徒と同じ年に生まれた全部生徒のSno、Sname、Sbirthday列。
 -- 23、“小林“先生の生徒たちの成績。
 -- 24、選修生徒人数は5名上の課程の担当教師の姓名。

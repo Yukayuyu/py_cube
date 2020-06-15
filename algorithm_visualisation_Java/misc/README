@@ -1131,6 +1131,23 @@ public class C{
    A *closure* is a callable object that retains information from the scope in which it was created.
      i.e. an inner class can manipulate private parameters in its parent class.
 
+     
+** OCPJP II, Inner Classes
+*** Member Inner Class
+    + public, private, protected or default
+    + can extend any class and implement interfaces
+    + can be abstract or final
+    + cannot declare static fields or methods
+    + can access members or the outter class including private members
+
+*** does local class has name?
+    [[./Cp11_localClassName.java][Cp11_localClassName]]
+    //Local class (class inside a method) has a name.
+    
+
+    
+
+    
 *** *callbacks* function implementation using inner class
     [[./Cp11_Callback.java][Cp11_Callback]]
 //It turned this.increment() into an Incrementable object.
@@ -2372,7 +2389,7 @@ public Interface Callable<V>{
 
 ** JDBC
 
-* Chapter 34, database
+* Chapter 34, database, SQL
 ** Keywords
    commit, rollback, top, update, prepared statement
 
@@ -2459,6 +2476,7 @@ public Interface Callable<V>{
     [[./Cp34_EXISTS.sql][Cp34_EXISTS]]
     [[./Cp34_GROUPBY.sql][Cp34_GROUPBY]]
     [[./Cp34_CREATETABLEAS.sql][Cp34_CREATETABLEAS]]
+    
     *bind variables*
     "?", ":name", "@name"
     
