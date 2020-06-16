@@ -2396,7 +2396,6 @@ public Interface Callable<V>{
 ** Keywords
    commit, rollback, top, update, prepared statement
 
-   
 ** DBMS
    is designed to:
      + reduce error (insert wrong element/delete by accident)
@@ -2499,6 +2498,16 @@ public Interface Callable<V>{
    //ストアドプロシージャ (stored procedure) 
    //master table(or more detailed master), transaction table, 
 
+   
+** Test Note
+   1. 0 entry
+   2. 1 entry
+   3. multiple entry
+   4. massive entry, to test the query efficiency.
+*** How to deal with massive data
+    + COUNT(), if < 300 -> JVM
+    + COUNT(), IF > 300 -> maybe dump into JVM
+    + or page break
    
 ** Injection
     Defence Options (DO):
