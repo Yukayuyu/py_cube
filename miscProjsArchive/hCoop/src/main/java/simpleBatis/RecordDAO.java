@@ -45,6 +45,10 @@ public class RecordDAO {
 		return result;
 	}
 
+	/**
+	 * 
+	 * @return Return a list<Record> ORDER BY dept.id
+	 */
 	public List<Record> getAllEmpInfoJoined() {
 		List<Record> result = null;
 		try (SqlSession aSession = theFactory.openSession()) {

@@ -1140,21 +1140,20 @@ public class C{
     + public, private, protected or default
     + can extend any class and implement interfaces
     + can be abstract or final
-    + cannot declare static fields or methods
+    + *cannot declare static fields or methods*
     + can access members or the outter class including private members
 
 *** does local class has name?
     [[./Cp11_localClassName.java][Cp11_localClassName]]
     //Local class (class inside a method) has a name.
-    
 
-    
-
-    
 *** *callbacks* function implementation using inner class
     [[./Cp11_Callback.java][Cp11_Callback]]
 //It turned this.increment() into an Incrementable object.
 //The nature of Callback, should be passing variable(s) as well as *a function*, which is determined on Runtime, to a Caller, which then execute the function.
+
+*** Summary:
+    1. Member inner class *cannot* declare static fields or methods, throw compile error. Only nested static classed are permitted to contain statics.
 
 ** ? Inner classes & control frameworks
    
@@ -1904,6 +1903,13 @@ StringObj.split(regex); // split("n\\W+");
 ** Basic enum features
    [[./Cp22_EnumBasic.java][Cp22_EnumBasic]]
    
+** Methods of Enum Objects
+   + public final int compareTo(E o)
+     //Compares this enum with the specified object for order. Returns a negative integer, zero, or a positive integer as this object is less than, equal to, or greater than the specified object. Enum constants are only comparable to other enum constants of the same enum type. The natural order implemented by this method is the order in which the constants are declared.
+   + public final Class<E> getDeclaringClass()
+   + public static <T extends Enum<T>> T valueOf(Class<T> enumType, String name)
+   + protected final void finalize()
+
 * Chapter 20, Annotations
   //Annotations is also known as *metadata*. It provide a formalized way to add information to the code so that the data is easily accessable at some later point.
   //The invention is partly motivated by a general trend towards combining meta with src files, instead of keeping it in external documents, as well as a response to feature pressure from other languages, e.g. C#.

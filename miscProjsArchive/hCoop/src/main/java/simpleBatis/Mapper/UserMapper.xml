@@ -39,18 +39,21 @@
 		SELECT *
 		FROM
 		employee
+		ORDER BY id
 	</select>
 
 	<select id="getAllRecordsFromDepartment" resultMap="DeptInfo">
 		SELECT *
 		FROM
 		department
+		ORDER BY id
 	</select>
 
 	<select id="getAllRecordsFromPosition" resultMap="PossInfo">
 		SELECT *
 		FROM
 		pos
+		ORDER BY id
 	</select>
 
 	<!-- 指定したPKからメールアドレスを出す -->
@@ -85,6 +88,7 @@
 		LEFT JOIN
 		pos ON
 		employee.position_id=pos.id
+		ORDER BY department.department_name ASC
 	</select>
 
 	<!-- dept名でdeptIDを引き出す -->

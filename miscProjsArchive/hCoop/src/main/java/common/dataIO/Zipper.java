@@ -1,24 +1,38 @@
 package common.dataIO;
 
-import java.io.*;
+import java.io.BufferedInputStream;
+import java.io.BufferedOutputStream;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
 import java.nio.charset.Charset;
-import java.util.*;
-import java.util.zip.*;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Properties;
+import java.util.zip.ZipEntry;
+import java.util.zip.ZipOutputStream;
+
+import common.util.FilePath;
+import common.util.HrProperties;
 
 public class Zipper {
 	/**
-	 * Search the tgrDir for files, ignore sub folders, add all files to zip. output directory : tgrDir/zipResult/;
-	 * Existing ZIP file will be overridden.
-	 * qResultフォルダーに全てのファイルを圧縮し、結果をqResult/zipResultに入れる。
-	 * 制限：先にqResult/zipResult フォルダーを作る必要がある。 * 
+	 * Search the tgrDir for files, ignore sub folders, add all files to zip. output
+	 * directory : tgrDir/zipResult/; Existing ZIP file will be overridden.
+	 * qResultフォルダーに全てのファイルを圧縮し、結果を指定フォルダーに入れる。 制限：先に指定フォルダーを作る必要がある。
+	 * フォルダーを指定する方法：HrPropertiesに相対パース入力する、半角スラッシュ"/"で分割。 例えば、zipOutDirRelative=
 	 * @param args
+	 * @author cc
 	 * @throws IOException
 	 */
 	public static void zip() throws IOException {
-		String rootDir = common.util.FilePath.getDefaultRootDir();
-		File tgrDir = new File(rootDir + File.separator + "qResult");
-		File zipOut = new File(rootDir + File.separator + "qResult" + File.separator + "zipResult" + File.separator
-		        + "EMPInfo.zip");
+		Properties p = HrProperties.readGlobalProps();
+		String zipOutStrPath = p.getProperty("zipOut");
+		String tgrDirStrPath = p.getProperty("toBeZippedFolder");
+		File tgrDir = new File(FilePath.parsePathFromProperties(tgrDirStrPath));
+		File zipOut = new File(FilePath.parsePathFromProperties(zipOutStrPath));
 		// 圧縮実行
 		compressDirectory(zipOut, tgrDir);
 	}
@@ -35,7 +49,7 @@ public class Zipper {
 		try {
 			// ZIP出力オブジェクトを取得
 			zos = new ZipOutputStream(new BufferedOutputStream(new FileOutputStream(destination)),
-			        Charset.forName("UTF-8"));
+					Charset.forName("UTF-8"));
 
 			// 全ファイルをZIPに格納
 			for (File file : files) {
