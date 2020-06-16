@@ -2451,7 +2451,6 @@ public Interface Callable<V>{
     | >>                 | -4294967295>>1->9223372034707292160 | *different from java*, *unsigned*                |
     | >>                 | -16>>1->9223372034707292160 | *different from java*, *unsigned*                |
 
-    
 *** DB normalization (正規化) 
     1NF, 2NF, 3NF, BCNF, ...
     1NF: 
@@ -2498,7 +2497,6 @@ public Interface Callable<V>{
    //ストアドプロシージャ (stored procedure) 
    //master table(or more detailed master), transaction table, 
 
-   
 ** Test Note
    1. 0 entry
    2. 1 entry
@@ -2516,15 +2514,17 @@ public Interface Callable<V>{
     via *variable binding*
     [[./Cp34_PreparedStatement.java]]
 
-
 *** DO2: Escaping
     [[./Cp34_InjectingEscaping.php][Cp34_InjectingEscaping]]
     
-
 ** Mybatis trivia
    [[./Cp34_MybatisForeachMapper.xml][Cp34_MybatisForeachMapper]]
    
 *** <![CDATA[ //SQLBODY ]]>
+
+** Utility Algorithms   
+*** greatest-n-per-group (SELECT (TOP N))
+    [[./Cp34_topN.sql][Cp34_topN]]
 
 * Chapter 35, Maven
 ** POM

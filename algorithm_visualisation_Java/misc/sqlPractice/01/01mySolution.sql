@@ -90,7 +90,7 @@ SELECT tname AS `name`, TSEX AS sex, tbirthday AS birthday FROM teacher WHERE TS
 -- 33、成績が該当課程の平均成績より低いの生徒の成績表
 SELECT degree, cno, sno FROM score A WHERE degree < (SELECT AVG(degree) FROM score B WHERE A.cno = B.cno GROUP BY cno);
 SELECT tblA.*, tblB.savg FROM (SELECT degree, cno, sno FROM score A WHERE degree < (SELECT AVG(degree) FROM score B GROUP BY cno HAVING A.cno = B.cno)) AS tblA LEFT JOIN (SELECT cno, AVG(degree) AS savg FROM score GROUP BY cno) AS tblB ON tblA.cno = tblB.cno;
--- best:
+-- Best:
 SELECT degree, score.cno, sno, avgT1.savg FROM score LEFT JOIN 
 (SELECT cno, AVG(degree) AS savg FROM score GROUP BY cno) AS avgT1
 ON score.cno = avgT1.cno
@@ -128,9 +128,35 @@ LEFT JOIN teacher ON teacher.tno = course.tno
 WHERE tname = 'Kobayashi') AS ktbl;
 -- 47、各課程の成績最高の生徒
 SELECT score.sno, MAX(score.degree) AS 'MaxDegree' FROM score GROUP BY cno;
--- ? TOP 10? 48、各課程の成績最高の生徒の前2位
-SELECT DISTINCT FROM score.sno, score.degree FROM score ORDER BY cno, degree LIMIT 2;
+-- 48、各課程の成績最高の生徒の前2位
+-- TOP N --
+-- IMPORTANT --
+WITH tmp AS (SELECT score.sno, score.cno, score.degree FROM score ORDER BY cno, degree)
+SELECT t1.* FROM tmp t1 LEFT JOIN tmp t2
+ON (t1.cno = t2.cno AND t1.degree > t2.degree) GROUP BY t1.sno, t1.cno
+HAVING COUNT(*) < 2;
+
+
 -- 49、各生徒の番号、姓名、選修課程数、全部課程の総点数
 SELECT student.sno, student.sname, COUNT(cno), SUM(degree) FROM student JOIN score ON student.sno = score.sno GROUP BY student.sno;
 -- 50、今月また来月、誕生日の生徒
 SELECT student.sno, student.sname FROM student WHERE ((MONTH(sbirthday) - MONTH(NOW())) <= 2);
+
+-- 51, Select student whose overallAverage(avg of all courses) is higher than the average(everybody's) overallAverage .
+-- IMPORTANT!! --
+-- step1:
+SELECT score.degree, score.cno, score.sno, savg FROM score 
+LEFT JOIN (SELECT AVG(score.degree) AS savg, sno FROM score GROUP BY sno) AS avtT
+ON (score.sno = avtT.sno);
+-- step2:
+WITH tmp AS (
+SELECT score.degree, score.cno, score.sno, savg FROM score 
+LEFT JOIN (SELECT AVG(score.degree) AS savg, sno FROM score GROUP BY sno) AS avtT
+ON (score.sno = avtT.sno)
+),
+tavg AS (
+SELECT AVG(savg) as tavg FROM tmp 
+)
+SELECT * FROM tmp
+CROSS JOIN tavg -- append tavg to the all results --
+WHERE degree > tavg;
