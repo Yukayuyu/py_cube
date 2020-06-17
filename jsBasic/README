@@ -1,0 +1,63 @@
+;; -*- mode: org; eval: (company-mode -1); -*-
+//HTML, CSS, JavaScript Basic
+================================================================================
+* FAQ
+
+  
+* Chapter 1, Basic/Misc
+** J2EE
+** MVC (Model, View, Controller)
+   //DescriptionModel–view–controller is a software design pattern commonly used for developing user interfaces that divides the related program logic into three interconnected elements. 
+*Model*
+The central component of the pattern. It is the application's dynamic data structure, independent of the user interface.[5] It directly manages the data, logic and rules of the application.
+*View*
+Any representation of information such as a chart, diagram or table. Multiple views of the same information are possible, such as a bar chart for management and a tabular view for accountants.
+*Controller*
+Accepts input and converts it to commands for the model or view.[6]
+In addition to dividing the application into these components, the model–view–controller design defines the interactions between them.[7]
+
+The model is responsible for managing the data of the application. It receives user input from the controller.
+The view means presentation of the model in a particular format.
+The controller responds to the user input and performs interactions on the data model objects. The controller receives the input, optionally validates it and then passes the input to the model.
+As with other software patterns, MVC expresses the "core of the solution" to a problem while allowing it to be adapted for each system.[8] Particular MVC designs can vary significantly from the traditional description here.[9]
+
+*Service*
+Between the controller and the model sometimes goes a layer which is called a service. It fetches data from the model and lets the controller use the fetched data. This layer allows to separate data storage (model), data fetching (service) and data manipulation (controller). Since this layer is not part of the original MVC concept, it is optional in most cases but can be useful for code management and reusability purposes in some cases.
+
+** OSI Model, 7 layers
+   |   | Layer        | Protocal data unit(PDU) | Function                                               |
+   |---+--------------+-------------------------+--------------------------------------------------------|
+   | 7 | Application  | Data                    | ----High-level APIs.                                   |
+   | 6 | Presentation | Data                    | ----Translation of data between a networking service   |
+   |   |              |                         | and an application; including character encoding,      |
+   |   |              |                         | data compression and encryption/decryption.            |
+   | 5 | Session      | Data                    | ----Managing communication sessions, i.e., continuous  |
+   |   |              |                         | exchange of information in the form of multiple        |
+   |   |              |                         | back-and-forth transmissions between two nodes.        |
+   | 4 | Transport    | Segment, Datagram       | ----Reliable transmission of data segments between     |
+   |   |              |                         | points on a network, including segmentation,           |
+   |   |              |                         | acknowledgement and multiplexing.                      |
+   |---+--------------+-------------------------+--------------------------------------------------------|
+   | 3 | Network      | Packet                  | ----Structuring and managing a multi-node network,     |
+   |   |              |                         | including addressing, routing and traffic control      |
+   | 2 | Data Link    | Frame                   | ----Reliable transmission of data frames between two   |
+   |   |              |                         | nodes connected by a physical layer.                   |
+   | 1 | Physical     | Symbol                  | ----Transmission and reception of raw bit streams over |
+   |   |              |                         | a physical medium.                                     |
+
+   *Where is HTTP? Correlation with TCP/IP Model?*
+    //At the application layer.
+    //Defined in https://tools.ietf.org/html/rfc7230
+    https://stackoverflow.com/questions/38596488/in-which-layer-is-http-in-the-osi-model
+
+** HTTP/1.1 vs HTTP/2
+   HTTP/2 began as the SPDY protocol, developed primarily at Google with the intention of reducing web page load latency by using techniques such as compression, multiplexing, and prioritization.
+   + HTTP/1, TCP connection has to be break and remake multiple times on one page, whenever multiple GET methods are required.
+   + HTTP/1.1 assume a TCP connect should be kept on unless directly told to close, however, it has a natural bottleneck: Since multiple data packets cannot pass each other when traveling to the same destination, there are situations in which a request at the head of the queue that cannot retrieve its required resource will block all the requests behind it. This is known as *head-of-line (HOL) blocking*, and is a significant problem with optimizing connection efficiency in HTTP/1.1. Adding separate, parallel TCP connections could alleviate this issue, but there are limits to the number of concurrent TCP connections possible between a client and server, and each new connection requires significant resources.
+   + HTTP/2: the binary framing layer encodes requests/responses and cuts them up into smaller packets of information, greatly increasing the flexibility of data transfer.
+   https://www.digitalocean.com/community/tutorials/http-1-1-vs-http-2-what-s-the-difference
+
+
+* Chapter 2, HTML
+* Chapter 3, CSS
+* Chapter 4, JavaScript
