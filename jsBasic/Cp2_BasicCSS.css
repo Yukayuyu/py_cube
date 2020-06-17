@@ -1,0 +1,13 @@
+html, body {
+  height: 100%;
+}
+
+img.myImg1 {
+  height: auto;
+  width: auto;
+}
+
+img.myImg2 {
+  height: 50%;
+  width: 50%;
+}

@@ -1,5 +1,6 @@
 ;; -*- mode: org; eval: (company-mode -1); -*-
 //HTML, CSS, JavaScript Basic
+//Learning Web Design, A Beginner's Guide to HTML, CSS, Graphics, and Beyond, by Jennifer Niederst Robbins (2007)
 ================================================================================
 * FAQ
 
@@ -57,7 +58,59 @@ Between the controller and the model sometimes goes a layer which is called a se
    + HTTP/2: the binary framing layer encodes requests/responses and cuts them up into smaller packets of information, greatly increasing the flexibility of data transfer.
    https://www.digitalocean.com/community/tutorials/http-1-1-vs-http-2-what-s-the-difference
 
+   
+** Design pitfalls
+   + Provide alternatives: alternatives for non-text content.
+   + Allow text to resize: specify the font size in relative measurement such as percentage or ems
+   + Do not put text in graphics
+   + Try to use accessiility feature when creating HTML tables and forms. i.e. use the features from HTML 4.01+
+   + High contrast between foreground and background, should the image not load properly. 
+   //Government Accessibility Requirement: Section 508
+   + Design "above the fold": what would user see even when the site is folded, like a newspaper on the rack.
+     //Names&Logos, primary messages, theme indications, navigations, crucial actions, key infos, Ads.
+   + 16-bits monitors show rectangles while 24-bits monitors do not. The only solution is to make the pic transparent.
+
 
 * Chapter 2, HTML
+  [[./Cp2_BasicHTML01.html][Cp2_BasicHTML01]]
+
+| <b>      | Bold         text |
+| <strong> | Important    text |
+| <i>      | Italic       text |
+| <em>     | Emphasized   text |
+| <mark>   | Marked       text |
+| <small>  | Smaller      text |
+| <del>    | Deleted      text |
+| <ins>    | Inserted     text |
+| <sub>    | Subscript    text |
+| <sup>    | Superscript  text |
+//emphasized text is typically displayed in italic, 
+//strong text is typically displayed in bold.
+//However a screen reader might read the two tags differently.
+
+** HTML elements
+   *empty elements* is elements without a closing tag
+   + <br> (<br /> in XHTML) -- single line break
+   + <img>
+   + <hr> (<hr /> in XHTML) -- horizontal rule
+     
+| Type                  | Element(s)                                       |
+|-----------------------+--------------------------------------------------|
+| Headings              | h1, h2, h3, h4, h5, h6                           |
+| Paragraphs            | p                                                |
+| Block (long) quotes   | blockquote                                       |
+| Preformatted text     | pre, code, kbd, var                              |
+| Various list elements | ol, ul: li(item); dl: dt(terms), dd(description) |
+| Horizontal rules      | hr                                               |
+| Hyper link            | a(Attributes: download, href, rel)               |
+| Address               | address                                          |
+| abbr                  | abbreviation                                     |
+| dfn                   | definition                                       |
+
+   [[./Cp2_dnf.html]]
+
+
+
 * Chapter 3, CSS
 * Chapter 4, JavaScript
+* Chapter 5, From Start to Finish
