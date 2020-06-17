@@ -210,6 +210,15 @@ The class Object does not itself implement the interface Cloneable, so calling t
     fileName = (fileName.concat("/src/.../fineName.suffix"));
     BufferedReader in = new BufferedReader(new FileReader(fileName));
 
+    
+** OCPJP8 misc
+*** default method inheritance
+    [[./Cp0_DefaultMethodsInheritance.java][Cp0_DefaultMethodsInheritance]]
+    //Even under polymorphism, the default method is bind to the closest one.
+    
+*** ClassCastException is RunTimeException
+    [[./Cp0_ClassCastException.java]]
+    
 * Chapter 2. Introduction to Objects.
 Java 1. > C++ when objects are more "dynamic". e.g. handling data that with an always changing size. Reasons: variables declaration conventions (effect how to compile). (cpp automatic/scoped variables or static in size) vs (Java's convention, the dynamic approach, e.g. the heap).
   However the dynamic method requires more headers, hence slower.
