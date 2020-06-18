@@ -1,16 +1,24 @@
+<!-- <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd"> -->
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+        .tbl2 th,
+        td {
+            border: 0.05em solid black;
+        }
+    </style>
 </head>
 
 <body>
     <h4>span and style</h4>
     <p>My mother has <span style="color:blue;font-weight:bold;font-size:smaller;">blue</span> eyes and my father has
-        <span style="color:darkolivegreen;font-weight:bold;font-size:bigger;">dark green</span> eyes.</p>
+        <span style="color:darkolivegreen;font-weight:bold;font-size:larger;">dark green</span> eyes.</p>
     <h4>char escaping</h4>
     <pre>
         trademark: &copy; &#169;
@@ -23,13 +31,111 @@
         less-than-or-equal sign: &leq; &#x2264;
     </pre>
     <h4>teletype</h4>
-    <p>test paragraph for <tt>teletype</tt> characters.</p>
+    <p>test paragraph for <span style="font-family: monospace;">teletype</span>> characters.</p>
     <div>
         <h3>emmet commands</h3>
         <code>a:link</code>
         <p><a href="http://www.google.com">google</a></p>
     </div>
+    <div>
+        <h3>simpleTable</h3>
+        <table class="tbl1 tbl2">
+            <caption>Caption</caption>
+            <thead>
+                <tr>
+                    <th>th1</th>
+                    <th>th2</th>
+                    <th>th3</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <th>th1</th>
+                    <td>td2</td>
+                    <td>td3</td>
+                </tr>
+            </tbody>
+            <tfoot>
+                <tr>
+                    <th scope="row">foot1</th>
+                    <td>foot2</td>
+                    <td>foot3</td>
+                </tr>
 
+            </tfoot>
+        </table>
+    </div>
+
+    <div class="formBasic">
+        <h3>formBasic</h3>
+        <form action="cgi-bin/basicForm01.pl" method="get">
+            <fieldset>
+                <legend>Legend?</legend>
+                <p>some text</p>
+                <ol>
+                    <li>li1</li>
+                    <li>li2</li>
+                    <li>li3</li>
+                </ol>
+                <label for="fname">First name:</label>
+                <input type="text" id="fname" name="fname"><br><br>
+                <label for="lname">Last name:</label>
+                <input type="text" id="lname" name="lname"><br><br>
+            </fieldset>
+            <fieldset>
+                <label for="subscribeToNewsletter">subscribe?</label>
+                <input type="radio" name="bottonNameInURL" id="subscribeToNewsletter">
+                <input type="password" name="2" id="p1" />
+                <p><input name="ifNul" type="submit" value="BottonName" />
+                    <input name="ha" type="reset" value="reset" /></p>
+            </fieldset>
+            <fieldset>
+                <input type="button" value="bottonName"><br><br>
+                <input type="checkbox"><br><br>
+                <input type="color"><br><br>
+                <input type="date"><br><br>
+                <input type="datetime-local"><br><br>
+                <input type="email"><br><br>
+                <input type="file"><br><br>
+                <input type="hidden"><br><br>
+                <input type="image" alt="imgIn"><br><br>
+                <input type="month"><br><br>
+                <input type="number"><br><br>
+                <input type="password"><br><br>
+                <input type="radio"><br><br>
+                <input type="range"><br><br>
+                <input type="reset"><br><br>
+                <input type="search"><br><br>
+                <input type="submit"><br><br>
+                <input type="tel"><br><br>
+                <input type="text"> <br><br>
+                <input type="time"><br><br>
+                <input type="url"><br><br>
+                <input type="week"><br><br>
+            </fieldset>
+
+            <input type="submit" value="Submit">
+        </form>
+        <form action="cgi-bin/basicForm01.pl" method="post">
+            <fieldset><label for="PullDown01">PullDownTest</label>
+                <select name="pd01" id="PullDown01">
+                    <option value="real">the fake might be real</option>
+                    <option value="true">the falsy might be true</option>
+                    <option>the words have no value</option>
+                    <option value="">the story has, but in vain</option>
+                </select>
+            </fieldset>
+            <fieldset><label for="Scrolling02">Scrolling01</label>
+                <select name="pd02" size="3" multiple="multiple" id="Scrolling02">
+                    <option value="real">the fake might be real</option>
+                    <option value="true">the falsy might be true</option>
+                    <option>the words have no value</option>
+                    <option value="">the story has, but in vain</option>
+                </select>
+            </fieldset>
+            <input type="submit">
+        </form>
+    </div>
 </body>
 
 </html>

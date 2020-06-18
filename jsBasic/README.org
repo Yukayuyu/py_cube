@@ -1,6 +1,7 @@
-;; -*- mode: org; eval: (company-mode -1); -*-
+;; -*- mode: org; eval: (company-mode -1); mode:emmet; -*-
 //HTML, CSS, JavaScript Basic
 //Learning Web Design, A Beginner's Guide to HTML, CSS, Graphics, and Beyond, by Jennifer Niederst Robbins (2007)
+//C-j to trigger emmet.
 ================================================================================
 * FAQ
 
@@ -70,6 +71,8 @@ Between the controller and the model sometimes goes a layer which is called a se
      //Names&Logos, primary messages, theme indications, navigations, crucial actions, key infos, Ads.
    + 16-bits monitors show rectangles while 24-bits monitors do not. The only solution is to make the pic transparent.
 
+** URL *percent encoding*
+   ナ -> "%e3%83%8a" == UTF-8 "\xE3\x83\x8A"
 
 * Chapter 2, HTML
   [[./Cp2_BasicHTML01.html][Cp2_BasicHTML01]]
@@ -110,11 +113,11 @@ Between the controller and the model sometimes goes a layer which is called a se
    | q                     | Short (inline) quotations                        |
    [[./Cp2_dfn.html][Cp2_dfn]]
 
-*** *inline text elements*
+*** *inline text elements* (presentational Elements, NOT ALLOWED in strict DTD, use CSS instead)
    | Element | Description          | Alternative in CSS                              |
    |---------+----------------------+-------------------------------------------------|
    | b       | bold                 | font-weight: bold                               |
-   | big     | larger               | font-size: bigger                               |
+   | big     | larger               | font-size: larger                               |
    | center  | center               | text-align: center                              |
    | font    | size,color,typeface  | font-family, font-size, color                   |
    | i       | italic text          | font-style: italic                              |
@@ -175,6 +178,110 @@ Between the controller and the model sometimes goes a layer which is called a se
 
 // ]]>
 </script> 
+
+*** ImageMap
+<img src="" width="" height="" alt="" usemap="#imageMap" />
+//or ismap which indicates a server-side imagemap
+<map name="imageMap">
+    <area shape="rect" coords="0,0,82,126" href="sun.htm" alt="Sun">
+    <area shape="circle" coords="90,58,3" href="mercur.htm" alt="Mercury">
+    <area shape="circle" coords="124,58,8" href="venus.htm" alt="Venus">
+</map>
+
+*** Basic Table Markup
+    [[./Cp2_BasicHTML02.html][Cp2_BasicHTML02]]
+    + column spans: <th colspan="2">TH</th>
+    + row spans:
+    + Cell padding: <table cellpadding="15"> ~p137
+    + Cell spacing: <table cellspacing="15"> ~p137
+      
+** Forms
+    <form action="/cgi-bin/basicForm01.pl" method="POST">
+    [[./Cp2_BasicHTML02.html][Cp2_BasicHTML02]]
+    *CGI (Common Gateway Interface)*
+    
+*** action 
+    //provides the URL to the "action page" that will be used to process the form
+    + .pl
+    + .php
+    + .asp (MS Active Server Pages)
+    + .jsp (JavaServer Pages)
+      
+*** method
+    
+    
+*** Entry Controls
+    [[./Cp2_BasicHTML02.html][Cp2_BasicHTML02]]
+    *Single Line completion*
+    <li><label for="form01"> TextEntry:</label> <input type="text" &name="nameInURL" value="defaultValue" size="25" maxlength="50" id="form01"/></li>
+
+    *password*
+    <input name="" type="password" value=""/>
+    
+    *submit and reset*
+    <p><input &name="" type="submit" &value="BottonName"/>
+    <input name="" type="reset" value="Reset"/></p>
+    
+    *Pull-down menues*
+    <form action="cgi-bin/basicForm01.pl" method="post">
+            <fieldset><label for="PullDown01">PullDownTest</label>
+                <select name="pd01" id="PullDown01">
+                    <option value="real">the fake might be real</option>
+                    <option value="true">the falsy might be true</option>
+                    <option >the words have no value</option>
+                    <option value="">the story has, but in vain</option>
+                </select>
+            </fieldset>
+            <input type="submit">
+        </form>
+        
+    *Scrolling menues*
+    <fieldset><label for="Scrolling02">Scrolling01</label>
+        <select name="pd02" size="3" multiple="multiple" for="Scrolling01">
+            <option value="real">the fake might be real</option>
+            <option value="true">the falsy might be true</option>
+            <option >the words have no value</option>
+            <option value="">the story has, but in vain</option>
+        </select>
+    </fieldset>
+    *Grouping menues*
+    <optgroup label="groupName">
+    </optgroup>
+    *File uploading*  use enctype to control encoding.
+    <form action="" method="post" enctype="multipart/form-data">
+        <p><label for="fileUp01">Send a file: </label></p><br/>
+        <input type="file" name="theFile" id="fileUp01"/></p>
+    </form>
+    *Hidden controls*
+    //can be used to achieve some special implementations 
+** XHTML Basic
+*** XHTML Syntax Convensions
+   + Element and attribute names must be lowercase
+   + All elements must be closed(terminated)
+   + Empty elements must be terminated too
+   + Attribute values must be in quotation marks
+   + All attributes must have explicit attribute values (with no *attribute minimization*)
+   + Elements must be nested properly
+   + Always use character entities for special characters
+   + Use *id* instead of *name* as an identifier
+   + Scripts must be contained in a CDATA section
+   + Follow additional nesting restrictions:
+     - basic HTML nesting restrictions
+     - a must not contain other a elements
+     - pre must not contain the img, object, big, small, sub or sup elements
+     - button must not contain the input, select textarea, label, button, form, fieldset, iframe or isindex elements
+     - label must not contain other label elements
+     - form must not contain other form elements
+*** Namespace and language requirements
+    *DTD Lists*
+    //Check w3.org valid DTD list, copy and paste it.
+    + HTML 5+: <!DOCTYPE HTML>
+    + HTML 4.01 Strict: <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+
+    *XHTML*
+    <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"></html>
+    //for more language code, check iso639-2/langcodes.html
+    
 
 
 
