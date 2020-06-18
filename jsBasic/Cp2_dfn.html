@@ -9,19 +9,31 @@
 
 <body>
     <h4 id="head1">Head here</h4>
-    <p><dfn id="html-def">HTML</dfn> is the standard markup language for creating web pages.</p> 
+    <p><dfn id="html-def">HTML</dfn> is the standard markup language for creating web pages.</p>
     <p>This is some text...</p>
     <style>
-        .textatbottom{
-            margin-top: 300em; 
+        .textatbottom {
+            /* margin-top: 50em; */
+            padding: 40em;
         }
 
+        .acronyms {
+            float: right;
+        }
     </style>
     <div class=textatbottom>
-    <p>This is some text...</p>
-    <p>Goto <a href="#html-def">HTML</a> now.</p> 
-    <p>Goto <a href="#head1">head1</a> now.</p> 
+        <p>This is some text...</p>
+        <p>Goto <a href="#html-def">HTML</a> now.</p>
+        <p>Goto <a href="#head1">head1</a> now.</p>
     </div>
+    <div class=acronyms>
+        <abbr title="Points">pts.</abbr>
+        <p>This is some text...</p>
+    </div>
+    <ul>
+        <li>Joan: <span class="phone">999.8282</span></li>
+        <li>Lisa: <span class="phone">888.4889</span></li>
+    </ul>
 </body>
 
 </html>

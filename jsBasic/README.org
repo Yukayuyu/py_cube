@@ -89,28 +89,97 @@ Between the controller and the model sometimes goes a layer which is called a se
 //However a screen reader might read the two tags differently.
 
 ** HTML elements
-   *empty elements* is elements without a closing tag
+***   *empty elements* is elements without a closing tag
+    //in XHTML, empty elements need to be terminated.
    + <br> (<br /> in XHTML) -- single line break
-   + <img>
+   + <img> <img />
    + <hr> (<hr /> in XHTML) -- horizontal rule
      
-| Type                  | Element(s)                                       |
-|-----------------------+--------------------------------------------------|
-| Headings              | h1, h2, h3, h4, h5, h6                           |
-| Paragraphs            | p                                                |
-| Block (long) quotes   | blockquote                                       |
-| Preformatted text     | pre, code, kbd, var                              |
-| Various list elements | ol, ul: li(item); dl: dt(terms), dd(description) |
-| Horizontal rules      | hr                                               |
-| Hyper link            | a(Attributes: download, href, rel)               |
-| Address               | address                                          |
-| abbr                  | abbreviation                                     |
-| dfn                   | definition                                       |
+   | Type                  | Element(s)                                       |
+   |-----------------------+--------------------------------------------------|
+   | Headings              | h1, h2, h3, h4, h5, h6                           |
+   | Paragraphs            | p                                                |
+   | Block (long) quotes   | blockquote                                       |
+   | Preformatted text     | pre, code, kbd, var                              |
+   | Various list elements | ol, ul: li(item); dl: dt(terms), dd(description) |
+   | Horizontal rules      | hr                                               |
+   | Hyper link            | a(Attributes: download, href, rel)               |
+   | Address               | address                                          |
+   | abbr                  | abbreviation                                     |
+   | dfn                   | definition                                       |
+   | q                     | Short (inline) quotations                        |
+   [[./Cp2_dfn.html][Cp2_dfn]]
 
-   [[./Cp2_dnf.html]]
+*** *inline text elements*
+   | Element | Description          | Alternative in CSS                              |
+   |---------+----------------------+-------------------------------------------------|
+   | b       | bold                 | font-weight: bold                               |
+   | big     | larger               | font-size: bigger                               |
+   | center  | center               | text-align: center                              |
+   | font    | size,color,typeface  | font-family, font-size, color                   |
+   | i       | italic text          | font-style: italic                              |
+   | small   | smaller              | font-size: smaller                              |
+   | sub     | subscript            | font-size:smaller; vertical-align:sub           |
+   | sup     | superscript          | font-size:smaller; vertical-align:sup           |
+   | tt      | teletype;const-width | Use code, samp, kbd elements if appropriate,    |
+   |         |                      | Otherwise use a specific or generic fixed-width |
+   |         |                      | font. font-family: "Andale Mono", monospace;    |
+   
+*** Generic Elements (div and span)
+    <div>Generic block-level element</div>
+    <span>Generic inline element</span>
+    
+    With *element identifiers*: id and class attributes
+    //id and class can be used with nearly all (X)HTML elements, 
+    //In HTML 4.01, excepts:
+    //base, basefont, head, html, meta, param, script, style and title.
+    //In XHTML, the above elements are also included.
+    <ul>
+         <li>Joan: <span class="phone">999.8282</span></li>
+         <li>Lisa: <span class="phone">888.4889</span></li>
+    </ul>
+    
+*** Special Characters
+    Characters outside the scope of standard ASCII code have to be escaped.
+    + &copy;
+    + &#169;
+    [[./Cp2_BasicHTML02.html][Cp2_BasicHTML02]]
+    | Charter | Description              | Name     | Number |
+    |---------+--------------------------+----------+--------|
+    |         | Nonbreaking space        | &nbsp;   | &#160  |
+    | &       | Ampersand                | &amp;    | &#038  |
+    | '       | Apostrophe               | &apos;   | &#039  |
+    | <       | Less-than symbol         | &lt;     | &#060  |
+    | >       | Greater-than symbol      | &gt;     | &#062  |
+    |         | Copyright                | &copy;   | &#169  |
+    |         | Registered trademark     | &reg;    | &#174  |
+    | TM      | Trademark                | &trade;  | &#8482 |
+    |         | British Pound            | &pound;  | &#163  |
+    |         | Yen                      | &yen;    | &#165  |
+    |         | Euro                     | &euro;   | &#8364 |
+    |         | En-dash                  | &ndash;  | &#8211 |
+    |         | Em-dash                  | &mdash;  | &#8212 |
+    |         | Left curly single quote  | &lsquo;  | &#8216 |
+    |         | Right curly single quote | &rsquo;  | &#8217 |
+    |         | Left curly double quote  | &ldquo;  | &#8220 |
+    |         | Right curly double quote | &rdquo;  | &#8221 |
+    |         | Bullet                   | &bull;   | &#8226 |
+    | ...     | Horizon ellipse          | &hellip; | &#8230 |
+    
+    // or, since &#leq (U+2264), escape it use &#x2264;
+
+*** CDATA
+    *(Unparsed) Character Data*
+<script type="text/javascript"> 
+// <![CDATA[
+
+// ]]>
+</script> 
 
 
 
 * Chapter 3, CSS
 * Chapter 4, JavaScript
+
+
 * Chapter 5, From Start to Finish
