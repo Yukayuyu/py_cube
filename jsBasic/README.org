@@ -282,6 +282,9 @@ Between the controller and the model sometimes goes a layer which is called a se
     <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"></html>
     //for more language code, check iso639-2/langcodes.html
     
+    *Validate the document type*
+    search for w3 validate or use plugin
+    
 
 
 
