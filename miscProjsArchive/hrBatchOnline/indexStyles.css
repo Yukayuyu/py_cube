@@ -1,0 +1,7 @@
+h1, h2, h3 {
+    color: rebeccapurple !important; 
+    font-family: 'Courier New', Courier, monospace !important;
+    border: 2px solid black;
+    /* font-variant: small-caps; */
+    font:caption; /* This calls the system fonts */
+}

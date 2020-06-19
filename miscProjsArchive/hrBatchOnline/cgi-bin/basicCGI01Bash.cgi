@@ -1,4 +1,5 @@
 #!/bin/bash
+##prints all env.
 echo "Content-type: text/html"
 echo ""
 echo '<html>'

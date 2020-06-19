@@ -4,7 +4,8 @@
 //C-j to trigger emmet.
 ================================================================================
 * FAQ
-
+** CGI standard
+   //RFC3875
   
 * Chapter 1, Basic/Misc
 ** J2EE
@@ -284,12 +285,54 @@ Between the controller and the model sometimes goes a layer which is called a se
     
     *Validate the document type*
     search for w3 validate or use plugin
-    
-
-
 
 * Chapter 3, CSS
+  
+** Reference:
+   + CSS levels
+     [[https://www.w3.org/TR/CSS1/][CSS Levels W3Org]]
+   + Designs
+     //CSS Zen Garden
+     
+** Some Basics:
+*** importance level
+   //reader style sheets may override the default ones
+   
+*** Units of measurement
+    + Absolute units:
+      - pt (1 points= 1/72 inch in CSS 2.1)
+      - pc (1 pica = 12 points)
+      - mm millimeters
+      - cm centimeters
+      - inches
+    + Relative units: (em and % are recommended)
+      - em (a unit of measurement equal to the current height of the font in nominal points or inches)
+      - ex (approximately the height of a lowercase "x")
+      - px (pixel, considered relative because it varies with display resolution)
+      - % (percentage values)
+        
+***
+        
+
+
 * Chapter 4, JavaScript
+
+** Naming Convensions
+   + Must begin with a letter, dollar sign or an underscore. Must NOT start with a number.
+   + Must NOT use dash or period in a variable name.
+   + Better NOT to use the *reserved words*.
+   + All variales are case sensitive.
+   + Meaningful variable names.
+   + use Camel Case.
+   
+** Type Checking
+   //TODO
+     
+** Arrays
+   var colors;
+   colors = [`white`, `black`, `custom`];
+   //Usage:
+   console.log(colors[0]);
 
 
 * Chapter 5, From Start to Finish

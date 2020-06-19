@@ -5,17 +5,37 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Title is title</title>
-    <style>
-    </style>
+    <link rel="stylesheet" href="indexStyles.css" />
 </head>
 
 <body>
-    <h1>The Index</h1>
-    <form action="cgi-bin/basicCGI05JavaHandler.cgi" method="post">
-        <label for="TextInputBox01">Input some text:</label>
-        <input type="text" name="cgiIn" id="TextInputBox01">
-        <input type="submit" value="Submit">
-    </form>
+    <div class="left-column">
+        <h2>The Index, the style is important</h2>
+        <form action="cgi-bin/basicCGI01Bash.cgi" method="post">
+            <label for="TextInputBox01">Input some text:</label>
+            <input type="text" name="cgiIn" id="TextInputBox01">
+            <input type="submit" value="Submit">
+        </form>
+    </div>
+    <div class="right-column">
+        <h2>simple JS test</h2>
+        <script>
+        // <!CDATA[
+            document.write("Hello"); 
+            //The following i is global.
+            var i = 1;
+            // jsBasic01Namespace.process02();
+        // ]]>
+        </script>
+        <div class="row1">
+            <h3 id="h03">TempHeader</h3>
+            <div class="content" id="ct03">TempContent</div>
+        </div>
+        <script src="JSBasic01.js"></script> 
+        <script>
+            jsBasic01Namespace.process02(); 
+        </script>
+    </div>
 </body>
 
 

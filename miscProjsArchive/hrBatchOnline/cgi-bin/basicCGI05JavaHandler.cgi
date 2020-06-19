@@ -1,3 +1,3 @@
 #!/bin/bash
 
-exec java basicCGI05Java.java
+exec java basicCGI05Java.java $CONTENT_LENGTH
