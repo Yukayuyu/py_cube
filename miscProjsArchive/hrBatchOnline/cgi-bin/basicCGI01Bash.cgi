@@ -7,10 +7,13 @@ echo '<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">'
 echo '<title>Hello World</title>'
 echo '</head>'
 echo '<body>'
-echo 'QUERY_STRING:'
 echo '<pre>'
 echo $QUERY_STRING
-echo $cgiIn
+echo $CONTENT_LENGTH
+while read line; do
+    echo $line
+done
+cat
 echo '</pre>'
 echo 'Env:'
 echo '<pre>'
