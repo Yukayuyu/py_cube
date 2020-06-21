@@ -297,10 +297,15 @@ Between the controller and the model sometimes goes a layer which is called a se
      //CSS Zen Garden
      
 ** Some Basics:
-*** importance level
+*** importance level, Overriding
+    + !important is highest
+    + a more specific selector is with higher privilage.
+    + See the following, *** A Few More Selector Types. 
    //reader style sheets may override the default ones
    
+   
 *** Units of measurement
+**** Font-size
     + Absolute units:
       - pt (1 points= 1/72 inch in CSS 2.1)
       - pc (1 pica = 12 points)
@@ -312,9 +317,73 @@ Between the controller and the model sometimes goes a layer which is called a se
       - ex (approximately the height of a lowercase "x")
       - px (pixel, considered relative because it varies with display resolution)
       - % (percentage values)
+    + Keywords: font-size: medium, xx-small, ..., xx-large
+      //Larger and smaller.
+      //The keywords shift size of the text relative to the *parent element*.
+      //The keywords protect agains illegible type (e.g. smaller than 9 pixels)
+      //However also imprecise and unpredictable
+      
+      Examples:
+      body { font-size: small; }
+      h1 { font-size: 1.5em; } //Relative to its parent element (body)
+      
+**** Font-weight
+     *normal*, *bold*, bolder, lighter, 100, 200, ..., 900, inherit
+     
+**** Font-style
+     normal, italic, *oblique*, inherit
+     //The italic calls a separate font, while oblique takes the normal font design and slant it.
+
+**** Font-variant
+     normal, small-caps, inherit
+
+*** A Few More Selector Types
+    + Descendant selectors
+      - li em {}
+      - h1 em, h2 em {}
+      - div.row2>*
+    + ID selectors
+      - #catalog1234 {}
+      - li#catalog1234 {}
+      - #sidebar li { margin-left: 10px;}
+    + Class selectors
+      - p.special {}
+      - .special {}
+      - *.special {}
+    + Universal Selector
+      - * {}
+      - #intro * {}
         
-***
-        
+*** Specificity, i.e. The Priority
+**** The calculation
+     //Start at 0, add 1000 for style attribute, add 100 for each ID, add 10 for each attribute, class or pseudo-class, add 1 for each element name or pseudo-element.
+     A: h1
+     B: #content h1
+     C: <div id="content"><h1 style="color: #ffffff"</h1></div> 
+     //The specificity of A is 1 (one element)
+     //The specificity of B is 101 (one ID reference and one element)
+     //The specificity of C is 1000 (inline styling)
+**** If equal, the latest rule counts
+**** ID selectors have a higher specificity than attribute selectors 
+    div#a {background-color: green;}
+    #a {background-color: yellow;}
+    div[id=a] {background-color: blue;}
+    //Result: green
+**** Contextual selectors are more specific than a single element selector
+    //i.e. the inline <style>#content h1{}</style> weight the most.
+    //But some minor bug exist, e.g. the priority does not take effect until server reload.
+**** A class selector beats any number of element selectors 
+    //a class selector such as .intro beats h1, p, div, etc:
+    .intro {background-color: yellow;}
+    h1 {background-color: red;}
+**** The universal selector and inherited values have a specificity of 0 
+    //*, body * and similar have a zero specificity. Inherited values also have a specificity of 0.
+
+
+
+    
+** Summary and suggestions:
+   + Font: Verdana, for readbility
 
 
 * Chapter 4, JavaScript

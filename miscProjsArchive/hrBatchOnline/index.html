@@ -20,8 +20,8 @@
     <div class="right-column">
         <h2>simple JS test</h2>
         <script>
-        // <!CDATA[
-            document.write("Hello"); 
+            // <!CDATA[
+            document.write("Hello");
             //The following i is global.
             var i = 1;
             // jsBasic01Namespace.process02();
@@ -31,10 +31,16 @@
             <h3 id="h03">TempHeader</h3>
             <div class="content" id="ct03">TempContent</div>
         </div>
-        <script src="JSBasic01.js"></script> 
+        <!-- JSBasic01.js modifies the innerHtml of the h03 and ct03 elements -->
+        <script src="JSBasic01.js"></script>
         <script>
             jsBasic01Namespace.process02(); 
         </script>
+
+        <div class="row2">
+            <h3 id="h04" style="color:green;">Font Style Testing</h3>
+            <p>a paragraph.</p>
+        </div>
     </div>
 </body>
 

@@ -1,7 +1,15 @@
 h1, h2, h3 {
-    color: rebeccapurple !important; 
-    font-family: 'Courier New', Courier, monospace !important;
+    color: rebeccapurple; 
+    font-family: 'Courier New', Courier, monospace ;
     border: 2px solid black;
     /* font-variant: small-caps; */
     font:caption; /* This calls the system fonts */
+}
+
+/* Override by providing a more specific selector */
+div.row2>* {
+    color:red;
+    /* border: 0; */
+    font-style: oblique;
+    /* font-variant: small-caps;  */
 }
