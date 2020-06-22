@@ -392,26 +392,223 @@ Between the controller and the model sometimes goes a layer which is called a se
 *** RGB color
     #RRGGBB
     
-*** Pseuduclasses
-    //4 Anchor Pseudo Classes
-    + a:link
-    + a:visited
-    + a:hover  //MUST come after a:link and a:visited in the CSS definition in order to be effective.
-    + a:active //MUST come after a:hover in the CSS definition in order to be effective.
-    
 *** background
     body{
         background-image: url(/img/bgPic01Gears.png);
         background-size: 30em;
         background-repeat: repeat-x repeat-y;
         background-color: khaki;
+        background-attachment: fixed;
+    }
+    or use 
+    background{ background-colr background-image ...}
+    
+*** Import css
+    <link rel="stylesheet" herf="" type="text/css" />
+    ----------------------------------------
+    <style type="text/css">
+        @import url("stylesheet.css");
+        p{ font-face: Verdana;}
+    </style>
+    //The later one can be used to import modular css
+    
+    
+** The BOX
+   //Padding, Borders and Margins
+   1. content area (height, length)
+   2. inner edges
+   3. padding (one value) or (t/b r/l) or (t r/l b) or (top right bottom left);
+   4. border (style(none, dotted, dashed, solid, double, groove, ridge, inset, outset), width)
+   5. margin
+   6. outer edge
+   //From inside to outside
+   
+*** 5.margin
+    1. the margin collapse, the bigger value of the adjacent applies to the two.
+    2. negative margins push elements together.
+       body {
+           margin-left:12%;
+           margin-right:12%;
+           font: 76% Verdana, sans-serif;
+           width: device-width;
+       }
+       div.row1 {
+           margin: 3em 0; /* T/B L/R */
+       }
+       
+**** display
+     .class { display=none/inline/block/inline-block/}
+     //visibility: hidden makes the element invisible, but holds the space
+     //display:none removes the spaces.
+     
+*** Pseudo-elements (疑似要素)     
+    + p::first-line { color ::#ff0000; font-variant: small-caps; }
+    + p::first-letter {}
+    + h1::before{ content: url(pic.png); }
+    + h1::after { content: url(pic.gif); }
+    + ::selection { color: red; background: yellow; }
+
+*** Pseudo-classes (疑似クラス)
+    + a:link
+    + a:visited
+    + a:hover  //MUST come after a:link and a:visited in the CSS definition in order to be effective.
+    + a:active //MUST come after a:hover in the CSS definition in order to be effective.
+    + input:focus //input:focus selects the <input> element that has focus
+    + element:first-child
+    + :lang
+    + :nth-child(2n+1)
+    + :target
+    + input:valid
+    + input:invalid <input type="email">
+
+
+** Floating
+   float {left|right|none|inherit}
+   //parent div as class clearfix
+   .clearfix::after{
+       content: "";
+       display: block;
+       clear: both;
     }
     
-
-
+*** More Floating:
+    <p><span class="disclaimer">Disclaimer: content</span>text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text</p>
+    span.disclaimer {
+        float: right;
+        margin: 1.5 em;
+        width: 10em;
+        color: #FFF;
+        background-color: #9D080D;
+        padding: 0.5em;
+    }
+    p {
+        padding: 1.2em;
+        background-color: #FFF799;
+        border: 2px solic #6C4788;
+    }
     
+    //Some Rules of Thumb:
+      + Always provide a width for floated text elements.
+      + Floated inline elements behave as block elements.
+      + Elements do not float higher than their reference in the source.
+
+*** Positioning
+    + static (default, not affected by the top, bottom, left, right properties)
+    + *fixed* (to the *screen*)
+    + relative (to the reference point)
+    + absolute (in the last parent that specified relative, absolute or fixed) 
+      em { position: absolute; width: 10em; top: 2em; left: 0em; }
+      //Element shows on the top left corner of the *document or last parent element*.
+     
+    //Fixed fix to the screen/window.
+    //Absolute requires a parent with none default position specified.
+   
+*** z-index, Stacking order
+    {z-index: 10;} is on top of {z-index 1;}
+    
+   
+** Page Layout with CSS 
+   
+*** Liquid Layout
+    //specify width in percentage values, or not specify at all.
+    div#main { width: 70%; margin-right: 5% float: left; background: yellow;}
+    div#extras { width: 25%; float: left; background: orange;}
+    
+*** Fixed Layout
+    //specify a fixed width, use the extra for non-critical information;
+    #wrapper {*width: 750px*; position: absolute; margin-left: auto; margin-right: auto; border: 1px solid black; padding: 0px;} /*parent element*/
+    #extras {position: absolute; top:0px; left:0px; *width: 200px*; background: orange;}
+    #main {*margin-left: 225px*; background-color: yellow; }
+
+*** Elastic Layouts
+    //Disadvantage: image cannot rescale along with the text.
+    text size: 76%;
+    page: 40em;
+    
+*** Zoom Layout ~p317
+    //Good in Zooming. Expecially good for low-vision users.
+    + A single column layout.
+    + Extremely large type, set in em.
+    + High-contrast text and background.
+    + Simplified navigation that appears at the beginning of the document.
+    + Some visual elements such as color and simple graphics to create an experience consistent with that of the site's normal presentation.
+      //Expert reference: Joe Clark.
+      
+    
+    
+** Style Properties for Tables
+*** borders
+    + border-collapase: separate|collapse;
+    //If separate,
+         + border-spacing: 15px(width) 3px(height);
+           
+    + empty-cells: show|hide
+      
+*** Changing List Bullets and Numbers:
+    + list-style-type: 
+      //none|disc|circle|square|decimal|decimal-leading-zero|lower-alpha|upper-alpha|
+      //lower-latin|upper-latin|lower-roman|upper-roman|lower-greek
+    + list-style-position
+      //inside|outside
+    + list-style-image:url();
+      
+*** Use Lists for Navigation
+    <ul id="nav">
+    <li><a href="#">title1</a></li>
+    <li><a href="#">title2</a></li>
+    <li><a href="#">title3</a></li>
+    </ul>
+**** Inline list items 
+     ul#nav {
+         list-style-type: none;
+         margin: 0px;
+         padding: 0px;
+     }
+     //Method1:
+     ul#nav li {
+         display: inline;
+     }
+     ul#nav li a { /*select only links in the "nav" list*/
+         padding: 5px 20px;
+         margin: 0px 2px;
+         border: 1px solid #FC6A08;
+         background-color: #FCA908;
+         text-decoration: none;
+         text-align: center;
+         color: black;
+     }
+
+     //Method2:
+     ul#nav li {
+         float: left;
+         margin: 0 2px;
+         padding: 0;
+     }
+     ul#nav li a { /*select only links in the "nav" list*/
+         display: block;
+         width: 100px;
+         height: 28px;
+         line-height: 28px;
+         border: 1px solid #FC6A08;
+         background-color: #FCA908;
+         text-transform: uppercase;
+         text-decoration: none;
+         text-align: center;
+         color: black;
+     }
+    
+     
+** Other keywords:
+   + progressive image loading
+
+
 ** Summary and suggestions:
    + Font: Verdana, for readbility
+   + "@" at rules, or the *conditional group rules*
+     //@media print{
+             #nav { display: none; }
+       }
+     //for *@Keyframes*, check [[https://www.w3.org/TR/css-animations-1/][CSS-Animations-1]]
 
 
 * Chapter 4, JavaScript
@@ -432,6 +629,3 @@ Between the controller and the model sometimes goes a layer which is called a se
    colors = [`white`, `black`, `custom`];
    //Usage:
    console.log(colors[0]);
-
-
-* Chapter 5, From Start to Finish

@@ -107,4 +107,46 @@ raspi-config
 [2]  + 43397 done       emacsclient $1 --create-frame
 [0m[27m[24m[J[36m[~x][32m[1m$[0m [K[68C[31m*[00m[01;33m[00m[00m[32m[master][00m [78Deec e  ~~j[?1l>[?2004l
 ]2;~j]1;~j[1m[7m%[27m[1m[0m                                                                                     ]2;k@kx1: ~j]1;~j[0m[27m[24m[J[36m[~j][32m[1m$[0m [K[68C[31m*[00m[01;33m[00m[00m[32m[master][00m [78D[?1h=[?2004hlls[?1l>[?2004l
-]2;ls --color=tty]1;lsbug.html                        Cp2_BasicHTML01.html  RE
+]2;ls --color=tty]1;lsbug.html                        Cp2_BasicHTML01.html  README.org
+Cp2_BasicCSS.css                Cp2_BasicHTML02.html  README.org~
+[0m[01;35mCp2_BasicHTML01Background.jpeg[0m  Cp2_dfn.html          vsconfigs.code-workspace
+[1m[7m%[27m[1m[0m                                                                                     ]2;k@kx1: ~j]1;~j[0m[27m[24m[J[36m[~j][32m[1m$[0m [K[68C[31m*[00m[01;33m[00m[00m[32m[master][00m [78D[?1h=[?2004heec README.org[?1l>[?2004l
+]2;ecFunction README.org]1;ec[2] 43567
+[1m[7m%[27m[1m[0m                                                                                     ]2;k@kx1: ~j]1;~jWaiting for Emacs...[0m[27m[24m[J[36m[~j][32m[1m$[0m [K[68C[31m*[00m[01;33m[00m[00m[32m[master][00m [78D[?1h=[?2004hbbab  ssystemctl - restart[1m [0m[0m h
+[0mhalt.target          hibernate.target     hybrid-sleep.target                     
+[Jhealthd.service      [Jhttpd.service        [J                                      [A[A[0m[27m[24m[0m[6Csystemctl restart h[K[49C[31m*[00m[01;33m[00m[00m[32m[master][00m [0m[59Dp ttpd.service[1m [0m[0m [?1l>[?2004l
+[J]2;systemctl restart httpd.service]1;systemctl[1m[7m%[27m[1m[0m                                                                                     ]2;k@kx1: ~j]1;~j[0m[27m[24m[J[36m[~j][32m[1m$[0m [K[68C[31m*[00m[01;33m[00m[00m[32m[master][00m [78D[?1h=[?2004hggit  g  ~~a[?1l>[?2004l
+]2;~a]1;~a[1m[7m%[27m[1m[0m                                                                                     ]2;k@kx1: ~a]1;~a[0m[27m[24m[J[36m[~a][32m[1m$[0m [K[68C[31m*[00m[01;33m[00m[00m[32m[master][00m [78D[?1h=[?2004hccd ..[?1l>[?2004l
+]2;cd ..]1;cd[1m[7m%[27m[1m[0m                                                                                     ]2;k@kx1: ~w/py_cube/miscProjsArchive]1;..cProjsArchive[0m[27m[24m[J[36m[~w/py_cube/miscProjsArchive][32m[1m$[0m [K[43C[31m*[00m[01;33m[00m[00m[32m[master][00m [53D[?1h=[?2004hlls[?1l>[?2004l
+]2;ls --color=tty]1;lsemacsLisp.el  [0m[01;34mhrBatchOnline[0m      [01;34mmyBatisBasic[0m  [01;34msimpleTomCat[0m
+[01;34mhCoop[0m         makeCalendar.java  [01;34msimpleJS[0m
+[1m[7m%[27m[1m[0m                                                                                     ]2;k@kx1: ~w/py_cube/miscProjsArchive]1;..cProjsArchive[0m[27m[24m[J[36m[~w/py_cube/miscProjsArchive][32m[1m$[0m [K[43C[31m*[00m[01;33m[00m[00m[32m[master][00m [53D[?1h=[?2004hccd ..[?1l>[?2004l
+]2;cd ..]1;cd[1m[7m%[27m[1m[0m                                                                                     ]2;k@kx1: ~w/py_cube]1;~w/py_cube[0m[27m[24m[J[36m[~w/py_cube][32m[1m$[0m [K[60C[31m*[00m[01;33m[00m[00m[32m[master][00m [70D[?1h=[?2004hggit add .[?1l>[?2004l
+]2;git add .]1;git[1m[7m%[27m[1m[0m                                                                                     ]2;k@kx1: ~w/py_cube]1;~w/py_cube[0m[27m[24m[J[36m[~w/py_cube][32m[1m$[0m [K[60C[31m*[00m[01;33m[00m[00m[32m[master][00m [70D[?1h=[?2004hggit commit -am \ 'misc'  se      css misc; '[?1l>[?2004l
+]2;git commit -am 'css misc']1;git[master 20fb7df] css misc
+ 5 files changed, 148 insertions(+), 7 deletions(-)
+ create mode 100644 algorithm_visualisation_Java/misc/typescript
+ delete mode 100755 jsBasic/cgi-bin/basicForm01.pl
+ create mode 100755 miscProjsArchive/hrBatchOnline/img/bgPic01Gears.png
+[1m[7m%[27m[1m[0m                                                                                     ]2;k@kx1: ~w/py_cube]1;~w/py_cube[0m[27m[24m[J[36m[~w/py_cube][32m[1m$[0m [K[61C[01;33m[00m[00m[32m[master][00m [70D[?1h=[?2004hggit push[?1l>[?2004l
+]2;git push]1;gitEnumerating objects: 20, done.
+Counting objects:   5% (1/20)Counting objects:  10% (2/20)Counting objects:  15% (3/20)Counting objects:  20% (4/20)Counting objects:  25% (5/20)Counting objects:  30% (6/20)Counting objects:  35% (7/20)Counting objects:  40% (8/20)Counting objects:  45% (9/20)Counting objects:  50% (10/20)Counting objects:  55% (11/20)Counting objects:  60% (12/20)Counting objects:  65% (13/20)Counting objects:  70% (14/20)Counting objects:  75% (15/20)Counting objects:  80% (16/20)Counting objects:  85% (17/20)Counting objects:  90% (18/20)Counting objects:  95% (19/20)Counting objects: 100% (20/20)Counting objects: 100% (20/20), done.
+Delta compression using up to 4 threads
+Compressing objects:   9% (1/11)Compressing objects:  18% (2/11)Compressing objects:  27% (3/11)Compressing objects:  36% (4/11)Compressing objects:  45% (5/11)Compressing objects:  54% (6/11)Compressing objects:  63% (7/11)Compressing objects:  72% (8/11)Compressing objects:  81% (9/11)Compressing objects:  90% (10/11)Compressing objects: 100% (11/11)Compressing objects: 100% (11/11), done.
+Writing objects:   8% (1/12)Writing objects:  16% (2/12)Writing objects:  25% (3/12)Writing objects:  33% (4/12)Writing objects:  41% (5/12)Writing objects:  50% (6/12)Writing objects:  58% (7/12)Writing objects:  66% (8/12)Writing objects:  75% (9/12)Writing objects:  83% (10/12)Writing objects:  91% (11/12)Writing objects: 100% (12/12)Writing objects: 100% (12/12), 261.52 KiB | 1.61 MiB/s, done.
+Total 12 (delta 8), reused 0 (delta 0), pack-reused 0
+remote: Resolving deltas:   0% (0/8)[Kremote: Resolving deltas:  12% (1/8)[Kremote: Resolving deltas:  25% (2/8)[Kremote: Resolving deltas:  37% (3/8)[Kremote: Resolving deltas:  50% (4/8)[Kremote: Resolving deltas:  62% (5/8)[Kremote: Resolving deltas:  75% (6/8)[Kremote: Resolving deltas:  87% (7/8)[Kremote: Resolving deltas: 100% (8/8)[Kremote: Resolving deltas: 100% (8/8), completed with 8 local objects.[K
+remote: 
+remote: GitHub found 3 vulnerabilities on chnnn/py_cube's default branch (3 moderate). To find out more, visit:[K
+remote:      https://github.com/chnnn/py_cube/network/alerts[K
+remote: 
+To github.com:chnnn/py_cube.git
+   dc7c1d7..20fb7df  master -> master
+[1m[7m%[27m[1m[0m                                                                                     ]2;k@kx1: ~w/py_cube]1;~w/py_cube[0m[27m[24m[J[36m[~w/py_cube][32m[1m$[0m [K[60C[31m*[00m[01;33m[00m[00m[32m[master][00m [70D[?1h=[?2004hssystemctl restart httpd.service[1m [0m[0m [?1l>[?2004l
+]2;systemctl restart httpd.service]1;systemctl[1m[7m%[27m[1m[0m                                                                                     ]2;k@kx1: ~w/py_cube]1;~w/py_cube[0m[27m[24m[J[36m[~w/py_cube][32m[1m$[0m [K[60C[31m*[00m[01;33m[00m[00m[32m[master][00m [70D[?1h=[?2004hssystemctl restart httpd.service[?1l>[?2004l
+]2;systemctl restart httpd.service]1;systemctl[1m[7m%[27m[1m[0m                                                                                     ]2;k@kx1: ~w/py_cube]1;~w/py_cube[0m[27m[24m[J[36m[~w/py_cube][32m[1m$[0m [K[60C[31m*[00m[01;33m[00m[00m[32m[master][00m [70D[?1h=[?2004hggit add     g  lls[?1l>[?2004l
+]2;ls --color=tty]1;ls[0m[01;34malgorithm_visualisation_Java[0m  [01;34mmorse_code[0m             [01;34msystemProgramming[0m
+[01;34mjsBasic[0m                       readme.md              [01;34mtinyhttpd-0.1.0[0m
+[01;34mmiscProjsArchive[0m              [01;34mrubiks_cube_simulator[0m
+[1m[7m%[27m[1m[0m                                                                                     ]2;k@kx1: ~w/py_cube]1;~w/py_cube[0m[27m[24m[J[36m[~w/py_cube][32m[1m$[0m [K[60C[31m*[00m[01;33m[00m[00m[32m[master][00m [70D[?1h=[?2004hggit add .[?1l>[?2004l
+]2;git add .]1;git[1m[7m%[27m[1m[0m                                                                                     ]2;k@kx1: ~w/py_cube]1;~w/py_cube[0m[27m[24m[J[36m[~w/py_cube][
