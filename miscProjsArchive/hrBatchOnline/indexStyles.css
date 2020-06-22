@@ -1,3 +1,11 @@
+body{
+    background-image: url(/img/bgPic01Gears.png);
+    /* background-size: 30em;
+    background-repeat: repeat-x repeat-y; */
+    background-color: khaki;
+    background-repeat: no-repeat;
+    background-position: right;
+}
 h1, h2, h3 {
     color: rebeccapurple; 
     font-family: 'Courier New', Courier, monospace ;
@@ -12,4 +20,5 @@ div.row2>* {
     /* border: 0; */
     font-style: oblique;
     /* font-variant: small-caps;  */
+    text-decoration: blink;
 }
