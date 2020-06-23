@@ -1,6 +1,7 @@
 ;; -*- mode: org; eval: (company-mode -1); mode:emmet; -*-
 //HTML, CSS, JavaScript Basic
-//Learning Web Design, A Beginner's Guide to HTML, CSS, Graphics, and Beyond, by Jennifer Niederst Robbins (2007)
+//Learning Web Design, A Beginner's Guide to HTML, CSS, Graphics, and Beyond, by Jennifer Niederst Robbins (2007), 468 pages. [Finished]
+//JavaScript, The Definitive Guide by David Flanagan (2011), 1019 pages.
 //C-j to trigger emmet.
 ================================================================================
 * TODO 
@@ -612,8 +613,10 @@ Between the controller and the model sometimes goes a layer which is called a se
 
 
 * Chapter 4, JavaScript
+//JavaScript Basic, Client-Side JavaScript.
 
-** Naming Convensions
+** Some Basics
+*** Naming Convensions
    + Must begin with a letter, dollar sign or an underscore. Must NOT start with a number.
    + Must NOT use dash or period in a variable name.
    + Better NOT to use the *reserved words*.
@@ -621,11 +624,84 @@ Between the controller and the model sometimes goes a layer which is called a se
    + Meaningful variable names.
    + use Camel Case.
    
-** Type Checking
+*** Type Checking
    //TODO
      
-** Arrays
+*** Arrays
    var colors;
    colors = [`white`, `black`, `custom`];
    //Usage:
    console.log(colors[0]);
+   
+*** Handy Functions
+    + window.XMLHttpRequest
+
+      
+** Chapter 02, Lexical Structure
+*** Characters
+   + Unicode char set, version 2.1 or later.
+   + Case Sensitive (while HTML is case-nonsensitive)
+   + Ignore spaces between tokens in programs. Or most of the time also ignore line breaks.
+     //The following characters are recognized as space: 
+     //space(\u0020), tab(\u0009), vertical tab(\u000B), form feed(\u000C), nonbreaking space(\u00A0), byte order mark(\uFEFF), and any characters in Unicode category Zs.
+     //Some other characters as line terminators:
+   + "café" === "caf\u00e9" //True
+   + However, JavaScript will not try to normalize representations. In case not normalized, \u0301 and \u00E9, though presenting the same character, would be treat as not equal by JavaScript.
+
+*** Literals
+    + 12
+    + 1.2
+    + "hello world"   //A string of text
+    + 'hi'            //Another string
+    + true            //A Boolean value
+    + /javascript/gi  //A regex literal
+    + null            //Absence of an object
+    + { x:1, y:2 }    //An object initializer
+    + [1, 2, 3, 4, 5] //An array initializer
+
+*** Identifers and Reserved Words
+    //A legal *identifier* start with a letter, an underscore(_), or a dollar sign($), or a dollar sign($). Subsequent characters can be letters, digits, underscores, or dollar signs.
+    
+*** Optional Semicolons
+    //Two Exceptions:
+
+    //the linebreak after return, break, continue always interpreted as semicolon.
+    return
+    true;
+    //is always parsed as:
+    return; true;
+
+    x
+    ++
+    y
+    //is always parsed as:
+    x; ++y;
+
+    
+** Chapter 03, Types, Values and Variables
+   Object Types:
+   + primitive (numbers, strings of text, booleans, *null* and *undefined*)
+   + object 
+   + function
+     
+*** Numeric literal ~p34
+    //No distinguish between int and float point
+    //When overflow, returns *Infinity* or *-Infinity*
+    //When underflow, returns 0 or *-0* if src is negative.
+    //Divison by zero, divide infinity by infinity, root a negative number, returns *NaN*, i.e. Not a Number.
+    *Special:*
+      + 0 === -0             //true.
+      + 1/zero === 1/negz    //false, since infinity does not equal to -infinity.
+
+**** Binary Folating-Point and Rounding Errors
+     Follows the *IEEE-754 floating-point representation*
+     //which can exactly represent 1/2, 1/8, 1/1024, .etc
+     //however cannot persicely represent decimal fractions such as 0.1 
+     .3 - .2 == .2 - .1 //false
+     
+*** Regex
+    //RegExp();
+    //Adopted the syntax of Perl
+
+*** Immutable variables
+

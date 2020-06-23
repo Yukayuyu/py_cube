@@ -1,3 +1,4 @@
+'use strict';
 console.log("hi, loading JSBasic01.js");
 var jsBasic01Namespace = {
     process01: function () {
@@ -9,14 +10,14 @@ var jsBasic01Namespace = {
         content.innerHTML = newContent;
         var i = 2;
         document.write(`<p> i= ${i}, the namespace conflict with which designed in the index html</p>`);
-    } ,
+    },
 
-    process02: function() {
+    process02: function () {
         document.write(`process2 is called`);
     },
 
-    process03: function(){
-        var arr = [1,2];
+    process03: function () {
+        var arr = [1, 2];
     }
 }
 jsBasic01Namespace.process01();
