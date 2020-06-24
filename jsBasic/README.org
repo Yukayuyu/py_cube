@@ -704,4 +704,16 @@ Between the controller and the model sometimes goes a layer which is called a se
     //Adopted the syntax of Perl
 
 *** Immutable variables
-
+    
+*** Default type convension
+    empty string is false;
+    0, -0, NaN is false;
+    Infinity, -Infinity or number(?) is true;
+    ----------------------------------------
+    null, undefined is false;
+    object is true;
+    ----------------------------------------
+    null==undefined
+    "0"==0
+    0==false
+    "0"==false

@@ -149,4 +149,27 @@ To github.com:chnnn/py_cube.git
 [01;34mjsBasic[0m                       readme.md              [01;34mtinyhttpd-0.1.0[0m
 [01;34mmiscProjsArchive[0m              [01;34mrubiks_cube_simulator[0m
 [1m[7m%[27m[1m[0m                                                                                     ]2;k@kx1: ~w/py_cube]1;~w/py_cube[0m[27m[24m[J[36m[~w/py_cube][32m[1m$[0m [K[60C[31m*[00m[01;33m[00m[00m[32m[master][00m [70D[?1h=[?2004hggit add .[?1l>[?2004l
-]2;git add .]1;git[1m[7m%[27m[1m[0m                                                                                     ]2;k@kx1: ~w/py_cube]1;~w/py_cube[0m[27m[24m[J[36m[~w/py_cube][
+]2;git add .]1;git[1m[7m%[27m[1m[0m                                                                                     ]2;k@kx1: ~w/py_cube]1;~w/py_cube[0m[27m[24m[J[36m[~w/py_cube][32m[1m$[0m [K[60C[31m*[00m[01;33m[00m[00m[32m[master][00m [70D[?1h=[?2004hggit commit -am 'css wrapped up      up  upped   ed  ped'[?1l>[?2004l
+]2;git commit -am 'css wrap upped']1;git[master 8da0882] css wrap upped
+ 4 files changed, 445 insertions(+), 63 deletions(-)
+ rewrite miscProjsArchive/hrBatchOnline/index.html (72%)
+[1m[7m%[27m[1m[0m                                                                                     ]2;k@kx1: ~w/py_cube]1;~w/py_cube[0m[27m[24m[J[36m[~w/py_cube][32m[1m$[0m [K[61C[01;33m[00m[00m[32m[master][00m [70D[?1h=[?2004hggit push[?1l>[?2004l
+]2;git push]1;gitEnumerating objects: 21, done.
+Counting objects:   4% (1/21)Counting objects:   9% (2/21)Counting objects:  14% (3/21)Counting objects:  19% (4/21)Counting objects:  23% (5/21)Counting objects:  28% (6/21)Counting objects:  33% (7/21)Counting objects:  38% (8/21)Counting objects:  42% (9/21)Counting objects:  47% (10/21)Counting objects:  52% (11/21)Counting objects:  57% (12/21)Counting objects:  61% (13/21)Counting objects:  66% (14/21)Counting objects:  71% (15/21)Counting objects:  76% (16/21)Counting objects:  80% (17/21)Counting objects:  85% (18/21)Counting objects:  90% (19/21)Counting objects:  95% (20/21)Counting objects: 100% (21/21)Counting objects: 100% (21/21), done.
+Delta compression using up to 4 threads
+Compressing objects:   9% (1/11)Compressing objects:  18% (2/11)Compressing objects:  27% (3/11)Compressing objects:  36% (4/11)Compressing objects:  45% (5/11)Compressing objects:  54% (6/11)Compressing objects:  63% (7/11)Compressing objects:  72% (8/11)Compressing objects:  81% (9/11)Compressing objects:  90% (10/11)Compressing objects: 100% (11/11)Compressing objects: 100% (11/11), done.
+Writing objects:   9% (1/11)Writing objects:  18% (2/11)Writing objects:  27% (3/11)Writing objects:  36% (4/11)Writing objects:  45% (5/11)Writing objects:  54% (6/11)Writing objects:  63% (7/11)Writing objects:  72% (8/11)Writing objects:  81% (9/11)Writing objects:  90% (10/11)Writing objects: 100% (11/11)Writing objects: 100% (11/11), 6.72 KiB | 3.36 MiB/s, done.
+Total 11 (delta 8), reused 0 (delta 0), pack-reused 0
+remote: Resolving deltas:   0% (0/8)[Kremote: Resolving deltas:  12% (1/8)[Kremote: Resolving deltas:  25% (2/8)[Kremote: Resolving deltas:  37% (3/8)[Kremote: Resolving deltas:  50% (4/8)[Kremote: Resolving deltas:  62% (5/8)[Kremote: Resolving deltas:  75% (6/8)[Kremote: Resolving deltas:  87% (7/8)[Kremote: Resolving deltas: 100% (8/8)[Kremote: Resolving deltas: 100% (8/8), completed with 8 local objects.[K
+remote: 
+remote: GitHub found 3 vulnerabilities on chnnn/py_cube's default branch (3 moderate). To find out more, visit:[K
+remote:      https://github.com/chnnn/py_cube/network/alerts[K
+remote: 
+To github.com:chnnn/py_cube.git
+   20fb7df..8da0882  master -> master
+[1m[7m%[27m[1m[0m                                                                                     ]2;k@kx1: ~w/py_cube]1;~w/py_cube[0m[27m[24m[J[36m[~w/py_cube][32m[1m$[0m [K[61C[01;33m[00m[00m[32m[master][00m [70D[?1h=[?2004h[0m[27m[24m[J[36m[~w/py_cube][32m[1m$[0m [K[60C[31m*[00m[01;33m[00m[00m[32m[master][00m [70D[0m[27m[24m[J[36m[~w/py_cube][32m[1m$[0m [K[60C[31m*[00m[01;33m[00m[00m[32m[master][00m [70D[0m[27m[24m[J[36m[~w/py_cube][32m[1m$[0m [K[120C[31m*[00m[01;33m[00m[00m[32m[master][00m [130D[?2004l
+zsh: you have running jobs.
+[1m[7m%[27m[1m[0m                                                                                                                                                 ]2;k@kx1: ~w/py_cube]1;~w/py_cube[0m[27m[24m[J[36m[~w/py_cube][32m[1m$[0m [K[120C[31m*[00m[01;33m[00m[00m[32m[master][00m [130D[?1h=[?2004h
+
+[2]  + 43567 done       emacsclient $1 --create-frame
+[0m[27m[24m[J[36m[~w/py_cube][32m[1m$[0m [K[121C[01;33m[0
