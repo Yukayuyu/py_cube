@@ -777,6 +777,8 @@ Between the controller and the model sometimes goes a layer which is called a se
 * Chapter 10, the Grand Picture
 ** the evolution of the Web model 
    MVC - Service - DAO
+   //Maybe: Servlet == Controller, then it calls the applications on the server, which is the service layer. 
+   //How does servlet intereact with the application?
    //Who handles the View?
    //Who handles the Data?
 

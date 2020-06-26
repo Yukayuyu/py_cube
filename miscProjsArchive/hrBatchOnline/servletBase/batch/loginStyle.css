@@ -1,0 +1,136 @@
+body{
+    background-image: url(/img/bgPic01Gears.png);
+    background-size: 30em;
+    background-repeat: repeat-x repeat-y;
+    background-color: khaki;
+    /* background-repeat: no-repeat; */
+    /* background-position: right; */
+    background-attachment: fixed;
+    margin-left:12%;
+    margin-right:12%;
+    font: 76% Verdana, sans-serif;
+    width: device-width;
+}
+h1, h2, h3 {
+    color: rebeccapurple; 
+    font-family: 'Courier New', Courier, monospace ;
+    border: 2px solid black;
+    /* font-variant: small-caps; */
+    font:caption; /* This calls the system fonts */
+}
+
+/* Override by providing a more specific selector */
+div.row2>* {
+    color:red;
+    /* border: 0; */
+    font-style: oblique;
+    /* font-variant: small-caps;  */
+    text-decoration: blink;
+}
+
+div.row3{
+    margin: 6em 0;
+}
+
+div.row3>p{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 1.5em;
+    width: inherit;
+    height: 20em;
+    overflow: auto;
+    background: green; 
+}
+
+div.row3>*.quoted{
+    padding: 2em 2em 2em 50%; 
+}
+
+/* float */
+div.left-column{
+    /* float:left; */
+    margin: 10px;
+}
+div.right-column{
+    /* float:right; */
+    margin: 10px;
+}
+
+div.page{
+    width: device-width;
+    height: device-height;
+    background-color: lightcoral;
+}
+div.box3{
+    float:left;
+    background-color: black;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    color:white;
+    width: 30%;
+    height: 30%;
+    margin-left: 5%;
+    margin-right: 5%;
+}
+div.box4{
+    float:right;
+    background-color: black;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    color:white;
+    width: 30%;
+    height: 30%;
+    margin-left: 5%;
+    margin-right: 5%;
+}
+
+
+.clearfix::after{
+    content: "abc";
+    display: block;
+    clear: both;
+}
+
+div.row5 span.disclaimer {
+    float: right;
+    margin: 1.5 em;
+    width: 10em;
+    font-size: 0.5em ;
+    color: #FFF;
+    background-color: #9D080D;
+    padding: 0.5em;
+}
+
+div.row5 p {
+    position: fixed;
+    /* position: absolute; */
+    top:0;
+    right:0;
+    width: 300px;
+    padding: 1.2em;
+    font-size: 1em;
+    background-color: transparent;
+    border: 2px solic #6C4788;
+}
+
+div.row6 em {
+    /* position: relative; */
+    position: absolute;
+    top: 2em;
+    left: 0em;
+    margin: 1.5 em;
+    width: 10em;
+    font-size: 0.5em ;
+    color: #FFF;
+    background-color: #9D080D;
+    padding: 0.5em;
+}
+div.row6 p {
+    position: relative;
+    top: 1em;
+    padding: 1.2em;
+    font-size: 3em;
+    background-color: #FFF799;
+    border: 2px solic #6C4788;
+}
+div.row6 {
+    position: relative;
+    top: 10em;
+}

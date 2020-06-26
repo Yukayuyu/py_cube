@@ -44,6 +44,10 @@
         <servlet-name>formLoginDispatchName</servlet-name>
         <servlet-class>formLoginDispatch</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>login</servlet-name>
+        <servlet-class>UserWebLoginCheck</servlet-class>
+    </servlet>
     <listener>
         <listener-class>listener.AppContextAttributeListener</listener-class>
     </listener> 
@@ -63,5 +67,9 @@
     <servlet-mapping>
         <servlet-name>formLoginDispatchName</servlet-name>
         <url-pattern>/servlet/formLoginDispatch</url-pattern>
+    </servlet-mapping> 
+    <servlet-mapping>
+        <servlet-name>login</servlet-name>
+        <url-pattern>/servlet/login</url-pattern>
     </servlet-mapping> 
 </web-app>
