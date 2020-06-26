@@ -40,6 +40,10 @@
         <servlet-name>formBasicName</servlet-name>
         <servlet-class>formBasic</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>formLoginDispatchName</servlet-name>
+        <servlet-class>formLoginDispatch</servlet-class>
+    </servlet>
 
     <servlet-mapping>
         <servlet-name>HelloWorldServlet</servlet-name>
@@ -48,5 +52,10 @@
     <servlet-mapping>
         <servlet-name>formBasicName</servlet-name>
         <url-pattern>/servlet/formBasic</url-pattern>
+    </servlet-mapping> 
+    
+    <servlet-mapping>
+        <servlet-name>formLoginDispatchName</servlet-name>
+        <url-pattern>/servlet/formLoginDispatch</url-pattern>
     </servlet-mapping> 
 </web-app>
