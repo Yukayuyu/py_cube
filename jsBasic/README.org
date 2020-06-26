@@ -717,3 +717,79 @@ Between the controller and the model sometimes goes a layer which is called a se
     "0"==0
     0==false
     "0"==false
+
+    
+** Some Tricks
+*** simple input check
+    <input type="submit" value="submit" onclick="return checkForm();"/>
+    <script>
+        function checkForm(){}
+    </script>
+    
+* Chapter 5, JSP
+** KeyWords
+*** JSP Implicit Objects   
+    + request
+    + response
+    + out
+    + session
+      //the *HttpSession* object associate with the request.
+    + application
+      //the *ServletContext* object associated with the application context.
+    + config
+      //the *ServletConfig* object associated with the page.
+
+      
+*** EL (Expression Language)
+    *EL Implicit Objects*
+    + pageScope
+    + requestScope
+    + sessionScope
+    + applicationScope
+    + pageContext
+    + param
+    + paramValues
+    + header
+    + headerValues
+    + initParam
+    + cookie
+    
+*** JSTL (JavaServer Pages Standard Tag Library)
+    + <c:forEach>
+    + <j>
+    + <j>
+    + <j>
+    + <j>
+    + <j>
+    + <j>
+    + <j>
+    + <j>
+    + <j>
+
+      
+** Some Basic
+   
+*** Import
+    <%@ page language="java" contentType="text/html; charset=UTF-8">
+    <%@ page import="java.util.*">
+    <%@ page import="java.io.*, ccdebug.*">
+    
+* Chapter 10, the Grand Picture
+** the evolution of the Web model 
+   MVC - Service - DAO
+   //Who handles the View?
+   //Who handles the Data?
+
+   For example, The data provider provide a new API for a specific kend of users(e.g. IOS user).
+   Then the DAO may be built on a specific platform.
+   
+** MVC
+   + Controller
+     //e.g. Servlet, Action
+   + Entity
+     //Java beans
+     //VO(View Object) BO(Business Object) PO
+   + Service 
+     //Interface and implementation
+   + DAO
+

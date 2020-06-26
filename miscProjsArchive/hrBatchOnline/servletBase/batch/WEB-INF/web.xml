@@ -44,6 +44,12 @@
         <servlet-name>formLoginDispatchName</servlet-name>
         <servlet-class>formLoginDispatch</servlet-class>
     </servlet>
+    <listener>
+        <listener-class>listener.AppContextAttributeListener</listener-class>
+    </listener> 
+    <listener>
+        <listener-class>listener.AppHttpSessionListener</listener-class>
+    </listener>
 
     <servlet-mapping>
         <servlet-name>HelloWorldServlet</servlet-name>

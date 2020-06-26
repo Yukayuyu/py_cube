@@ -1945,6 +1945,7 @@ StringObj.split(regex); // split("n\\W+");
     + *@Documented(args)* indicates that, whenever it is used, those elements should be documented in Javadoc, whereas the default behavior is to not include it.
     + *@Target(args)* marks another annotation to restrict what kind of Java elements the annotation can be applied to. Allows the following values:
       | ElementType.    | ~ can be applied to a/an: |
+      |-----------------+---------------------------|
       | ANNOTATION_TYPE | annotation type           |
       | CONSTRUCTOR     | constructor               |
       | FIELD           | field or property         |

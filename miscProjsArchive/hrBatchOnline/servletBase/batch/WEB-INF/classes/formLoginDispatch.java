@@ -1,14 +1,8 @@
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.PrintWriter;
+import java.io.*;
 import java.util.*;
 import ccdebug.*;
-
-import javax.servlet.RequestDispatcher;
-import javax.servlet.ServletException;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
+import javax.servlet.*;
+import javax.servlet.http.*;
 
 public class formLoginDispatch extends HttpServlet {
     static final long serialVersionUID = 00002L;
@@ -19,10 +13,12 @@ public class formLoginDispatch extends HttpServlet {
         String uID = req.getParameter("uID");
         String uPW = req.getParameter("uPW");
         String rspURL;
+        HttpSession session = null;
 
         // userMap<uID, password>
         Map<String, String> userMap = new HashMap<>();
         userMap.put("admin", "admin");
+
         if (!userMap.containsKey(uID)) {
             out.write(ServletCDB.htmlHead());
             out.write("<p>login fail</p>");
@@ -38,9 +34,22 @@ public class formLoginDispatch extends HttpServlet {
         } else if (!(uPW.equals(userMap.get(uID)))) {
             rspURL = "/login-fail.html";
         } else {
-            rspURL = "/login-success.html";
+            Boolean getCurrentOrCreate = false;
+            session = req.getSession(getCurrentOrCreate);
+            if (session == null){
+                session = req.getSession(); // establish a new session
+                // System.err.println("login success"); // goes to ConsoleHandler -> sys.err, which is the system log. accessable in journalctl
+                // session.getServletContext().log("logging in session.getServletcontext() at info level"); //suppose to go to app level, but instead showed in journalctl
+                System.err.println("session was null, new session:" + session); 
+            } else {
+                System.err.println("session was not null, session:" + session);
+            }
+            session.setAttribute("uID", uID);
+            session.setAttribute("uPW", uPW);
+
+            rspURL = "/WEB-INF/jsp/Welcome.jsp"; 
             RequestDispatcher dispatcher = req.getRequestDispatcher(rspURL);
-            dispatcher.forward(req, res);
+            dispatcher.forward(req, res); 
         }
     }
 }
