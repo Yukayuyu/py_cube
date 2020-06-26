@@ -3,7 +3,7 @@ import java.io.File;
 
 /**
  * Utilities to simplify path building.
- * @author cc
+ * @author chnnn
  *
  */
 public class FilePath {
@@ -19,6 +19,7 @@ public class FilePath {
      * return resources folder path, 
      * e.g. for finding the .properties file in  ${projectroot}/src/main/resources 
      * @return
+	 * 
      */
 	public static String getResourcesDir() {
 		String defaultRoot = FilePath.getDefaultRootDir();
@@ -26,8 +27,12 @@ public class FilePath {
 		return dir;
     } 
     /**
-     * TODO: modify this function
+     * Used to parse the DIR in .properties file.
+	 * Because File.separator might differ among systems.
+	 * However we write /dir/to/file in the .properties file. 
+	 * Thus it could be handy to replace the "/" with java.io.File.separator.
      * @param propertyStringEntry
+	 * @author chnnn
      * @return
      */
 	public static String parsePathFromProperties(String propertyStringEntry) {
