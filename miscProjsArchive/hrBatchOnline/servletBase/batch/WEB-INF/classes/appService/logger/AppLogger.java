@@ -1,12 +1,8 @@
-package appService.logger;
+package appService.logger; 
+import static appService.logger.AppLogLevels.*;
 
-
-import java.io.File;
-// import java.util.List;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-
-import appService.util.FilePath;
 
 /**
  * the app wise customized logger. call its "log" function within the app to
@@ -17,34 +13,25 @@ public final class AppLogger {
     /**
      * which will be instentiated in the following static block.
      */
-    static final Logger apacheLogger; 
+    static final Logger apacheLogger = getLogger(); 
     /**
      * A Holder to ensure that, the PATH points to the Log4j2 configuration file,
      * will be declared first, in the system property, before the logger initiate.
      * It is a workaround to ensure that the log4j2.xml file read by the logger.
+     * The following has been tested and is also legal:
+     * import org.apache.logging.log4j.core.Logger;
+     *   static final Logger apacheLogger = (Logger) LogManager.getLogger();
      */
     private static class LoggerHolder {
-        static final Logger apacheLogger = LogManager.getLogger(); 
+        static final Logger apacheLogger = LogManager.getLogger("AppLogger");
     }
     private AppLogger(){}
 
-    /**
-     * Set the Log4j2 config file path, in system property. 
-     * Specified in apache Log4j2 documentation.
-     * https://logging.apache.org/log4j/2.x/manual/configuration.html#SystemProperties
-     */
-    static void setLog4j2ConfigFilePath(){
-        String confDir = FilePath.getConfigDir() + File.separator + "log4j2.xml";
-        System.setProperty("log4j2.configurationFile", confDir); 
-    }
-
     private static Logger getLogger(){
-        setLog4j2ConfigFilePath(); 
+        System.setProperty("log4j2.debug", "1");
+        // setLog4j2ConfigFilePath(); 
         return LoggerHolder.apacheLogger; 
     } 
-    static{
-        apacheLogger = getLogger();
-    }
 
     public static final void log(String info) {
         log(info, DEFAULT_LEVEL);
@@ -105,13 +92,8 @@ public final class AppLogger {
                 break;
         }
     }
-    // public static void main(String[] args) {
-    //     AppLogger.setLog4j2ConfigFilePath();
-    //     String s = System.getProperty("log4j2.configurationFile"); 
-    //     System.out.println(s);
-    //     System.out.println(FilePath.getConfigDir());
-    //     File file = new File(s);
-    //     List<String> outList = FileReadLineToList.readFileToLine(file);
-    //     System.out.println(outList);
-    // }
+ 
+    public static void main(String[] args) {
+        log("info?", INFO);
+    }
 }

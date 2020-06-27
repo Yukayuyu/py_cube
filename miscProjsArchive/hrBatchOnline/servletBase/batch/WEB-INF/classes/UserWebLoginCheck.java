@@ -6,7 +6,7 @@ import javax.servlet.*;
 import javax.servlet.http.*;
 
 public class UserWebLoginCheck extends HttpServlet {
-    static final long serialVersionUID = 00003L;
+    static final long serialVersionUID = 90112244460330L;
 
     /**
      * TODO: Change it to doPost instead later

@@ -1,6 +1,6 @@
 package appService.logger;
 
-import static appService.logger.AppLogLevels.WARN;
+import static appService.logger.AppLogLevels.*;
 import static appService.logger.AppLogger.log;
 import static org.junit.Assert.assertEquals;
 
@@ -9,7 +9,7 @@ import org.junit.Test;
 public class AppLoggerTest {
     @Test
     public void consoleLogTest() {
-        log("hi, logtest", WARN); // passed
+        log("hi, logtest", INFO); // passed
     }
 
     @Test
