@@ -1,50 +1,57 @@
 package appService.util;
+
 import java.io.File;
 
 /**
  * Utilities to simplify path building.
+ * 
  * @author chnnn
  *
  */
-public class FilePath {
-    /**
-     * return the default rootDir, start with File.separator and does not end with File.separator
-     * @return
-     */
-	public static String getDefaultRootDir() {
-		String defaultRoot = new File("").getAbsolutePath();
-		return defaultRoot;
-    } 
-    /**
-     * return resources folder path, 
-     * e.g. for finding the .properties file in  ${projectroot}/src/main/resources 
-     * @return
+public final class FilePath {
+	/**
+	 * Return the absolute path points to the project's rootDir.
 	 * 
-     */
-	public static String getResourcesDir() {
-		String defaultRoot = FilePath.getDefaultRootDir();
-		String dir = defaultRoot + File.separator + "config";
+	 * @return Return the absolute path points to the project's rootDir. Start with
+	 *         a File.separator, end with the name of the Dir.
+	 */
+	public static final String getAbsProjRootDir() {
+		String absProjRoot = new File("").getAbsolutePath();
+		return absProjRoot;
+	}
+
+	/**
+	 * Return the absolute path points to the Config folder. This Function need to
+	 * be modified in each project depending on each file structure
+	 * 
+	 * @return the absolute path points to the resource folder. Start with a
+	 *         File.separator, end with the name of the Dir.
+	 * 
+	 */
+	public static final String getConfigDir() {
+		String absProjRoot = FilePath.getAbsProjRootDir();
+		String dir = absProjRoot + File.separator + "servletBase" + File.separator + "batch" + File.separator
+				+ "WEB-INF" + File.separator + "classes" + File.separator + "config";
 		return dir;
-    } 
-    /**
-     * Used to parse the DIR in .properties file.
-	 * Because File.separator might differ among systems.
-	 * However we write /dir/to/file in the .properties file. 
-	 * Thus it could be handy to replace the "/" with java.io.File.separator.
-     * @param propertyStringEntry
+	}
+
+	/**
+	 * Internal use within package. Parse the DIR fetched from the .properties file.
+	 * Which is /dir/to/file in the .properties file. Then replace all "/" with
+	 * java.io.File.separator. Intended for internal use by GetProperties.java
+	 * 
+	 * @param aPropertyValueInString
 	 * @author chnnn
-     * @return
-     */
-	public static String parsePathFromProperties(String propertyStringEntry) {
-		String[] s = propertyStringEntry.split("/"); 
+	 * @return
+	 */
+	static final String parsePathFromProperties(String aPropertyValueInString) {
+		String[] s = aPropertyValueInString.split("/");
 		StringBuilder x = new StringBuilder();
-		for(String ss : s) {
+		for (String ss : s) {
 			x.append(ss);
-			x.append(File.separator); 
+			x.append(File.separator);
 		}
 		int index = x.lastIndexOf(File.separator);
 		return x.substring(0, index);
-	} 
-
-    
+	}
 }

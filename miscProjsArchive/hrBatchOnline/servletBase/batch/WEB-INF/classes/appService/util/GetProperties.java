@@ -7,16 +7,22 @@ import java.io.IOException;
 import java.util.Properties;
 
 /**
- * read and return properties.
- * property file location: .../src/main/resources/hrbatch.properties
+ * read and return a java.util.Properties object.
  * @author cc
  */
-public class GetProperties {
-	public static Properties readGlobalProps() {
+public final class GetProperties {
+
+	/**
+	 * read the .properties file.
+	 * the path is hard coded.
+	 * Since the location remain unchange for one whole project.
+	 * @return return a java.util.Properties object.
+	 */
+	public static final Properties readGlobalProps() {
 		Properties globalProps = new Properties();
 		FileInputStream in = null;
 		try {
-			String resDir = FilePath.getResourcesDir();
+			String resDir = FilePath.getConfigDir();
 			File f = new File(resDir + File.separator + "batch.properties");
 			in = new FileInputStream(f);
 			globalProps.load(in);
