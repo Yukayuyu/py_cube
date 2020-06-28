@@ -19,6 +19,15 @@ public final class FilePath {
 		String absProjRoot = new File("").getAbsolutePath();
 		return absProjRoot;
 	}
+	/**
+	 * Return the absolute path points to the *JAR file*, within which the target class is located.
+	 * @param tgrClass the target class whose JAR path is desired. Use getClass() to get the current class. Or getEnclosingClass() to get the enclosing class from an anonymous class.
+	 * @return a File object points to the jar file.
+	 */
+	public static final File getAbsJarPath(Class<?> tgrClass){
+		final File f = new File(tgrClass.getProtectionDomain().getCodeSource().getLocation().getPath());
+		return f;
+	}
 
 	/**
 	 * Return the absolute path points to the Config folder. This Function need to

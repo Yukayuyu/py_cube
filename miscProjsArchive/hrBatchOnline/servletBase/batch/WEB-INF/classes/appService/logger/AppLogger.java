@@ -1,12 +1,21 @@
 package appService.logger; 
-import static appService.logger.AppLogLevels.*;
+
+import java.io.File;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+import appService.util.FilePath;
+
 /**
- * the app wise customized logger. call its "log" function within the app to
- * log. Log the String/stackTrace using Log4j.
+ * This class provide a simpler Logger interface or implementation than log4j2.
+ * It is a wrap-up of the log4j2-core and log4j2-api.
+ * **It use the system property to specify some log4j2 behavior, before its initialization.**
+ * **e.g. customized log4j2.xml location, debugging.**
+ * **The log4j2.xml location setting is useful but might be buggy in some virtual environment,
+ * **For example vscode Junit test.
+ * 
+ * Usage: Import the package, call its "log" function to log.
  */
 public final class AppLogger {
     private static AppLogLevels DEFAULT_LEVEL = AppLogLevels.INFO;
@@ -27,9 +36,19 @@ public final class AppLogger {
     }
     private AppLogger(){}
 
+    /**
+     * Internal use. returns the logger with property set ahead.
+     * Comment out the debug line when debugging is necessary.
+     * Use this method to get logger. 
+     * It works properly.
+     * For more information, check out apache Log4j2 documentation:
+     * https://logging.apache.org/log4j/2.x/manual/configuration.html#SystemProperties
+     * @return
+     */
     private static Logger getLogger(){
-        System.setProperty("log4j2.debug", "1");
-        // setLog4j2ConfigFilePath(); 
+        // System.setProperty("log4j2.debug", "1");
+        String confDir = FilePath.getConfigDir() + File.separator + "log4j2.xml";
+        System.setProperty("log4j2.configurationFile", confDir); 
         return LoggerHolder.apacheLogger; 
     } 
 
@@ -93,7 +112,7 @@ public final class AppLogger {
         }
     }
  
-    public static void main(String[] args) {
-        log("info?", INFO);
-    }
+    // public static void main(String[] args) {
+    //     log("info?2", INFO);
+    // }
 }

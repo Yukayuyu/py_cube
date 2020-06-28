@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Title is title</title>
+    <link rel="stylesheet" href="indexStyles.css" />
+</head>
+
+<body>
+    <div class="page">
+        <div class="left-column">
+            <h1>tomcatForm</h1>
+            <p><a href="tomcatForm.html">tomcatFormTest</a></p>
+            <p><a href="/batch/login-reg.html">Login</a></p>
+
+            <h2>The Index, the style is important</h2>
+            <form action="cgi-bin/basicCGI01Bash.cgi" method="post">
+                <label for="TextInputBox01">Input some text:</label>
+                <input type="text" name="cgiIn" id="TextInputBox01">
+                <input type="submit" value="Submit">
+            </form>
+        </div>
+        <div class="right-column">
+            <h2>simple JS test</h2>
+            <script>
+                // <!CDATA[
+                document.write("Hello");
+                //The following i is global.
+                var i = 1;
+            // jsBasic01Namespace.process02();
+        // ]]>
+            </script>
+            <div class="row1">
+                <h3 id="h03">TempHeader</h3>
+                <div class="content" id="ct03">TempContent</div>
+            </div>
+            <!-- JSBasic01.js modifies the innerHtml of the h03 and ct03 elements -->
+            <script src="JSBasic01.js"></script>
+            <script>
+                jsBasic01Namespace.process02(); 
+            </script>
+
+            <div class="row2">
+                <h3 id="h04" style="color:green;">Font Style Testing</h3>
+                <p>a paragraph.</p>
+            </div>
+            <div class="row3">
+                <h3>Box Model Testing</h3>
+                <p class="quoted">a long long long long long long long long long long long long long long long long long
+                    long long long
+                    long long long long long long long long long long long long long long long long long long long long
+                    long
+                    long long long long long long long long long long long long long long long long long long long long
+                    long
+                    long long long long long long long long long long long long long long long long long long long long
+                    test
+                    paragraph</p>
+            </div>
+        </div>
+        <div class="rowsplit clearfix">
+            <div class="box3">
+                <h3>box3</h3>
+                <p>content content</p>
+            </div>
+            <div class="box4">
+                <h3>box4</h3>
+                <p>content content</p>
+            </div>
+        </div>
+        <div class="row5 clearfix">
+            <p><span class="disclaimer">Disclaimer: content</span>text text text text text text text text text text text
+                text text text text text text text text text text text text text text text text text text text text</p>
+
+        </div>
+        <div class="row6 clearfix">
+            <p>text text text text text text <em>Disclaimer: content</em>text text text text text
+                text text text text text text text text text text text text text text text text text text text text</p> 
+        </div>
+
+    </div>
+</body>
+
+
+</html>

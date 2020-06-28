@@ -21,7 +21,7 @@
     </File>
   </Appenders>
   <Loggers>
-    <Logger name="${serviceLogger}" level="debug" additivity="false">
+    <Logger name="${serviceLogger}" level="info" additivity="false">
       <AppenderRef ref="serviceFileOut"/>
     </Logger> 
     <Root level="debug">

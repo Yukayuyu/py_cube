@@ -1,657 +1,0 @@
-Script started on 2020-06-24 14:01:21+09:00 [TERM="xterm-256color" TTY="/dev/pts/6" COLUMNS="148" LINES="50"]
-[1m[7m%[27m[1m[0m                                                                                                                                                    ]2;k@kx1: ~a/servletBase/batch/WEB-INF/classes]1;..B-INF/classes[0m[27m[24m[J[36m[~a/servletBase/batch/WEB-INF/classes][32m[1m$[0m [K[97C[31m*[00m[01;33m[00m[00m[32m[master][00m [107D[?1h=[?2004hccript   c  sscrpt  ipts[?1l>[?2004l
-]2;vim ~w/ENVScripts/scripts]1;scripts[?1049h[22;0;0t[>4;2m[?1h=[?2004h[1;50r[?12h[?12l[22;2t[22;1t[27m[23m[29m[m[H[2J[?25l[50;1H"~/code/ENVScripts/scripts" 67L, 2564C[2;1H▽[6n[2;1H  [1;1H[>c]10;?]11;?[1;1H----[Emacs]----
-untabify
-lsp-rename
-upcase word M-u
-upcase-region C-x C-u
-----[Python]----
-hex(); bin(); oct();
-int("0xa",0);
-----[system]----
-nethogs
-journalctl -r
-journalctl --user-unit emacs.service | tail -n 30
-rfkill list    (switch wifi/bluetooth on&off)
-rfkill unblock bluetooth
-/sys/kernel/security/tpm0
-makepkg -si
-----[GitHub]----
-git branch branchname
-git reset --hard commit_id
-git -d branchname
-
-git filter-branch --index-filter 'git rm --cached --ignore-unmatch "履歴書 v19.pdf"' HEAD
-git filter-branch --force --index-filter "git rm --cached --ignore-unmatch '陳同人'" --prune-empty --tag-name-filter cat -- --all
-
-----[utility]----
-find . -name "*.java"|xargs cat
-find . -name "*.java"|xargs cat|grep -v -e ^$ -e \/\/
-
-mogrify -stripe filename.jpg
-pacman -Rns $(pacman -Qtdq)
-pacman -Syu
-file
-vimdiff file1 file2 [file3 [file4]]
-
-[encoding decoding]
-Base64 -D > save1
-
-[reverse engineering]
-binwalk ;python programme
-
--------[SQL]------
-show databases;
-
--------[Network]------
-ssh-keygen -R <host> //The remote host identification has changed.
-ssh-copy-id <host>
-
--------[Raspberry Pi]----
-raspi-config[50;131H1,1[11CTop[1;1H[?25hP+q436f\P+q6b75\P+q6b64\P+q6b72\P+q6b6c\P+q2332\P+q2334\P+q2569\P+q2a37\P+q6b31\[27m[23m[29m[m[H[2J[?25l[1;1H----[Emacs]----
-untabify
-lsp-rename
-upcase word M-u
-upcase-region C-x C-u
-----[Python]----
-hex(); bin(); oct();
-int("0xa",0);
-----[system]----
-nethogs
-journalctl -r
-journalctl --user-unit emacs.service | tail -n 30
-rfkill list    (switch wifi/bluetooth on&off)
-rfkill unblock bluetooth
-/sys/kernel/security/tpm0
-makepkg -si
-----[GitHub]----
-git branch branchname
-git reset --hard commit_id
-git -d branchname
-
-git filter-branch --index-filter 'git rm --cached --ignore-unmatch "履歴書 v19.pdf"' HEAD
-git filter-branch --force --index-filter "git rm --cached --ignore-unmatch '陳同人'" --prune-empty --tag-name-filter cat -- --all
-
-----[utility]----
-find . -name "*.java"|xargs cat
-find . -name "*.java"|xargs cat|grep -v -e ^$ -e \/\/
-
-mogrify -stripe filename.jpg
-pacman -Rns $(pacman -Qtdq)
-pacman -Syu
-file
-vimdiff file1 file2 [file3 [file4]]
-
-[encoding decoding]
-Base64 -D > save1
-
-[reverse engineering]
-binwalk ;python programme
-
--------[SQL]------
-show databases;
-
--------[Network]------
-ssh-keygen -R <host> //The remote host identification has changed.
-ssh-copy-id <host>
-
--------[Raspberry Pi]----
-raspi-config[50;131H1,1[11CTop"~/code/ENVScripts/scripts" 67L, 2564C[1;1H[?25h[?25l[50;131H2[2;1H[?25h[?25l[50;131H3[3;1H[?25h[?25l[50;131H4[4;1H[?25h[?25l[50;131H5[5;1H[?25h[?25l[50;131H6[6;1H[?25h[?25l[50;131H7[7;1H[?25h[?25l[50;131H8[8;1H[?25h[?25l[50;131H9[9;1H[?25h[?25l[50;131H10,1[10;1H[?25h[?25l[50;132H1[11;1H[?25h[?25l[50;132H2[12;1H[?25h[?25l[50;132H3[13;1H[?25h[?25l[50;132H4[14;1H[?25h[?25l[50;132H5[15;1H[?25h[?25l[50;132H6[16;1H[?25h[?25l[50;132H7[17;1H[?25h[?25l[50;132H6[16;1H[?25h[?25l[50;132H7[17;1H[?25h[?25l[50;132H8[18;1H[?25h[?25l[50;132H9[19;1H[?25h[?25l[50;131H20[20;1H[?25h[?25l[50;132H1,0-1[21;1H[?25h[?25l[50;132H2,1  [22;1H[?25h[?25l[50;132H3[23;1H[?25h[?25l[50;132H4,0-1[24;1H[?25h[?25l[50;132H5,1  [25;1H[?25h[?25l[50;132H4,0-1[24;1H[?25h[?25l[50;132H5,1  [25;1H[?25h[?25l[50;132H6[26;1H[?25h[?25l[50;132H7[27;1H[?25h[?25l[50;132H8,0-1[28;1H[?25h[?25l[50;132H9,1  [29;1H[?25h[?25l[50;131H30[30;1H[?25h[?25l[50;132H1[31;1H[?25h[?25l[50;132H2[32;1H[?25h[?25l[50;132H3[33;1H[?25h[?25l[50;132H4,0-1[34;1H[?25h[?25l
-[46m[[17C][m[50;132H5,1  [35;1H[?25h[?25l[[17C][50;132H6[36;1H[?25h[?25l[35;1H[46m[[17C][m[50;132H5[35;1H[?25h[?25l[[17C][50;132H4,0-1[34;1H[?25h[?25l[50;132H3,1  [33;1H[?25h[?25l[50;132H2[32;1H[?25h[?25l[50;132H1[31;1H[?25h[?25l[50;132H0[30;1H[?25h[?25l[50;131H29[29;1H[?25h[?25l[50;132H8,0-1[28;1H[?25h[?25l[50;132H7,1  [27;1H[?25h[?25l[50;132H6[26;1H[?25h[?25l[50;132H5[25;1H[?25h[?25l[50;132H4,0-1[24;1H[?25h[?25l[50;132H3,1  [23;1H[?25h[?25l[50;132H2[22;1H[?25h[?25l[50;132H1,0-1[21;1H[?25h[?25l[50;132H0,1  [20;1H[?25h[?25l[50;132H1,0-1[21;1H[?25h[?25l[50;132H2,1  [22;1H[?25h[?25l[50;132H3[23;1H[?25h[?25l[50;1H[1m-- INSERT --[m[50;13H[K[50;131H24,1[10CTop[24;49r[24;1H[L[1;50r[50;131H[K[50;131H24,1[10CTop[24;1H[?25h[?25l[25;49r[25;1H[L[1;50r[50;131H[K[50;131H25,1[10CTop[25;1H[?25h[?25l0[50;134H2[25;2H[?25h[?25l0[50;134H3[25;3H[?25h[?25l0[50;134H4[25;4H[?25h[?25l[25;3H[K[50;134H3[25;3H[?25h[?25l[25;2H[K[50;134H2[25;2H[?25h[?25l[25;1H[K[50;134H1[25;1H[?25h[50;1H[K[25;1H[?25l[50;131H25,0-1[8CTop[25;1H[?25h[?25l[50;1H[1m-- INSERT --[m[50;131H[K[50;131H25,1[10CTop[25;1H[?25h[?25l-[50;134H2[25;2H[?25h[50;1H[K[25;1H[?25l----[50;131H25,4[10CTop[25;4H[?25h[?25l[50;1H[1m-- INSERT --[m[50;131H[K[50;131H25,4[10CTop[25;4H[?25h[?25l--[50;134H5[25;5H[?25h[50;1H[K[25;4H[?25l-----[50;131H25,7[10CTop[25;7H[?25h[?25l[50;134H6[25;6H[?25h[?25l[50;134H5[25;5H[?25h[?25l[50;134H4[25;4H[?25h[?25l[50;134H5[25;5H[?25h[?25l[50;1H[1m-- INSERT --[m[50;131H[K[50;131H25,5[10CTop[25;5H[?25h[?25l[----[50;134H6[25;6H[?25h[?25l[46m[][m----[50;134H7[25;7H[?25h[?25l[50;134H6[25;6H[?25h[?25lj[46m][m----[50;134H7[25;7H[?25h[?25la[46m][m----[50;134H8[25;8H[?25h[?25lv[46m][m----[50;134H9[25;9H[?25h[?25la[46m][m----[50;134H10[25;10H[?25h[?25l[46m][m-[25;14H[K[50;134H9 [25;9H[?25h[?25l[46m][m-[25;13H[K[50;134H8[25;8H[?25h[?25l[46m][m-[25;12H[K[50;134H7[25;7H[?25h[?25l[46m][m-[25;11H[K[50;134H6[25;6H[?25h[?25lJ[46m][m----[50;134H7[25;7H[?25h[?25la[46m][m----[50;134H8[25;8H[?25h[?25lv[46m][m----[50;134H9[25;9H[?25h[?25la[46m][m----[50;134H10[25;10H[?25h[50;1H[K[25;9H[?25l[Java][50;131H25,9[10CTop[25;9H[?25h[?25l[50;1H[1m-- INSERT --[m[50;131H[K[50;131H26,1[10CTop[26;49r[26;1H[L[1;50r[50;131H[K[50;131H26,1[10CTop[26;1H[?25h[?25lj[50;134H2[26;2H[?25h[?25la[50;134H3[26;3H[?25h[?25lv[50;134H4[26;4H[?25h[?25la[50;134H5[26;5H[?25h[?25lc[50;134H6[26;6H[?25h[?25l[50;134H7[26;7H[?25h[?25l"[50;134H8[26;8H[?25h[?25l[26;7H[K[50;134H7[26;7H[?25h[?25l-[50;134H8[26;8H[?25h[?25lc[50;134H9[26;9H[?25h[?25lp[50;134H10[26;10H[?25h[?25l"[50;135H1[26;11H[?25h[?25l[26;10H[K[50;135H0[26;10H[?25h[?25l[50;135H1[26;11H[?25h[?25l"[50;135H2[26;12H[?25h[?25l.[50;135H3[26;13H[?25h[?25l/[50;135H4[26;14H[?25h[?25lx[50;135H5[26;15H[?25h[?25lx[50;135H6[26;16H[?25h[?25lx[50;135H7[26;17H[?25h[?25l.[50;135H8[26;18H[?25h[?25lj[50;135H9[26;19H[?25h[?25la[50;134H20[26;20H[?25h[?25lr[50;135H1[26;21H[?25h[?25l/[50;135H2[26;22H[?25h[?25l[26;21H[K[50;135H1[26;21H[?25h[?25l"[50;135H2[26;22H[?25h[?25l[26;21H[K[50;135H1[26;21H[?25h[?25l:[50;135H2[26;22H[?25h[?25l.[50;135H3[26;23H[?25h[?25l.[50;135H4[26;24H[?25h[?25l.[50;135H5[26;25H[?25h[?25l.[50;135H6[26;26H[?25h[?25lj[50;135H7[26;27H[?25h[?25la[50;135H8[26;28H[?25h[?25lv[50;135H9[26;29H[?25h[?25la[50;134H30[26;30H[?25h[?25l[26;29H[K[50;134H29[26;29H[?25h[?25l[26;28H[K[50;135H8[26;28H[?25h[?25l[26;27H[K[50;135H7[26;27H[?25h[?25l[26;26H[K[50;135H6[26;26H[?25h[?25l[26;25H[K[50;135H5[26;25H[?25h[?25lx[50;135H6[26;26H[?25h[?25l.[50;135H7[26;27H[?25h[?25lj[50;135H8[26;28H[?25h[?25la[50;135H9[26;29H[?25h[?25lr[50;134H30[26;30H[?25h[?25l;[50;135H1[26;31H[?25h[?25l"[50;135H2[26;32H[?25h[?25l[50;135H3[26;33H[?25h[?25lj[50;135H4[26;34H[?25h[?25la[50;135H5[26;35H[?25h[?25lv[50;135H6[26;36H[?25h[?25la[50;135H7[26;37H[?25h[?25l[26;36H[K[50;135H6[26;36H[?25h[?25l[26;35H[K[50;135H5[26;35H[?25h[?25l[26;34H[K[50;135H4[26;34H[?25h[?25l[26;33H[K[50;135H3[26;33H[?25h[?25lf[50;135H4[26;34H[?25h[?25l[26;33H[K[50;135H3[26;33H[?25h[?25lf[50;135H4[26;34H[?25h[?25li[50;135H5[26;35H[?25h[?25ll[50;135H6[26;36H[?25h[?25le[50;135H7[26;37H[?25h[?25l.[50;135H8[26;38H[?25h[?25lj[50;135H9[26;39H[?25h[?25la[50;134H40[26;40H[?25h[?25lv[50;135H1[26;41H[?25h[?25la[50;135H2[26;42H[?25h[50;1H[K[26;41H[?25l[50;131H26,41[9CTop[26;41H[?25h[?25l[50;134H38[26;38H[?25h[?25l[50;135H7[26;37H[?25h[?25l[50;135H3[26;33H[?25h[?25l.java[26;38H[K[26;33H[?25h[?25l[50;1H[1m-- INSERT --[m[50;131H[K[50;131H26,33[9CTop[26;33H[?25h[?25lh.java[50;135H4[26;34H[?25h[?25le.java[50;135H5[26;35H[?25h[?25ll.java[50;135H6[26;36H[?25h[?25ll.java[50;135H7[26;37H[?25h[?25lo.java[50;135H8[26;38H[?25h[50;1H[K[26;37H[?25l[50;131H26,37[9CTop[26;37H[?25h[?25l[50;132H7,0-1[27;1H[?25h[?25l[50;132H6,37 [26;37H[?25h[?25l[50;135H3[26;33H[?25h[?25l.java[26;38H[K[26;33H[?25h[?25l[50;1H[1m-- INSERT --[m[50;131H[K[50;131H26,33[9CTop[26;33H[?25h[?25lf.java[50;135H4[26;34H[?25h[?25li.java[50;135H5[26;35H[?25h[?25ll.java[50;135H6[26;36H[?25h[?25le.java[50;135H7[26;37H[?25h[50;1H[K[26;36H[?25l[50;131H26,36[9CTop[26;36H[?25h[?25l[50;132H7,0-1[27;1H[?25h[?25l[50;132H6,36 [26;36H[?25h[?25l[50;132H7,0-1[27;1H[?25h[?25l[50;132H6,36 [26;36H[?25h[?25l[50;135H3[26;33H[?25h[?25l.java[26;38H[K[26;33H[?25h[?25l[50;1H[1m-- INSERT --[m[50;131H[K[50;131H26,33[9CTop[26;33H[?25h[?25ls.java[50;135H4[26;34H[?25h[?25lr.java[50;135H5[26;35H[?25h[?25lc.java[50;135H6[26;36H[?25h[50;1H[K[26;35H[?25l[50;131H26,35[9CTop[26;35H[?25h[?25l[50;132H7,0-1[27;1H[?25h[?25l[50;132H6,35 [26;35H[?25h[?25l[50;135H3[26;33H[?25h[?25l.java[26;38H[K[26;33H[?25h[?25l[50;1H[1m-- INSERT --[m[50;131H[K[50;131H26,33[9CTop[26;33H[?25h[?25lf.java[50;135H4[26;34H[?25h[?25li.java[50;135H5[26;35H[?25h[?25ll.java[50;135H6[26;36H[?25h[?25le.java[50;135H7[26;37H[?25h[50;1H[K[26;36H[?25l[50;131H26,36[9CTop[26;36H[?25h[?25l[50;131H[K[50;1H:[?25hwq[?25l[?2004l[>4;m"~/code/ENVScripts/scripts" 70L, 2622C written[23;2t[23;1t
-[?2004l[?1l>[?25h[>4;m[?1049l[23;0;0t[1m[7m%[27m[1m[0m                                                                                                                                                    ]2;k@kx1: ~a/servletBase/batch/WEB-INF/classes]1;..B-INF/classes[0m[27m[24m[J[36m[~a/servletBase/batch/WEB-INF/classes][32m[1m$[0m [K[97C[31m*[00m[01;33m[00m[00m[32m[master][00m [107D[?1h=[?2004hmman  m  ppacman -S      p  mman jsvc[?1l>[?2004l
-]2;man jsvc]1;man[?1049h[22;0;0t[?1h=JSVC(1)                                                   Apache Commons Daemon project                                                  JSVC(1)[m
-[m
-[1mNAME[0m[m
-       jsvc - application to launch java daemon[m
-[m
-[1mSYNOPSIS[0m[m
-       [1mjsvc[0m [-jvm [4mJVM[24m [4mname[24m] [-client [4mclient[24m [4mJVM[24m] [-server [4mserver[24m [4mJVM[24m] [-classpath [4mpath[24m] [-cp [4mpath[24m] [-java-home [4mdirectory[24m] [-version] [-help][m
-            [-?] [-nodetach] [-debug] [-check] [-user [4muser[24m] [-wait [4mwaittime[24m] [-umask [4mmask[24m] [-stop] [-verbose[4m:class|gc|jni[24m] [-outfile[m
-            [4m/full/path/to/file[24m] [-errfile [4m/full/path/to/file[24m] [-pidfile [4m/full/path/to/file[24m] [-Dproperty=[4mvalue[24m] [-X[4moption[24m][m
-[m
-[1mDESCRIPTION[0m[m
-       [1mjsvc[0m executes [4mclassfile[24m that implements a Daemon interface.[m
-[m
-[1mOPTIONS[0m[m
-       [1m-jvm[0m JVM name[m
-              use a specific Java Virtual Machine.[m
-[m
-       [1m-client[0m client JVM[m
-              use a client Java Virtual Machine.[m
-[m
-       [1m-server[0m server JVM[m
-              use a server Java Virtual Machine.[m
-[m
-       [1m-cp/[0m [1m-classpath[0m directory and zip/jar files[m
-              set search path for service classes and resouces[m
-[m
-       [1m-java-home[0m directory[m
-              set the path of your JDK or JRE installation (or set the JAVA_HOME environment variable)[m
-[m
-       [1m-version[0m[m
-              show the current Java environment version (to check correctness of -home and -jvm. Implies -nodetach)[m
-[m
-       [1m-help[0m  show this help page (implies -nodetach)[m
-[m
-       [1m-nodetach[0m[m
-              don't detach from parent process and become a daemon[m
-[m
-       [1m-debug[0m verbosely print debugging information[m
-[m
-       [1m-check[0m only check service (implies -nodetach)[m
-[m
-       [1m-stop[0m  stop the service using the file given in the -pidfile option[m
-[m
-       [1m-wait[0m waittime[m
-              wait up to waittime seconds for the service to start waittime should multiple of 10 (min=10)[m
-[m
-       [1m-umask[0m mask[m
-              sets the file mode creation mask[m
-[m
-[7m Manual page JSVC(1) line 1 (press h for help or q to quit)[27m[K[K[?1l>[?1049l[23;0;0t[1m[7m%[27m[1m[0m                                                                                                                                                    ]2;k@kx1: ~a/servletBase/batch/WEB-INF/classes]1;..B-INF/classes[0m[27m[24m[J[36m[~a/servletBase/batch/WEB-INF/classes][32m[1m$[0m [K[97C[31m*[00m[01;33m[00m[00m[32m[master][00m [107D[?1h=[?2004hjjavac 0cp    -cp ". ./*.jar:" HelloWorld.java[1m [0m[0m [?1l>[?2004l
-]2;javac -cp "./*.jar:" HelloWorld.java]1;javacHelloWorld.java:4: error: cannot find symbol
-public class HelloWorld extends HttpServlet {//(2) 
-                                ^
-  symbol: class HttpServlet
-HelloWorld.java:5: error: cannot find symbol
-    public void service(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {//(3) 
-                        ^
-  symbol:   class HttpServletRequest
-  location: class HelloWorld
-HelloWorld.java:5: error: cannot find symbol
-    public void service(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {//(3) 
-                                                ^
-  symbol:   class HttpServletResponse
-  location: class HelloWorld
-HelloWorld.java:5: error: cannot find symbol
-    public void service(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {//(3) 
-                                                                                ^
-  symbol:   class ServletException
-  location: class HelloWorld
-HelloWorld.java:2: error: package javax.servlet does not exist
-import javax.servlet.*;
-^
-HelloWorld.java:3: error: package javax.servlet.http does not exist
-import javax.servlet.http.*;
-^
-6 errors
-[1m[7m%[27m[1m[0m                                                                                                                                                    ]2;k@kx1: ~a/servletBase/batch/WEB-INF/classes]1;..B-INF/classes[0m[27m[24m[J[36m[~a/servletBase/batch/WEB-INF/classes][31m[1m$[0m [K[97C[31m*[00m[01;33m[00m[00m[32m[master][00m [107D[?1h=[?2004hjavac -cp "./*.jar:" HelloWorld.java[1C'*.jar:" HelloWorld.java[23D*.jar:" HelloWorld.java [24D\*.jar:" HelloWorld.java[23D[?1l>[?2004l
-]2;javac -cp "./\*.jar:" HelloWorld.java]1;javacHelloWorld.java:4: error: cannot find symbol
-public class HelloWorld extends HttpServlet {//(2) 
-                                ^
-  symbol: class HttpServlet
-HelloWorld.java:5: error: cannot find symbol
-    public void service(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {//(3) 
-                        ^
-  symbol:   class HttpServletRequest
-  location: class HelloWorld
-HelloWorld.java:5: error: cannot find symbol
-    public void service(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {//(3) 
-                                                ^
-  symbol:   class HttpServletResponse
-  location: class HelloWorld
-HelloWorld.java:5: error: cannot find symbol
-    public void service(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {//(3) 
-                                                                                ^
-  symbol:   class ServletException
-  location: class HelloWorld
-HelloWorld.java:2: error: package javax.servlet does not exist
-import javax.servlet.*;
-^
-HelloWorld.java:3: error: package javax.servlet.http does not exist
-import javax.servlet.http.*;
-^
-6 errors
-[1m[7m%[27m[1m[0m                                                                                                                                                    ]2;k@kx1: ~a/servletBase/batch/WEB-INF/classes]1;..B-INF/classes[0m[27m[24m[J[36m[~a/servletBase/batch/WEB-INF/classes][31m[1m$[0m [K[97C[31m*[00m[01;33m[00m[00m[32m[master][00m [107D[?1h=[?2004hmman m  javac -cp "./\*.jar:" HelloWorld.java" HelloWorld.java [18D" HelloWorld.java [18D" HelloWorld.java [18D" HelloWorld.java [18D" HelloWorld.java [18D" HelloWorld.java [18D" HelloWorld.java [18D*" HelloWorld.java[17D[?1l>[?2004l
-]2;javac -cp "./*" HelloWorld.java]1;javac[1m[7m%[27m[1m[0m                                                                                                                                                    ]2;k@kx1: ~a/servletBase/batch/WEB-INF/classes]1;..B-INF/classes[0m[27m[24m[J[36m[~a/servletBase/batch/WEB-INF/classes][32m[1m$[0m [K[97C[31m*[00m[01;33m[00m[00m[32m[master][00m [107D[?1h=[?2004hsscripts[?1l>[?2004l
-]2;vim ~w/ENVScripts/scripts]1;scripts[?1049h[22;0;0t[>4;2m[?1h=[?2004h[1;50r[?12h[?12l[22;2t[22;1t[27m[23m[29m[m[H[2J[?25l[50;1H"~/code/ENVScripts/scripts" 70L, 2622C[2;1H▽[6n[2;1H  [1;1H[>c]10;?]11;?[1;1H----[Emacs]----
-untabify
-lsp-rename
-upcase word M-u
-upcase-region C-x C-u
-----[Python]----
-hex(); bin(); oct();
-int("0xa",0);
-----[system]----
-nethogs
-journalctl -r
-journalctl --user-unit emacs.service | tail -n 30
-rfkill list    (switch wifi/bluetooth on&off)
-rfkill unblock bluetooth
-/sys/kernel/security/tpm0
-makepkg -si
-----[GitHub]----
-git branch branchname
-git reset --hard commit_id
-git -d branchname
-
-git filter-branch --index-filter 'git rm --cached --ignore-unmatch "履歴書 v19.pdf"' HEAD
-git filter-branch --force --index-filter "git rm --cached --ignore-unmatch '陳同人'" --prune-empty --tag-name-filter cat -- --all
-
-----[Java]----
-javac -cp "./xxx.jar:...x.jar;" file.java
-
-----[utility]----
-find . -name "*.java"|xargs cat
-find . -name "*.java"|xargs cat|grep -v -e ^$ -e \/\/
-
-mogrify -stripe filename.jpg
-pacman -Rns $(pacman -Qtdq)
-pacman -Syu
-file
-vimdiff file1 file2 [file3 [file4]]
-
-[encoding decoding]
-Base64 -D > save1
-
-[reverse engineering]
-binwalk ;python programme
-
--------[SQL]------
-show databases;
-
--------[Network]------
-ssh-keygen -R <host> //The remote host identification has changed.
-ssh-copy-id <host>[50;131H1,1[11CTop[1;1H[?25hP+q436f\P+q6b75\P+q6b64\P+q6b72\P+q6b6c\P+q2332\P+q2334\P+q2569\P+q2a37\P+q6b31\[27m[23m[29m[m[H[2J[?25l[1;1H----[Emacs]----
-untabify
-lsp-rename
-upcase word M-u
-upcase-region C-x C-u
-----[Python]----
-hex(); bin(); oct();
-int("0xa",0);
-----[system]----
-nethogs
-journalctl -r
-journalctl --user-unit emacs.service | tail -n 30
-rfkill list    (switch wifi/bluetooth on&off)
-rfkill unblock bluetooth
-/sys/kernel/security/tpm0
-makepkg -si
-----[GitHub]----
-git branch branchname
-git reset --hard commit_id
-git -d branchname
-
-git filter-branch --index-filter 'git rm --cached --ignore-unmatch "履歴書 v19.pdf"' HEAD
-git filter-branch --force --index-filter "git rm --cached --ignore-unmatch '陳同人'" --prune-empty --tag-name-filter cat -- --all
-
-----[Java]----
-javac -cp "./xxx.jar:...x.jar;" file.java
-
-----[utility]----
-find . -name "*.java"|xargs cat
-find . -name "*.java"|xargs cat|grep -v -e ^$ -e \/\/
-
-mogrify -stripe filename.jpg
-pacman -Rns $(pacman -Qtdq)
-pacman -Syu
-file
-vimdiff file1 file2 [file3 [file4]]
-
-[encoding decoding]
-Base64 -D > save1
-
-[reverse engineering]
-binwalk ;python programme
-
--------[SQL]------
-show databases;
-
--------[Network]------
-ssh-keygen -R <host> //The remote host identification has changed.
-ssh-copy-id <host>[50;131H1,1[11CTop"~/code/ENVScripts/scripts" 70L, 2622C[1;1H[?25h[?25l[50;131H2[2;1H[?25h[?25l[50;131H3[3;1H[?25h[?25l[50;131H4[4;1H[?25h[?25l[50;131H5[5;1H[?25h[?25l[50;131H6[6;1H[?25h[?25l[50;131H7[7;1H[?25h[?25l[50;131H8[8;1H[?25h[?25l[50;131H9[9;1H[?25h[?25l[50;131H10,1[10;1H[?25h[?25l[50;132H1[11;1H[?25h[?25l[50;132H2[12;1H[?25h[?25l[50;132H3[13;1H[?25h[?25l[50;132H4[14;1H[?25h[?25l[50;132H5[15;1H[?25h[?25l[50;132H6[16;1H[?25h[?25l[50;132H7[17;1H[?25h[?25l[50;132H8[18;1H[?25h[?25l[50;132H9[19;1H[?25h[?25l[50;131H20[20;1H[?25h[?25l[50;132H1,0-1[21;1H[?25h[?25l[50;132H2,1  [22;1H[?25h[?25l[50;132H3[23;1H[?25h[?25l[50;132H4,0-1[24;1H[?25h[?25l[50;132H5,1  [25;1H[?25h[?25l[50;132H6[26;1H[?25h[?25l[50;132H5[25;1H[?25h[?25l[50;132H6[26;1H[?25h[?25l[27;49r[27;1H[L[1;50r[27;1Hjavac -cp "./xxx.jar:...x.jar;" file.java[50;1H[K[50;131H27,1[10CTop[27;1H[?25h[?25l[50;134H2[27;2H[?25h[?25l[50;134H3[27;3H[?25h[?25l[50;134H4[27;4H[?25h[?25l[50;134H5[27;5H[?25h[?25l[50;134H6[27;6H[?25h[?25l[50;134H7[27;7H[?25h[?25l[50;134H8[27;8H[?25h[?25l[50;134H9[27;9H[?25h[?25l[50;134H10[27;10H[?25h[?25l[50;135H1[27;11H[?25h[?25l[50;135H2[27;12H[?25h[?25l[50;135H3[27;13H[?25h[?25l[50;135H4[27;14H[?25h[?25l[50;135H5[27;15H[?25h[?25l[50;135H6[27;16H[?25h[?25l" file.java[27;23H[K[50;135H2[27;12H[?25h[?25l[50;1H[1m-- INSERT --[m[50;131H[K[50;131H27,12[9CTop[27;12H[?25h[?25l." file.java[50;135H3[27;13H[?25h[?25l/" file.java[50;135H4[27;14H[?25h[?25l*" file.java[50;135H5[27;15H[?25h[50;1H[K[27;14H[?25l[50;131H27,14[9CTop[27;14H[?25h[?25l[50;131H[K[50;1H:[?25hwq[?25l[?2004l[>4;m"~/code/ENVScripts/scripts" 71L, 2648C written[23;2t[23;1t
-[?2004l[?1l>[?25h[>4;m[?1049l[23;0;0t[1m[7m%[27m[1m[0m                                                                                                                                                    ]2;k@kx1: ~a/servletBase/batch/WEB-INF/classes]1;..B-INF/classes[0m[27m[24m[J[36m[~a/servletBase/batch/WEB-INF/classes][32m[1m$[0m [K[97C[31m*[00m[01;33m[00m[00m[32m[master][00m [107D[?1h=[?2004hiimi  ccim c  ccd /v usr/share[1m/[0m[0m [?1l>[?2004l
-]2;cd /usr/share]1;cd[1m[7m%[27m[1m[0m                                                                                                                                                    ]2;k@kx1: /usr/share]1;/usr/share[0m[27m[24m[J[36m[/usr/share][32m[1m$[0m [K[132C [133D[?1h=[?2004hlls[?1l>[?2004l
-]2;ls --color=tty]1;ls[0m[01;34maccounts[0m              [01;34mepiphany[0m                     [01;34mgnome-software[0m             [01;34mkdevappwizard[0m      [01;34mmkinitcpio[0m                      [01;34mslsh[0m
-[01;34maccountsservice[0m       [01;34met[0m                           [01;34mgnome-system-monitor[0m       [01;34mkeyutils[0m           [01;34mmobile-broadband-provider-info[0m  [01;34msnmp[0m
-[01;34maclocal[0m               [01;34mevince[0m                       [01;34mgnome-todo[0m                 [01;34mkf5[0m                [01;34mmodel[0m                           [01;34msolid[0m
-[01;34maclocal-1.16[0m          [01;34mevolution-data-server[0m        [01;34mgnome-tweaks[0m               [01;34mknotifications5[0m    [01;34mmousetweaks[0m                     [01;34msounds[0m
-[01;34malbert[0m                [01;34mfactory[0m                      [01;34mgnome-user-share[0m           [01;34mkpackage[0m           [01;34mmysql[0m                           [01;34mspeech-dispatcher[0m
-[01;34malsa[0m                  [01;34mffmpeg[0m                       [01;34mgnome-video-effects[0m        [01;34mkservices5[0m         [01;34mmysql-workbench[0m                 [01;34mss[0m
-[01;34mant[0m                   [01;34mfile[0m                         [01;34mgnupg[0m                      [01;34mkservicetypes5[0m     [01;34mncat[0m                            [01;34msushi[0m
-[01;34mappdata[0m               [01;34mfile-roller[0m                  [01;34mgoldendict[0m                 [01;34mktorrent[0m           [01;34mnetcf[0m                           [01;34msystemd[0m
-[01;34mapp-info[0m              [01;34mfio[0m                          [01;34mgraphite2[0m                  [01;34mkxmlgui5[0m           [01;34mnmap[0m                            [01;34msystemtap[0m
-[01;34mapplication-registry[0m  [01;34mfish[0m                         [01;34mgrilo-plugins[0m              [01;34mladspa[0m             [01;34mobs[0m                             [01;34mt1lib[0m
-[01;34mapplications[0m          [01;34mflatpak[0m                      [01;34mgroff[0m                      [01;34mlensfun[0m            [01;34mokular[0m                          [01;34mtabset[0m
-[01;34mapr-1[0m                 [01;34mfonts[0m                        [01;34mgrub[0m                       [01;34mlibalpm[0m            [01;34mopenal[0m                          [01;34mtc[0m
-[01;34maugeas[0m                [01;34mgcc-10.1.0[0m                   [01;34mgst-plugins-base[0m           [01;34mlibcaca[0m            [01;34mopencc[0m                          [01;34mtelepathy[0m
-[01;34mautoconf[0m              [01;34mGConf[0m                        [01;34mgstreamer-1.0[0m              [01;34mlibdrm[0m             [01;34mopenmpi[0m                         [01;34mtemplates[0m
-[01;34mautomake-1.16[0m         [01;34mgdb[0m                          [01;34mgtk-2.0[0m                    [01;34mlibexttextcat[0m      [01;34mopenvpn[0m                         [01;34mterminfo[0m
-[01;34mavahi[0m                 [01;34mgdict-1.0[0m                    [01;34mgtk-3.0[0m                    [01;34mlibgnomekbd[0m        [01;34morca[0m                            [01;34mtexinfo[0m
-[01;34mawk[0m                   [01;34mgdm[0m                          [01;34mgtk-doc[0m                    [01;34mlibgpg-error[0m       [01;34morg.gnome.Characters[0m            [01;34mthemes[0m
-[01;34mbackgrounds[0m           [01;34mgedit[0m                        [01;34mgtksourceview-4[0m            [01;34mlibgphoto2[0m         [01;34morg.gnome.Music[0m                 [01;34mthumbnailers[0m
-[01;34mbakefile[0m              [01;34mgegl-0.4[0m                     [01;34mguile[0m                      [01;34mlibgphoto2_port[0m    [01;34morg.gnome.Weather[0m               [01;34mtlp[0m
-[01;34mbash-completion[0m       [01;34mgettext[0m                      [01;34mgupnp-av[0m                   [01;34mlibgweather[0m        [01;34mosinfo[0m                          [01;34mtomcat9[0m
-[01;34mbison[0m                 [01;34mgettext-0.20.2[0m               [01;34mgupnp-dlna-2.0[0m             [01;34mlibinput[0m           [01;34mostree[0m                          [01;34mtotem[0m
-[01;34mbrltty[0m                [01;34mghostscript[0m                  [01;34mgvfs[0m                       [01;34mlibkkc[0m             [01;34mp11-kit[0m                         [01;34mtracker[0m
-[01;34mca-certificates[0m       [01;34mgir-1.0[0m                      [01;34mhelp[0m                       [01;34mliblangtag[0m         [01;34mpacman[0m                          [01;34mtracker-miners[0m
-[01;34mclutter-1.0[0m           [01;34mgit[0m                          [01;34mhspell[0m                     [01;34mliblouis[0m           [01;34mperl5[0m                           [01;34mvala[0m
-[01;34mcmake[0m                 [01;34mgit-core[0m                     [01;34mhttpd[0m                      [01;34mlibnumbertext[0m      [01;34mphonon4qt5[0m                      [01;34mvde2[0m
-[01;34mcogl[0m                  [01;34mgit-gui[0m                      [01;34mhwdata[0m                     [01;34mlibquvi-scripts[0m    [01;34mpixmaps[0m                         [01;34mvim[0m
-[01;34mcolor[0m                 [01;34mgitk[0m                         [01;34mhwloc[0m                      [01;34mlibreoffice[0m        [01;34mpkgconfig[0m                       [01;34mvlc[0m
-[01;34mcolord[0m                [01;34mgitweb[0m                       [01;34mi18n[0m                       [01;34mlibthai[0m            [01;34mpmix[0m                            [01;34mwayland[0m
-[01;34mcommon-lisp[0m           [01;34mgjs-1.0[0m                      [01;34miana-etc[0m                   [01;34mlibtool[0m            [01;34mpolkit-1[0m                        [01;34mwayland-protocols[0m
-[01;34mconfig.kcfg[0m           [01;34mglade[0m                        [01;34mibus[0m                       [01;34mlibvirt[0m            [01;34mproj[0m                            [01;34mwayland-sessions[0m
-[01;34mcracklib[0m              [01;34mglib-2.0[0m                     [01;34mibus-kkc[0m                   [01;34mlibwacom[0m           [01;34mpulseaudio[0m                      [01;34mX11[0m
-[01;34mctdb[0m                  [01;34mglusterfs[0m                    [01;34mibus-libpinyin[0m             [01;34mlicenses[0m           [01;34mpurpose[0m                         [01;34mxcb[0m
-[01;34mdaxctl[0m                [01;34mglvnd[0m                        [01;34micons[0m                      [01;34mlocale[0m             [01;34mpygobject[0m                       [01;34mxdg-desktop-portal[0m
-[01;34mdbus-1[0m                [01;34mgnome[0m                        [01;34micu[0m                        [01;34mlua[0m                [01;34mqemu[0m                            [01;34mxml[0m
-[01;34mdconf[0m                 [01;34mgnome-background-properties[0m  [01;34midl[0m                        [01;34mluajit-2.0.5[0m       [01;34mqlogging-categories5[0m            [01;34mxsessions[0m
-[01;34mdefaults[0m              [01;34mgnome-bluetooth[0m              [01;34mImageMagick-6[0m              [01;34mlv2specgen[0m         [01;34mqt[0m                              [01;34mxtables[0m
-[01;34mdesktop-directories[0m   [01;34mgnome-books[0m                  [01;34mImageMagick-7[0m              [01;34mm17n[0m               [01;34mradare2[0m                         [01;34myelp[0m
-[01;34mdevhelp[0m               [01;34mgnome-boxes[0m                  [01;34mimlib2[0m                     [01;34mmakepkg[0m            [01;34mreadline[0m                        [01;34myelp-xsl[0m
-[01;34mdhcpcd[0m                [01;34mgnome-color-manager[0m          [01;34minfo[0m                       [01;34mmakepkg-template[0m   [01;34mredland[0m                         [01;34mzenity[0m
-[01;34mdict[0m                  [01;34mgnome-control-center[0m         [01;34minstalled-tests[0m            [01;34mman[0m                [01;34mrygel[0m                           [01;34mzoneinfo[0m
-[01;34mdjvu[0m                  [01;34mgnome-documents[0m              [01;34miptables[0m                   [01;34mmedia-player-info[0m  [01;34msamba[0m                           [01;34mzoneinfo-leaps[0m
-[01;34mdoc[0m                   [01;34mgnome-logs[0m                   [01;34miso-codes[0m                  [01;34mmetainfo[0m           [01;34msane[0m                            [01;36mzoneinfo-posix[0m
-[01;34mdrirc.d[0m               [01;34mgnome-maps[0m                   [01;34mjack-audio-connection-kit[0m  [01;34mmfx[0m                [01;34msbt[0m                             [01;34mzsh[0m
-[01;34memacs[0m                 [01;34mgnome-session[0m                [01;34mjava[0m                       [01;34mmime[0m               [01;34mshared-color-targets[0m
-[01;34menchant[0m               [01;34mgnome-settings-daemon[0m        [01;34mkbd[0m                        [01;34mmime-info[0m          [01;34msip[0m
-[01;34meog[0m                   [01;34mgnome-shell[0m                  [01;34mkconf_update[0m               [01;34mmisc[0m               [01;34mskk[0m
-[1m[7m%[27m[1m[0m                                                                                                                                                    ]2;k@kx1: /usr/share]1;/usr/share[0m[27m[24m[J[36m[/usr/share][32m[1m$[0m [K[132C [133D[?1h=[?2004hllsl  llsl  llink  l  llink   l  lln -s /cod   home[1m/[0m[0m/k[1m/[0m[0m/code[1m/[0m[0m/py_cube[1m/[0m[0m        e
-[J[01;34mecTemp[0m/      [J[01;34mENVScripts[0m/[J[A[0m[27m[24m[0m[14Cln -s /home/k/code/e[K[112C [0m[113DnENVScripts[1m/[0m[0m/javaAdditionalClasspath[1m/[0m[0m/
-[J[J[34;42mapache-maven-3.6.3[0m/  [J[01;34mjavax[0m/               [J[01;34mjdbc10[0m/              [J[01;34mjunit4[0m/              [J[01;32mjunit4.10.zip[0m*     [J[A[0m[27m[24m[0m[14Cln -s /home/k/code/ENVScripts/javaAdditionalClasspath/[K[78C [0m[79D /usr/share[1m/[0m[0m/myJavaP cla   Class           javaa AdditionalClasspath[?1l>[?2004l
-[J]2;ln -s /home/k/code/ENVScripts/javaAdditionalClasspath/ ]1;lnln: failed to create symbolic link '/usr/share/javaAdditionalClasspath': Permission denied
-[1m[7m%[27m[1m[0m                                                                                                                                                    ]2;k@kx1: /usr/share]1;/usr/share[0m[27m[24m[J[36m[/usr/share][31m[1m$[0m [K[132C [133D[?1h=[?2004hssudo !![?1l>[?2004l
-[1m[7m%[27m[1m[0m                                                                                                                                                    ]2;k@kx1: /usr/share]1;/usr/share[0m[27m[24m[J[36m[/usr/share][31m[1m$[0m sudo ln -s /home/k/code/ENVScripts/javaAdditionalClasspath/ /usr/share/javaAdditionalClasspath[K[38C [39D[?1h=[?2004h[?1l>[?2004l
-]2;sudo ln -s /home/k/code/ENVScripts/javaAdditionalClasspath/ ]1;ln[sudo] password for k: 
-[1m[7m%[27m[1m[0m                                                                                                                                                    ]2;k@kx1: /usr/share]1;/usr/share[0m[27m[24m[J[36m[/usr/share][32m[1m$[0m [K[132C [133D[?1h=[?2004hlls[?1l>[?2004l
-]2;ls --color=tty]1;ls[0m[01;34maccounts[0m              [01;34mepiphany[0m                     [01;34mgnome-software[0m             [01;34mkconf_update[0m       [01;34mmisc[0m                            [01;34mskk[0m
-[01;34maccountsservice[0m       [01;34met[0m                           [01;34mgnome-system-monitor[0m       [01;34mkdevappwizard[0m      [01;34mmkinitcpio[0m                      [01;34mslsh[0m
-[01;34maclocal[0m               [01;34mevince[0m                       [01;34mgnome-todo[0m                 [01;34mkeyutils[0m           [01;34mmobile-broadband-provider-info[0m  [01;34msnmp[0m
-[01;34maclocal-1.16[0m          [01;34mevolution-data-server[0m        [01;34mgnome-tweaks[0m               [01;34mkf5[0m                [01;34mmodel[0m                           [01;34msolid[0m
-[01;34malbert[0m                [01;34mfactory[0m                      [01;34mgnome-user-share[0m           [01;34mknotifications5[0m    [01;34mmousetweaks[0m                     [01;34msounds[0m
-[01;34malsa[0m                  [01;34mffmpeg[0m                       [01;34mgnome-video-effects[0m        [01;34mkpackage[0m           [01;34mmysql[0m                           [01;34mspeech-dispatcher[0m
-[01;34mant[0m                   [01;34mfile[0m                         [01;34mgnupg[0m                      [01;34mkservices5[0m         [01;34mmysql-workbench[0m                 [01;34mss[0m
-[01;34mappdata[0m               [01;34mfile-roller[0m                  [01;34mgoldendict[0m                 [01;34mkservicetypes5[0m     [01;34mncat[0m                            [01;34msushi[0m
-[01;34mapp-info[0m              [01;34mfio[0m                          [01;34mgraphite2[0m                  [01;34mktorrent[0m           [01;34mnetcf[0m                           [01;34msystemd[0m
-[01;34mapplication-registry[0m  [01;34mfish[0m                         [01;34mgrilo-plugins[0m              [01;34mkxmlgui5[0m           [01;34mnmap[0m                            [01;34msystemtap[0m
-[01;34mapplications[0m          [01;34mflatpak[0m                      [01;34mgroff[0m                      [01;34mladspa[0m             [01;34mobs[0m                             [01;34mt1lib[0m
-[01;34mapr-1[0m                 [01;34mfonts[0m                        [01;34mgrub[0m                       [01;34mlensfun[0m            [01;34mokular[0m                          [01;34mtabset[0m
-[01;34maugeas[0m                [01;34mgcc-10.1.0[0m                   [01;34mgst-plugins-base[0m           [01;34mlibalpm[0m            [01;34mopenal[0m                          [01;34mtc[0m
-[01;34mautoconf[0m              [01;34mGConf[0m                        [01;34mgstreamer-1.0[0m              [01;34mlibcaca[0m            [01;34mopencc[0m                          [01;34mtelepathy[0m
-[01;34mautomake-1.16[0m         [01;34mgdb[0m                          [01;34mgtk-2.0[0m                    [01;34mlibdrm[0m             [01;34mopenmpi[0m                         [01;34mtemplates[0m
-[01;34mavahi[0m                 [01;34mgdict-1.0[0m                    [01;34mgtk-3.0[0m                    [01;34mlibexttextcat[0m      [01;34mopenvpn[0m                         [01;34mterminfo[0m
-[01;34mawk[0m                   [01;34mgdm[0m                          [01;34mgtk-doc[0m                    [01;34mlibgnomekbd[0m        [01;34morca[0m                            [01;34mtexinfo[0m
-[01;34mbackgrounds[0m           [01;34mgedit[0m                        [01;34mgtksourceview-4[0m            [01;34mlibgpg-error[0m       [01;34morg.gnome.Characters[0m            [01;34mthemes[0m
-[01;34mbakefile[0m              [01;34mgegl-0.4[0m                     [01;34mguile[0m                      [01;34mlibgphoto2[0m         [01;34morg.gnome.Music[0m                 [01;34mthumbnailers[0m
-[01;34mbash-completion[0m       [01;34mgettext[0m                      [01;34mgupnp-av[0m                   [01;34mlibgphoto2_port[0m    [01;34morg.gnome.Weather[0m               [01;34mtlp[0m
-[01;34mbison[0m                 [01;34mgettext-0.20.2[0m               [01;34mgupnp-dlna-2.0[0m             [01;34mlibgweather[0m        [01;34mosinfo[0m                          [01;34mtomcat9[0m
-[01;34mbrltty[0m                [01;34mghostscript[0m                  [01;34mgvfs[0m                       [01;34mlibinput[0m           [01;34mostree[0m                          [01;34mtotem[0m
-[01;34mca-certificates[0m       [01;34mgir-1.0[0m                      [01;34mhelp[0m                       [01;34mlibkkc[0m             [01;34mp11-kit[0m                         [01;34mtracker[0m
-[01;34mclutter-1.0[0m           [01;34mgit[0m                          [01;34mhspell[0m                     [01;34mliblangtag[0m         [01;34mpacman[0m                          [01;34mtracker-miners[0m
-[01;34mcmake[0m                 [01;34mgit-core[0m                     [01;34mhttpd[0m                      [01;34mliblouis[0m           [01;34mperl5[0m                           [01;34mvala[0m
-[01;34mcogl[0m                  [01;34mgit-gui[0m                      [01;34mhwdata[0m                     [01;34mlibnumbertext[0m      [01;34mphonon4qt5[0m                      [01;34mvde2[0m
-[01;34mcolor[0m                 [01;34mgitk[0m                         [01;34mhwloc[0m                      [01;34mlibquvi-scripts[0m    [01;34mpixmaps[0m                         [01;34mvim[0m
-[01;34mcolord[0m                [01;34mgitweb[0m                       [01;34mi18n[0m                       [01;34mlibreoffice[0m        [01;34mpkgconfig[0m                       [01;34mvlc[0m
-[01;34mcommon-lisp[0m           [01;34mgjs-1.0[0m                      [01;34miana-etc[0m                   [01;34mlibthai[0m            [01;34mpmix[0m                            [01;34mwayland[0m
-[01;34mconfig.kcfg[0m           [01;34mglade[0m                        [01;34mibus[0m                       [01;34mlibtool[0m            [01;34mpolkit-1[0m                        [01;34mwayland-protocols[0m
-[01;34mcracklib[0m              [01;34mglib-2.0[0m                     [01;34mibus-kkc[0m                   [01;34mlibvirt[0m            [01;34mproj[0m                            [01;34mwayland-sessions[0m
-[01;34mctdb[0m                  [01;34mglusterfs[0m                    [01;34mibus-libpinyin[0m             [01;34mlibwacom[0m           [01;34mpulseaudio[0m                      [01;34mX11[0m
-[01;34mdaxctl[0m                [01;34mglvnd[0m                        [01;34micons[0m                      [01;34mlicenses[0m           [01;34mpurpose[0m                         [01;34mxcb[0m
-[01;34mdbus-1[0m                [01;34mgnome[0m                        [01;34micu[0m                        [01;34mlocale[0m             [01;34mpygobject[0m                       [01;34mxdg-desktop-portal[0m
-[01;34mdconf[0m                 [01;34mgnome-background-properties[0m  [01;34midl[0m                        [01;34mlua[0m                [01;34mqemu[0m                            [01;34mxml[0m
-[01;34mdefaults[0m              [01;34mgnome-bluetooth[0m              [01;34mImageMagick-6[0m              [01;34mluajit-2.0.5[0m       [01;34mqlogging-categories5[0m            [01;34mxsessions[0m
-[01;34mdesktop-directories[0m   [01;34mgnome-books[0m                  [01;34mImageMagick-7[0m              [01;34mlv2specgen[0m         [01;34mqt[0m                              [01;34mxtables[0m
-[01;34mdevhelp[0m               [01;34mgnome-boxes[0m                  [01;34mimlib2[0m                     [01;34mm17n[0m               [01;34mradare2[0m                         [01;34myelp[0m
-[01;34mdhcpcd[0m                [01;34mgnome-color-manager[0m          [01;34minfo[0m                       [01;34mmakepkg[0m            [01;34mreadline[0m                        [01;34myelp-xsl[0m
-[01;34mdict[0m                  [01;34mgnome-control-center[0m         [01;34minstalled-tests[0m            [01;34mmakepkg-template[0m   [01;34mredland[0m                         [01;34mzenity[0m
-[01;34mdjvu[0m                  [01;34mgnome-documents[0m              [01;34miptables[0m                   [01;34mman[0m                [01;34mrygel[0m                           [01;34mzoneinfo[0m
-[01;34mdoc[0m                   [01;34mgnome-logs[0m                   [01;34miso-codes[0m                  [01;34mmedia-player-info[0m  [01;34msamba[0m                           [01;34mzoneinfo-leaps[0m
-[01;34mdrirc.d[0m               [01;34mgnome-maps[0m                   [01;34mjack-audio-connection-kit[0m  [01;34mmetainfo[0m           [01;34msane[0m                            [01;36mzoneinfo-posix[0m
-[01;34memacs[0m                 [01;34mgnome-session[0m                [01;34mjava[0m                       [01;34mmfx[0m                [01;34msbt[0m                             [01;34mzsh[0m
-[01;34menchant[0m               [01;34mgnome-settings-daemon[0m        [01;36mjavaAdditionalClasspath[0m    [01;34mmime[0m               [01;34mshared-color-targets[0m
-[01;34meog[0m                   [01;34mgnome-shell[0m                  [01;34mkbd[0m                        [01;34mmime-info[0m          [01;34msip[0m
-[1m[7m%[27m[1m[0m                                                                                                                                                    ]2;k@kx1: /usr/share]1;/usr/share[0m[27m[24m[J[36m[/usr/share][32m[1m$[0m [K[132C [133D[?1h=[?2004hccd js a
-[J[01;34mjack-audio-connection-kit[0m/  [J[01;34mjava[0m/                       [J[01;36mjavaAdditionalClasspath[0m@  [J[A[0m[27m[24m[0m[14Ccd ja[K[127C [0m[128Dva
-[J[J[01;34mjava[0m/                     [J[01;36mjavaAdditionalClasspath[0m@[J[A[0m[27m[24m[0m[14Ccd java[K[125C [0m[126DAdditionalClasspath[1m/[0m[0m [?1l>[?2004l
-[J]2;cd javaAdditionalClasspath]1;cd[1m[7m%[27m[1m[0m                                                                                                                                                    ]2;k@kx1: /usr/share/javaAdditionalClasspath]1;..onalClasspath[0m[27m[24m[J[36m[/usr/share/javaAdditionalClasspath][32m[1m$[0m [K[99C[31m*[00m[01;33m[00m[00m[32m[master][00m [109D[?1h=[?2004hlls[?1l>[?2004l
-]2;ls --color=tty]1;ls[0m[34;42mapache-maven-3.6.3[0m  [01;34mjavax[0m  [01;34mjdbc10[0m  [01;34mjunit4[0m  [01;32mjunit4.10.zip[0m
-[1m[7m%[27m[1m[0m                                                                                                                                                    ]2;k@kx1: /usr/share/javaAdditionalClasspath]1;..onalClasspath[0m[27m[24m[J[36m[/usr/share/javaAdditionalClasspath][32m[1m$[0m [K[99C[31m*[00m[01;33m[00m[00m[32m[master][00m [109D[?1h=[?2004hccd javax[1m/[0m[0m [?1l>[?2004l
-]2;cd javax]1;cd[1m[7m%[27m[1m[0m                                                                                                                                                    ]2;k@kx1: /usr/share/javaAdditionalClasspath/javax]1;..asspath/javax[0m[27m[24m[J[36m[/usr/share/javaAdditionalClasspath/javax][32m[1m$[0m [K[93C[31m*[00m[01;33m[00m[00m[32m[master][00m [103D[?1h=[?2004hmmv * ../[?1l>[?2004l
-]2;mv * ../]1;mv[1m[7m%[27m[1m[0m                                                                                                                                                    ]2;k@kx1: /usr/share/javaAdditionalClasspath/javax]1;..asspath/javax[0m[27m[24m[J[36m[/usr/share/javaAdditionalClasspath/javax][32m[1m$[0m [K[93C[31m*[00m[01;33m[00m[00m[32m[master][00m [103D[?1h=[?2004hlls[?1l>[?2004l
-]2;ls --color=tty]1;ls[1m[7m%[27m[1m[0m                                                                                                                                                    ]2;k@kx1: /usr/share/javaAdditionalClasspath/javax]1;..asspath/javax[0m[27m[24m[J[36m[/usr/share/javaAdditionalClasspath/javax][32m[1m$[0m [K[93C[31m*[00m[01;33m[00m[00m[32m[master][00m [103D[?1h=[?2004hccd ..[?1l>[?2004l
-]2;cd ..]1;cd[1m[7m%[27m[1m[0m                                                                                                                                                    ]2;k@kx1: /usr/share/javaAdditionalClasspath]1;..onalClasspath[0m[27m[24m[J[36m[/usr/share/javaAdditionalClasspath][32m[1m$[0m [K[99C[31m*[00m[01;33m[00m[00m[32m[master][00m [109D[?1h=[?2004hlls[?1l>[?2004l
-]2;ls --color=tty]1;ls[0m[34;42mapache-maven-3.6.3[0m  [01;34mjavax[0m  [01;31mjavax.servlet-api-4.0.1.jar[0m  [01;34mjdbc10[0m  [01;34mjunit4[0m  [01;32mjunit4.10.zip[0m
-[1m[7m%[27m[1m[0m                                                                                                                                                    ]2;k@kx1: /usr/share/javaAdditionalClasspath]1;..onalClasspath[0m[27m[24m[J[36m[/usr/share/javaAdditionalClasspath][32m[1m$[0m [K[99C[31m*[00m[01;33m[00m[00m[32m[master][00m [109D[?1h=[?2004hrrm javax[?1l>[?2004l
-]2;rm javax]1;rmrm: cannot remove 'javax': Is a directory
-[1m[7m%[27m[1m[0m                                                                                                                                                    ]2;k@kx1: /usr/share/javaAdditionalClasspath]1;..onalClasspath[0m[27m[24m[J[36m[/usr/share/javaAdditionalClasspath][31m[1m$[0m [K[99C[31m*[00m[01;33m[00m[00m[32m[master][00m [109D[?1h=[?2004hrrm -r javax[?1l>[?2004l
-]2;rm -r javax]1;rm[1m[7m%[27m[1m[0m                                                                                                                                                    ]2;k@kx1: /usr/share/javaAdditionalClasspath]1;..onalClasspath[0m[27m[24m[J[36m[/usr/share/javaAdditionalClasspath][32m[1m$[0m [K[99C[31m*[00m[01;33m[00m[00m[32m[master][00m [109D[?1h=[?2004hlls[?1l>[?2004l
-]2;ls --color=tty]1;ls[0m[34;42mapache-maven-3.6.3[0m  [01;31mjavax.servlet-api-4.0.1.jar[0m  [01;34mjdbc10[0m  [01;34mjunit4[0m  [01;32mjunit4.10.zip[0m
-[1m[7m%[27m[1m[0m                                                                                                                                                    ]2;k@kx1: /usr/share/javaAdditionalClasspath]1;..onalClasspath[0m[27m[24m[J[36m[/usr/share/javaAdditionalClasspath][32m[1m$[0m [K[99C[31m*[00m[01;33m[00m[00m[32m[master][00m [109D[?1h=[?2004hlls[?1l>[?2004l
-]2;ls --color=tty]1;ls[0m[34;42mapache-maven-3.6.3[0m  [01;31mjavax.servlet-api-4.0.1.jar[0m  [01;34mjdbc10[0m  [01;34mjunit4[0m  [01;32mjunit4.10.zip[0m
-[1m[7m%[27m[1m[0m                                                                                                                                                    ]2;k@kx1: /usr/share/javaAdditionalClasspath]1;..onalClasspath[0m[27m[24m[J[36m[/usr/share/javaAdditionalClasspath][32m[1m$[0m [K[99C[31m*[00m[01;33m[00m[00m[32m[master][00m [109D[?1h=[?2004heec e  lls[?1l>[?2004l
-]2;ls --color=tty]1;ls[0m[34;42mapache-maven-3.6.3[0m  [01;31mjavax.servlet-api-4.0.1.jar[0m  [01;34mjdbc10[0m  [01;34mjunit4[0m  [01;32mjunit4.10.zip[0m
-[1m[7m%[27m[1m[0m                                                                                                                                                    ]2;k@kx1: /usr/share/javaAdditionalClasspath]1;..onalClasspath[0m[27m[24m[J[36m[/usr/share/javaAdditionalClasspath][32m[1m$[0m [K[99C[31m*[00m[01;33m[00m[00m[32m[master][00m [109D[?1h=[?2004hccd jdbc10[1m/[0m[0m [?1l>[?2004l
-]2;cd jdbc10]1;cd[1m[7m%[27m[1m[0m                                                                                                                                                    ]2;k@kx1: /usr/share/javaAdditionalClasspath/jdbc10]1;..sspath/jdbc10[0m[27m[24m[J[36m[/usr/share/javaAdditionalClasspath/jdbc10][32m[1m$[0m [K[92C[31m*[00m[01;33m[00m[00m[32m[master][00m [102D[?1h=[?2004hlls[?1l>[?2004l
-]2;ls --color=tty]1;ls[0m[01;32mojdbc10.jar[0m  [01;32mojdbc.policy[0m  [01;32mons.jar[0m  [01;32moraclepki.jar[0m  [01;32morai18n.jar[0m  [01;32mosdt_cert.jar[0m  [01;32mosdt_core.jar[0m  [01;32mREADME.txt[0m  [01;32msimplefan.jar[0m  [01;32mucp.jar[0m  [01;32mxdb.jar[0m
-[1m[7m%[27m[1m[0m                                                                                                                                                    ]2;k@kx1: /usr/share/javaAdditionalClasspath/jdbc10]1;..sspath/jdbc10[0m[27m[24m[J[36m[/usr/share/javaAdditionalClasspath/jdbc10][32m[1m$[0m [K[92C[31m*[00m[01;33m[00m[00m[32m[master][00m [102D[?1h=[?2004hrrm ju  r  ccd apa   c  ccd ../apache-maven-3.6.3[1m/[0m[0m [?1l>[?2004l
-]2;cd ../apache-maven-3.6.3]1;cd[1m[7m%[27m[1m[0m                                                                                                                                                    ]2;k@kx1: /usr/share/javaAdditionalClasspath/apache-maven-3.6.3]1;..e-maven-3.6.3[0m[27m[24m[J[36m[/usr/share/javaAdditionalClasspath/apache-maven-3.6.3][32m[1m$[0m [K[80C[31m*[00m[01;33m[00m[00m[32m[master][00m [90D[?1h=[?2004hlls[?1l>[?2004l
-]2;ls --color=tty]1;ls[0m[34;42mbin[0m  [34;42mboot[0m  [34;42mconf[0m  [34;42mlib[0m  [01;32mLICENSE[0m  [01;32mNOTICE[0m  [01;32mREADME.txt[0m
-[1m[7m%[27m[1m[0m                                                                                                                                                    ]2;k@kx1: /usr/share/javaAdditionalClasspath/apache-maven-3.6.3]1;..e-maven-3.6.3[0m[27m[24m[J[36m[/usr/share/javaAdditionalClasspath/apache-maven-3.6.3][32m[1m$[0m [K[80C[31m*[00m[01;33m[00m[00m[32m[master][00m [90D[?1h=[?2004hccd ..[?1l>[?2004l
-]2;cd ..]1;cd[1m[7m%[27m[1m[0m                                                                                                                                                    ]2;k@kx1: /usr/share/javaAdditionalClasspath]1;..onalClasspath[0m[27m[24m[J[36m[/usr/share/javaAdditionalClasspath][32m[1m$[0m [K[99C[31m*[00m[01;33m[00m[00m[32m[master][00m [109D[?1h=[?2004hl mmv javax.servlet-api-4.0.1.jar[1m [0m[0m            [?2004l
-[1m[7m%[27m[1m[0m                                                                                                                                                    ]2;k@kx1: /usr/share/javaAdditionalClasspath]1;..onalClasspath[0m[27m[24m[J[36m[/usr/share/javaAdditionalClasspath][31m[1m$[0m [K[99C[31m*[00m[01;33m[00m[00m[32m[master][00m [109D[?1h=[?2004hmmkdir javax[?1l>[?2004l
-]2;mkdir javax]1;mkdir[1m[7m%[27m[1m[0m                                                                                                                                                    ]2;k@kx1: /usr/share/javaAdditionalClasspath]1;..onalClasspath[0m[27m[24m[J[36m[/usr/share/javaAdditionalClasspath][32m[1m$[0m [K[99C[31m*[00m[01;33m[00m[00m[32m[master][00m [109D[?1h=[?2004hmmv javax.servlet-api-4.0.1.jar[1m [0m[0m javax[?1l>[?2004l
-]2;mv javax.servlet-api-4.0.1.jar javax]1;mv[1m[7m%[27m[1m[0m                                                                                                                                                    ]2;k@kx1: /usr/share/javaAdditionalClasspath]1;..onalClasspath[0m[27m[24m[J[36m[/usr/share/javaAdditionalClasspath][32m[1m$[0m [K[99C[31m*[00m[01;33m[00m[00m[32m[master][00m [109D[?1h=[?2004heec R e  eec[?1l>[?2004l
-]2;ecFunction]1;ec[2] 30901
-[1m[7m%[27m[1m[0m                                                                                                                                                    ]2;k@kx1: /usr/share/javaAdditionalClasspath]1;..onalClasspathWaiting for Emacs...[0m[27m[24m[J[36m[/usr/share/javaAdditionalClasspath][32m[1m$[0m [K[99C[31m*[00m[01;33m[00m[00m[32m[master][00m [109D[?1h=[?2004hlls[?1l>[?2004l
-]2;ls --color=tty]1;ls[0m[34;42mapache-maven-3.6.3[0m  [01;34mjavax[0m  [01;34mjdbc10[0m  [01;34mjunit4[0m  [01;32mjunit4.10.zip[0m
-[1m[7m%[27m[1m[0m                                                                                                                                                    ]2;k@kx1: /usr/share/javaAdditionalClasspath]1;..onalClasspath[0m[27m[24m[J[36m[/usr/share/javaAdditionalClasspath][32m[1m$[0m [K[99C[31m*[00m[01;33m[00m[00m[32m[master][00m [109D[?1h=[?2004hccd junit4[1m/[0m[0m [?1l>[?2004l
-]2;cd junit4]1;cd[1m[7m%[27m[1m[0m                                                                                                                                                    ]2;k@kx1: /usr/share/javaAdditionalClasspath/junit4]1;..sspath/junit4[0m[27m[24m[J[36m[/usr/share/javaAdditionalClasspath/junit4][32m[1m$[0m [K[92C[31m*[00m[01;33m[00m[00m[32m[master][00m [102D[?1h=[?2004hlls[?1l>[?2004l
-]2;ls --color=tty]1;lsBUILDING   cpl-v10.html  [0m[01;34mjavadoc[0m  [01;31mjunit-4.10.jar[0m      [01;31mjunit-dep-4.10.jar[0m  README.html
-build.xml  [01;34mdoc[0m           [01;34mjunit[0m    [01;31mjunit-4.10-src.jar[0m  [01;34morg[0m                 [01;34mtemp.hamcrest.source[0m
-[1m[7m%[27m[1m[0m                                                                                                                                                    ]2;k@kx1: /usr/share/javaAdditionalClasspath/junit4]1;..sspath/junit4[0m[27m[24m[J[36m[/usr/share/javaAdditionalClasspath/junit4][32m[1m$[0m [K[92C[31m*[00m[01;33m[00m[00m[32m[master][00m [102D[?1h=[?2004hccd ..[?1l>[?2004l
-]2;cd ..]1;cd[1m[7m%[27m[1m[0m                                                                                                                                                    ]2;k@kx1: /usr/share/javaAdditionalClasspath]1;..onalClasspath[0m[27m[24m[J[36m[/usr/share/javaAdditionalClasspath][32m[1m$[0m [K[99C[31m*[00m[01;33m[00m[00m[32m[master][00m [109D[?1h=[?2004hccd ..[?1l>[?2004l
-]2;cd ..]1;cd[1m[7m%[27m[1m[0m                                                                                                                                                    ]2;k@kx1: /usr/share]1;/usr/share[0m[27m[24m[J[36m[/usr/share][32m[1m$[0m [K[132C [133D[?1h=[?2004hlls[?1l>[?2004l
-]2;ls --color=tty]1;ls[0m[01;34maccounts[0m              [01;34mepiphany[0m                     [01;34mgnome-software[0m             [01;34mkconf_update[0m       [01;34mmisc[0m                            [01;34mskk[0m
-[01;34maccountsservice[0m       [01;34met[0m                           [01;34mgnome-system-monitor[0m       [01;34mkdevappwizard[0m      [01;34mmkinitcpio[0m                      [01;34mslsh[0m
-[01;34maclocal[0m               [01;34mevince[0m                       [01;34mgnome-todo[0m                 [01;34mkeyutils[0m           [01;34mmobile-broadband-provider-info[0m  [01;34msnmp[0m
-[01;34maclocal-1.16[0m          [01;34mevolution-data-server[0m        [01;34mgnome-tweaks[0m               [01;34mkf5[0m                [01;34mmodel[0m                           [01;34msolid[0m
-[01;34malbert[0m                [01;34mfactory[0m                      [01;34mgnome-user-share[0m           [01;34mknotifications5[0m    [01;34mmousetweaks[0m                     [01;34msounds[0m
-[01;34malsa[0m                  [01;34mffmpeg[0m                       [01;34mgnome-video-effects[0m        [01;34mkpackage[0m           [01;34mmysql[0m                           [01;34mspeech-dispatcher[0m
-[01;34mant[0m                   [01;34mfile[0m                         [01;34mgnupg[0m                      [01;34mkservices5[0m         [01;34mmysql-workbench[0m                 [01;34mss[0m
-[01;34mappdata[0m               [01;34mfile-roller[0m                  [01;34mgoldendict[0m                 [01;34mkservicetypes5[0m     [01;34mncat[0m                            [01;34msushi[0m
-[01;34mapp-info[0m              [01;34mfio[0m                          [01;34mgraphite2[0m                  [01;34mktorrent[0m           [01;34mnetcf[0m                           [01;34msystemd[0m
-[01;34mapplication-registry[0m  [01;34mfish[0m                         [01;34mgrilo-plugins[0m              [01;34mkxmlgui5[0m           [01;34mnmap[0m                            [01;34msystemtap[0m
-[01;34mapplications[0m          [01;34mflatpak[0m                      [01;34mgroff[0m                      [01;34mladspa[0m             [01;34mobs[0m                             [01;34mt1lib[0m
-[01;34mapr-1[0m                 [01;34mfonts[0m                        [01;34mgrub[0m                       [01;34mlensfun[0m            [01;34mokular[0m                          [01;34mtabset[0m
-[01;34maugeas[0m                [01;34mgcc-10.1.0[0m                   [01;34mgst-plugins-base[0m           [01;34mlibalpm[0m            [01;34mopenal[0m                          [01;34mtc[0m
-[01;34mautoconf[0m              [01;34mGConf[0m                        [01;34mgstreamer-1.0[0m              [01;34mlibcaca[0m            [01;34mopencc[0m                          [01;34mtelepathy[0m
-[01;34mautomake-1.16[0m         [01;34mgdb[0m                          [01;34mgtk-2.0[0m                    [01;34mlibdrm[0m             [01;34mopenmpi[0m                         [01;34mtemplates[0m
-[01;34mavahi[0m                 [01;34mgdict-1.0[0m                    [01;34mgtk-3.0[0m                    [01;34mlibexttextcat[0m      [01;34mopenvpn[0m                         [01;34mterminfo[0m
-[01;34mawk[0m                   [01;34mgdm[0m                          [01;34mgtk-doc[0m                    [01;34mlibgnomekbd[0m        [01;34morca[0m                            [01;34mtexinfo[0m
-[01;34mbackgrounds[0m           [01;34mgedit[0m                        [01;34mgtksourceview-4[0m            [01;34mlibgpg-error[0m       [01;34morg.gnome.Characters[0m            [01;34mthemes[0m
-[01;34mbakefile[0m              [01;34mgegl-0.4[0m                     [01;34mguile[0m                      [01;34mlibgphoto2[0m         [01;34morg.gnome.Music[0m                 [01;34mthumbnailers[0m
-[01;34mbash-completion[0m       [01;34mgettext[0m                      [01;34mgupnp-av[0m                   [01;34mlibgphoto2_port[0m    [01;34morg.gnome.Weather[0m               [01;34mtlp[0m
-[01;34mbison[0m                 [01;34mgettext-0.20.2[0m               [01;34mgupnp-dlna-2.0[0m             [01;34mlibgweather[0m        [01;34mosinfo[0m                          [01;34mtomcat9[0m
-[01;34mbrltty[0m                [01;34mghostscript[0m                  [01;34mgvfs[0m                       [01;34mlibinput[0m           [01;34mostree[0m                          [01;34mtotem[0m
-[01;34mca-certificates[0m       [01;34mgir-1.0[0m                      [01;34mhelp[0m                       [01;34mlibkkc[0m             [01;34mp11-kit[0m                         [01;34mtracker[0m
-[01;34mclutter-1.0[0m           [01;34mgit[0m                          [01;34mhspell[0m                     [01;34mliblangtag[0m         [01;34mpacman[0m                          [01;34mtracker-miners[0m
-[01;34mcmake[0m                 [01;34mgit-core[0m                     [01;34mhttpd[0m                      [01;34mliblouis[0m           [01;34mperl5[0m                           [01;34mvala[0m
-[01;34mcogl[0m                  [01;34mgit-gui[0m                      [01;34mhwdata[0m                     [01;34mlibnumbertext[0m      [01;34mphonon4qt5[0m                      [01;34mvde2[0m
-[01;34mcolor[0m                 [01;34mgitk[0m                         [01;34mhwloc[0m                      [01;34mlibquvi-scripts[0m    [01;34mpixmaps[0m                         [01;34mvim[0m
-[01;34mcolord[0m                [01;34mgitweb[0m                       [01;34mi18n[0m                       [01;34mlibreoffice[0m        [01;34mpkgconfig[0m                       [01;34mvlc[0m
-[01;34mcommon-lisp[0m           [01;34mgjs-1.0[0m                      [01;34miana-etc[0m                   [01;34mlibthai[0m            [01;34mpmix[0m                            [01;34mwayland[0m
-[01;34mconfig.kcfg[0m           [01;34mglade[0m                        [01;34mibus[0m                       [01;34mlibtool[0m            [01;34mpolkit-1[0m                        [01;34mwayland-protocols[0m
-[01;34mcracklib[0m              [01;34mglib-2.0[0m                     [01;34mibus-kkc[0m                   [01;34mlibvirt[0m            [01;34mproj[0m                            [01;34mwayland-sessions[0m
-[01;34mctdb[0m                  [01;34mglusterfs[0m                    [01;34mibus-libpinyin[0m             [01;34mlibwacom[0m           [01;34mpulseaudio[0m                      [01;34mX11[0m
-[01;34mdaxctl[0m                [01;34mglvnd[0m                        [01;34micons[0m                      [01;34mlicenses[0m           [01;34mpurpose[0m                         [01;34mxcb[0m
-[01;34mdbus-1[0m                [01;34mgnome[0m                        [01;34micu[0m                        [01;34mlocale[0m             [01;34mpygobject[0m                       [01;34mxdg-desktop-portal[0m
-[01;34mdconf[0m                 [01;34mgnome-background-properties[0m  [01;34midl[0m                        [01;34mlua[0m                [01;34mqemu[0m                            [01;34mxml[0m
-[01;34mdefaults[0m              [01;34mgnome-bluetooth[0m              [01;34mImageMagick-6[0m              [01;34mluajit-2.0.5[0m       [01;34mqlogging-categories5[0m            [01;34mxsessions[0m
-[01;34mdesktop-directories[0m   [01;34mgnome-books[0m                  [01;34mImageMagick-7[0m              [01;34mlv2specgen[0m         [01;34mqt[0m                              [01;34mxtables[0m
-[01;34mdevhelp[0m               [01;34mgnome-boxes[0m                  [01;34mimlib2[0m                     [01;34mm17n[0m               [01;34mradare2[0m                         [01;34myelp[0m
-[01;34mdhcpcd[0m                [01;34mgnome-color-manager[0m          [01;34minfo[0m                       [01;34mmakepkg[0m            [01;34mreadline[0m                        [01;34myelp-xsl[0m
-[01;34mdict[0m                  [01;34mgnome-control-center[0m         [01;34minstalled-tests[0m            [01;34mmakepkg-template[0m   [01;34mredland[0m                         [01;34mzenity[0m
-[01;34mdjvu[0m                  [01;34mgnome-documents[0m              [01;34miptables[0m                   [01;34mman[0m                [01;34mrygel[0m                           [01;34mzoneinfo[0m
-[01;34mdoc[0m                   [01;34mgnome-logs[0m                   [01;34miso-codes[0m                  [01;34mmedia-player-info[0m  [01;34msamba[0m                           [01;34mzoneinfo-leaps[0m
-[01;34mdrirc.d[0m               [01;34mgnome-maps[0m                   [01;34mjack-audio-connection-kit[0m  [01;34mmetainfo[0m           [01;34msane[0m                            [01;36mzoneinfo-posix[0m
-[01;34memacs[0m                 [01;34mgnome-session[0m                [01;34mjava[0m                       [01;34mmfx[0m                [01;34msbt[0m                             [01;34mzsh[0m
-[01;34menchant[0m               [01;34mgnome-settings-daemon[0m        [01;36mjavaAdditionalClasspath[0m    [01;34mmime[0m               [01;34mshared-color-targets[0m
-[01;34meog[0m                   [01;34mgnome-shell[0m                  [01;34mkbd[0m                        [01;34mmime-info[0m          [01;34msip[0m
-[1m[7m%[27m[1m[0m                                                                                                                                                    ]2;k@kx1: /usr/share]1;/usr/share[0m[27m[24m[J[36m[/usr/share][32m[1m$[0m [K[132C [133D[?1h=[?2004hvv javaAdditionalClasspath[1m/[0m[0m [25Dmv javaAdditionalClasspath[25D[25C jac  ac   jClass[?1l>[?2004l
-]2;mv javaAdditionalClasspath jClass]1;mvmv: cannot move 'javaAdditionalClasspath' to 'jClass': Permission denied
-[1m[7m%[27m[1m[0m                                                                                                                                                    ]2;k@kx1: /usr/share]1;/usr/share[0m[27m[24m[J[36m[/usr/share][31m[1m$[0m [K[132C [133D[?1h=[?2004hssudo !![?1l>[?2004l
-[1m[7m%[27m[1m[0m                                                                                                                                                    ]2;k@kx1: /usr/share]1;/usr/share[0m[27m[24m[J[36m[/usr/share][31m[1m$[0m sudo mv javaAdditionalClasspath jClass[K[94C [95D[?1h=[?2004h[?1l>[?2004l
-]2;sudo mv javaAdditionalClasspath jClass]1;mv[sudo] password for k: 
-ls  Sorry, try again.
-[sudo] password for k: 
-[1m[7m%[27m[1m[0m                                                                                                                                                    ]2;k@kx1: /usr/share]1;/usr/share[0m[27m[24m[J[36m[/usr/share][32m[1m$[0m [K[132C [133D[?1h=[?2004hlls[?1l>[?2004l
-]2;ls --color=tty]1;ls[0m[01;34maccounts[0m              [01;34mepiphany[0m                     [01;34mgnome-software[0m             [01;34mkconf_update[0m       [01;34mmisc[0m                            [01;34mskk[0m
-[01;34maccountsservice[0m       [01;34met[0m                           [01;34mgnome-system-monitor[0m       [01;34mkdevappwizard[0m      [01;34mmkinitcpio[0m                      [01;34mslsh[0m
-[01;34maclocal[0m               [01;34mevince[0m                       [01;34mgnome-todo[0m                 [01;34mkeyutils[0m           [01;34mmobile-broadband-provider-info[0m  [01;34msnmp[0m
-[01;34maclocal-1.16[0m          [01;34mevolution-data-server[0m        [01;34mgnome-tweaks[0m               [01;34mkf5[0m                [01;34mmodel[0m                           [01;34msolid[0m
-[01;34malbert[0m                [01;34mfactory[0m                      [01;34mgnome-user-share[0m           [01;34mknotifications5[0m    [01;34mmousetweaks[0m                     [01;34msounds[0m
-[01;34malsa[0m                  [01;34mffmpeg[0m                       [01;34mgnome-video-effects[0m        [01;34mkpackage[0m           [01;34mmysql[0m                           [01;34mspeech-dispatcher[0m
-[01;34mant[0m                   [01;34mfile[0m                         [01;34mgnupg[0m                      [01;34mkservices5[0m         [01;34mmysql-workbench[0m                 [01;34mss[0m
-[01;34mappdata[0m               [01;34mfile-roller[0m                  [01;34mgoldendict[0m                 [01;34mkservicetypes5[0m     [01;34mncat[0m                            [01;34msushi[0m
-[01;34mapp-info[0m              [01;34mfio[0m                          [01;34mgraphite2[0m                  [01;34mktorrent[0m           [01;34mnetcf[0m                           [01;34msystemd[0m
-[01;34mapplication-registry[0m  [01;34mfish[0m                         [01;34mgrilo-plugins[0m              [01;34mkxmlgui5[0m           [01;34mnmap[0m                            [01;34msystemtap[0m
-[01;34mapplications[0m          [01;34mflatpak[0m                      [01;34mgroff[0m                      [01;34mladspa[0m             [01;34mobs[0m                             [01;34mt1lib[0m
-[01;34mapr-1[0m                 [01;34mfonts[0m                        [01;34mgrub[0m                       [01;34mlensfun[0m            [01;34mokular[0m                          [01;34mtabset[0m
-[01;34maugeas[0m                [01;34mgcc-10.1.0[0m                   [01;34mgst-plugins-base[0m           [01;34mlibalpm[0m            [01;34mopenal[0m                          [01;34mtc[0m
-[01;34mautoconf[0m              [01;34mGConf[0m                        [01;34mgstreamer-1.0[0m              [01;34mlibcaca[0m            [01;34mopencc[0m                          [01;34mtelepathy[0m
-[01;34mautomake-1.16[0m         [01;34mgdb[0m                          [01;34mgtk-2.0[0m                    [01;34mlibdrm[0m             [01;34mopenmpi[0m                         [01;34mtemplates[0m
-[01;34mavahi[0m                 [01;34mgdict-1.0[0m                    [01;34mgtk-3.0[0m                    [01;34mlibexttextcat[0m      [01;34mopenvpn[0m                         [01;34mterminfo[0m
-[01;34mawk[0m                   [01;34mgdm[0m                          [01;34mgtk-doc[0m                    [01;34mlibgnomekbd[0m        [01;34morca[0m                            [01;34mtexinfo[0m
-[01;34mbackgrounds[0m           [01;34mgedit[0m                        [01;34mgtksourceview-4[0m            [01;34mlibgpg-error[0m       [01;34morg.gnome.Characters[0m            [01;34mthemes[0m
-[01;34mbakefile[0m              [01;34mgegl-0.4[0m                     [01;34mguile[0m                      [01;34mlibgphoto2[0m         [01;34morg.gnome.Music[0m                 [01;34mthumbnailers[0m
-[01;34mbash-completion[0m       [01;34mgettext[0m                      [01;34mgupnp-av[0m                   [01;34mlibgphoto2_port[0m    [01;34morg.gnome.Weather[0m               [01;34mtlp[0m
-[01;34mbison[0m                 [01;34mgettext-0.20.2[0m               [01;34mgupnp-dlna-2.0[0m             [01;34mlibgweather[0m        [01;34mosinfo[0m                          [01;34mtomcat9[0m
-[01;34mbrltty[0m                [01;34mghostscript[0m                  [01;34mgvfs[0m                       [01;34mlibinput[0m           [01;34mostree[0m                          [01;34mtotem[0m
-[01;34mca-certificates[0m       [01;34mgir-1.0[0m                      [01;34mhelp[0m                       [01;34mlibkkc[0m             [01;34mp11-kit[0m                         [01;34mtracker[0m
-[01;34mclutter-1.0[0m           [01;34mgit[0m                          [01;34mhspell[0m                     [01;34mliblangtag[0m         [01;34mpacman[0m                          [01;34mtracker-miners[0m
-[01;34mcmake[0m                 [01;34mgit-core[0m                     [01;34mhttpd[0m                      [01;34mliblouis[0m           [01;34mperl5[0m                           [01;34mvala[0m
-[01;34mcogl[0m                  [01;34mgit-gui[0m                      [01;34mhwdata[0m                     [01;34mlibnumbertext[0m      [01;34mphonon4qt5[0m                      [01;34mvde2[0m
-[01;34mcolor[0m                 [01;34mgitk[0m                         [01;34mhwloc[0m                      [01;34mlibquvi-scripts[0m    [01;34mpixmaps[0m                         [01;34mvim[0m
-[01;34mcolord[0m                [01;34mgitweb[0m                       [01;34mi18n[0m                       [01;34mlibreoffice[0m        [01;34mpkgconfig[0m                       [01;34mvlc[0m
-[01;34mcommon-lisp[0m           [01;34mgjs-1.0[0m                      [01;34miana-etc[0m                   [01;34mlibthai[0m            [01;34mpmix[0m                            [01;34mwayland[0m
-[01;34mconfig.kcfg[0m           [01;34mglade[0m                        [01;34mibus[0m                       [01;34mlibtool[0m            [01;34mpolkit-1[0m                        [01;34mwayland-protocols[0m
-[01;34mcracklib[0m              [01;34mglib-2.0[0m                     [01;34mibus-kkc[0m                   [01;34mlibvirt[0m            [01;34mproj[0m                            [01;34mwayland-sessions[0m
-[01;34mctdb[0m                  [01;34mglusterfs[0m                    [01;34mibus-libpinyin[0m             [01;34mlibwacom[0m           [01;34mpulseaudio[0m                      [01;34mX11[0m
-[01;34mdaxctl[0m                [01;34mglvnd[0m                        [01;34micons[0m                      [01;34mlicenses[0m           [01;34mpurpose[0m                         [01;34mxcb[0m
-[01;34mdbus-1[0m                [01;34mgnome[0m                        [01;34micu[0m                        [01;34mlocale[0m             [01;34mpygobject[0m                       [01;34mxdg-desktop-portal[0m
-[01;34mdconf[0m                 [01;34mgnome-background-properties[0m  [01;34midl[0m                        [01;34mlua[0m                [01;34mqemu[0m                            [01;34mxml[0m
-[01;34mdefaults[0m              [01;34mgnome-bluetooth[0m              [01;34mImageMagick-6[0m              [01;34mluajit-2.0.5[0m       [01;34mqlogging-categories5[0m            [01;34mxsessions[0m
-[01;34mdesktop-directories[0m   [01;34mgnome-books[0m                  [01;34mImageMagick-7[0m              [01;34mlv2specgen[0m         [01;34mqt[0m                              [01;34mxtables[0m
-[01;34mdevhelp[0m               [01;34mgnome-boxes[0m                  [01;34mimlib2[0m                     [01;34mm17n[0m               [01;34mradare2[0m                         [01;34myelp[0m
-[01;34mdhcpcd[0m                [01;34mgnome-color-manager[0m          [01;34minfo[0m                       [01;34mmakepkg[0m            [01;34mreadline[0m                        [01;34myelp-xsl[0m
-[01;34mdict[0m                  [01;34mgnome-control-center[0m         [01;34minstalled-tests[0m            [01;34mmakepkg-template[0m   [01;34mredland[0m                         [01;34mzenity[0m
-[01;34mdjvu[0m                  [01;34mgnome-documents[0m              [01;34miptables[0m                   [01;34mman[0m                [01;34mrygel[0m                           [01;34mzoneinfo[0m
-[01;34mdoc[0m                   [01;34mgnome-logs[0m                   [01;34miso-codes[0m                  [01;34mmedia-player-info[0m  [01;34msamba[0m                           [01;34mzoneinfo-leaps[0m
-[01;34mdrirc.d[0m               [01;34mgnome-maps[0m                   [01;34mjack-audio-connection-kit[0m  [01;34mmetainfo[0m           [01;34msane[0m                            [01;36mzoneinfo-posix[0m
-[01;34memacs[0m                 [01;34mgnome-session[0m                [01;34mjava[0m                       [01;34mmfx[0m                [01;34msbt[0m                             [01;34mzsh[0m
-[01;34menchant[0m               [01;34mgnome-settings-daemon[0m        [01;36mjClass[0m                     [01;34mmime[0m               [01;34mshared-color-targets[0m
-[01;34meog[0m                   [01;34mgnome-shell[0m                  [01;34mkbd[0m                        [01;34mmime-info[0m          [01;34msip[0m
-[1m[7m%[27m[1m[0m                                                                                                                                                    ]2;k@kx1: /usr/share]1;/usr/share[0m[27m[24m[J[36m[/usr/share][32m[1m$[0m [K[132C [133D[?1h=[?2004hlssudo mv javaAdditionalClasspath jClass[1C[1C[1C[1C                              v jClass[1m/[0m[0m jA  JAC   jac[?1l>[?2004l
-]2;sudo mv jClass jac]1;mv[1m[7m%[27m[1m[0m                                                                                                                                                    ]2;k@kx1: /usr/share]1;/usr/share[0m[27m[24m[J[36m[/usr/share][32m[1m$[0m [K[132C [133D[?1h=[?2004hlls[?1l>[?2004l
-]2;ls --color=tty]1;ls[0m[01;34maccounts[0m              [01;34mepiphany[0m                     [01;34mgnome-software[0m             [01;34mkconf_update[0m       [01;34mmisc[0m                            [01;34mskk[0m
-[01;34maccountsservice[0m       [01;34met[0m                           [01;34mgnome-system-monitor[0m       [01;34mkdevappwizard[0m      [01;34mmkinitcpio[0m                      [01;34mslsh[0m
-[01;34maclocal[0m               [01;34mevince[0m                       [01;34mgnome-todo[0m                 [01;34mkeyutils[0m           [01;34mmobile-broadband-provider-info[0m  [01;34msnmp[0m
-[01;34maclocal-1.16[0m          [01;34mevolution-data-server[0m        [01;34mgnome-tweaks[0m               [01;34mkf5[0m                [01;34mmodel[0m                           [01;34msolid[0m
-[01;34malbert[0m                [01;34mfactory[0m                      [01;34mgnome-user-share[0m           [01;34mknotifications5[0m    [01;34mmousetweaks[0m                     [01;34msounds[0m
-[01;34malsa[0m                  [01;34mffmpeg[0m                       [01;34mgnome-video-effects[0m        [01;34mkpackage[0m           [01;34mmysql[0m                           [01;34mspeech-dispatcher[0m
-[01;34mant[0m                   [01;34mfile[0m                         [01;34mgnupg[0m                      [01;34mkservices5[0m         [01;34mmysql-workbench[0m                 [01;34mss[0m
-[01;34mappdata[0m               [01;34mfile-roller[0m                  [01;34mgoldendict[0m                 [01;34mkservicetypes5[0m     [01;34mncat[0m                            [01;34msushi[0m
-[01;34mapp-info[0m              [01;34mfio[0m                          [01;34mgraphite2[0m                  [01;34mktorrent[0m           [01;34mnetcf[0m                           [01;34msystemd[0m
-[01;34mapplication-registry[0m  [01;34mfish[0m                         [01;34mgrilo-plugins[0m              [01;34mkxmlgui5[0m           [01;34mnmap[0m                            [01;34msystemtap[0m
-[01;34mapplications[0m          [01;34mflatpak[0m                      [01;34mgroff[0m                      [01;34mladspa[0m             [01;34mobs[0m                             [01;34mt1lib[0m
-[01;34mapr-1[0m                 [01;34mfonts[0m                        [01;34mgrub[0m                       [01;34mlensfun[0m            [01;34mokular[0m                          [01;34mtabset[0m
-[01;34maugeas[0m                [01;34mgcc-10.1.0[0m                   [01;34mgst-plugins-base[0m           [01;34mlibalpm[0m            [01;34mopenal[0m                          [01;34mtc[0m
-[01;34mautoconf[0m              [01;34mGConf[0m                        [01;34mgstreamer-1.0[0m              [01;34mlibcaca[0m            [01;34mopencc[0m                          [01;34mtelepathy[0m
-[01;34mautomake-1.16[0m         [01;34mgdb[0m                          [01;34mgtk-2.0[0m                    [01;34mlibdrm[0m             [01;34mopenmpi[0m                         [01;34mtemplates[0m
-[01;34mavahi[0m                 [01;34mgdict-1.0[0m                    [01;34mgtk-3.0[0m                    [01;34mlibexttextcat[0m      [01;34mopenvpn[0m                         [01;34mterminfo[0m
-[01;34mawk[0m                   [01;34mgdm[0m                          [01;34mgtk-doc[0m                    [01;34mlibgnomekbd[0m        [01;34morca[0m                            [01;34mtexinfo[0m
-[01;34mbackgrounds[0m           [01;34mgedit[0m                        [01;34mgtksourceview-4[0m            [01;34mlibgpg-error[0m       [01;34morg.gnome.Characters[0m            [01;34mthemes[0m
-[01;34mbakefile[0m              [01;34mgegl-0.4[0m                     [01;34mguile[0m                      [01;34mlibgphoto2[0m         [01;34morg.gnome.Music[0m                 [01;34mthumbnailers[0m
-[01;34mbash-completion[0m       [01;34mgettext[0m                      [01;34mgupnp-av[0m                   [01;34mlibgphoto2_port[0m    [01;34morg.gnome.Weather[0m               [01;34mtlp[0m
-[01;34mbison[0m                 [01;34mgettext-0.20.2[0m               [01;34mgupnp-dlna-2.0[0m             [01;34mlibgweather[0m        [01;34mosinfo[0m                          [01;34mtomcat9[0m
-[01;34mbrltty[0m                [01;34mghostscript[0m                  [01;34mgvfs[0m                       [01;34mlibinput[0m           [01;34mostree[0m                          [01;34mtotem[0m
-[01;34mca-certificates[0m       [01;34mgir-1.0[0m                      [01;34mhelp[0m                       [01;34mlibkkc[0m             [01;34mp11-kit[0m                         [01;34mtracker[0m
-[01;34mclutter-1.0[0m           [01;34mgit[0m                          [01;34mhspell[0m                     [01;34mliblangtag[0m         [01;34mpacman[0m                          [01;34mtracker-miners[0m
-[01;34mcmake[0m                 [01;34mgit-core[0m                     [01;34mhttpd[0m                      [01;34mliblouis[0m           [01;34mperl5[0m                           [01;34mvala[0m
-[01;34mcogl[0m                  [01;34mgit-gui[0m                      [01;34mhwdata[0m                     [01;34mlibnumbertext[0m      [01;34mphonon4qt5[0m                      [01;34mvde2[0m
-[01;34mcolor[0m                 [01;34mgitk[0m                         [01;34mhwloc[0m                      [01;34mlibquvi-scripts[0m    [01;34mpixmaps[0m                         [01;34mvim[0m
-[01;34mcolord[0m                [01;34mgitweb[0m                       [01;34mi18n[0m                       [01;34mlibreoffice[0m        [01;34mpkgconfig[0m                       [01;34mvlc[0m
-[01;34mcommon-lisp[0m           [01;34mgjs-1.0[0m                      [01;34miana-etc[0m                   [01;34mlibthai[0m            [01;34mpmix[0m                            [01;34mwayland[0m
-[01;34mconfig.kcfg[0m           [01;34mglade[0m                        [01;34mibus[0m                       [01;34mlibtool[0m            [01;34mpolkit-1[0m                        [01;34mwayland-protocols[0m
-[01;34mcracklib[0m              [01;34mglib-2.0[0m                     [01;34mibus-kkc[0m                   [01;34mlibvirt[0m            [01;34mproj[0m                            [01;34mwayland-sessions[0m
-[01;34mctdb[0m                  [01;34mglusterfs[0m                    [01;34mibus-libpinyin[0m             [01;34mlibwacom[0m           [01;34mpulseaudio[0m                      [01;34mX11[0m
-[01;34mdaxctl[0m                [01;34mglvnd[0m                        [01;34micons[0m                      [01;34mlicenses[0m           [01;34mpurpose[0m                         [01;34mxcb[0m
-[01;34mdbus-1[0m                [01;34mgnome[0m                        [01;34micu[0m                        [01;34mlocale[0m             [01;34mpygobject[0m                       [01;34mxdg-desktop-portal[0m
-[01;34mdconf[0m                 [01;34mgnome-background-properties[0m  [01;34midl[0m                        [01;34mlua[0m                [01;34mqemu[0m                            [01;34mxml[0m
-[01;34mdefaults[0m              [01;34mgnome-bluetooth[0m              [01;34mImageMagick-6[0m              [01;34mluajit-2.0.5[0m       [01;34mqlogging-categories5[0m            [01;34mxsessions[0m
-[01;34mdesktop-directories[0m   [01;34mgnome-books[0m                  [01;34mImageMagick-7[0m              [01;34mlv2specgen[0m         [01;34mqt[0m                              [01;34mxtables[0m
-[01;34mdevhelp[0m               [01;34mgnome-boxes[0m                  [01;34mimlib2[0m                     [01;34mm17n[0m               [01;34mradare2[0m                         [01;34myelp[0m
-[01;34mdhcpcd[0m                [01;34mgnome-color-manager[0m          [01;34minfo[0m                       [01;34mmakepkg[0m            [01;34mreadline[0m                        [01;34myelp-xsl[0m
-[01;34mdict[0m                  [01;34mgnome-control-center[0m         [01;34minstalled-tests[0m            [01;34mmakepkg-template[0m   [01;34mredland[0m                         [01;34mzenity[0m
-[01;34mdjvu[0m                  [01;34mgnome-documents[0m              [01;34miptables[0m                   [01;34mman[0m                [01;34mrygel[0m                           [01;34mzoneinfo[0m
-[01;34mdoc[0m                   [01;34mgnome-logs[0m                   [01;34miso-codes[0m                  [01;34mmedia-player-info[0m  [01;34msamba[0m                           [01;34mzoneinfo-leaps[0m
-[01;34mdrirc.d[0m               [01;34mgnome-maps[0m                   [01;36mjac[0m                        [01;34mmetainfo[0m           [01;34msane[0m                            [01;36mzoneinfo-posix[0m
-[01;34memacs[0m                 [01;34mgnome-session[0m                [01;34mjack-audio-connection-kit[0m  [01;34mmfx[0m                [01;34msbt[0m                             [01;34mzsh[0m
-[01;34menchant[0m               [01;34mgnome-settings-daemon[0m        [01;34mjava[0m                       [01;34mmime[0m               [01;34mshared-color-targets[0m
-[01;34meog[0m                   [01;34mgnome-shell[0m                  [01;34mkbd[0m                        [01;34mmime-info[0m          [01;34msip[0m
-[1m[7m%[27m[1m[0m                                                                                                                                                    ]2;k@kx1: /usr/share]1;/usr/share[0m[27m[24m[J[36m[/usr/share][32m[1m$[0m [K[132C [133D[?1h=[?2004hccd jac[?1l>[?2004l
-]2;cd jac]1;cdcd: no such file or directory: jac
-[1m[7m%[27m[1m[0m                                                                                                                                                    ]2;k@kx1: /usr/share]1;/usr/share[0m[27m[24m[J[36m[/usr/share][31m[1m$[0m [K[132C [133D[?1h=[?2004hrrm jac[?1l>[?2004l
-]2;rm jac]1;rmrm: cannot remove 'jac': Permission denied
-[1m[7m%[27m[1m[0m                                                                                                                                                    ]2;k@kx1: /usr/share]1;/usr/share[0m[27m[24m[J[36m[/usr/share][31m[1m$[0m [K[132C [133D[?1h=[?2004huudo rm jacsudo rm jac[10D[?1l>[?2004l
-]2;sudo rm jac]1;rm[1m[7m%[27m[1m[0m                                                                                                                                                    ]2;k@kx1: /usr/share]1;/usr/share[0m[27m[24m[J[36m[/usr/share][32m[1m$[0m [K[132C [133D[?1h=[?2004hn ssudo ln -s /home/k/code/ENVScripts/javaAdditionalClasspath/ /usr/share/javaAdditionalClasspath/ /usr/share/javaAdditionalClasspath [37D/ /usr/share/javaAdditionalClasspath [37D/ /usr/share/javaAdditionalClasspath [37D/ /usr/share/javaAdditionalClasspath [37De/ /usr/share/javaAdditionalClasspath[36Ds/ /usr/share/javaAdditionalClasspath[36D[1C[1C[1C[1C[1C[1C[1C[1C[1C[1C[1C[1C[1C[1C[1C[1C[1C[1C[1C[1C[1C[1C[1C[1C[1C[1C[1C[1C[1C[1C[1C[1C[1C[1C[1C[1C                       jac[?1l>[?2004l
-]2;sudo ln -s /home/k/code/ENVScripts/javaAdditionalClasses/ /usr/share/jac]1;ln[1m[7m%[27m[1m[0m                                                                                                                                                    ]2;k@kx1: /usr/share]1;/usr/share[0m[27m[24m[J[36m[/usr/share][32m[1m$[0m [K[132C [133D[?1h=[?2004hdd jac[?1l>[?2004l
-]2;d jac]1;d[1m[7m%[27m[1m[0m                                                                                                                                                    ]2;k@kx1: /usr/share]1;/usr/share[0m[27m[24m[J[36m[/usr/share][32m[1m$[0m [K[132C [133D[?1h=[?2004hlls[?1l>[?2004l
-]2;ls --color=tty]1;ls[0m[01;34maccounts[0m              [01;34mepiphany[0m                     [01;34mgnome-software[0m             [01;34mkconf_update[0m       [01;34mmisc[0m                            [01;34mskk[0m
-[01;34maccountsservice[0m       [01;34met[0m                           [01;34mgnome-system-monitor[0m       [01;34mkdevappwizard[0m      [01;34mmkinitcpio[0m                      [01;34mslsh[0m
-[01;34maclocal[0m               [01;34mevince[0m                       [01;34mgnome-todo[0m                 [01;34mkeyutils[0m           [01;34mmobile-broadband-provider-info[0m  [01;34msnmp[0m
-[01;34maclocal-1.16[0m          [01;34mevolution-data-server[0m        [01;34mgnome-tweaks[0m               [01;34mkf5[0m                [01;34mmodel[0m                           [01;34msolid[0m
-[01;34malbert[0m                [01;34mfactory[0m                      [01;34mgnome-user-share[0m           [01;34mknotifications5[0m    [01;34mmousetweaks[0m                     [01;34msounds[0m
-[01;34malsa[0m                  [01;34mffmpeg[0m                       [01;34mgnome-video-effects[0m        [01;34mkpackage[0m           [01;34mmysql[0m                           [01;34mspeech-dispatcher[0m
-[01;34mant[0m                   [01;34mfile[0m                         [01;34mgnupg[0m                      [01;34mkservices5[0m         [01;34mmysql-workbench[0m                 [01;34mss[0m
-[01;34mappdata[0m               [01;34mfile-roller[0m                  [01;34mgoldendict[0m                 [01;34mkservicetypes5[0m     [01;34mncat[0m                            [01;34msushi[0m
-[01;34mapp-info[0m              [01;34mfio[0m                          [01;34mgraphite2[0m                  [01;34mktorrent[0m           [01;34mnetcf[0m                           [01;34msystemd[0m
-[01;34mapplication-registry[0m  [01;34mfish[0m                         [01;34mgrilo-plugins[0m              [01;34mkxmlgui5[0m           [01;34mnmap[0m                            [01;34msystemtap[0m
-[01;34mapplications[0m          [01;34mflatpak[0m                      [01;34mgroff[0m                      [01;34mladspa[0m             [01;34mobs[0m                             [01;34mt1lib[0m
-[01;34mapr-1[0m                 [01;34mfonts[0m                        [01;34mgrub[0m                       [01;34mlensfun[0m            [01;34mokular[0m                          [01;34mtabset[0m
-[01;34maugeas[0m                [01;34mgcc-10.1.0[0m                   [01;34mgst-plugins-base[0m           [01;34mlibalpm[0m            [01;34mopenal[0m                          [01;34mtc[0m
-[01;34mautoconf[0m              [01;34mGConf[0m                        [01;34mgstreamer-1.0[0m              [01;34mlibcaca[0m            [01;34mopencc[0m                          [01;34mtelepathy[0m
-[01;34mautomake-1.16[0m         [01;34mgdb[0m                          [01;34mgtk-2.0[0m                    [01;34mlibdrm[0m             [01;34mopenmpi[0m                         [01;34mtemplates[0m
-[01;34mavahi[0m                 [01;34mgdict-1.0[0m                    [01;34mgtk-3.0[0m                    [01;34mlibexttextcat[0m      [01;34mopenvpn[0m                         [01;34mterminfo[0m
-[01;34mawk[0m                   [01;34mgdm[0m                          [01;34mgtk-doc[0m                    [01;34mlibgnomekbd[0m        [01;34morca[0m                            [01;34mtexinfo[0m
-[01;34mbackgrounds[0m           [01;34mgedit[0m                        [01;34mgtksourceview-4[0m            [01;34mlibgpg-error[0m       [01;34morg.gnome.Characters[0m            [01;34mthemes[0m
-[01;34mbakefile[0m              [01;34mgegl-0.4[0m                     [01;34mguile[0m                      [01;34mlibgphoto2[0m         [01;34morg.gnome.Music[0m                 [01;34mthumbnailers[0m
-[01;34mbash-completion[0m       [01;34mgettext[0m                      [01;34mgupnp-av[0m                   [01;34mlibgphoto2_port[0m    [01;34morg.gnome.Weather[0m               [01;34mtlp[0m
-[01;34mbison[0m                 [01;34mgettext-0.20.2[0m               [01;34mgupnp-dlna-2.0[0m             [01;34mlibgweather[0m        [01;34mosinfo[0m                          [01;34mtomcat9[0m
-[01;34mbrltty[0m                [01;34mghostscript[0m                  [01;34mgvfs[0m                       [01;34mlibinput[0m           [01;34mostree[0m                          [01;34mtotem[0m
-[01;34mca-certificates[0m       [01;34mgir-1.0[0m                      [01;34mhelp[0m                       [01;34mlibkkc[0m             [01;34mp11-kit[0m                         [01;34mtracker[0m
-[01;34mclutter-1.0[0m           [01;34mgit[0m                          [01;34mhspell[0m                     [01;34mliblangtag[0m         [01;34mpacman[0m                          [01;34mtracker-miners[0m
-[01;34mcmake[0m                 [01;34mgit-core[0m                     [01;34mhttpd[0m                      [01;34mliblouis[0m           [01;34mperl5[0m                           [01;34mvala[0m
-[01;34mcogl[0m                  [01;34mgit-gui[0m                      [01;34mhwdata[0m                     [01;34mlibnumbertext[0m      [01;34mphonon4qt5[0m                      [01;34mvde2[0m
-[01;34mcolor[0m                 [01;34mgitk[0m                         [01;34mhwloc[0m                      [01;34mlibquvi-scripts[0m    [01;34mpixmaps[0m                         [01;34mvim[0m
-[01;34mcolord[0m                [01;34mgitweb[0m                       [01;34mi18n[0m                       [01;34mlibreoffice[0m        [01;34mpkgconfig[0m                       [01;34mvlc[0m
-[01;34mcommon-lisp[0m           [01;34mgjs-1.0[0m                      [01;34miana-etc[0m                   [01;34mlibthai[0m            [01;34mpmix[0m                            [01;34mwayland[0m
-[01;34mconfig.kcfg[0m           [01;34mglade[0m                        [01;34mibus[0m                       [01;34mlibtool[0m            [01;34mpolkit-1[0m                        [01;34mwayland-protocols[0m
-[01;34mcracklib[0m              [01;34mglib-2.0[0m                     [01;34mibus-kkc[0m                   [01;34mlibvirt[0m            [01;34mproj[0m                            [01;34mwayland-sessions[0m
-[01;34mctdb[0m                  [01;34mglusterfs[0m                    [01;34mibus-libpinyin[0m             [01;34mlibwacom[0m           [01;34mpulseaudio[0m                      [01;34mX11[0m
-[01;34mdaxctl[0m                [01;34mglvnd[0m                        [01;34micons[0m                      [01;34mlicenses[0m           [01;34mpurpose[0m                         [01;34mxcb[0m
-[01;34mdbus-1[0m                [01;34mgnome[0m                        [01;34micu[0m                        [01;34mlocale[0m             [01;34mpygobject[0m                       [01;34mxdg-desktop-portal[0m
-[01;34mdconf[0m                 [01;34mgnome-background-properties[0m  [01;34midl[0m                        [01;34mlua[0m                [01;34mqemu[0m                            [01;34mxml[0m
-[01;34mdefaults[0m              [01;34mgnome-bluetooth[0m              [01;34mImageMagick-6[0m              [01;34mluajit-2.0.5[0m       [01;34mqlogging-categories5[0m            [01;34mxsessions[0m
-[01;34mdesktop-directories[0m   [01;34mgnome-books[0m                  [01;34mImageMagick-7[0m              [01;34mlv2specgen[0m         [01;34mqt[0m                              [01;34mxtables[0m
-[01;34mdevhelp[0m               [01;34mgnome-boxes[0m                  [01;34mimlib2[0m                     [01;34mm17n[0m               [01;34mradare2[0m                         [01;34myelp[0m
-[01;34mdhcpcd[0m                [01;34mgnome-color-manager[0m          [01;34minfo[0m                       [01;34mmakepkg[0m            [01;34mreadline[0m                        [01;34myelp-xsl[0m
-[01;34mdict[0m                  [01;34mgnome-control-center[0m         [01;34minstalled-tests[0m            [01;34mmakepkg-template[0m   [01;34mredland[0m                         [01;34mzenity[0m
-[01;34mdjvu[0m                  [01;34mgnome-documents[0m              [01;34miptables[0m                   [01;34mman[0m                [01;34mrygel[0m                           [01;34mzoneinfo[0m
-[01;34mdoc[0m                   [01;34mgnome-logs[0m                   [01;34miso-codes[0m                  [01;34mmedia-player-info[0m  [01;34msamba[0m                           [01;34mzoneinfo-leaps[0m
-[01;34mdrirc.d[0m               [01;34mgnome-maps[0m                   [01;36mjac[0m                        [01;34mmetainfo[0m           [01;34msane[0m                            [01;36mzoneinfo-posix[0m
-[01;34memacs[0m                 [01;34mgnome-session[0m                [01;34mjack-audio-connection-kit[0m  [01;34mmfx[0m                [01;34msbt[0m                             [01;34mzsh[0m
-[01;34menchant[0m               [01;34mgnome-settings-daemon[0m        [01;34mjava[0m                       [01;34mmime[0m               [01;34mshared-color-targets[0m
-[01;34meog[0m                   [01;34mgnome-shell[0m                  [01;34mkbd[0m                        [01;34mmime-info[0m          [01;34msip[0m
-[1m[7m%[27m[1m[0m                                                                                                                                                    ]2;k@kx1: /usr/share]1;/usr/share[0m[27m[24m[J[36m[/usr/share][32m[1m$[0m [K[132C [133D[?1h=[?2004hdd jac    ccd jac[?1l>[?2004l
-]2;cd jac]1;cd[1m[7m%[27m[1m[0m                                                                                                                                                    ]2;k@kx1: /usr/share/jac]1;/usr/share/jac[0m[27m[24m[J[36m[/usr/share/jac][32m[1m$[0m [K[119C[31m*[00m[01;33m[00m[00m[32m[master][00m [129D[?1h=[?2004hlls[?1l>[?2004l
-]2;ls --color=tty]1;ls[0m[34;42mapache-maven-3.6.3[0m  [01;34mjavax[0m  [01;34mjdbc10[0m  [01;34mjunit4[0m  [01;32mjunit4.10.zip[0m
-[1m[7m%[27m[1m[0m                                                                                                                                                    ]2;k@kx1: /usr/share/jac]1;/usr/share/jac[0m[27m[24m[J[36m[/usr/share/jac][32m[1m$[0m [K[119C[31m*[00m[01;33m[00m[00m[32m[master][00m [129D[?1h=[?2004hlls[?1l>[?2004l
-]2;ls --color=tty]1;ls[0m[34;42mapache-maven-3.6.3[0m  [01;34mjavax[0m  [01;34mjdbc10[0m  [01;34mjunit4[0m  [01;32mjunit4.10.zip[0m
-[1m[7m%[27m[1m[0m                                                                                                                                                    ]2;k@kx1: /usr/share/jac]1;/usr/share/jac[0m[27m[24m[J[36m[/usr/share/jac][32m[1m$[0m [K[119C[31m*[00m[01;33m[00m[00m[32m[master][00m [129D[?1h=[?2004hccd jdc bc10[1m/[0m[0m [?1l>[?2004l
-]2;cd jdbc10]1;cd[1m[7m%[27m[1m[0m                                                                                                                                                    ]2;k@kx1: /usr/share/jac/jdbc10]1;..re/jac/jdbc10[0m[27m[24m[J[36m[/usr/share/jac/jdbc10][32m[1m$[0m [K[112C[31m*[00m[01;33m[00m[00m[32m[master][00m [122D[?1h=[?2004hlls[?1l>[?2004l
-]2;ls --color=tty]1;ls[0m[01;32mojdbc10.jar[0m  [01;32mojdbc.policy[0m  [01;32mons.jar[0m  [01;32moraclepki.jar[0m  [01;32morai18n.jar[0m  [01;32mosdt_cert.jar[0m  [01;32mosdt_core.jar[0m  [01;32mREADME.txt[0m  [01;32msimplefan.jar[0m  [01;32mucp.jar[0m  [01;32mxdb.jar[0m
-[1m[7m%[27m[1m[0m                                                                                                                                        

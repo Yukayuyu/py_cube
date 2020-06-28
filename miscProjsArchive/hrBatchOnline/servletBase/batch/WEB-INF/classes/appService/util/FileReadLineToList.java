@@ -39,17 +39,17 @@ public class FileReadLineToList {
             }
 
         } catch(FileNotFoundException e){ 
-            log(e, INFO);
+            log(e, ERROR);
             throw new RuntimeException("FileNotFound, check the application log.");
         } catch(IOException e){
-            //TODO: logging and stop;
-            throw new RuntimeException("FileNotFound, check the application log.");
+            log(e, ERROR);
+            throw new RuntimeException("IOException, check the application log.");
         } finally{
             try{
             if (x != null)
                 x.close(); 
             } catch (IOException e){
-                //TODO: log into error, fail to close.
+                log(e, WARN);
             }
         }
 
