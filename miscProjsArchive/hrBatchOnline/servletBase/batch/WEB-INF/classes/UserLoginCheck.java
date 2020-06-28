@@ -5,7 +5,7 @@ import ccdebug.*;
 import javax.servlet.*;
 import javax.servlet.http.*;
 
-public class UserWebLoginCheck extends HttpServlet {
+public class UserLoginCheck extends HttpServlet {
     static final long serialVersionUID = 90112244460330L;
 
     /**
