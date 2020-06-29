@@ -45,6 +45,11 @@
         <servlet-class>formLoginDispatch</servlet-class>
     </servlet>
     <servlet>
+        <servlet-name>doesUIDOrEmailAlreadyExist</servlet-name>
+        <servlet-class>doesUIDOrEmailAlreadyExist</servlet-class>
+    </servlet>
+    
+    <servlet>
         <servlet-name>userLogin</servlet-name>
         <servlet-class>UserLoginCheck</servlet-class>
     </servlet>
@@ -71,5 +76,9 @@
     <servlet-mapping>
         <servlet-name>userLogin</servlet-name>
         <url-pattern>/servlet/user-login</url-pattern>
-    </servlet-mapping> 
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>doesUIDOrEmailAlreadyExist</servlet-name>
+        <url-pattern>/servlet/doesUIDOrEmailAlreadyExist</url-pattern>
+    </servlet-mapping>
 </web-app>

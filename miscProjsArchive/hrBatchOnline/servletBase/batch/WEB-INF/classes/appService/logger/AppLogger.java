@@ -6,6 +6,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import appService.util.FilePath;
+import static constPool.APP_CONST.*;
 
 /**
  * This class provide a simpler Logger interface or implementation than log4j2.
@@ -47,8 +48,8 @@ public final class AppLogger {
      */
     private static Logger getLogger(){
         // System.setProperty("log4j2.debug", "1");
-        String confDir = FilePath.getConfigDir() + File.separator + "log4j2.xml";
-        System.setProperty("log4j2.configurationFile", confDir); 
+        String confDir = FilePath.getConfigDir() + File.separator + LOG4J2_XML_NAME;
+        System.setProperty(LOG4J2_SYS_CONFIG_FILE_LOC, confDir); 
         return LoggerHolder.apacheLogger; 
     } 
 
