@@ -1,3 +1,4 @@
+package archive;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -10,7 +11,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-public class formBasic extends HttpServlet {
+public class FormBasic extends HttpServlet {
     static final long serialVersionUID = 00002L;
     
     @Override

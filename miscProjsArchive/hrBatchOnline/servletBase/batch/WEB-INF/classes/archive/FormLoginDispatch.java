@@ -1,10 +1,11 @@
+package archive;
 import java.io.*;
 import java.util.*;
 import ccdebug.*;
 import javax.servlet.*;
 import javax.servlet.http.*;
 
-public class formLoginDispatch extends HttpServlet {
+public class FormLoginDispatch extends HttpServlet {
     static final long serialVersionUID = 00002L;
 
     @Override

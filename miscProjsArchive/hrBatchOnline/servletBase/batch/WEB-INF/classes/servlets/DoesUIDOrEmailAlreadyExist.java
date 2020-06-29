@@ -1,3 +1,5 @@
+package servlets;
+
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
@@ -8,11 +10,11 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import appDAO.userInfoDAO;
+import appDAO.UserInfoDAO;
 
 import static constPool.APP_CONST.*;
 
-enum paramAllowed{
+enum ParamAllowed{
     uID{
         public String toString(){
             return "uID";
@@ -29,7 +31,7 @@ enum paramAllowed{
 /**
  * Check if UID already exist, return 1 (true in jS) if exist, 0 (false in JS) if not exist. *
  */
-public class doesUIDOrEmailAlreadyExist extends HttpServlet {
+public class DoesUIDOrEmailAlreadyExist extends HttpServlet {
     static final long serialVersionUID = 9000123499182L;
 
     /**
@@ -47,7 +49,7 @@ public class doesUIDOrEmailAlreadyExist extends HttpServlet {
         String qStr;
         List<String> legalQueryParams = new ArrayList<>();
 
-        for (paramAllowed param : paramAllowed.values()){
+        for (ParamAllowed param : ParamAllowed.values()){
             legalQueryParams.add(param.toString());
         }
 
@@ -64,7 +66,7 @@ public class doesUIDOrEmailAlreadyExist extends HttpServlet {
             return;
         } else {
             qStr = req.getParameter(paramName); 
-            List<String> resultList = userInfoDAO.getAllValueInColumn(paramName);
+            List<String> resultList = UserInfoDAO.getAllValueInColumn(paramName);
             boolean alreadyExist = resultList.contains(qStr);
             if (alreadyExist){
                 out.write("1");

@@ -1,5 +1,8 @@
 package appService;
 
+import appDAO.UserLoginInfoDAO;
+import static appService.util.Hash.*;
+
 public class LoginService {
     /**
      * Check the id and password,
@@ -9,8 +12,11 @@ public class LoginService {
      * @param uPW password
      * @return
      */
-    public boolean loginValidate (String uID, String uPW){
-        boolean validatePassed = false;
+    public static boolean loginValidate (String uID, String uPW){
+        //TODO null check
+        UserLoginInfoDAO dao = new UserLoginInfoDAO();
+        String uPWHash = hashWithoutSalt(uPW);
+        boolean validatePassed = dao.userLoginSuccess(uID, uPWHash);
         return validatePassed; 
     } 
 }

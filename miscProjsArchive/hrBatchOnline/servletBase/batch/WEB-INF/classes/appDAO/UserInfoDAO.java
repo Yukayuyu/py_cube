@@ -6,7 +6,7 @@ import java.util.List;
 /**
  * DAO to the userInfo Database;
  */
-public final class userInfoDAO {
+public final class UserInfoDAO {
 
     public final static List<String> getAllValueInColumn(String columnName) {
         List<String> resultList = new ArrayList<>();
