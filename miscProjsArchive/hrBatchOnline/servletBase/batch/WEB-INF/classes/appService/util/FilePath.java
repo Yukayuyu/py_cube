@@ -30,6 +30,7 @@ public final class FilePath {
 	}
 
 	/**
+	 * Consider replace this function with a const?
 	 * Return the absolute path points to the Config folder. This Function need to
 	 * be modified in each project depending on each file structure
 	 * 

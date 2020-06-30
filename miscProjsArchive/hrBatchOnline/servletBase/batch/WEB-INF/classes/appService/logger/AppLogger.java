@@ -1,12 +1,13 @@
 package appService.logger; 
 
+import static appService.logger.AppLogLevels.*;
+
 import java.io.File;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import appService.util.FilePath;
-import static constPool.APP_CONST.*;
 
 /**
  * This class provide a simpler Logger interface or implementation than log4j2.
@@ -19,7 +20,11 @@ import static constPool.APP_CONST.*;
  * Usage: Import the package, call its "log" function to log.
  */
 public final class AppLogger {
-    private static AppLogLevels DEFAULT_LEVEL = AppLogLevels.INFO;
+    private final static String LOG4J2_XML_NAME = "log4j2.xml";
+    private final static String LOG4J2_SYS_CONFIG_LOC_NAME = "log4j2.configurationFile";
+    private final static AppLogLevels DEFAULT_LEVEL = AppLogLevels.INFO;
+    private final static String confDir = FilePath.getAbsProjRootDir() + File.separator + "servletBase" + File.separator + "batch" + File.separator
+				+ "WEB-INF" + File.separator + "classes" + File.separator + "config" + File.separator + LOG4J2_XML_NAME;
     /**
      * which will be instentiated in the following static block.
      */
@@ -48,8 +53,7 @@ public final class AppLogger {
      */
     private static Logger getLogger(){
         // System.setProperty("log4j2.debug", "1");
-        String confDir = FilePath.getConfigDir() + File.separator + LOG4J2_XML_NAME;
-        System.setProperty(LOG4J2_SYS_CONFIG_FILE_LOC, confDir); 
+        System.setProperty(LOG4J2_SYS_CONFIG_LOC_NAME, confDir); 
         return LoggerHolder.apacheLogger; 
     } 
 
@@ -113,7 +117,7 @@ public final class AppLogger {
         }
     }
  
-    // public static void main(String[] args) {
-    //     log("info?2", INFO);
-    // }
+    public static void main(String[] args) {
+        log("info?3", INFO);
+    }
 }

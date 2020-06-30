@@ -3,6 +3,8 @@
     %>
 <%@ page import="java.util.*, static constPool.APP_CONST.*" %>
 <%-- <%@ taglib uri="/WEB-INF/lib/jstl-1.2.jar" prefix="c" %> --%>
+<%-- <%@ taglib prefix="c" [tagdir=/WEB-INF/lib/jstl-1.2.jar | uri=URI ] %> --%>
+<%-- <%@ taglib uri="/WEB-INF/lib/META-INF/c.tld" prefix="c" %> --%>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -20,6 +22,7 @@
 Welcome, ${sessionScope.uID}, your password was ${sessionScope.uPW}.
 <br/>
 <%-- Username has been captalized using filter, the result is: ${sessionScope.uIDCapped}. --%>
+<%-- <c:if test="${2 < 1}" > count：<c:out value="true, ${sessionScope.uID}"/></c:if> --%>
 <%
 
     String uIDCappedFromReqPara = request.getParameter(UID_CAPPED_NAME_STRING);
