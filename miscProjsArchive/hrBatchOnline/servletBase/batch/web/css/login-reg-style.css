@@ -129,3 +129,22 @@ body{
     text-align: center;
     font-size: 13px;
 }
+
+.btnRotate{
+    animation: btnF 3s linear;
+}
+
+@keyframes btnF{
+    25%{
+        transform: rotateX(270deg);
+    }
+    50%{
+        transform: rotateX(540deg);
+    }
+    75%{
+        transform: rotateX(1080deg);
+    }
+    to{
+        transform: rotateX(1620deg);
+    }
+}

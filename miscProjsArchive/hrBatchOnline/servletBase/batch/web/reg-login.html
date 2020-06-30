@@ -11,7 +11,7 @@
 </head>
 
 <body>
-    <form action="/batch/servlet/create-account" method="post" class="login-form">
+    <form action="/batch/servlet/user-registration" method="post" class="login-form">
         <h1>New Account</h1>
         <div class="txtb clearfix">
             <input name="uID" id="uID" type="text">
@@ -34,8 +34,8 @@
             <span class="warntext">"warn"</span>
         </div>
 
-        <button class="logbtn" value="Login">Login</button>
-        <!-- <input type="submit" class="logbtn" value="Login"> -->
+        <!-- <button class="logbtn" value="Login">Login</button> -->
+        <input type="button" class="logbtn" value="Login">
 
         <div class="bottom-text">
             Already have an account? <a href="/batch/login">Login</a>
@@ -136,8 +136,17 @@
         //botton only submit if all flags=1 (all values are new) and according to the standard.
         $(document).ready(function () {
             $(".logbtn").click(function(){
-                if()
-                $(".login-form").submit();
+                if($("#uID").val().length < 1) {fielduIDisvalid = 0};
+                if($("#uPW").val().length < 1) {fielduPWisvalid = 0};
+                if($("#email").val().length < 1) {fielduPWisvalid = 0};
+                if(fielduIDisvalid == 1 && fielduPWisvalid == 1 && fielduEmailisvalid == 1){
+                    console.log(fielduIDisvalid + " " + fielduPWisvalid + " " + fielduEmailisvalid);
+                    $(".logbtn").addClass("btnRotate");
+                    setTimeout(function(){ $(".login-form").submit()}, 3000);
+                }else{
+                    console.log(fielduIDisvalid + " " + fielduPWisvalid + " " + fielduEmailisvalid);
+                    alert("Please ensure all fields are valid before submit.");
+                }
             })
         })
     </script>

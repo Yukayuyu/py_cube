@@ -1,0 +1,27 @@
+*{
+    margin:0;
+    padding:0;
+    text-decoration: none;
+    font-family: verdana;
+    box-sizing: border-box;
+    font-style: normal;
+    background: unset;
+}
+
+body {
+    height: 100vh;
+    width: 60em;
+    text-align: center;
+    position: absolute;
+    padding: 10px;
+    left:50%;
+    transform: translateX(-50%);
+    background: linear-gradient(120deg, #f1c40f, #f44336);
+    padding: 20px 10px 20px 10px;
+    margin: 40px;
+}
+
+.em{
+    font-size: 6em;
+    font-style: normal;
+}
