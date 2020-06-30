@@ -16,8 +16,8 @@ public final class UserLoginInfoDAO {
      * if true, login pass.
      */
     public boolean userLoginSuccess (String uID, String uPWHash){
-        return userLoginSuccessDummy(uID, uPWHash);
-        // return userLoginSuccessImplement(uID, uPWHash);
+        // return userLoginSuccessDummy(uID, uPWHash);
+        return userLoginSuccessImplement(uID, uPWHash);
     } 
     public boolean userLoginSuccessDummy (String uID, String uPWHash){
         //TODO Unimplemented. All dummy data.

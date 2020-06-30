@@ -13,26 +13,26 @@ public final class UserInfoDAO {
 
     public final static List<String> getAllValueInColumn(String columnName) {
         List<String> resultList = new ArrayList<>();
-        // List<UserDO> DOList = new ArrayList<>();
-        // DOList = getAllUsers();
+        List<UserDO> DOList = new ArrayList<>();
+        DOList = getAllUsers();
         // TODO
-        if (columnName.equals("uID")) {
-        resultList.add("admin");
-        resultList.add("root");
-        } else{
-        resultList.add("admin@admin");
-        resultList.add("root@root");
-        }
-        // for (UserDO usr : DOList) {
-        //     switch (columnName) {
-        //         case COLUMN_NAME_UID_STR:
-        //             resultList.add(usr.getId());
-        //             break;
-        //         default:
-        //             resultList.add(usr.getEmail());
-        //             break;
-        //     }
+        // if (columnName.equals("uID")) {
+        // resultList.add("admin");
+        // resultList.add("root");
+        // } else{
+        // resultList.add("admin@admin");
+        // resultList.add("root@root");
         // }
+        for (UserDO usr : DOList) {
+            switch (columnName) {
+                case COLUMN_NAME_UID_STR:
+                    resultList.add(usr.getId());
+                    break;
+                default:
+                    resultList.add(usr.getEmail());
+                    break;
+            }
+        }
 
         return resultList;
     }
