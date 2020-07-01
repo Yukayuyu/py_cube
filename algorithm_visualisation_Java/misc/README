@@ -223,6 +223,7 @@ The class Object does not itself implement the interface Cloneable, so calling t
     [[./Cp0_reflectionToString.java][Cp0_reflectionToString]]
 
     
+    
 ** System Properties
    [[./Cp0_SystemProperties.java][Cp0_SystemProperties]]
     
@@ -1823,6 +1824,10 @@ StringObj.split(regex); // split("n\\W+");
     
 
 
+    
+*** OCPJP8G misc
+**** Type Erase
+     [[./Cp16_TEUpperBound.java][Cp16_TEUpperBound]]
   
 * Chapter 17, ? Arrays
 * Chapter 18, ? Containers in Depth

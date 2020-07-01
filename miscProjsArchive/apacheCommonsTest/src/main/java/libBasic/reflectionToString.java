@@ -3,6 +3,7 @@ package libBasic;
 import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.apache.commons.lang3.builder.ToStringStyle;
 
+@SuppressWarnings("all")
 public class reflectionToString {
 	private String a = "avalue";
 	private String b = "bvalue";
