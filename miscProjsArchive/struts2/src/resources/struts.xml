@@ -5,7 +5,7 @@
 
 <struts>
     <!-- <constant name="struts.devMode" value="true" /> -->
-    <package name="basicstruts2" extends="struts-default" namespace="">
+    <package name="basicstruts2" extends="struts-default" namespace="/struts2-0.2">
         <action name="userLogin" class="struts2.action.LoginFormAction">
             <result name="success">/index.html</result>
             <!-- <result name="success">/Welcome.jsp</result> -->
