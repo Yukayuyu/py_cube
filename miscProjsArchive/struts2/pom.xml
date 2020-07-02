@@ -1,0 +1,100 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>struts2</groupId>
+	<artifactId>struts2</artifactId>
+	<version>0.2</version>
+	<packaging>war</packaging>
+	<dependencies>
+		<!-- https://mvnrepository.com/artifact/javax.servlet/javax.servlet-api -->
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>javax.servlet-api</artifactId>
+			<version>4.0.1</version>
+			<scope>provided</scope>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/org.apache.logging.log4j/log4j-core -->
+		<dependency>
+			<groupId>org.apache.logging.log4j</groupId>
+			<artifactId>log4j-core</artifactId>
+			<version>2.12.1</version>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/org.apache.logging.log4j/log4j-api -->
+		<dependency>
+			<groupId>org.apache.logging.log4j</groupId>
+			<artifactId>log4j-api</artifactId>
+			<version>2.12.1</version>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/org.apache.commons/commons-lang3 -->
+		<dependency>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>commons-lang3</artifactId>
+			<version>3.10</version>
+		</dependency>
+		<!-- JDBCs -->
+		<!-- https://mvnrepository.com/artifact/org.mariadb.jdbc/mariadb-java-client -->
+		<dependency>
+			<groupId>org.mariadb.jdbc</groupId>
+			<artifactId>mariadb-java-client</artifactId>
+			<version>2.6.1</version>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/com.h2database/h2 -->
+		<dependency>
+			<groupId>com.h2database</groupId>
+			<artifactId>h2</artifactId>
+			<version>1.4.200</version>
+			<scope>test</scope>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/org.apache.struts/struts2-core -->
+		<dependency>
+			<groupId>org.apache.struts</groupId>
+			<artifactId>struts2-core</artifactId>
+			<version>2.5.22</version>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/org.apache.struts/struts2-config-browser-plugin -->
+		<dependency>
+			<groupId>org.apache.struts</groupId>
+			<artifactId>struts2-config-browser-plugin</artifactId>
+			<version>2.5.22</version>
+		</dependency>
+
+
+	</dependencies>
+	<build>
+		<sourceDirectory>${project.basedir}/src</sourceDirectory>
+		<testSourceDirectory>${project.basedir}/src/test/java</testSourceDirectory>
+		<resources>
+			<resource>
+				<directory>${project.basedir}/src/resources</directory>
+			</resource>
+		</resources>
+		<testResources>
+			<testResource>
+				<directory>${project.basedir}/src/test/resources</directory>
+			</testResource>
+		</testResources>
+
+		<plugins>
+			<plugin>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>3.8.1</version>
+				<configuration>
+					<release>13</release>
+				</configuration>
+			</plugin>
+			<!-- https://mvnrepository.com/artifact/org.apache.maven.plugins/maven-install-plugin -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-install-plugin</artifactId>
+				<version>3.0.0-M1</version>
+			</plugin>
+			<plugin>
+				<artifactId>maven-war-plugin</artifactId>
+				<version>3.2.3</version>
+				<configuration>
+					<warSourceDirectory>WebContent</warSourceDirectory>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+</project>
