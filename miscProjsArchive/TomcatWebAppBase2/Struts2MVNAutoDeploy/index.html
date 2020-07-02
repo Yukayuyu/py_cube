@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=2.0">
+	<title>Struts2 Login</title>
+	<base href="http://localhost:8080/struts2-0.2/">
+	<link rel="stylesheet" href="css/index.css">
+</head>
+
+<body>
+
+	<!-- <form class="loginform" action="userLogin"> -->
+	<form class="loginform" action="userLogin.action">
+		<h1>Login with Struts2</h1>
+		<div class="txtb clearfix">
+			<input name="loginFormBean.uID" id="uID" type="text"> <span class="data" data-placeholder="Username:"></span>
+		</div>
+		<div class="txtb clearfix">
+			<input name="loginFormBean.uPW" id="uPW" type="Password"> <span class="data" data-placeholder="Password:"></span>
+		</div>
+
+		<input type="submit" class="logbtn" value="Login">
+
+	</form>
+
+</body>
+
+</html>

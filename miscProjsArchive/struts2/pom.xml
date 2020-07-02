@@ -82,7 +82,7 @@
 				<configuration>
 					<url>http://localhost:8080/manager/text</url>
 					<server>maven-tomcat-war-deployment-server</server>
-					<path>/mvnDeploy</path>
+					<path>/Struts2MVNAutoDeploy</path>
 				</configuration>
 			</plugin>
 			<plugin>
