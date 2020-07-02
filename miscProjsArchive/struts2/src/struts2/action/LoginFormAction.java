@@ -12,10 +12,10 @@ public class LoginFormAction extends ActionSupport {
     public String execute() {
         // DB Operation
         if (this.loginFormInfoBean == null) {
-            System.out.println("empty");
+            System.err.println("empty");
             return "success";
         } else {
-            System.out.println(this.loginFormInfoBean.getuID());
+            System.err.println(this.loginFormInfoBean.getuID());
             return "success";
         }
     }

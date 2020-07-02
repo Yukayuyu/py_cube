@@ -5,8 +5,8 @@
 
 <struts>
     <!-- <constant name="struts.devMode" value="true" /> -->
-    <package name="basicstruts2" extends="struts-default" namespace="/Struts2MVNAutoDeploy">
-        <action name="userLogin.action" class="struts2.action.LoginFormAction">
+    <package name="default" extends="struts-default" namespace="">
+        <action name="userLogin" class="struts2.action.LoginFormAction">
             <result name="success">/index.html</result>
             <!-- <result name="success">/Welcome.jsp</result> -->
         </action>
