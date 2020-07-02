@@ -12,7 +12,7 @@
 </head>
 
 <body>
-    <form action="/batch/servlet/user-registration" method="post" class="login-form">
+    <form action="/login-reg/servlet/user-registration" method="post" class="login-form">
         <h1>New Account</h1>
         <div class="txtb clearfix">
             <input name="uID" id="uID" type="text">
@@ -39,7 +39,7 @@
         <input type="button" class="logbtn" value="Login">
 
         <div class="bottom-text">
-            Already have an account? <a href="/batch/login">Login</a>
+            Already have an account? <a href="/login-reg/login">Login</a>
         </div>
 
     </form>
@@ -65,7 +65,7 @@
                     var textbox = $(this);
                     var qStr = textbox.val() //the user input
                     var paramName = textbox.attr("id"); //"uID"
-                    $.post("/batch/servlet/DoesUIDOrEmailAlreadyExist",
+                    $.post("/login-reg/servlet/DoesUIDOrEmailAlreadyExist",
                         {
                             uID: qStr,
                             paramName: 'uID'
@@ -94,7 +94,7 @@
                     var textbox = $(this);
                     var qStr = textbox.val() //the user input
                     var paramName = textbox.attr("id"); //"uID"
-                    $.post("/batch/servlet/DoesUIDOrEmailAlreadyExist",
+                    $.post("/login-reg/servlet/DoesUIDOrEmailAlreadyExist",
                         {
                             email: qStr,
                             paramName: 'email'
