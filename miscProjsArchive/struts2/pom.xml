@@ -60,8 +60,6 @@
 
 
 	</dependencies>
-	<distributionManagement>
-	</distributionManagement>
 	<build>
 		<sourceDirectory>${project.basedir}/src</sourceDirectory>
 		<testSourceDirectory>${project.basedir}/src/test/java</testSourceDirectory>
@@ -77,6 +75,16 @@
 		</testResources>
 
 		<plugins>
+			<plugin>
+				<groupId>org.apache.tomcat.maven</groupId>
+				<artifactId>tomcat7-maven-plugin</artifactId>
+				<version>2.2</version>
+				<configuration>
+					<url>http://localhost:8080/manager/text</url>
+					<server>maven-tomcat-war-deployment-server</server>
+					<path>/mvnDeploy</path>
+				</configuration>
+			</plugin>
 			<plugin>
 				<artifactId>maven-compiler-plugin</artifactId>
 				<version>3.8.1</version>
@@ -95,46 +103,6 @@
 				<version>3.2.3</version>
 				<configuration>
 					<warSourceDirectory>WebContent</warSourceDirectory>
-				</configuration>
-			</plugin>
-			<!-- https://mvnrepository.com/artifact/org.apache.tomcat.maven/common-tomcat-maven-plugin -->
-			<plugin>
-				<groupId>org.apache.tomcat.maven</groupId>
-				<artifactId>common-tomcat-maven-plugin</artifactId>
-				<version>2.2</version>
-				<configuration>
-					<url>http://localhost:8080/manager/text</url>
-					<server>TomcatServer</server>
-					<path>/mvnAutoDeployApp</path>
-				</configuration>
-			</plugin>
-			<plugin>
-				<groupId>org.codehaus.cargo</groupId>
-				<artifactId>cargo-maven2-plugin</artifactId>
-				<version>1.7.13</version>
-				<configuration>
-					<container>
-						<containerId>tomcat9x</containerId>
-						<home>/usr/share/tomcat9</home>
-					</container>
-					<configuration>
-						<type>existing</type>
-						<home>/usr/share/tomcat9</home>
-			
-					</configuration>
-					<deployables>
-						<deployable>
-							<groupId>struts2</groupId>
-							<artifactId>struts2</artifactId>
-							<type>war</type>
-							<properties>
-								<context>mvnAutoDeployApp</context>
-							</properties>
-						</deployable>
-					</deployables>
-					<deployer>
-						<type>installed</type>
-					</deployer>
 				</configuration>
 			</plugin>
 		</plugins>
