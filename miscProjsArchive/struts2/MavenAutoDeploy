@@ -1,2 +1,2 @@
 #!/bin/sh
-mvn install tomcat7:deploy;
+mvn clean install tomcat7:deploy;
