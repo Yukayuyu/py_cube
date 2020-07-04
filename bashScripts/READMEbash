@@ -27,3 +27,22 @@
 ** str comparison
    [[./Cp1_strCompare.sh]]
    
+** variable declaration
+   declare -p //print all existing variables
+   declare -r pwdfile=/etc/passwd //declare read only var
+** arrays
+   car=('BMW' 'Toyota')
+   echo "${car[@]}"
+   echo "${!car[@]}" //will print out the indexes
+   echo "${#car[@]}" //print out the length, 3.
+   unset car[1] //length ->1, 1 disappear
+   car[1]='Mercedese' //length ->2
+   
+** functions
+   function funcName(){
+       echo "$1"
+   }
+   funcName Hi //print hi
+   
+** directory 
+   [[./Cp1_dir.sh]]
