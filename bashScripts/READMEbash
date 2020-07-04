@@ -1,0 +1,29 @@
+;; -*- mode: org; eval: (company-mode -1); -*-
+#! /bin/bash
+
+* Chapter 1
+** valid login shells
+   cat /etc/shells
+
+** output and comments
+   [[./Cp1_outputToFile.sh]]
+   cat > file.txt
+   
+** conditional statment if, case
+   [[./Cp1_conditional.sh]]
+
+** loop, double parenthesis construct
+   [[./Cp1_loop.sh]]
+   
+** I/O
+   [[./Cp1_io.sh]]
+   
+** stdin and the default value syntax 
+   [[./Cp1_stdin.sh]]
+
+** larger than ampersand operator
+   >>word 2>&1 redirect stderr also into the file
+   
+** str comparison
+   [[./Cp1_strCompare.sh]]
+   

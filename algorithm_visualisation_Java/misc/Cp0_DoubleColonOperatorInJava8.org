@@ -1,0 +1,108 @@
+https://stackoverflow.com/questions/20001427/double-colon-operator-in-java-8
+:: is called Method Reference. It is basically a reference to a single method. I.e. it refers to an existing method by name.
+
+Short Explanation:
+Below is an example of a reference to a static method:
+
+class Hey {
+     public static double square(double num){
+        return Math.pow(num, 2);
+    }
+}
+
+Function<Double, Double> square = Hey::square;
+double ans = square.apply(23d);
+square can be passed around just like object references and triggered when needed. In fact, it can be just as easily used as a reference to "normal" methods of objects as static ones. For example:
+
+class Hey {
+    public double square(double num) {
+        return Math.pow(num, 2);
+    }
+}
+
+Hey hey = new Hey();
+Function<Double, Double> square = hey::square;
+double ans = square.apply(23d);
+Function above is a functional interface. To fully understand ::, it is important to understand functional interfaces as well. Plainly, a functional interface is an interface with just one abstract method.
+
+Examples of functional interfaces include Runnable, Callable, and ActionListener.
+
+Function above is a functional interface with just one method: apply. It takes one argument and produces a result.
+
+The reason why ::s are awesome is that:
+
+Method references are expressions which have the same treatment as lambda expressions (...), but instead of providing a method body, they refer an existing method by name.
+
+E.g. instead of writing the lambda body
+
+Function<Double, Double> square = (Double x) -> x * x;
+You can simply do
+
+Function<Double, Double> square = Hey::square;
+At runtime, these two square methods behave exactly the same as each other. The bytecode may or may not be the same (though, for the above case, the same bytecode is generated; compile the above and check with javap -c).
+
+The only major criterion to satisfy is: the method you provide should have a similar signature to the method of the functional interface you use as object reference.
+
+The below is illegal:
+
+Supplier<Boolean> p = Hey::square; // illegal
+square expects an argument and returns a double. The get method in Supplier returns a value but does not take an argument. Thus, this results in an error.
+
+A method reference refers to the method of a functional interface. (As mentioned, functional interfaces can have only one method each).
+
+Some more examples: the accept method in Consumer takes an input but doesn't return anything.
+
+Consumer<Integer> b1 = System::exit;   // void exit(int status)
+Consumer<String[]> b2 = Arrays::sort;  // void sort(Object[] a)
+Consumer<String> b3 = MyProgram::main; // void main(String... args)
+
+class Hey {
+    public double getRandom() {
+        return Math.random();
+    }
+}
+
+Callable<Double> call = hey::getRandom;
+Supplier<Double> call2 = hey::getRandom;
+DoubleSupplier sup = hey::getRandom;
+// Supplier is functional interface that takes no argument and gives a result
+Above, getRandom takes no argument and returns a double. So any functional interface that satisfies the criteria of: take no argument and return double can be used.
+
+Another example:
+
+Set<String> set = new HashSet<>();
+set.addAll(Arrays.asList("leo","bale","hanks"));
+Predicate<String> pred = set::contains;
+boolean exists = pred.test("leo");
+In case of parameterized types:
+
+class Param<T> {
+    T elem;
+    public T get() {
+        return elem;
+    }
+
+    public void set(T elem) {
+        this.elem = elem;
+    }
+
+    public static <E> E returnSame(E elem) {
+        return elem;
+    }
+}
+
+Supplier<Param<Integer>> obj = Param<Integer>::new;
+Param<Integer> param = obj.get();
+Consumer<Integer> c = param::set;
+Supplier<Integer> s = param::get;
+
+Function<String, String> func = Param::<String>returnSame;
+Method references can have different styles, but fundamentally they all mean the same thing and can simply be visualized as lambdas:
+
+1. A static method (ClassName::methName)
+2. An instance method of a particular object (instanceRef::methName)
+3. A super method of a particular object (super::methName)
+4. An instance method of an arbitrary object of a particular type (ClassName::methName)
+5. A class constructor reference (ClassName::new)
+6. An array constructor reference (TypeName[]::new)
+For further reference, see http://cr.openjdk.java.net/~briangoetz/lambda/lambda-state-final.html.
