@@ -67,7 +67,7 @@
     Interface Function<T,R> 
     //T is the type of input to the function
     //R is the type of return of the function
-    [[Cp0_DoubleColonOperatorInJava8.org]]
+    [[./Cp0_DoubleColonOperatorInJava8.org]]
     
 ** Fields initialization orders
    [[./Cp0_FieldsInitializationOrder.java][Cp0_FieldsIniatializationOrder]]
