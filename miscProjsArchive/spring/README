@@ -2,3 +2,16 @@
 //Spring 
 
 * Chapter 1,
+  
+** Basic Bean Scopes
+   *Singleton, Prototype, Request, Session, Global Session*
+   //by default, all bean are singleton. Beans instantiate when context initialized.
+   //Can be prototype, means New bean created with every request or reference
+   Application ContextAware
+   
+** interface ApplicationContextAware 
+   //e.g. in situatation where parent be a singleton, but child be prototype, if new instantce of child is needed, one way is though applicationContext get bean.
+   //to get ApplicationContext, the parent bean may need to implement the ApplicationContextAware interface.
+   
+** interface BeanNameAware 
+   //the aware interfaces

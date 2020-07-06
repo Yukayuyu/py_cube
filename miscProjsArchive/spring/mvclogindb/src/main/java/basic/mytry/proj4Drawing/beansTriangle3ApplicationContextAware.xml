@@ -5,7 +5,7 @@
     <!-- autowire by name -->
     <!-- also are autowire byType or constructor, in situation where class is unique -->
     <!-- However if bean numbers are huge, suggest to do explicit wiring instead of autowiring -->
-    <bean id="triangle" class="basic.mytry.proj4Drawing.TriangleAutoWire" autowire="byName" scope="prototype">
+    <bean id="triangle" class="basic.mytry.proj4Drawing.Triangle3ApplicationContextAware" autowire="byName" scope="prototype">
     </bean>
 
     <bean id="pointA" class="basic.mytry.proj4Drawing.Point">

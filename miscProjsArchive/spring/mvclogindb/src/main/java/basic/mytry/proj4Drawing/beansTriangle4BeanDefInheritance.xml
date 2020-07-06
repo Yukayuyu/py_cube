@@ -5,7 +5,23 @@
     <!-- autowire by name -->
     <!-- also are autowire byType or constructor, in situation where class is unique -->
     <!-- However if bean numbers are huge, suggest to do explicit wiring instead of autowiring -->
-    <bean id="triangle" class="basic.mytry.proj4Drawing.TriangleAutoWire" autowire="byName" scope="prototype">
+    <bean id="triangleParent" class="basic.mytry.proj4Drawing.Triangle4BeanDefInheritance" scope="prototype">
+        <property name="pointA" ref="pointA"/>
+        <property name="points">
+        <list>
+            <ref bean="pointA"/>
+        </list>
+        </property>
+    </bean>
+    <bean id="triangleChild" class="basic.mytry.proj4Drawing.Triangle4BeanDefInheritance" scope="prototype" parent="triangleParent">
+        <property name="pointB" ref="pointB"/>
+        <property name="pointC" ref="pointC"/>
+        <!-- so that merge instead of override the parent list -->
+        <property name="points">
+        <list merge="true">
+            <ref bean="pointB"/>
+        </list>
+        </property>
     </bean>
 
     <bean id="pointA" class="basic.mytry.proj4Drawing.Point">
