@@ -15,3 +15,54 @@
    
 ** interface BeanNameAware 
    //the aware interfaces
+   
+** Manage Bean lifecycle
+   AbstractApplicationContext
+   
+** @Bean
+   @Bean
+   public class beanClass{
+       return new Obj();
+   }
+   //@Bean replace the property value column
+
+   
+   
+** context.getBean
+   context.getBean(className.class)                       | after 3.0
+   context.getBean("beanName", className.class)           | after 3.0
+   (className) context.getBean("beanName") 
+   //the point is, how many beans of the type already exist in the DI container
+   
+** methods to define bean
+   1. @Configuration annotation at container class, within class use @Bean | >3.0
+   2. xml <bean id="id" class="fqcn"> <property name="x" value="y"/></bean>
+   3. Marker annotation: e.g. @Component -> ComponentScan | >2.5
+
+      
+   //Bean == data == configuration
+   //@Configuration usage:
+   @Configuration
+   public class AppConfig{
+       @Bean
+       UserRepository userRepository(){
+           @Bean(name = "userRepo")
+           return new UserRepositoryImpl();
+       }
+   }
+   
+** ComponentScan
+   @ComponentScan("com.example.demo") //scan all compoments under the destination package
+   //if the value is omitted, scan all classes within the same package
+   
+   <context:component-scan base-package="com.example.demo"> //use XML
+   
+   //take UserService -> userService as the default name 
+   
+** Types of injection
+   1. Setter injection
+   2. Constructor injection
+   3. Field injection
+
+
+
