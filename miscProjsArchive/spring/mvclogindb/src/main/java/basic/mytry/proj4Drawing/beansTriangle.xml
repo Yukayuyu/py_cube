@@ -1,0 +1,38 @@
+<beans xmlns="http://www.springframework.org/schema/beans" 
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+    <!-- bean definitions here -->
+    <bean id="triangle" class="basic.mytry.proj4Drawing.Triangle">
+        <constructor-arg type="String" value="Equilateral"/>
+        <constructor-arg type="int" value="20"/>
+        <!-- passing Object as value -->
+        <!-- or idref, which throws an Exception if id not found -->
+        <property name="pointA" ref="zeroPoint"/>
+        <!-- inner beans -->
+        <property name="pointB">
+            <bean class="basic.mytry.proj4Drawing.Point">
+                <property name="x" value="-20"/>
+                <property name="y" value="0"/>
+            </bean>
+        </property>
+        <property name="pointC">
+            <bean id="point3" class="basic.mytry.proj4Drawing.Point">
+                <property name="x" value="20"/>
+                <property name="y" value="0"/>
+            </bean>
+        </property>
+        <property name="points">
+        <list>
+           <ref bean="zeroPoint"/>
+           <ref bean="zeroPoint"/>
+           <ref bean="zeroPoint"/>
+        </list>
+        </property>
+    </bean>
+    <bean id="zeroPoint" class="basic.mytry.proj4Drawing.Point">
+        <property name="x" value="0"/>
+        <property name="y" value="0"/>
+    </bean>
+    <!-- alias, can be used to reference to the same bean -->
+    <alias name="triangle" alias="trangle-alias"/>
+</beans>

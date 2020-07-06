@@ -1,0 +1,23 @@
+<beans xmlns="http://www.springframework.org/schema/beans" 
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+    <!-- bean definitions here -->
+    <!-- autowire by name -->
+    <!-- also are autowire byType or constructor, in situation where class is unique -->
+    <!-- However if bean numbers are huge, suggest to do explicit wiring instead of autowiring -->
+    <bean id="triangle" class="basic.mytry.proj4Drawing.TriangleAutoWire" autowire="byName">
+    </bean>
+
+    <bean id="pointA" class="basic.mytry.proj4Drawing.Point">
+        <property name="x" value="0"/>
+        <property name="y" value="0"/>
+    </bean>
+    <bean id="pointB" class="basic.mytry.proj4Drawing.Point">
+        <property name="x" value="-20"/>
+        <property name="y" value="0"/>
+    </bean>
+    <bean id="pointC" class="basic.mytry.proj4Drawing.Point">
+        <property name="x" value="20"/>
+        <property name="y" value="0"/>
+    </bean>
+</beans>
