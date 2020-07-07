@@ -63,6 +63,57 @@
    1. Setter injection
    2. Constructor injection
    3. Field injection
+      
+   *When to use which*
+   //Use properties for every optiona dependency.
+   //Use constructor args for every mandatory dependency.
 
 
 
+
+** AOP keywords
+   + Aspect
+   + Join Point
+   + Advice
+     //additional behavior to existing code, without modifying the code itself
+   + Pointcut
+   + Weaving
+   + Target
+
+     
+* Chater 2, Spring MVC
+  Dispatcher Servlet -> {Handler Mapping || Handler Adapter || View Resolver}
+  //some Spring components:
+      + Handler Adapter
+      + Handler Mapping
+      + ViewResolver
+      + View
+      + DataBinder
+      + HandlerInterceptor
+      + HttpMessageConverter
+        
+   //load necessary components into the DI container before MVC initialize.
+   //Note do not mix containers from apps.
+   //containers from web server , Spring, Spring MVC, an other framework.
+   
+** the DispatcherServlet
+   
+** default index.html location:
+   src/main/resources/staticindex.html
+   
+* Chapter 3, Spring-boot-reference documentation
+** Cp2, Getting Started
+*** @RestController 
+    //stereotype annotation. It provides hints for people reading the code and for Spring that the class plays a specific role. 
+*** @RequestMapping("/")
+    //provides “routing” information. It tells Spring that any HTTP
+request with the / path should be mapped to the home method. 
+*** @EnableAutoConfiguration
+    // This annotation tells Spring Boot to
+“guess” how you want to configure Spring, based on the *jar dependencies* that you have added.
+Since spring-boot-starter-web added Tomcat and Spring MVC, the auto-configuration assumes that
+you are developing a web application and sets up Spring accordingly.
+
+
+   
+   

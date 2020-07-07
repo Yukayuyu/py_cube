@@ -1,5 +1,7 @@
 package basic.mytry.proj4Drawing;
 
+import org.springframework.beans.factory.annotation.Autowired;
+
 public class TriangleAutoWire {
     private Point pointA;
     private Point pointB;
