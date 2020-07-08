@@ -26,6 +26,9 @@ public class App2 {
     }
 }
 
+/**
+ * For cmd display.
+ */
 @Component
 class BookingCommandLineRunner implements CommandLineRunner {
     @Override

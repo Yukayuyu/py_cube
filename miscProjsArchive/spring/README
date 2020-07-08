@@ -1,6 +1,9 @@
 ;; -*- mode: org; eval: (company-mode -1); -*-
 //Spring 
 
+* Chapter 0, Important misc
+** Java SPI (Service Provider Interface)
+   //Convention:
 * Chapter 1,
   
 ** Basic Bean Scopes
@@ -81,8 +84,12 @@
    + Target
 
      
-* Chater 2, Spring MVC
-  Dispatcher Servlet -> {Handler Mapping || Handler Adapter || View Resolver}
+* Chapter 2, Spring MVC doc
+  
+** Summary
+   //ServerStartup -> web.xml -> Dispatcher Servlet Config and Config File location -> 
+** misc
+***  Dispatcher Servlet -> {Handler Mapping || Handler Adapter || View Resolver}
   //some Spring components:
       + Handler Adapter
       + Handler Mapping
@@ -95,18 +102,72 @@
    //load necessary components into the DI container before MVC initialize.
    //Note do not mix containers from apps.
    //containers from web server , Spring, Spring MVC, an other framework.
+ 
+*** the DispatcherServlet
    
-** the DispatcherServlet
-   
-** default index.html location:
+*** default index.html location:
    src/main/resources/staticindex.html
    
+** 1.1 DispatcherServlet
+   //Spring MVC, as many other web frameworks, is designed around the front controller pattern where a central Servlet, the DispatcherServlet, provides a shared algorithm for request processing, while actual work is performed by configurable delegate components. This model is flexible and supports diverse workflows.
+
+The DispatcherServlet, as any Servlet, needs to be declared and mapped according to the Servlet specification by using Java configuration or in web.xml. In turn, the DispatcherServlet uses Spring configuration to discover the delegate components it needs for request mapping, view resolution, exception handling, and more.
 * Chapter 3, Spring-boot-reference documentation
+** Summary
+*** Config File location 
+    (doc Chapter 3)
+   //Spring Boot favors Java-based configuration. Although it is possible to use SpringApplication with
+XML sources, we generally recommend that your primary source be a single @Configuration class.
+Usually the class that defines the main method is a good candidate as the primary @Configuration.
+
+   //You need not put all your @Configuration into a single class. The @Import annotation can be used to
+import additional configuration classes. Alternatively, you can use @ComponentScan to automatically
+pick up all Spring components, including @Configuration classes.
+   //If you absolutely must use XML based configuration, we recommend that you still start with a
+@Configuration class. You can then use an @ImportResource annotation to load XML configuration
+files.
+   //If you need to find out what auto-configuration is currently being applied, and why, start your
+application with the --debug switch. Doing so enables debug logs for a selection of core loggers and
+logs a conditions report to the console.
+   //To exclude an auto configuration, use
+   //@SpringBootApplication(exclude={DataSourceAutoConfiguration.class})
+public class MyApplication {
+     }
+    //If you structure your code as suggested above (locating your application class in a root package),
+you can add @ComponentScan without any arguments. All of your application components (
+@Component, @Service, @Repository, @Controller etc.) are *automatically registered as Spring Beans*. If a bean has one constructor, you can omit the @Autowired annotation
+
+**** Application Property Files
+     //4.2.3. Application Property Files
+SpringApplication loads properties from application.properties files in the following locations and
+adds them to the Spring Environment:
+1. A /config subdirectory of the current directory
+2. The current directory
+3. A classpath /config package
+4. The classpath root
+The list is ordered by precedence (properties defined in locations higher in the list override those
+defined in lower locations).
+
+
+*** @Configuration: allow to register extra beans in the context or import additional configuration
+    
+//If manual import is desired, use:
+@Configuration(proxyBeanMethods = false)
+@EnableAutoConfiguration
+@Import({ MyConfig.class, MyAnotherConfig.class })
+
+
+
+
+
 ** Cp2, Getting Started
 *** @RestController 
+    *Representational state transfer(REST)*
+    //In a RESTful web service, request made to a resource's URI will elicit a response with a payload formatted in HTML, XML, JSON, or some other format.
+    //By using a *stateless protocal* (no session involved) and standard operations, RESTful system may provide faster performance, more reliability, and flexibility.
     //stereotype annotation. It provides hints for people reading the code and for Spring that the class plays a specific role. 
     //@Controller is used to mark classes as Spring MVC Controller.
-    // @RestController is a convenience annotation that does nothing more than adding the @Controller and @ResponseBody annotations (see: Javadoc)
+    //@RestController is a convenience annotation that does nothing more than adding the @Controller and @ResponseBody annotations (see: Javadoc)
 *** @RequestMapping("/")
     //provides “routing” information. It tells Spring that any HTTP
 request with the / path should be mapped to the home method. 
@@ -114,6 +175,3 @@ request with the / path should be mapped to the home method.
     // This annotation tells Spring Boot to
 “guess” how you want to configure Spring, based on the *jar dependencies* that you have added. Since spring-boot-starter-web added Tomcat and Spring MVC, the auto-configuration assumes that you are developing a web application and sets up Spring accordingly.
 
-
-   
-   
