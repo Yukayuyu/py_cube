@@ -773,13 +773,6 @@ Between the controller and the model sometimes goes a layer which is called a se
     + <c:forEach>
     + <j>
     + <j>
-    + <j>
-    + <j>
-    + <j>
-    + <j>
-    + <j>
-    + <j>
-    + <j>
 
       
 ** Some Basic

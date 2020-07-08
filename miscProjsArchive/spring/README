@@ -105,14 +105,14 @@
 ** Cp2, Getting Started
 *** @RestController 
     //stereotype annotation. It provides hints for people reading the code and for Spring that the class plays a specific role. 
+    //@Controller is used to mark classes as Spring MVC Controller.
+    // @RestController is a convenience annotation that does nothing more than adding the @Controller and @ResponseBody annotations (see: Javadoc)
 *** @RequestMapping("/")
     //provides “routing” information. It tells Spring that any HTTP
 request with the / path should be mapped to the home method. 
 *** @EnableAutoConfiguration
     // This annotation tells Spring Boot to
-“guess” how you want to configure Spring, based on the *jar dependencies* that you have added.
-Since spring-boot-starter-web added Tomcat and Spring MVC, the auto-configuration assumes that
-you are developing a web application and sets up Spring accordingly.
+“guess” how you want to configure Spring, based on the *jar dependencies* that you have added. Since spring-boot-starter-web added Tomcat and Spring MVC, the auto-configuration assumes that you are developing a web application and sets up Spring accordingly.
 
 
    
