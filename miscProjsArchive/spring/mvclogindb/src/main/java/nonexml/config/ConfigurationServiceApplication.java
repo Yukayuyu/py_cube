@@ -11,6 +11,7 @@ import org.springframework.web.servlet.DispatcherServlet;
 
 @Configuration
 public class ConfigurationServiceApplication implements WebApplicationInitializer {
+    @Override
     public void onStartup(ServletContext servletContext) {
         // This is a call back method, which means that:
         // The implement of ServletContext is given by per web server render, e.g.
@@ -23,7 +24,7 @@ public class ConfigurationServiceApplication implements WebApplicationInitialize
         // 1. Create a dispatcher servlet
         // 2. Register the dispatcher servlet with the method provided by the
         // servletContext
-        System.out.println("hihihi");
+        System.err.println("hihihi");
         // AnnotationConfigWebApplicationContext context = new AnnotationConfigWebApplicationContext();
         // context.register();
 

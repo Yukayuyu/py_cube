@@ -18,17 +18,17 @@ public class Proj5WebAppInitializerOnCp implements WebApplicationInitializer {
         // 1. Create a dispatcher servlet
         // 2. Register the dispatcher servlet with the method provided by the servletContext
         System.out.println("loadedoncp");
-        AnnotationConfigWebApplicationContext context
-          = new AnnotationConfigWebApplicationContext();
-          context.register();
+        // AnnotationConfigWebApplicationContext context
+        //   = new AnnotationConfigWebApplicationContext();
+        //   context.register();
  
-        servletContext.addListener(new ContextLoaderListener(context));
+        // servletContext.addListener(new ContextLoaderListener(context));
  
-        ServletRegistration.Dynamic dispatcher = servletContext
-          .addServlet("dispatcher", new DispatcherServlet(context));
+        // ServletRegistration.Dynamic dispatcher = servletContext
+        //   .addServlet("dispatcher", new DispatcherServlet(context));
         
-        dispatcher.setLoadOnStartup(1);
-        dispatcher.addMapping("/");
+        // dispatcher.setLoadOnStartup(1);
+        // dispatcher.addMapping("/");
     }
 }
     
