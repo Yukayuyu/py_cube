@@ -13,6 +13,6 @@ import org.springframework.context.annotation.Configuration;
 @EnableAutoConfiguration
 public class App6 {
     public static void main(String[] args) {
-        SpringApplication.run(App6.class, args);
+        SpringApplication.run(new Class[] {App6.class, ConfigurationServiceApplication.class}, args);
     }
 }
