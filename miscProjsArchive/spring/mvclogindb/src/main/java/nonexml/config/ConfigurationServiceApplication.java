@@ -1,11 +1,16 @@
 package nonexml.config;
 
-import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.SpringBootApplication;
+import javax.servlet.ServletContext;
+import javax.servlet.ServletRegistration;
+
 import org.springframework.context.annotation.Configuration;
+import org.springframework.web.WebApplicationInitializer;
+import org.springframework.web.context.ContextLoaderListener;
+import org.springframework.web.context.support.AnnotationConfigWebApplicationContext;
+import org.springframework.web.servlet.DispatcherServlet;
 
 @Configuration
-public class ConfigurationServiceApplication {
+public class ConfigurationServiceApplication implements WebApplicationInitializer {
     public void onStartup(ServletContext servletContext) {
         // This is a call back method, which means that:
         // The implement of ServletContext is given by per web server render, e.g.
